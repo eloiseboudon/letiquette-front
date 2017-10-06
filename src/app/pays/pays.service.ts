@@ -15,7 +15,7 @@ export class PaysService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
 
 
-    private paysUrl = 'http://127.0.0.1:8001/pays';
+    private paysUrl = 'http://127.0.0.1:8000/pays';
 
 
     constructor(private http: Http) { }
