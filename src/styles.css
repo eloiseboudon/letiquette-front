@@ -1,1 +1,299 @@
-/* You can add global styles to this file, and also import other style files */
+/* rouge #BA1B1D */
+ /* brown  #250902; 45050C; 3D1308, 3F220F*/
+
+
+/* Global */
+
+
+html, body{
+  height: 100%; 
+}
+
+body{
+  background-color: #F4ECDE; 
+}
+
+
+.global_width{
+  max-width: 1760px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+#body-position{
+  position: relative;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -20px;
+}
+
+.container{
+    width: auto;
+}
+
+.contenu{
+  padding-bottom:260px;
+}
+
+
+.col-xs-12 {
+  width: 100%;
+}
+
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  float: left;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+
+/* EOF Global */
+
+
+/* NAVBARS */
+
+
+#navTop img{
+  padding:0px;
+  padding-bottom: 10px;
+  width:60px;
+}
+
+
+#searchBox .searchInput :-moz-placeholder { color: #880015; } /* Firefox <= 18 */
+::-moz-placeholder { color: #880015; } /* Firefox >= 19 */
+::-webkit-input-placeholder { color: #880015; }
+:-ms-input-placeholder{ color: #880015; } /* IE */
+
+#searchLabel{
+  position: relative;
+  margin:0;
+}
+
+#searchLabel .fa-search{
+  color: #880015;
+  top: 5px;
+  right: 10px;
+  position: absolute;
+  font-size:25px;
+}
+
+#searchLabel span{
+  cursor: pointer;
+}
+
+#searchInput{
+  padding-left: 5px;
+  width:400px;
+  height: 40px;
+}
+#top-page{
+  z-index: 1000;
+}
+
+#top-page, #top-page-scroll{
+  background-color: #000000;
+  padding-top:10px;
+  padding-bottom:10px;
+  font-size:1.2em;
+}
+
+#top-page img, #top-page-scroll img{
+  padding:0px;
+  width:40px;
+}
+
+#top-page #right-top, #top-page-scroll #right-top{
+  color: #880015;
+  padding-top: 5px;
+  padding-right: 0px;
+  padding-left: 0px;
+  width: 80px;
+}
+
+#top-page #right-top a {
+  color: #FBFFFE;  
+  text-decoration:none; 
+}
+
+#top-page #right-top .fa{
+  color: #880015;
+  font-size: 25px;
+  padding-right:3px;
+
+
+
+}
+
+#top-page-scroll{
+  z-index: 1030;
+  position: fixed;
+  top: 0;
+  width:100%;
+  visibility:hidden;border-bottom: 2px solid #F4ECDE;  
+}
+
+#top-page-scroll #right-top .fa{
+  color: #880015;
+  font-size: 25px;
+  padding-top:5px;
+  text-align: center;
+
+}
+
+#top-page-scroll #right-top .cercle{
+  width:40px;
+  height:40px;
+  background:#F4ECDE;
+  border-radius:50%;
+  border:2px solid #FBFFFE; 
+}
+
+#top-page-scroll #right-top span:hover{
+  cursor: pointer;
+}
+
+#top-page-scroll a{
+  width:25%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color:#FBFFFE;
+  font-size:1.2em;
+  font-weight: bold;
+  text-decoration:none; 
+}
+
+.navbar{
+  padding-left: 120px;  
+  padding-right: 120px;  
+  margin-bottom: 20px;  
+  border:0;
+  width:100%;
+  background-color: #FBFFFE;  
+  border-bottom: 2px solid #880015;  
+} 
+
+.navbar img{
+  width:100px;
+}
+
+.navbar-toggleable-md .navbar-nav{
+    width:100%;
+}
+
+.navbar-toggleable-md .navbar-nav > li {
+  text-align:center;
+  width:20%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size:2.5em;
+}
+
+.navbar-fixed-top .navbar-nav > li{
+  width:11%;
+  font-size:1.5em;
+  text-align:center;
+}
+
+.navbar-toggleable-md .navbar-nav > li > a{
+    color:#000000;
+}
+
+.navbar-toggleable-md .navbar-nav > li > a:hover, .navbar-toggleable-md .navbar-nav > li > a:focus {
+  color:#880015;
+  text-decoration:none; 
+}
+
+/* EOF NAVBARS */
+
+
+
+/* FOOTER */
+  
+#bottom-page {
+  position: absolute;
+  bottom: 0px;
+  width:100%;
+}
+
+#bottom-page a{
+  text-decoration:none; 
+  color:#000000;
+}
+
+
+#bottom-page a > li {
+  list-style-type: none; 
+
+}
+
+#bottom-page h1{
+  padding-left:40px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #880015; 
+}
+
+.bottom-bar{
+  margin-top:30px;
+  padding-top:10px;
+  background-color: #FBFFFE;   
+  border-top: 1.5px solid #880015;
+}
+
+.bottom-bar .icon_social{
+  padding-left:40px;
+}
+
+
+.bottom-bar i{
+  padding:10px;
+}
+
+.bottom-bar .icon_social img{
+  width: 50px;
+  margin: 10px;
+}
+
+
+.bottom-copyright{
+  background-color: #880015;  
+  color:#FBFFFE;
+  text-align: center;
+  padding-top:10px;
+  padding-bottom:20px;
+}
+
+.global_width_bottom{
+  max-width: 1580px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+/* EOF FOOTER */
+
+
+/* Page d'acceuil */
+.contenu #soldes{
+  padding: 16px 8px 0 8px;
+  background: #FBFFFE; 
+}
+
+.contenu .max_width{
+    max-width: 1760px;
+    padding:0 10px;
+}
+
+.contenu #soldes .image{
+  padding: 0 8px 16px 8px;
+}
+
+.contenu #soldes img{
+  max-width: 100%;
+  height: auto;  
+}
+
+/* EOF  Page d'acceuil */
