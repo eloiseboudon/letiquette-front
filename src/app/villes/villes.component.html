@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-sm-7">
+        Villes
+    </div>
+    <div class="col-sm-5" id="searchBox">
+        <form class="search">
+            <input type="text" class="searchInput" placeholder="Rechercher..."><button class="bouton"><span class="fa fa-search"></span></button>
+        </form>
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>CodePostal</th>
+            <th>Pays</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngFor="let ville of villes">
+            <td>{{ville.name}}</td>
+            <td>{{ville.codePostal}}</td>
+            <td>{{ville.pays}}</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+<form>
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" class="form-control" id="name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="codePostal">Code Postal</label>
+        <input type="text" class="form-control" id="codePostal" placeholder="Code Postal">
+    </div>
+
+    <div class="form-group">
+        <label for="pays">Pays</label>
+        <select class="form-control" id="pays">
+            <option value="">Choisissez un pays</option>
+            <option *ngFor="let pays of listPays"
+                [value]="pays">
+                {{pays}}
+            </option>
+        </select>
+    </div>
+    
+</form>

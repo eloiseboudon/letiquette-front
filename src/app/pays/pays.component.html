@@ -1,0 +1,31 @@
+<div class="contenu">
+    <div class="global_width">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>            
+                </tr>        
+            </thead>
+            <tbody>
+                <tr *ngFor="let pays of paysList">
+                    <td>{{pays.id}}</td>
+                    <td>{{pays.name}}</td>           
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <button type="button" (click)="getAllPays()">click</button>
+
+        <form>
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input #pays>
+                </div>        
+            <button type="button" (click)="create(pays.value); pays.value=''">Créer</button>
+        </form>
+    </div>
+</div>
