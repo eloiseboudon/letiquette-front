@@ -1,51 +1,35 @@
-<div id="top-page">   
+<div id="top-page">
     <div class="container">
-        <div class="row">    
+        <div class="row">
 
-            <div class="col-xs-3 col-sm-3 d-md-none" id="top-bar">
-                <div class="dropdown">
-                    <span class="fa fa-bars carre" aria-hidden="true"></span>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a routerLink="/pays" routerLinkActive="active">FEMMES</a>
-                        <a routerLink="/pays" routerLinkActive="active">HOMMES</a>
-                        <a routerLink="/pays" routerLinkActive="active">ENFANTS</a>
-                        <a routerLink="/pays" routerLinkActive="active">NOS MARQUES</a>
-                    </div>
-                </div>
+
+            <div class="col-sm-4">
+                <a routerLink="/accueil" routerLinkActive="active"><img src="assets/logo.png"/></a>
             </div>
 
-            <div class="col-md-4 col-xs-4 col-sm-4">
-                    <a routerLink="/accueil" routerLinkActive="active"><img src="assets/logo.png"/></a>
+
+            <div class="col-sm-5" id="searchBox">
+                <label id="searchLabel"> 
+                <input type="text" id="searchInput" placeholder="Rechercher"> 
+                <span class="fa fa-search"></span> 
+            </label>
+
             </div>
 
-            <div class="col-md-5 d-md-block d-sm-none d-none" id="searchBox">
-                <label id="searchLabel">
-                    <input type="text" id="searchInput" placeholder="Rechercher">
-                    <span class="fa fa-search"></span>
-                </label>
-            </div>
 
-            <div class="col-md-1 d-md-block d-sm-none d-none" id="right-top">
-                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Compte</a>
-            </div>
-            <div class="col-md-1  d-md-block d-sm-none d-none" id="right-top">
+
+            <div class="col-sm-1" id="right-top">
                 <a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Panier</a>
             </div>
-            <div class="col-md-1  d-md-block d-sm-none d-none" id="right-top">
+
+            <div class="col-sm-1" id="right-top">
                 <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Wishlist</a>
             </div>
 
-            <div class="col-xs-5 d-md-none" id="right-top-small">
-                <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>           
-                <a href="#"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>            
-                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-            </div>
+        </div>
 
-        </div>  
     </div>
-</div> 
-
+</div>
 
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -57,43 +41,48 @@
             <li class="nav-item"><a href="#">BLOG</a></li>
         </ul>
     </div>
+
+
 </nav>
 
 
-<div id="top-page-scroll">   
-        <div class="container">
-            <div class="row">    
-    
-                <div class="col-md-1">
-                        <a routerLink="/accueil" routerLinkActive="active"><img src="assets/logo.png"/></a>
-                </div>
-    
-                <div class="col-md-2" id="searchBox">
-                        <a routerLink="/pays" routerLinkActive="active">FEMMES</a>
-                </div>
-    
-                <div class="col-md-2" id="right-top">
-                        <a href="#">HOMMES</a>
-                </div>
+<div id="top-page-scroll">
+    <div class="container">
+        <div class="row">
 
-                <div class="col-md-2" id="right-top">
-                    <a href="#">ENFANTS</a>
-                </div>
+            <div class="col-sm-1">
+                <a routerLink="/accueil" routerLinkActive="active"><img src="assets/logo.png"/></a>
+            </div>
 
-                <div class="col-md-2" id="right-top">
-                    <a href="#">NOS MARQUES</a>
-                </div>
+            <div class="col-sm-2" id="searchBox">
+                <a routerLink="/pays" routerLinkActive="active">FEMMES</a>
+            </div>
 
-                <div class="col-md-1" id="right-top">
-                        <a href="#">BLOG</a>
-                </div>
+            <div class="col-sm-2" id="right-top">
+                <a href="#">HOMMES</a>
+            </div>
 
-                <div class="col-md-2" id="right-top">
-                    <span class="fa fa-search cercle" aria-hidden="true"></span>
-                    <span class="fa fa-user cercle" aria-hidden="true"></span>
-                    <span class="fa fa-shopping-basket cercle" aria-hidden="true"></span>
-                    <span class="fa fa-heart cercle" aria-hidden="true"></span>
-                </div>
-            </div>  
+            <div class="col-sm-2" id="right-top">
+                <a href="#">ENFANTS</a>
+            </div>
+
+            <div class="col-sm-2" id="right-top">
+                <a href="#">NOS MARQUES</a>
+            </div>
+
+            <div class="col-sm-1" id="right-top">
+                <a href="#">BLOG</a>
+            </div>
+
+            <div class="col-sm-2" id="right-top">
+                <span class="fa fa-search cercle" aria-hidden="true"></span>
+                <span class="fa fa-user cercle" aria-hidden="true"></span>
+                <span class="fa fa-shopping-basket cercle" aria-hidden="true"></span>
+                <span class="fa fa-heart cercle" aria-hidden="true"></span>
+            </div>
+
+
+
         </div>
-    </div> 
+    </div>
+</div>
