@@ -334,9 +334,10 @@ body{
 
 .contenu #soldes .image{
   padding: 0 8px 16px 8px;
+
 }
 
-.contenu #soldes img{
+.contenu #soldes .image img{
   max-width: 100%;
   height: auto;  
 }
