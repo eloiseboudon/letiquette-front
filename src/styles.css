@@ -205,6 +205,10 @@ body{
   width:400px;
 }
 
+.smallSearchBox{
+  visibility: hidden;
+}
+
 
 /* EOF NAVBARS -TOP PAGE */
 
@@ -386,23 +390,27 @@ body{
     width:250px;
   }
 
-  #top-vide{
-    width:0px;
-  }
-
-  
-
 
 }
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
   .navbar{
     visibility: hidden;
   }
 
+  #searchLabel, #searchInput{
+    width:0px;
+  }
 
+  #searchBox{
+    visibility: hidden;
+    width:0px;
+  }
 
+  .smallSearchBox{
+    visibility: visible;
+  }
   
 }
 
