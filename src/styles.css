@@ -130,6 +130,7 @@ body{
   visibility: hidden;
 }
 
+
 #top-page-scroll{
   z-index: 1030;
   position: fixed;
@@ -230,7 +231,8 @@ body{
 
 
 /* NAVBARS - NAV */
-.navbar{
+.menu{
+  height:60px;
   padding-left: 120px;  
   padding-right: 120px;  
   margin-bottom: 20px;  
@@ -240,32 +242,23 @@ body{
   border-bottom: 2px solid #880015;  
 } 
 
-.navbar img{
-  width:100px;
-}
 
-.navbar-toggleable-md .navbar-nav{
-    width:100%;
-}
 
-.navbar-toggleable-md .navbar-nav > li {
+.menu .menu-item {
   text-align:center;
-  width:20%;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size:2.5em;
+  color:#000000;
+  display:inline-block;
+  width:18%;
 }
 
-.navbar-fixed-top .navbar-nav > li{
-  width:11%;
-  font-size:1.5em;
-  text-align:center;
+.menu a{
+  color:#000000;
+  
 }
 
-.navbar-toggleable-md .navbar-nav > li > a{
-    color:#000000;
-}
-
-.navbar-toggleable-md .navbar-nav > li > a:hover, .navbar-toggleable-md .navbar-nav > li > a:focus {
+.menu  a:hover, .menu a:focus {
   color:#880015;
   text-decoration:none; 
 }
@@ -417,9 +410,14 @@ body{
     width:250px;
   }
 
-  
-  .navbar{
-    visibility: hidden;
+  /* MENU */
+  .menu{
+    position: absolute;
+    left:0;
+    top:0;
+    width:200px;
+    /* display:none; */
+    background-color: red;
   }
 }
 

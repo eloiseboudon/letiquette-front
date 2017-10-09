@@ -23,7 +23,7 @@ export class NavbarComponent {
 
         }
       }else{
-        if ($(this).scrollTop() > 120) {
+        if ($(this).scrollTop() > 10) {
           document.getElementById("top-page").style.position = "fixed";
         }else{
           document.getElementById("top-page").style.position = "static";
@@ -56,8 +56,12 @@ export class NavbarComponent {
         
       }
 
-      });
+    });
 
+
+    $('#top-icon').click(function(){
+      alert("test");
+    })
 
   }
 }
