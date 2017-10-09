@@ -111,8 +111,14 @@ body{
   position: fixed;
   top: 0;
   width:100%;
-  visibility:hidden;border-bottom: 2px solid #F4ECDE;  
+  visibility:hidden;
+  border-bottom: 2px solid #F4ECDE;  
 }
+
+#top-page-scroll #right-top{
+  text-align: center;
+}
+
 
 #top-page-scroll #right-top .fa{
   color: #880015;
@@ -134,13 +140,21 @@ body{
   cursor: pointer;
 }
 
-#top-page-scroll a{
+#top-page-scroll #categorie-item a{
   width:25%;
   font-family: 'Open Sans Condensed', sans-serif;
   color:#FBFFFE;
   font-size:1.2em;
   font-weight: bold;
-  text-decoration:none; 
+  text-decoration:none; text-align: center;
+}
+
+
+#top-page-scroll #categorie-item{
+  text-align: center;
+  vertical-align: middle;
+  padding-top:5px;
+
 }
 
 
