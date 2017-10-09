@@ -69,6 +69,7 @@ body{
 
 #top-page{
   z-index: 1000;
+  height:60px;
 }
 
 #top-page, #top-page-scroll{
@@ -107,6 +108,7 @@ body{
   padding-bottom: 16.5px;
   padding-right: 10px;
   border-bottom: 1.5px solid #880015; 
+  font-weight: 500;
 }
 
 #top-page #right-top .fa{
@@ -119,7 +121,10 @@ body{
 #top-page .fa{
   padding-right:3px;
   padding-left:3px;  
+}
 
+#top-page .top-icon{
+  visibility: hidden;
 }
 
 #top-page-scroll{
@@ -133,6 +138,13 @@ body{
 
 #top-page-scroll #right-top{
   text-align: center;
+}
+
+#top-page .right-top-all{
+  text-align:right;
+  padding: 0px;
+  right:0;
+  position: absolute;
 }
 
 
@@ -203,6 +215,10 @@ body{
 #searchInput{
   padding-left: 5px;
   width:400px;
+}
+
+.smallSearchBox{
+  visibility: hidden;
 }
 
 
@@ -323,7 +339,7 @@ body{
 
 
 /*  RESPONSIVE  */
-@media screen and (max-width: 1440px) {
+@media (max-width: 1440px){
   #top-page #right-top a, #top-page #right-top a:hover{
     padding-right:1px;
     padding-top: 20px;
@@ -337,9 +353,16 @@ body{
 }
 
 
-@media screen and (max-width: 1260px) {
+@media (max-width: 1260px) {
   .navbar-toggleable-md .navbar-nav > li{
     font-size: 1.5em;
+  }
+
+  #top-page #right-top{
+    padding-top:0px;
+    height: 40px;
+    text-align:center;
+    margin-right: 30px;
   }
   
   #top-page #right-top .fa{
@@ -351,6 +374,7 @@ body{
 
   #top-page #right-top a {
     font-size: 0em;
+    padding: 0px;
   }
 
   #top-page #right-top .cercle{
@@ -377,33 +401,86 @@ body{
   #top-page .top-icon a{
     display:block;
     color:#F4ECDE;
-    padding: 0 10px; 
     float:left;
     position: relative;
+    padding-top:5px;
+  }
+
+  #top-page .top-icon{
+    visibility: visible;
   }
 
   #searchLabel, #searchInput{
     width:250px;
   }
 
-  #top-vide{
-    width:0px;
+  
+  .navbar{
+    visibility: hidden;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  #searchLabel, #searchInput, #top-page .logo, .top-icon,  #searchBox{
+    width:40px;
   }
 
-  
+  .right-top-all{
+     width:250px;
+  }
+ 
+
+  #top-page #searchBox{
+    visibility: hidden;
+    padding:0;
+  }
+  #top-page .logo{
+    padding: 0;
+  }
+
+  #top-page .smallSearchBox{
+    visibility: visible;
+
+  }
+
+  #top-page #right-top{
+    margin-right: 20px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  #top-page #right-top{
+    margin-right: 10px;
+    width:40px;
+  }
 
 
 }
 
+@media (max-width: 640px) {
 
-@media screen and (max-width: 1000px) {
-  .navbar{
-    visibility: hidden;
+
+  #top-page #right-top .cercle{
+    width:40px;
+    height:40px;
+    background:#000000;
+    border-radius:50%;
+    border:none;
   }
 
-
-
+  #top-page #right-top .fa{
+    color: #F4ECDE;
+  }
+  #top-page #right-top{
+    margin-right: 0px;
+  }
   
+  .right-top-all{
+    width:200px;
+ }
 }
 
 
