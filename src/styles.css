@@ -322,6 +322,7 @@ body{
   text-align: center;
   padding-top:10px;
   padding-bottom:20px;
+  bottom:0;
 }
 
 .global_width_bottom{
@@ -391,8 +392,14 @@ body{
   }
 
   #bottom-page .bottom-bar{
-    visibility: hidden;
+    display:none;
+    height:0;
   }
+
+  /* #bottom-page .bottom-bar .global_width_bottom{
+    height:0;
+  }  */
+
 
   #top-page #top-icon span{
     display:block;
@@ -416,12 +423,13 @@ body{
 
   /* MENU */
   .menu{
-    height:100%;
+    height:auto;
     padding:0;
     position: absolute;
     left: 0;
     top: 60px;
     padding-top:20px;
+    margin-bottom: 0;
     padding-left:10px;
     bottom: 0;
     width:200px;
