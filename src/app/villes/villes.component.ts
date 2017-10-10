@@ -3,6 +3,8 @@ import { Router }            from '@angular/router';
 
 import { Ville } from './ville';
 import { VilleService } from './ville.service';
+import { Pays } from '../pays/pays';
+import { PaysService } from '../pays/pays.service';
 
 @Component({
     selector: 'villes-root',
@@ -12,8 +14,10 @@ import { VilleService } from './ville.service';
 export class VillesComponent implements OnInit {
     villesList: Ville[];
     villes: Ville[];
+    pays:Pays[];
+    paysList:Pays[];
 
-    constructor (private villeService: VilleService, private router: Router) { }
+    constructor (private villeService: VilleService, private paysService: PaysService, private router: Router) { }
 
     ngOnInit(): void {
         this.getAllVille();
@@ -27,6 +31,7 @@ export class VillesComponent implements OnInit {
                 console.log(this.villesList);
             });
     }
+
 
 
 

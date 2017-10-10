@@ -45,7 +45,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     PaysService,
-     VilleService
+    VilleService
   ],
   bootstrap: [AppComponent]
 })

@@ -32,6 +32,21 @@
 
         </table>
 
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>            
+                </tr>        
+            </thead>
+            <tbody>
+                <tr *ngFor="let pays of paysList">
+                    <td>{{pays.id}}</td>
+                    <td>{{pays.name}}</td>           
+                </tr>
+            </tbody>
+        </table>
+
 
         <form>
             <div class="form-group">

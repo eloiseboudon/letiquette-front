@@ -21,6 +21,7 @@ export class VilleService{
             .catch(this.handleError);
     }
 
+
     // getVille(id: number): Promise<Ville> {
     //     const url = `${this.villesUrl}/${id}`;
     //     return this.http.get(url)
@@ -36,6 +37,8 @@ export class VilleService{
     //       .then(res => res.json() as Ville)
     //       .catch(this.handleError);
     // }
+
+    
 
 
     private handleError(error: any): Promise<any> {
