@@ -8,24 +8,16 @@ import { Pays } from './pays';
 @Injectable()
 export class PaysService {
 
-    // private headers = new Headers({'Content-Type': 'application/json, application/x-www-form-urlencoded;charset=utf-8, multipart/form-data, text/plain',
-    // 'Accept' : 'application/json'});
-
-    // private headers = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-
-
     private paysUrl = 'http://127.0.0.1:8000/pays';
-
 
     constructor(private http: Http) { }
 
     getAllPays(): Promise<Pays[]> {
-        // console.log(this.paysUrl);
         return this.http.get(this.paysUrl)
             .toPromise()
             .then(response =>
-                 response.json() as Pays[] )
+                 response.json() as Pays[])
             .catch(this.handleError); 
     }
 
