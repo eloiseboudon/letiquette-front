@@ -48,8 +48,8 @@ export class NavbarComponent {
           document.getElementById("top-page").style.visibility = "visible";
         }
       }else{
-        if ($(this).scrollTop() > 120) {
-          document.getElementById("top-page").style.position = "fixed";
+        if ($(this).scrollTop() > 10) {
+          document.getElementById("top-page").style.position = "fixed";  
         }else{
           document.getElementById("top-page").style.position = "static";
         }

@@ -33,13 +33,10 @@ body{
 
 .contenu{
   padding-bottom:260px;
+  height:100%;
 }
 
 /* EOF GLOBAL */
-
-
-
-
 
 
 /*  BOOTSTRAP COL SIZE */
@@ -88,11 +85,14 @@ body{
 }
 
 #top-page #right-top, #top-page-scroll #right-top{
-  color: #880015;
   padding-top: 5px;
   padding-right: 0px;
   padding-left: 0px;
   width: 80px;
+}
+
+#top-page #right-top-all{
+  padding-top:30px;
 }
 
 #top-page #right-top a {
@@ -107,9 +107,7 @@ body{
 #top-page #right-top a:hover {
   background-color: #F4ECDE; 
   color: #000000;
-  padding-top: 20px;
-  padding-bottom: 16.5px;
-  padding-right: 10px;
+  padding-bottom: 18.5px;
   border-bottom: 1.5px solid #880015; 
   font-weight: 500;
 }
@@ -241,6 +239,9 @@ body{
   width:100%;
   background-color: #FBFFFE;  
   border-bottom: 2px solid #880015;  
+  position: static;
+  top:60px;
+  z-index: 999;
 } 
 
 
@@ -348,7 +349,7 @@ body{
     padding-bottom: 16.5px;
   }
 
-  .navbar-toggleable-md .navbar-nav > li{
+  .menu .menu-item{
     font-size: 1.7em;
   }
 
@@ -356,7 +357,7 @@ body{
 
 
 @media (max-width: 1260px) {
-  .navbar-toggleable-md .navbar-nav > li{
+  .menu .menu-item{
     font-size: 1.5em;
   }
 
@@ -393,7 +394,7 @@ body{
   }
 
   .contenu{
-    padding-bottom:80px;
+    padding-bottom:80px;    
   }
 
   #bottom-page .bottom-bar, #bottom-page .bottom-copyright{ 
