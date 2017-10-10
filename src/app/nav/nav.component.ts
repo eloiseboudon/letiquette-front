@@ -18,20 +18,18 @@ export class NavbarComponent {
           document.getElementById("top-page").style.position = "static";
         }
         else {
+          document.getElementById("top-page").style.position = "fixed"; 
           document.getElementById("top-page-scroll").style.visibility = "hidden";
           document.getElementById("top-page").style.visibility = "visible";
-
         }
       }else{
-        if ($(this).scrollTop() > 10) {
-          document.getElementById("top-page").style.position = "fixed";
-        }else{
-          document.getElementById("top-page").style.position = "static";
-        }
-        
+
+          document.getElementById("top-page").style.position = "fixed";  
+          document.getElementById("top-page-scroll").style.visibility = "hidden";
+          document.getElementById("top-page").style.visibility = "visible";        
       }
 
-      });
+    });
 
 
 
