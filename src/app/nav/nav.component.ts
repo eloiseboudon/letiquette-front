@@ -58,10 +58,13 @@ export class NavbarComponent {
 
     });
 
-
-    $('#top-icon').click(function(){
-      alert("test");
+    $('#top-icon').click(function(e){
+      e.preventDefault();
+      $('body').toggleClass('sidebar');
+      alert("coucou");
     })
 
   }
+
+
 }

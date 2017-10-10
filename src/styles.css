@@ -126,8 +126,9 @@ body{
   padding-left:3px;  
 }
 
-#top-page .top-icon{
+#top-page #top-icon{
   visibility: hidden;
+
 }
 
 
@@ -255,7 +256,6 @@ body{
 
 .menu a{
   color:#000000;
-  
 }
 
 .menu  a:hover, .menu a:focus {
@@ -394,16 +394,20 @@ body{
     visibility: hidden;
   }
 
-  #top-page .top-icon a{
+  #top-page #top-icon span{
     display:block;
     color:#F4ECDE;
     float:left;
     position: relative;
-    padding-top:5px;
+    padding-top:10px;
   }
 
-  #top-page .top-icon{
+  #top-page #top-icon{
     visibility: visible;
+    margin:0;
+    margin-right:20px;
+    cursor:pointer;
+    width:30px;
   }
 
   #searchLabel, #searchInput{
@@ -412,18 +416,40 @@ body{
 
   /* MENU */
   .menu{
+    height:100%;
+    padding:0;
     position: absolute;
-    left:0;
-    top:0;
+    left: 0;
+    top: 60px;
+    padding-top:20px;
+    padding-left:10px;
+    bottom: 0;
     width:200px;
-    /* display:none; */
-    background-color: red;
+    background-color: #000000;
   }
+
+  .menu .menu-item{
+    width:100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size:1.5em;
+    display:block;
+    text-align:left;
+  }
+
+  .menu a{
+    color:#F4ECDE;
+  }
+
+
+  /* EOF MENU */
+
+
+
 }
 
 
 @media (max-width: 1000px) {
-  #searchLabel, #searchInput, #top-page .logo, .top-icon,  #searchBox{
+  #searchLabel, #searchInput, #top-page .logo, #searchBox{
     width:40px;
   }
 
@@ -457,7 +483,6 @@ body{
     margin-right: 10px;
     width:40px;
   }
-
 
 }
 
