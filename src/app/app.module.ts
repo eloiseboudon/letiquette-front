@@ -13,6 +13,7 @@ import { VillesComponent } from './villes/villes.component';
 import { PageNotFoundComponent } from './not-found.component';
 
 import { PaysService } from './pays/pays.service';
+import { VilleService } from './villes/ville.service';
 
 
 const appRoutes: Routes = [
@@ -42,7 +43,10 @@ const appRoutes: Routes = [
     ),
     HttpModule
   ],
-  providers: [PaysService],
+  providers: [
+    PaysService,
+     VilleService
+  ],
   bootstrap: [AppComponent]
 })
 

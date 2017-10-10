@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-
+import { Router }            from '@angular/router';
 
 import { Ville } from './ville';
 import { VilleService } from './ville.service';
@@ -11,16 +10,34 @@ import { VilleService } from './ville.service';
 })
 
 export class VillesComponent implements OnInit {
+    villesList: Ville[];
     villes: Ville[];
-    selectedVille: Ville;
 
-    constructor (private http: Http){}
+    constructor (private villeService: VilleService, private router: Router) { }
 
-    ngOnInit(){
-        this.http.get("http://127.0.0.1:8000/villes").subscribe(
-            (res: Response) => {
-                this.villes = res.json();               
-            }
-        )
+    ngOnInit(): void {
+        this.getAllVille();
     }
+
+    getAllVille(): void {
+        this.villeService
+            .getVilles()
+            .then(villes => {
+                this.villesList = villes;
+                console.log(this.villesList);
+            });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

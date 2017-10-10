@@ -9,7 +9,6 @@ import { PaysService }         from './pays.service';
     templateUrl: 'pays.component.html'
 })
 
-
 export class PaysComponent implements OnInit {
     paysList: Pays[];
     pays: Pays[]; 
@@ -25,8 +24,7 @@ export class PaysComponent implements OnInit {
             .getAllPays()
             .then(pays => {
                 this.paysList = pays;
-            console.log(this.paysList);
-            
+                console.log(this.paysList);
             });  
     }  
     
