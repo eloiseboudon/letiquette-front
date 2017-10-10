@@ -61,7 +61,12 @@ export class NavbarComponent {
     $('#top-icon').click(function(e){
       e.preventDefault();
       $('body').toggleClass('sidebar');
-      alert("coucou");
+    })
+
+
+
+    $('#global-cache').click(function(e){
+      $('body').removeClass('sidebar');
     })
 
   }
