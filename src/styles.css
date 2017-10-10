@@ -69,6 +69,10 @@ h1, h2 {
 
 /* NAVBARS -TOP PAGE */
 
+#top-barre{
+  width:100%
+}
+
 #top-page{
   z-index: 1000;
   height:60px;
@@ -279,7 +283,7 @@ h1, h2 {
   font-size:2.5em;
   color:#000000;
   display:inline-block;
-  width:18%;
+  width:19%;
 }
 
 .menu a{
