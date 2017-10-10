@@ -12,6 +12,10 @@ body{
   background-color: #F4ECDE; 
 }
 
+h1, h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
 
 .global_width{
   max-width: 1760px;
@@ -102,15 +106,17 @@ body{
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 10px;
+  font-family: 'Dosis', sans-serif;
+  font-size:1.2em;
   
 }
 
 #top-page #right-top a:hover {
   background-color: #F4ECDE; 
   color: #000000;
-  padding-bottom: 18.5px;
+  padding-bottom: 17px;
   border-bottom: 1.5px solid #880015; 
-  font-weight: 500;
+  font-family: 'Dosis', sans-serif;
 }
 
 #top-page #right-top .fa{
@@ -193,10 +199,30 @@ body{
 #searchBox{
   text-align: center;
 }
-#searchBox .searchInput :-moz-placeholder { color: #880015; } /* Firefox <= 18 */
-::-moz-placeholder { color: #880015; } /* Firefox >= 19 */
-::-webkit-input-placeholder { color: #880015; }
-:-ms-input-placeholder{ color: #880015; } /* IE */
+#searchBox .searchInput :-moz-placeholder {
+  font-family: 'Dosis', sans-serif; 
+   font-size:1.1em;
+   font-weight: 800;
+  color: #880015; 
+} /* Firefox <= 18 */
+::-moz-placeholder { 
+  font-family: 'Dosis', sans-serif; 
+  font-size:1.1em;
+  font-weight: 800;
+ color: #880015;
+} /* Firefox >= 19 */
+::-webkit-input-placeholder { 
+  font-family: 'Dosis', sans-serif; 
+  font-size:1.1em;
+  font-weight: 800;
+ color: #880015;
+}
+:-ms-input-placeholder{ 
+  font-family: 'Dosis', sans-serif; 
+  font-size:1.1em;
+  font-weight: 800;
+ color: #880015;
+ } /* IE */
 
 #searchLabel{
   position: relative;
@@ -489,13 +515,6 @@ body{
     color:#F4ECDE;
   }
 
-  /* #bottom-page .bottom-bar h1{
-    font-size:30px;
-  }
-
-  .bottom-bar .icon_social img{
-    width: 40px;
-  } */
   
   #bottom-page .bottom-bar, #bottom-page .bottom-copyright{ 
     display:none;
@@ -560,10 +579,6 @@ body{
     margin-right: 10px;
     width:40px;
   }
-  
-
-
-
 }
 
 @media (max-width: 640px) {
@@ -590,9 +605,6 @@ body{
 }
 
 
-
-
-
 /* Page d'acceuil */
 .contenu #soldes{
   padding: 16px 8px 0 8px;
@@ -615,3 +627,20 @@ body{
   height: auto;  
 }
 /* EOF  Page d'acceuil */
+
+.not-found{
+  text-align: center;
+}
+
+.not-found img{
+  padding: 16px 16px;
+  background: #FBFFFE; 
+  max-width: 100%;
+  height: auto; 
+}
+
+.not-found-msg{
+  padding-top:20px;
+  font-size:1.5em;
+  font-family: 'Quicksand', sans-serif;
+}
