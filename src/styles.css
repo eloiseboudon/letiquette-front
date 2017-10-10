@@ -331,6 +331,11 @@ body{
   padding: 0 10px;
 }
 
+
+.icon_social-responsive{
+  display:none;
+}
+
 /* EOF FOOTER */
 
 
@@ -391,14 +396,9 @@ body{
     padding-bottom:80px;
   }
 
-  #bottom-page .bottom-bar{
+  #bottom-page .bottom-bar, #bottom-page .bottom-copyright{ 
     display:none;
-    height:0;
   }
-
-#bottom-page .bottom-copyright{
-  padding:0;
-}
 
 
   #top-page #top-icon span{
@@ -449,7 +449,6 @@ body{
 
   }
 
-
   .contenu{
     position: absolute;
     top:60px;
@@ -460,6 +459,7 @@ body{
     -webkit-overflow-scrolling: touch;
     padding-bottom:0;
   }
+
   .menu{
     height:auto;
     position: absolute;
@@ -487,6 +487,20 @@ body{
 
   .menu a{
     color:#F4ECDE;
+  }
+
+
+  .icon_social-responsive{
+    display:block;
+    text-align: center;
+    background-color:#F4ECDE;
+   
+  border-top: 1.5px solid #880015;
+  }
+
+  .icon_social-responsive img{
+    width: 30px;
+    margin:5px 10px;
   }
 
 
