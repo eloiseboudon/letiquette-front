@@ -2,10 +2,8 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-1 col-xs-1 top-icon">
-                <a href="#">
-                        <span class="fa fa-bars" aria-hidden="true"></span>
-                    </a>
+            <div class="col-sm-1 col-xs-1" id="top-icon">
+                <span class="fa fa-bars" aria-hidden="true"></span>
             </div>
 
 
@@ -17,7 +15,7 @@
                     <input type="text" id="searchInput" placeholder="Rechercher"> 
                     <span class="fa fa-search"></span> 
                 </label>
-            </div>            
+            </div>
             <div class="col-sm-4 col-xs-4 right-top-all">
                 <span class="smallSearchBox" id="right-top"><a href="#"><i class="fa fa-search cercle" aria-hidden="true"></i> Search</a></span>
                 <span id="right-top"><a href="#"><i class="fa fa-user cercle" aria-hidden="true"></i> Compte</a></span>
@@ -28,17 +26,14 @@
     </div>
 </div>
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a routerLink="/pays" routerLinkActive="active">FEMMES</a></li>
-            <li class="nav-item"><a href="#">HOMMES</a></li>
-            <li class="nav-item"><a href="#">ENFANTS</a></li>
-            <li class="nav-item"><a href="#">NOS MARQUES</a></li>
-            <li class="nav-item"><a href="#">BLOG</a></li>
-        </ul>
-    </div>
+<nav class="menu" id="menu">
+    <div class="menu-item"><a routerLink="/pays" routerLinkActive="active">FEMMES</a></div>
+    <div class="menu-item"><a href="#">HOMMES</a></div>
+    <div class="menu-item"><a href="#">ENFANTS</a></div>
+    <div class="menu-item"><a href="#">NOS MARQUES</a></div>
+    <div class="menu-item"><a href="#">BLOG</a></div>
 </nav>
+
 
 
 <div id="top-page-scroll">
