@@ -14,6 +14,7 @@ export class PaysService {
     constructor(private http: Http) { }
 
     getAllPays(): Promise<Pays[]> {
+        console.log("test");
         return this.http.get(this.paysUrl)
             .toPromise()
             .then(response =>
@@ -39,17 +40,6 @@ export class PaysService {
     // }
 
     create(name: string): Promise<Pays>{  
-        // console.log(JSON.stringify({name: name}));
-        // let dataJson = JSON.stringify({name: name});
-        // let data = {name: name};
-
-
-        // const data = new URLSearchParams();
-        // data.set("name", name);
-
-        // let data = new URLSearchParams();
-        // data.set('name', name);
-
         let data ='name='+name;
 
         return this.http

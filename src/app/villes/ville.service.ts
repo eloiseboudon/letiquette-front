@@ -39,6 +39,23 @@ export class VilleService{
     // }
 
     
+    create(name: string): Promise<Ville>{  
+        let data ='name='+name;
+
+        return this.http
+            .post(this.villesUrl, data, {headers: this.headers})
+            .toPromise()
+            .then(response => {
+                console.log("create " + name);
+                console.log(response.json());
+                
+                return response.json() as Ville;                
+            })
+            .catch(this.handleError);
+    }
+    
+
+
 
 
     private handleError(error: any): Promise<any> {

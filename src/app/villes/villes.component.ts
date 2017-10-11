@@ -18,9 +18,10 @@ export class VillesComponent implements OnInit {
     paysList:Pays[];
 
     constructor (private villeService: VilleService, private paysService: PaysService, private router: Router) { }
-
+    
     ngOnInit(): void {
         this.getAllVille();
+        this.getAllPays();
     }
 
     getAllVille(): void {
@@ -28,9 +29,32 @@ export class VillesComponent implements OnInit {
             .getVilles()
             .then(villes => {
                 this.villesList = villes;
-                console.log(this.villesList);
             });
     }
+    
+    getAllPays(): void {
+        this.paysService
+            .getAllPays()
+            .then(pays => {
+                this.paysList = pays;
+            });  
+    } 
+
+
+    createVille(name: string, codePostal: string, pays: Pays): void {
+        console.log(name);
+        console.log(codePostal);
+        console.log(pays);
+        this.villeService.create(name, codePostal, pays)
+        .then(new_ville => {
+            this.villesList.push(new_ville);
+            console.log(this.villesList);
+        })
+    }
+
+
+
+
 
 
 

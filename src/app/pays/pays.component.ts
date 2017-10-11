@@ -20,6 +20,7 @@ export class PaysComponent implements OnInit {
     }  
 
     getAllPays(): void {
+        console.log("essai");
         this.paysService
             .getAllPays()
             .then(pays => {
