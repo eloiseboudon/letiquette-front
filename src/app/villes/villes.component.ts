@@ -43,17 +43,17 @@ export class VillesComponent implements OnInit {
     } 
 
 
-    // create(name: string, codePostal: string, pays: Pays): void {
-    //     console.log(name);
-    //     console.log(codePostal);
-    //     console.log(pays);
-    //     this.villeService
-    //     .create(name, codePostal, pays)
-    //     .then(new_ville => {
-    //         this.villesList.push(new_ville);
-    //         console.log(this.villesList);
-    //     });
-    // }
+    create(): void {
+        console.log(name);
+        console.log(codePostal);
+        console.log(pays);
+        this.villeService
+        .create(name, codePostal, pays)
+        .then(new_ville => {
+            this.villesList.push(new_ville);
+            console.log(this.villesList);
+        });
+    }
 
 
 

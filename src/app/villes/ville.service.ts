@@ -4,6 +4,7 @@ import { Headers, Http , Response} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Ville } from './ville';
+import { Pays } from '../pays/pays';
 // import { Pays } from '../pays/pays';
 
 
@@ -11,7 +12,7 @@ import { Ville } from './ville';
 export class VilleService{
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     private villesUrl = 'http://127.0.0.1:8000/villes';  // URL to api
-    // private villePaysUrl;
+    private villePaysUrl;
 
     constructor(private http: Http) { }
 
@@ -41,8 +42,10 @@ export class VilleService{
     // }
 
     
-    create(name: string): Promise<Ville>{  
+    create(name: string, codePostal: string, pays:Pays): Promise<Ville>{  
         let data ='name='+name;
+        data+='codePostal'+codePostal;
+        this.villePaysUrl = this.villesUrl+"/pays/"+pays.id
 
         return this.http
             .post(this.villesUrl, data, {headers: this.headers})
@@ -54,6 +57,7 @@ export class VilleService{
                 return response.json() as Ville;                
             })
             .catch(this.handleError);
+
     }
     
 
