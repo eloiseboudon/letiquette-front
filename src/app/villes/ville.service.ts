@@ -33,12 +33,8 @@ export class VilleService{
         return this.http
             .post(this.villePaysUrl, data, {headers: this.headers})
             .toPromise()
-            .then(response => {
-                console.log("create " + name);
-                console.log(response.json());
-                
-                return response.json() as Ville;                
-            })
+            .then(response => 
+                 response.json() as Ville)
             .catch(this.handleError);
     }
 
