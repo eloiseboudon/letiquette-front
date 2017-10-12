@@ -19,6 +19,8 @@
                     <th>Nom</th>
                     <th>Code Postal</th>
                     <th>Pays</th>
+                    <th>Action</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +28,7 @@
                     <td>{{ville.name}}</td>
                     <td>{{ville.codePostal}}</td>
                     <td>{{ville.pays}}</td>
+                    <td><i class="fa fa-trash-o" aria-hidden="true" (click)=delete(ville.id)></i></td>
                 </tr>
 
             </tbody>

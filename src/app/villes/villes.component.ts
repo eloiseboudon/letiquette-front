@@ -44,11 +44,6 @@ export class VillesComponent implements OnInit {
 
 
     create(name, codePostal, idPays): void {
-        console.log(name);
-        console.log(codePostal);
-        console.log(idPays);
-
-        
         this.villeService
         .create(name, codePostal, idPays)
         .then(new_ville => {
@@ -57,7 +52,9 @@ export class VillesComponent implements OnInit {
         });
     }
 
-
+    delete(idVille): void {
+        this.villeService.delete(idVille);
+    }
 
 
 
