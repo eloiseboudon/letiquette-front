@@ -42,13 +42,16 @@ export class VilleService{
     // }
 
     
-    create(name: string, codePostal: string, pays:Pays): Promise<Ville>{  
-        let data ='name='+name;
-        data+='codePostal'+codePostal;
-        this.villePaysUrl = this.villesUrl+"/pays/"+pays.id
+    create(name: string, codePostal: string, idPays:number): Promise<Ville>{  
+        let data ='name='+name+'&'+'codePostal='+codePostal;
+        
+        
+
+        
+        this.villePaysUrl = this.villesUrl+"/pays/"+idPays;
 
         return this.http
-            .post(this.villesUrl, data, {headers: this.headers})
+            .post(this.villePaysUrl, data, {headers: this.headers})
             .toPromise()
             .then(response => {
                 console.log("create " + name);
