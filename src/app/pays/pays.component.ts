@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router }            from '@angular/router';
+import { Router } from '@angular/router';
 
-import { Pays }                from './pays';
-import { PaysService }         from './pays.service';
+import { Pays } from './pays';
+import { PaysService } from './pays.service';
 
 @Component({
     selector: 'pays-root',

@@ -10,17 +10,20 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './footer/footer.component';
 import { PaysComponent } from './pays/pays.component';
 import { VillesComponent } from './villes/villes.component';
+import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 
 import { PageNotFoundComponent } from './not-found.component';
 
 import { PaysService } from './pays/pays.service';
 import { VilleService } from './villes/ville.service';
+import { FournisseurService } from './fournisseurs/fournisseur.service';
 
 
 const appRoutes: Routes = [
   { path: 'villes', component: VillesComponent},
   { path: 'accueil', component: AccueilComponent},
   { path: 'pays', component: PaysComponent},
+  { path: 'fournisseurs', component: FournisseursComponent},
 
   { path: '**', component: PageNotFoundComponent },
   { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
@@ -34,6 +37,7 @@ const appRoutes: Routes = [
     FooterComponent,
     PaysComponent,
     VillesComponent,
+    FournisseursComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -47,7 +51,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     PaysService,
-    VilleService
+    VilleService,
+    FournisseurService
   ],
   bootstrap: [AppComponent]
 })
