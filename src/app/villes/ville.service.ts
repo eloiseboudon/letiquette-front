@@ -5,7 +5,6 @@ import 'rxjs/add/operator/toPromise';
 
 import { Ville } from './ville';
 import { Pays } from '../pays/pays';
-// import { Pays } from '../pays/pays';
 
 
 @Injectable()

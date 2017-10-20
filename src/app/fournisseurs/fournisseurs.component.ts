@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Fournisseur } from './fournisseur';
-import { FournisseurService } from './fournisseur.service';
+import { FournisseurService } from './fournisseur.service';     
 
 
 @Component({

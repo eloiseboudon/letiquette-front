@@ -11,7 +11,6 @@ import { PaysService } from './pays.service';
 
 export class PaysComponent implements OnInit {
     paysList: Pays[];
-    pays: Pays[]; 
 
     constructor(private paysService: PaysService, private router: Router) { }
 

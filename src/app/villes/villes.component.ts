@@ -56,18 +56,4 @@ export class VillesComponent implements OnInit {
         this.villeService.delete(idVille);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

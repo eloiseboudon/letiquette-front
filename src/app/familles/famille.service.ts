@@ -3,32 +3,27 @@ import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Fournisseur } from './fournisseur';
-import { Ville } from '../villes/ville';
-
+import { Famille } from './famille';
 
 @Injectable()
-export class FournisseurService {
+export class FamilleService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private fournisseurUrl = 'http://127.0.0.1:8000/fournisseurs';
+    private familleUrl = 'http://127.0.0.1:8000/familles';
 
-
-    
     constructor(private http: Http) { }
-    
-    getAllFournisseurs(): Promise<Fournisseur[]> {
+
+    getAllFamilles(): Promise<Famille[]> {
         console.log("test");
-        return this.http.get(this.fournisseurUrl)
+        return this.http.get(this.familleUrl)
             .toPromise()
             .then(response =>
-                    response.json() as Fournisseur[])
+                    response.json() as Famille[])
             .catch(this.handleError); 
     }
-
+        
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
-
 }
