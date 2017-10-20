@@ -12,12 +12,23 @@ import { Fournisseur } from '../fournisseurs/fournisseur';
 @Injectable()
 export class ProduitService{
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private produitsUrl = 'http://127.0.0.1:8000/produits';  // URL to api
+    private produitsUrl = 'http://127.0.0.1:8000/produitsSexe';  // URL to api
+    private produitsFamilleUrl;
 
     constructor(private http: Http) { }
 
-    getAllProduits(): Promise<Produit[]> {
-        return this.http.get(this.produitsUrl)
+    getAllProduitsFemmes(): Promise<Produit[]> {
+        return this.http.get(this.produitsUrl+'/F')
+            .toPromise()
+            .then(response => 
+                response.json() as Produit[])
+            .catch(this.handleError);
+    }
+
+    getProductByFamille(famille :string): Promise<Produit[]> {
+        this.produitsFamilleUrl = 'http://127.0.0.1:8000/produitsFamille';
+        this.produitsFamilleUrl = this.produitsFamilleUrl + '/' + famille;
+        return this.http.get(this.produitsFamilleUrl)
             .toPromise()
             .then(response => 
                 response.json() as Produit[])

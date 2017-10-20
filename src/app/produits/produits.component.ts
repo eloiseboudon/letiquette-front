@@ -19,20 +19,42 @@ import { ProduitService } from './produit.service';
 
 export class ProduitsComponent implements OnInit {
     produitsList: Produit[];
-
-
+    // checkbox: boolean =true;
+    view: string ;
     constructor (private produitService: ProduitService, private router: Router) { }
     
     ngOnInit(): void {
-        this.getAllProduits();
+        this.getAllProduitsFemmes();
     }
 
-    getAllProduits(): void {
+    getAllProduitsFemmes(): void {
+        this.view= "Vêtements Femmes";
         this.produitService
-            .getAllProduits()
+            .getAllProduitsFemmes()
             .then(produits => {
                 this.produitsList = produits;
             });
     }
 
+    getProductByFamille(famille):void {
+        this.view = famille;
+        this.produitService
+        .getProductByFamille(famille)
+        .then(produits => {
+            this.produitsList = produits;
+        });
+
+        this.view = famille;
+
+    }
+
+
+    filterTop(){
+        this.getProductByFamille("Top");
+    }
+    
+    filterVestes(){
+        this.getProductByFamille("Vestes");
+
+    }
 }

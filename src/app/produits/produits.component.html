@@ -1,31 +1,49 @@
 <div class="contenu">
     <div class="global_width">
-
+        <h1>
+            {{view}}
+        </h1>
         <div class="row">
-            <div class="col-md-7">
-                Villes
+            <div class="col-2">
+                <div id="products_filtres">
+                    <h2>
+                        <span (click)="getAllProduitsFemmes()">Tous les produits</span>
+                    </h2>
+
+                    <div class="famille">
+                        <ul>
+                            <li>
+                                <span (click)="filterTop()">Top</span>
+                            </li>
+                            <li>
+                                <span (click)="filterVestes()">Vestes</span>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-10">
+
+
+                <div id="products_all_view">
+                    <ul id="products_view" *ngFor="let produit of produitsList">
+                        <a href="#">
+                            <img src="assets/images_produits/{{produit.image}}">
+                        </a>
+                        <!-- <li>{{produit.famille}}</li> -->
+                        <li class="marque">{{produit.fournisseur}}</li>
+                        <li class="libelle">{{produit.libelle}}</li>
+                        <li class="prix">{{produit.prix}} €</li>
+                        <!-- <li>{{produit.description}}</li> -->
+                    </ul>
+                </div>
             </div>
 
+        </div>
 
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Code Postal</th>
-                    <th>Pays</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let produit of produitsList">
-                    <td>{{produit.famille}}</td>
-                    <td>{{produit.libelle}}</td>
-                    <td>{{produit.prix}}</td>
-                </tr>
-
-            </tbody>
-
-        </table>
     </div>
 </div>
