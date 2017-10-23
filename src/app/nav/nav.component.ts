@@ -18,7 +18,7 @@ export class NavbarComponent {
           document.getElementById("top-barre").style.position = "static";
         }
         else {
-          document.getElementById("top-barre").style.position = "fixed"; 
+          document.getElementById("top-barre").style.position = "static"; 
           document.getElementById("top-page-scroll").style.visibility = "hidden";
           document.getElementById("top-barre").style.visibility = "visible";
         }
@@ -41,13 +41,13 @@ export class NavbarComponent {
           document.getElementById("top-barre").style.position = "static";
         }
         else {
-          document.getElementById("top-barre").style.position = "fixed"; 
+          document.getElementById("top-barre").style.position = "static"; 
           document.getElementById("top-page-scroll").style.visibility = "hidden";
           document.getElementById("top-barre").style.visibility = "visible";
         }
       }else{
 
-          document.getElementById("top-barre").style.position = "fixed";  
+          document.getElementById("top-barre").style.position = "static";  
           document.getElementById("top-page-scroll").style.visibility = "hidden";
           document.getElementById("top-barre").style.visibility = "visible";        
       }

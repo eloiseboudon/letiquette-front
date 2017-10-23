@@ -648,3 +648,73 @@ h1, h2 {
   font-size:1.5em;
   font-family: 'Quicksand', sans-serif;
 }
+
+
+
+
+/* Affichage tous les produits */
+
+
+.contenu #products_view{
+  padding: 16px 8px 0 8px;
+  background: #FBFFFE; 
+
+}
+
+
+.contenu #products_all_view ul {
+  list-style:none;
+  margin-left:8px;
+  width:316px;
+  display:inline-block;
+  margin-right:8px;
+}
+
+
+.contenu #products_view img{
+  width:300px;
+}
+
+
+.contenu #products_view .marque{
+  font-size:20px;
+  font-weight: bolder;
+
+}
+
+
+.contenu #products_view .libelle{
+  text-align:center;
+}
+
+.contenu #products_view .prix{
+  text-align:center;
+  font-weight: bold;
+  color:#880015;
+}
+
+
+.contenu #products_filtres{
+  background-color: #FBFFFE;
+  /* border:1px solid #880015; */
+  height:100%;
+  padding-left:8px;
+  padding-top:8px;
+}
+
+.contenu #products_filtres h2{  
+  font-family: 'Dosis', sans-serif;
+  color:#880015;
+}
+
+
+.contenu #products_filtres .famille span{
+  font-size:1.3em;
+}
+
+.contenu #products_filtres ul{ 
+  list-style:none;
+}
+
+
+/* EOF - Affichage tous les produits */

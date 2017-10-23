@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router }            from '@angular/router';
+import { Router } from '@angular/router';
 
-import { Pays }                from './pays';
-import { PaysService }         from './pays.service';
+import { Pays } from './pays';
+import { PaysService } from './pays.service';
 
 @Component({
     selector: 'pays-root',
@@ -11,7 +11,6 @@ import { PaysService }         from './pays.service';
 
 export class PaysComponent implements OnInit {
     paysList: Pays[];
-    pays: Pays[]; 
 
     constructor(private paysService: PaysService, private router: Router) { }
 
@@ -20,6 +19,7 @@ export class PaysComponent implements OnInit {
     }  
 
     getAllPays(): void {
+        console.log("essai");
         this.paysService
             .getAllPays()
             .then(pays => {
