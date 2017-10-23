@@ -24,6 +24,8 @@ import { ProduitService } from './produits/produit.service';
 
 
 const appRoutes: Routes = [
+  
+  { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
   { path: 'villes', component: VillesComponent},
   { path: 'accueil', component: AccueilComponent},
   { path: 'pays', component: PaysComponent},
@@ -31,8 +33,7 @@ const appRoutes: Routes = [
   { path: 'familles', component: FamillesComponent},
   { path: 'produits', component: ProduitsComponent},
 
-  { path: '**', component: PageNotFoundComponent },
-  { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
