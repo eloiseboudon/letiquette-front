@@ -30,7 +30,9 @@
                         <div class="col-3">
                             <h3>Tailles</h3>
                             <ul *ngFor="let taille of tailleTypeList">
-                                <span (click)=filterTaille(taille)>{{taille.taille}}</span>
+                                <li>
+                                    <span (click)=filterTaille(taille)>{{taille.taille}}</span>
+                                </li>
                             </ul>
                         </div>
                         <div class="col-3">
@@ -54,6 +56,11 @@
                     </div>
 
                 </div>
+
+                <ul *ngFor="let taille of taillesProduitsList">
+                   <li>{{taille.produit}}</li>
+                   <li>{{taille.taille}}</li>
+                </ul>
 
                 <div id="products_all_view">
                     <ul id="products_view" *ngFor="let produit of produitsList">

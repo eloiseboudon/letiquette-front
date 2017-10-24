@@ -3,37 +3,45 @@ import { Headers, Http , Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { ProduitFemmes } from './produitFemmes';
+import { Produit } from './Produit';
 import { Famille } from '../familles/famille';
 import { Fournisseur } from '../fournisseurs/fournisseur';
 
 
 
 @Injectable()
-export class ProduitFemmesService{
+export class ProduitService{
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private produitsUrl = 'http://127.0.0.1:8000/produitsFemmes';  // URL to api
+    private produitsFemmesUrl = 'http://127.0.0.1:8000/produitsFemmes';  // URL to api
     private produitsFamilleUrl;
 
     constructor(private http: Http) { }
 
-    getAllProduitsFemmes(): Promise<ProduitFemmes[]> {
-        return this.http.get(this.produitsUrl)
-            .toPromise()
-            .then(response => 
-                response.json() as ProduitFemmes[])
-            .catch(this.handleError);
-    }
-
-    getProductByFamille(famille :Famille): Promise<ProduitFemmes[]> {
+//*************** */
+// GLOBAL 
+//****************/
+    getProduitByFamille(famille :Famille): Promise<Produit[]> {
         this.produitsFamilleUrl = 'http://127.0.0.1:8000/produitsFamille';
         this.produitsFamilleUrl = this.produitsFamilleUrl + '/' + famille.id;
         return this.http.get(this.produitsFamilleUrl)
             .toPromise()
             .then(response => 
-                response.json() as ProduitFemmes[])
+                response.json() as Produit[])
             .catch(this.handleError);
     }
+
+//*************** */
+// FEMMES 
+//****************/
+    getAllProduitsFemmes(): Promise<Produit[]> {
+        return this.http.get(this.produitsFemmesUrl)
+            .toPromise()
+            .then(response => 
+                response.json() as Produit[])
+            .catch(this.handleError);
+    }
+
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
