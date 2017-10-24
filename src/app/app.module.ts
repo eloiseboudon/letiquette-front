@@ -14,6 +14,7 @@ import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 import { FamillesComponent } from './familles/familles.component';
 import { ProduitsComponent } from './produits/produits.component';
 
+
 import { PageNotFoundComponent } from './not-found.component';
 
 import { PaysService } from './pays/pays.service';
@@ -21,6 +22,7 @@ import { VilleService } from './villes/ville.service';
 import { FournisseurService } from './fournisseurs/fournisseur.service';
 import { FamilleService } from './familles/famille.service';
 import { ProduitService } from './produits/produit.service';
+import { TailleTypeService } from './tailleType/tailleType.service';
 
 
 const appRoutes: Routes = [
@@ -63,7 +65,8 @@ const appRoutes: Routes = [
     VilleService,
     FournisseurService,
     FamilleService,
-    ProduitService
+    ProduitService,
+    TailleTypeService
   ],
   bootstrap: [AppComponent]
 })

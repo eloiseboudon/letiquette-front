@@ -13,7 +13,7 @@ export class TailleTypeService{
 
 
     constructor(private http: Http) { }
-    getTailleType(): Promise<TailleType[]> {
+    getAllTailleType(): Promise<TailleType[]> {
         return this.http.get(this.tailleTypeUrl)
             .toPromise()
             .then(response => 

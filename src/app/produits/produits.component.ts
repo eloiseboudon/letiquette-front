@@ -4,6 +4,9 @@ import { Router }            from '@angular/router';
 import { Produit } from './produit';
 import { ProduitService } from './produit.service';
 
+import { TailleType } from '../tailleType/tailleType';
+import { TailleTypeService } from '../tailleType/tailleType.service';
+
 
 // import { Famille } from '../familles/famille';
 // import { FamilleService } from '../familles/famille.service';
@@ -18,13 +21,14 @@ import { ProduitService } from './produit.service';
 
 
 export class ProduitsComponent implements OnInit {
+    tailleTypeList: TailleType[];
     produitsList: Produit[];
-    // checkbox: boolean =true;
     view: string ;
-    constructor (private produitService: ProduitService, private router: Router) { }
+    constructor (private produitService: ProduitService, private tailleTypeService: TailleTypeService, private router: Router) { }
     
     ngOnInit(): void {
         this.getAllProduitsFemmes();
+        this.getAllTailleType();
     }
 
     getAllProduitsFemmes(): void {
@@ -34,6 +38,7 @@ export class ProduitsComponent implements OnInit {
             .then(produits => {
                 this.produitsList = produits;
             });
+            this.getAllTailleType();
     }
 
     getProductByFamille(famille):void {
@@ -43,14 +48,30 @@ export class ProduitsComponent implements OnInit {
         .then(produits => {
             this.produitsList = produits;
         });
-
+        
         this.view = famille;
 
     }
 
+    getAllTailleType(){
+        this.tailleTypeService
+        .getAllTailleType()
+        .then(tailleType => {
+            this.tailleTypeList = tailleType;
+        });
+    }
+
+    getTailleTypeByFamille(id):void{
+        this.tailleTypeService
+        .getTailleTypeByFamille(id)
+        .then(tailleType => {
+            this.tailleTypeList = tailleType;
+        });
+    }
 
     filterTop(){
         this.getProductByFamille("Top");
+        this.getTailleTypeByFamille(1);
     }
     
     filterVestes(){
