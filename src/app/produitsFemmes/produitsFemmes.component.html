@@ -11,13 +11,11 @@
                     </h2>
 
                     <div class="famille">
-                        <ul>
+                        <ul *ngFor="let famille of famillesList">
                             <li>
-                                <span (click)="filterTop()">Top</span>
+                                <span (click)="filterFamille(famille)">{{famille.famille}}</span>
                             </li>
                             <li>
-                                <span (click)="filterVestes()">Vestes</span>
-                            </li>
                         </ul>
 
                     </div>
@@ -32,9 +30,8 @@
                         <div class="col-3">
                             <h3>Tailles</h3>
                             <ul *ngFor="let taille of tailleTypeList">
-                                {{taille.taille}}
+                                <span (click)=filterTaille(taille)>{{taille.taille}}</span>
                             </ul>
-                            
                         </div>
                         <div class="col-3">
                             <h3>Prix</h3>

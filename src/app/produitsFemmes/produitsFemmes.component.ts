@@ -1,34 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 
-import { Produit } from './produit';
-import { ProduitService } from './produit.service';
+import { ProduitFemmes } from './produitFemmes';
+import { ProduitFemmesService } from './produitFemmes.service';
 
 import { TailleType } from '../tailleType/tailleType';
 import { TailleTypeService } from '../tailleType/tailleType.service';
 
 
-// import { Famille } from '../familles/famille';
-// import { FamilleService } from '../familles/famille.service';
+import { Famille } from '../familles/famille';
+import { FamilleService } from '../familles/famille.service';
+
+
 // import { Fournisseur } from '../fournisseurs/fournisseur';
 // import { FournisseurService } from '../fournisseurs/fournisseur.service';
 
 
 @Component({
-    selector: 'produits-root',
-    templateUrl: 'produits.component.html'
+    selector: 'produitsFemmes-root',
+    templateUrl: 'produitsFemmes.component.html'
 })
 
 
-export class ProduitsComponent implements OnInit {
+export class ProduitsFemmesComponent implements OnInit {
+    famillesList: Famille[];
     tailleTypeList: TailleType[];
-    produitsList: Produit[];
+    produitsList: ProduitFemmes[];
     view: string ;
-    constructor (private produitService: ProduitService, private tailleTypeService: TailleTypeService, private router: Router) { }
+    constructor (private produitService: ProduitFemmesService, private tailleTypeService: TailleTypeService, private familleService: FamilleService, private router: Router) { }
     
     ngOnInit(): void {
         this.getAllProduitsFemmes();
         this.getAllTailleType();
+        this.getFamilleBySexe();
     }
 
     getAllProduitsFemmes(): void {
@@ -39,18 +43,6 @@ export class ProduitsComponent implements OnInit {
                 this.produitsList = produits;
             });
             this.getAllTailleType();
-    }
-
-    getProductByFamille(famille):void {
-        this.view = famille;
-        this.produitService
-        .getProductByFamille(famille)
-        .then(produits => {
-            this.produitsList = produits;
-        });
-        
-        this.view = famille;
-
     }
 
     getAllTailleType(){
@@ -69,13 +61,29 @@ export class ProduitsComponent implements OnInit {
         });
     }
 
-    filterTop(){
-        this.getProductByFamille("Top");
-        this.getTailleTypeByFamille(1);
+    getFamilleBySexe():void{
+        this.familleService
+        .getFamilleBySexe("F")
+        .then(famille => {
+            this.famillesList = famille;
+        });
     }
-    
-    filterVestes(){
-        this.getProductByFamille("Vestes");
 
+
+    filter(famille){
+        this.getProductByFamille(famille);
+        this.getTailleTypeByFamille(famille.globalId);
     }
+
+    getProductByFamille(famille):void {
+        this.produitService
+        .getProductByFamille(famille)
+        .then(produits => {
+            this.produitsList = produits;
+        });
+        this.view = famille.famille;
+    }
+
+
+
 }

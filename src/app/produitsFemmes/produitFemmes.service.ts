@@ -3,35 +3,35 @@ import { Headers, Http , Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Produit } from './produit';
+import { ProduitFemmes } from './produitFemmes';
 import { Famille } from '../familles/famille';
 import { Fournisseur } from '../fournisseurs/fournisseur';
 
 
 
 @Injectable()
-export class ProduitService{
+export class ProduitFemmesService{
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     private produitsUrl = 'http://127.0.0.1:8000/produitsFemmes';  // URL to api
     private produitsFamilleUrl;
 
     constructor(private http: Http) { }
 
-    getAllProduitsFemmes(): Promise<Produit[]> {
+    getAllProduitsFemmes(): Promise<ProduitFemmes[]> {
         return this.http.get(this.produitsUrl)
             .toPromise()
             .then(response => 
-                response.json() as Produit[])
+                response.json() as ProduitFemmes[])
             .catch(this.handleError);
     }
 
-    getProductByFamille(famille :string): Promise<Produit[]> {
-        this.produitsFamilleUrl = 'http://127.0.0.1:8000/produitsFemmesByFamille';
-        this.produitsFamilleUrl = this.produitsFamilleUrl + '/' + famille;
+    getProductByFamille(famille :Famille): Promise<ProduitFemmes[]> {
+        this.produitsFamilleUrl = 'http://127.0.0.1:8000/produitsFamille';
+        this.produitsFamilleUrl = this.produitsFamilleUrl + '/' + famille.id;
         return this.http.get(this.produitsFamilleUrl)
             .toPromise()
             .then(response => 
-                response.json() as Produit[])
+                response.json() as ProduitFemmes[])
             .catch(this.handleError);
     }
 

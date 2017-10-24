@@ -11,8 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PaysComponent } from './pays/pays.component';
 import { VillesComponent } from './villes/villes.component';
 import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
-import { FamillesComponent } from './familles/familles.component';
-import { ProduitsComponent } from './produits/produits.component';
+import { ProduitsFemmesComponent } from './produitsFemmes/produitsFemmes.component';
 
 
 import { PageNotFoundComponent } from './not-found.component';
@@ -21,7 +20,7 @@ import { PaysService } from './pays/pays.service';
 import { VilleService } from './villes/ville.service';
 import { FournisseurService } from './fournisseurs/fournisseur.service';
 import { FamilleService } from './familles/famille.service';
-import { ProduitService } from './produits/produit.service';
+import { ProduitFemmesService } from './produitsFemmes/produitFemmes.service';
 import { TailleTypeService } from './tailleType/tailleType.service';
 
 
@@ -32,8 +31,7 @@ const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent},
   { path: 'pays', component: PaysComponent},
   { path: 'fournisseurs', component: FournisseursComponent},
-  { path: 'familles', component: FamillesComponent},
-  { path: 'produits', component: ProduitsComponent},
+  { path: 'produitsFemmes', component: ProduitsFemmesComponent},
 
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -47,8 +45,7 @@ const appRoutes: Routes = [
     PaysComponent,
     VillesComponent,
     FournisseursComponent,
-    FamillesComponent,
-    ProduitsComponent,
+    ProduitsFemmesComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -65,7 +62,7 @@ const appRoutes: Routes = [
     VilleService,
     FournisseurService,
     FamilleService,
-    ProduitService,
+    ProduitFemmesService,
     TailleTypeService
   ],
   bootstrap: [AppComponent]

@@ -14,8 +14,16 @@ export class FamilleService {
     constructor(private http: Http) { }
 
     getAllFamilles(): Promise<Famille[]> {
-        console.log("test");
         return this.http.get(this.familleUrl)
+            .toPromise()
+            .then(response =>
+                    response.json() as Famille[])
+            .catch(this.handleError); 
+    }
+
+
+    getFamilleBySexe(sexe : string): Promise<Famille[]> {
+        return this.http.get(this.familleUrl +"/" + sexe)
             .toPromise()
             .then(response =>
                     response.json() as Famille[])
