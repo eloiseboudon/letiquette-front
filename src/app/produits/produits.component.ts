@@ -105,10 +105,10 @@ export class ProduitsComponent implements OnInit {
 
     filterTaille(taille){
         console.log("test");
-        this.declinaisonTailleService
+        this.produitService
         .getProduitByTaille(taille)
-        .then(tailles => {
-            this.taillesProduitsList = tailles;
+        .then(produits => {
+            this.produitsList = produits;
         });
     }
 
