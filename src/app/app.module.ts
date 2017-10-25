@@ -22,7 +22,7 @@ import { FournisseurService } from './fournisseurs/fournisseur.service';
 import { FamilleService } from './familles/famille.service';
 import { ProduitService } from './produits/produit.service';
 import { TailleTypeService } from './tailleType/tailleType.service';
-import { DeclinaisonTailleService } from './declinaisonTaille/declinaisonTaille.service';
+// import { DeclinaisonTailleService } from './declinaisonTaille/declinaisonTaille.service';
 
 
 
@@ -65,8 +65,8 @@ const appRoutes: Routes = [
     FournisseurService,
     FamilleService,
     ProduitService,
-    TailleTypeService,
-    DeclinaisonTailleService
+    TailleTypeService
+    // DeclinaisonTailleService
   ],
   bootstrap: [AppComponent]
 })

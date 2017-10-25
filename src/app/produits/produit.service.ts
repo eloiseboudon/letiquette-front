@@ -16,6 +16,7 @@ export class ProduitService{
     private produitsFemmesUrl = 'http://127.0.0.1:8000/produitsFemmes';  // URL to api
     private produitsFamilleUrl;
     private declinaisonTailleUrl = 'http://127.0.0.1:8000/produitsTaille';
+    private produitsTailleFamilleUrl = 'http://127.0.0.1:8000/produitsTailleFamille';
 
     constructor(private http: Http) { }
 
@@ -39,6 +40,15 @@ export class ProduitService{
             .then(response =>
                     response.json() as Produit[])
             .catch(this.handleError); 
+    }
+
+
+    getProduitByTailleFamille(taille: Taille, famille: Famille): Promise<Produit[]> {
+        return this.http.get(this.produitsTailleFamilleUrl +"/" + taille.id +"/" + famille.id)
+        .toPromise()
+        .then(response =>
+                response.json() as Produit[])
+        .catch(this.handleError); 
     }
 
 //*************** */

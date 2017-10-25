@@ -11,10 +11,6 @@ import { TailleTypeService } from '../tailleType/tailleType.service';
 import { Famille } from '../familles/famille';
 import { FamilleService } from '../familles/famille.service';
 
-import { DeclinaisonTaille } from '../declinaisonTaille/declinaisonTaille';
-import { DeclinaisonTailleService } from '../declinaisonTaille/declinaisonTaille.service';
-
-
 
 // import { Fournisseur } from '../fournisseurs/fournisseur';
 // import { FournisseurService } from '../fournisseurs/fournisseur.service';
@@ -27,13 +23,15 @@ import { DeclinaisonTailleService } from '../declinaisonTaille/declinaisonTaille
 
 
 export class ProduitsComponent implements OnInit {
-    taillesProduitsList: DeclinaisonTaille[];
+    viewFamille: Famille;
+    produitsTailleList: Produit[];
+    familleFilter: boolean = false;
     famillesList: Famille[];
     tailleTypeList: TailleType[];
     produitsList: Produit[];
-    view: string ;
+    view:  string
     constructor (private produitService: ProduitService, private tailleTypeService: TailleTypeService, 
-        private familleService: FamilleService, private declinaisonTailleService: DeclinaisonTailleService, private router: Router) { }
+        private familleService: FamilleService, private router: Router) { }
     
 //*************** */
 // GLOBAL 
@@ -68,13 +66,14 @@ export class ProduitsComponent implements OnInit {
 //****************/
 
     getAllProduitsFemmes(): void {
-        this.view= "Vêtements Femmes";
+        this.view = "Vêtements Femmes";
         this.produitService
             .getAllProduitsFemmes()
             .then(produits => {
                 this.produitsList = produits;
             });
             this.getAllTailleType();
+            this.familleFilter = false;
     }
 
     getFamilleBySexe():void{
@@ -92,6 +91,7 @@ export class ProduitsComponent implements OnInit {
     filterFamille(famille){
         this.getProduitByFamille(famille);
         this.getTailleTypeByFamille(famille.globalId);
+        this.familleFilter = true;
     }
 
     getProduitByFamille(famille):void {
@@ -100,17 +100,28 @@ export class ProduitsComponent implements OnInit {
         .then(produits => {
             this.produitsList = produits;
         });
-        this.view = famille.famille;
+        this.view = famille.famille
+        this.viewFamille = famille
     }
 
     filterTaille(taille){
-        console.log("test");
-        this.produitService
+        if(this.familleFilter){
+            this.produitService
+            .getProduitByTailleFamille(taille,this.viewFamille)
+            .then(produits => {
+                this.produitsList = produits;
+            });
+        }else{
+            this.produitService
         .getProduitByTaille(taille)
         .then(produits => {
             this.produitsList = produits;
-        });
+            });
+        }
+        
+
     }
+
 
 
 
