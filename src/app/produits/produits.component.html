@@ -62,16 +62,16 @@
                    <li>{{taille.taille}}</li>
                 </ul>
 
+                <input name="term" [(ngModel)]="term">
+
                 <div id="products_all_view">
-                    <ul id="products_view" *ngFor="let produit of produitsList">
+                    <ul id="products_view" *ngFor="let produit of produitsList | libelle: term | sortBy: 'prix'">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
-                        <!-- <li>{{produit.famille}}</li> -->
                         <li class="marque">{{produit.fournisseur}}</li>
                         <li class="libelle">{{produit.libelle}}</li>
                         <li class="prix">{{produit.prix}} €</li>
-                        <!-- <li>{{produit.description}}</li> -->
                     </ul>
                 </div>
             </div>

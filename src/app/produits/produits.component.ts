@@ -12,6 +12,7 @@ import { Famille } from '../familles/famille';
 import { FamilleService } from '../familles/famille.service';
 
 
+
 // import { Fournisseur } from '../fournisseurs/fournisseur';
 // import { FournisseurService } from '../fournisseurs/fournisseur.service';
 
@@ -142,7 +143,7 @@ export class ProduitsComponent implements OnInit {
     }
 
     filterAllWithFamille(famille, arrayTaille, arrayMarques, prixMin, prixMax){ 
-        
+
      }
 
     filterAll(arrayTaille, arrayMarques, prixMin, prixMax){

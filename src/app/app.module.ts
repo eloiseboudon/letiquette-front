@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes }   from '@angular/router';
 import { HttpModule }    from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { TitleCasePipe } from '@angular/common';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './nav/nav.component';
@@ -15,6 +17,7 @@ import { ProduitsComponent } from './produits/produits.component';
 
 
 import { PageNotFoundComponent } from './not-found.component';
+import { LibellePipe, SortByPipe } from './pipes';
 
 import { PaysService } from './pays/pays.service';
 import { VilleService } from './villes/ville.service';
@@ -48,7 +51,8 @@ const appRoutes: Routes = [
     VillesComponent,
     FournisseursComponent,
     ProduitsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LibellePipe, SortByPipe
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,8 @@ const appRoutes: Routes = [
     FournisseurService,
     FamilleService,
     ProduitService,
-    TailleTypeService
+    TailleTypeService,
+    TitleCasePipe
     // DeclinaisonTailleService
   ],
   bootstrap: [AppComponent]
