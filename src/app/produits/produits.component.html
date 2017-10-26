@@ -11,13 +11,11 @@
                     </h2>
 
                     <div class="famille">
-                        <ul>
+                        <ul *ngFor="let famille of famillesList">
                             <li>
-                                <span (click)="filterTop()">Top</span>
+                                <span (click)="filterFamille(famille)">{{famille.famille}}</span>
                             </li>
                             <li>
-                                <span (click)="filterVestes()">Vestes</span>
-                            </li>
                         </ul>
 
                     </div>
@@ -26,18 +24,54 @@
 
             </div>
             <div class="col-10">
+                <div id="filtres">
+                    <h2>Filtres</h2>
+                    <div class="row">
+                        <div class="col-3">
+                            <h3>Tailles</h3>
+                            <ul *ngFor="let taille of tailleTypeList">
+                                <li>
+                                    <span (click)=filterTaille(taille)>{{taille.taille}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <h3>Prix</h3>
+                        </div>
+                        <div class="col-3">
+                            <h3>Marques</h3>
+                        </div>
+                        <div class="col-3">
+                            <h3>Couleurs</h3>
+                        </div>
+                        <div class="col-3">
+                            <h3>Matières</h3>
+                        </div>
+                        <div class="col-3">
+                            <h3>Occassions</h3>
+                        </div>
+                        <div class="col-3">
+                            <h3>Impact écologique</h3>
+                        </div>
+                    </div>
 
+                </div>
+
+                <ul *ngFor="let taille of taillesProduitsList">
+                   <li>{{taille.produit}}</li>
+                   <li>{{taille.taille}}</li>
+                </ul>
+
+                <input name="term" [(ngModel)]="term">
 
                 <div id="products_all_view">
-                    <ul id="products_view" *ngFor="let produit of produitsList">
+                    <ul id="products_view" *ngFor="let produit of produitsList | libelle: term | sortBy: 'prix'">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
-                        <!-- <li>{{produit.famille}}</li> -->
                         <li class="marque">{{produit.fournisseur}}</li>
                         <li class="libelle">{{produit.libelle}}</li>
                         <li class="prix">{{produit.prix}} €</li>
-                        <!-- <li>{{produit.description}}</li> -->
                     </ul>
                 </div>
             </div>

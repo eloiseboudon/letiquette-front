@@ -1,7 +1,7 @@
 import { Famille } from "../familles/famille";
 import { Fournisseur } from "../fournisseurs/fournisseur";
 
-export class Produit {
+export class Produit{
     id: number;
     famille: Famille;
     fournisseur:Fournisseur;

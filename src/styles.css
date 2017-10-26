@@ -656,18 +656,19 @@ h1, h2 {
 
 
 .contenu #products_view{
-  padding: 16px 8px 0 8px;
+  padding: 16px 10px 0 10px;
   background: #FBFFFE; 
-
 }
-
+.contenu #products_all_view{
+  margin-left:42.5px;
+}
 
 .contenu #products_all_view ul {
   list-style:none;
-  margin-left:8px;
-  width:316px;
+  margin-left:10px;
+  width:320px;
   display:inline-block;
-  margin-right:8px;
+  margin-right:10px;
 }
 
 
@@ -717,4 +718,21 @@ h1, h2 {
 }
 
 
+.contenu #filtres{  
+  background-color: #FBFFFE;
+  margin-bottom: 10px;
+  margin-left: 8px;
+  padding-left: 8px;
+}
+
+
+.contenu #filtres h2{
+  color:#880015;
+  font-size:36px;
+}
+
+
+.contenu #filtres h3{
+  font-family: 'Dosis', sans-serif;
+}
 /* EOF - Affichage tous les produits */

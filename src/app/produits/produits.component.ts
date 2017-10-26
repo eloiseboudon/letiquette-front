@@ -4,9 +4,15 @@ import { Router }            from '@angular/router';
 import { Produit } from './produit';
 import { ProduitService } from './produit.service';
 
+import { TailleType } from '../tailleType/tailleType';
+import { TailleTypeService } from '../tailleType/tailleType.service';
 
-// import { Famille } from '../familles/famille';
-// import { FamilleService } from '../familles/famille.service';
+
+import { Famille } from '../familles/famille';
+import { FamilleService } from '../familles/famille.service';
+
+
+
 // import { Fournisseur } from '../fournisseurs/fournisseur';
 // import { FournisseurService } from '../fournisseurs/fournisseur.service';
 
@@ -18,43 +24,134 @@ import { ProduitService } from './produit.service';
 
 
 export class ProduitsComponent implements OnInit {
-    produitsList: Produit[];
-    // checkbox: boolean =true;
-    view: string ;
-    constructor (private produitService: ProduitService, private router: Router) { }
     
+    produitsTailleList: Produit[];
+    familleFilter: boolean = false;
+    famillesList: Famille[];
+    tailleTypeList: TailleType[];
+    produitsList: Produit[];
+    view:  string;
+    viewFamille: Famille;
+    arrayFiltresTaille: number[] = [];
+    arrayFiltresMarque: number[] = [];
+    arrayFiltresMatiere: number[] = [];
+    prixMin:number;
+    prixMax:number;
+
+    constructor (private produitService: ProduitService, private tailleTypeService: TailleTypeService, 
+        private familleService: FamilleService, private router: Router) { }
+    
+//*************** */
+// GLOBAL 
+//****************/
+
     ngOnInit(): void {
         this.getAllProduitsFemmes();
+        this.getAllTailleType();
+        this.getFamilleBySexe();
     }
+
+
+    getAllTailleType(){
+        this.tailleTypeService
+        .getAllTailleType()
+        .then(tailleType => {
+            this.tailleTypeList = tailleType;
+        });
+    }
+    
+    getTailleTypeByFamille(id):void{
+        this.tailleTypeService
+        .getTailleTypeByFamille(id)
+        .then(tailleType => {
+            this.tailleTypeList = tailleType;
+        });
+    }
+
+
+//*************** */
+// FEMMES 
+//****************/
 
     getAllProduitsFemmes(): void {
-        this.view= "Vêtements Femmes";
         this.produitService
-            .getAllProduitsFemmes()
-            .then(produits => {
-                this.produitsList = produits;
-            });
-    }
-
-    getProductByFamille(famille):void {
-        this.view = famille;
-        this.produitService
-        .getProductByFamille(famille)
+        .getAllProduitsFemmes()
         .then(produits => {
             this.produitsList = produits;
         });
+        this.view = "Vêtements Femmes";
+        this.getAllTailleType();
+        this.familleFilter = false;            
+        this.arrayFiltresTaille = [];
+    }
 
-        this.view = famille;
+    getFamilleBySexe():void{
+        this.familleService
+        .getFamilleBySexe("F")
+        .then(famille => {
+            this.famillesList = famille;
+        });
+    }
+
+//*************** */
+// EOF - FEMMES 
+//****************/
+
+    filterFamille(famille){
+        this.getProduitByFamille(famille);
+        this.getTailleTypeByFamille(famille.globalId);
+        this.familleFilter = true;
+        this.arrayFiltresTaille = [];
+    }
+
+    getProduitByFamille(famille):void {
+        this.produitService
+        .getProduitByFamille(famille)
+        .then(produits => {
+            this.produitsList = produits;
+        });
+        this.view = famille.famille
+        this.viewFamille = famille
+    }
+
+    filterTaille(taille){
+        this.arrayFiltresTaille.push(taille.id);
+        console.log(this.arrayFiltresTaille);
+
+        if(this.familleFilter){
+            this.filterAllWithFamille(this.viewFamille,this.arrayFiltresTaille,  this.arrayFiltresMarque, this.prixMin, this.prixMax);     
+        }
+        else{
+            this.filterAll(this.arrayFiltresTaille,  this.arrayFiltresMarque, this.prixMin, this.prixMax);            
+        }
+       
+        // if(this.familleFilter){
+        //     this.produitService
+        //     .getProduitByTailleFamille(taille,this.viewFamille)
+        //     .then(produits => {
+        //         this.produitsList = produits;
+        //     });
+        // }else{
+        //     this.produitService
+        // .getProduitByTaille(taille)
+        // .then(produits => {
+        //     this.produitsList = produits;
+        //     });
+        // }
+        
+
+    }
+
+    filterAllWithFamille(famille, arrayTaille, arrayMarques, prixMin, prixMax){ 
+
+     }
+
+    filterAll(arrayTaille, arrayMarques, prixMin, prixMax){
+
 
     }
 
 
-    filterTop(){
-        this.getProductByFamille("Top");
-    }
-    
-    filterVestes(){
-        this.getProductByFamille("Vestes");
 
-    }
+
 }
