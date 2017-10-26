@@ -23,13 +23,20 @@ import { FamilleService } from '../familles/famille.service';
 
 
 export class ProduitsComponent implements OnInit {
-    viewFamille: Famille;
+    
     produitsTailleList: Produit[];
     familleFilter: boolean = false;
     famillesList: Famille[];
     tailleTypeList: TailleType[];
     produitsList: Produit[];
-    view:  string
+    view:  string;
+    viewFamille: Famille;
+    arrayFiltresTaille: number[] = [];
+    arrayFiltresMarque: number[] = [];
+    arrayFiltresMatiere: number[] = [];
+    prixMin:number;
+    prixMax:number;
+
     constructor (private produitService: ProduitService, private tailleTypeService: TailleTypeService, 
         private familleService: FamilleService, private router: Router) { }
     
@@ -66,14 +73,15 @@ export class ProduitsComponent implements OnInit {
 //****************/
 
     getAllProduitsFemmes(): void {
-        this.view = "Vêtements Femmes";
         this.produitService
-            .getAllProduitsFemmes()
-            .then(produits => {
-                this.produitsList = produits;
-            });
-            this.getAllTailleType();
-            this.familleFilter = false;
+        .getAllProduitsFemmes()
+        .then(produits => {
+            this.produitsList = produits;
+        });
+        this.view = "Vêtements Femmes";
+        this.getAllTailleType();
+        this.familleFilter = false;            
+        this.arrayFiltresTaille = [];
     }
 
     getFamilleBySexe():void{
@@ -92,6 +100,7 @@ export class ProduitsComponent implements OnInit {
         this.getProduitByFamille(famille);
         this.getTailleTypeByFamille(famille.globalId);
         this.familleFilter = true;
+        this.arrayFiltresTaille = [];
     }
 
     getProduitByFamille(famille):void {
@@ -105,20 +114,39 @@ export class ProduitsComponent implements OnInit {
     }
 
     filterTaille(taille){
+        this.arrayFiltresTaille.push(taille.id);
+        console.log(this.arrayFiltresTaille);
+
         if(this.familleFilter){
-            this.produitService
-            .getProduitByTailleFamille(taille,this.viewFamille)
-            .then(produits => {
-                this.produitsList = produits;
-            });
-        }else{
-            this.produitService
-        .getProduitByTaille(taille)
-        .then(produits => {
-            this.produitsList = produits;
-            });
+            this.filterAllWithFamille(this.viewFamille,this.arrayFiltresTaille,  this.arrayFiltresMarque, this.prixMin, this.prixMax);     
         }
+        else{
+            this.filterAll(this.arrayFiltresTaille,  this.arrayFiltresMarque, this.prixMin, this.prixMax);            
+        }
+       
+        // if(this.familleFilter){
+        //     this.produitService
+        //     .getProduitByTailleFamille(taille,this.viewFamille)
+        //     .then(produits => {
+        //         this.produitsList = produits;
+        //     });
+        // }else{
+        //     this.produitService
+        // .getProduitByTaille(taille)
+        // .then(produits => {
+        //     this.produitsList = produits;
+        //     });
+        // }
         
+
+    }
+
+    filterAllWithFamille(famille, arrayTaille, arrayMarques, prixMin, prixMax){ 
+        
+     }
+
+    filterAll(arrayTaille, arrayMarques, prixMin, prixMax){
+
 
     }
 

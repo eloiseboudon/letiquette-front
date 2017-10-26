@@ -51,6 +51,11 @@ export class ProduitService{
         .catch(this.handleError); 
     }
 
+    getProduitByFiltres(arrayTaille: number[], arrayMarques: number[], prixMin:number, prixMax: number){
+
+
+    }
+
 //*************** */
 // FEMMES 
 //****************/
