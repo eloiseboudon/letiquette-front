@@ -62,10 +62,8 @@
                    <li>{{taille.taille}}</li>
                 </ul>
 
-                <input name="term" [(ngModel)]="term">
-
                 <div id="products_all_view">
-                    <ul id="products_view" *ngFor="let produit of produitsList | libelle: term | sortBy: 'prix'">
+                    <ul id="products_view" *ngFor="let produit of produitsList">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>

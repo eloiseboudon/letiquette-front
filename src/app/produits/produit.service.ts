@@ -1,5 +1,5 @@
-import { Injectable }    from '@angular/core';
-import { Headers, Http , Response} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -11,58 +11,70 @@ import { Taille } from '../tailles/taille';
 
 
 @Injectable()
-export class ProduitService{
-    private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+export class ProduitService {
+    private headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     private produitsFemmesUrl = 'http://127.0.0.1:8000/produitsFemmes';  // URL to api
     private produitsFamilleUrl;
     private declinaisonTailleUrl = 'http://127.0.0.1:8000/produitsTaille';
     private produitsTailleFamilleUrl = 'http://127.0.0.1:8000/produitsTailleFamille';
+    private produitsFiltresUrl = 'http://127.0.0.1:8000/produitsFiltres';
 
     constructor(private http: Http) { }
 
-//*************** */
-// GLOBAL 
-//****************/
-    getProduitByFamille(famille :Famille): Promise<Produit[]> {
+    //*************** */
+    // GLOBAL 
+    //****************/
+    getProduitByFamille(famille: Famille): Promise<Produit[]> {
         this.produitsFamilleUrl = 'http://127.0.0.1:8000/produitsFamille';
         this.produitsFamilleUrl = this.produitsFamilleUrl + '/' + famille.id;
         return this.http.get(this.produitsFamilleUrl)
             .toPromise()
-            .then(response => 
+            .then(response =>
                 response.json() as Produit[])
             .catch(this.handleError);
     }
 
-    
-    getProduitByTaille(taille : Taille): Promise<Produit[]> {
-        return this.http.get(this.declinaisonTailleUrl +"/" + taille.id)
+
+    getProduitByTaille(taille: Taille): Promise<Produit[]> {
+        return this.http.get(this.declinaisonTailleUrl + "/" + taille.id)
             .toPromise()
             .then(response =>
-                    response.json() as Produit[])
-            .catch(this.handleError); 
+                response.json() as Produit[])
+            .catch(this.handleError);
     }
 
 
     getProduitByTailleFamille(taille: Taille, famille: Famille): Promise<Produit[]> {
-        return this.http.get(this.produitsTailleFamilleUrl +"/" + taille.id +"/" + famille.id)
-        .toPromise()
-        .then(response =>
+        return this.http.get(this.produitsTailleFamilleUrl + "/" + taille.id + "/" + famille.id)
+            .toPromise()
+            .then(response =>
                 response.json() as Produit[])
-        .catch(this.handleError); 
+            .catch(this.handleError);
+    }
+    // getProduitByFiltresFamilles(famille: Famille, arrayTailles: number[], arrayMarques: number[], prixMin: number,
+    //     prixMax: number): Promise<Produit[]> {
+
+
+    // }
+
+    // getProduitByFiltres(arrayTailles: number[], arrayMarques: number[], prixMin: number, prixMax: number): Promise<Produit[]> {
+        getProduitByFiltres(arrayTailles: number[]): Promise<Produit[]> {
+
+        return this.http.get(this.produitsFiltresUrl + "/" + arrayTailles)
+            .toPromise()
+            .then(response =>
+                response.json() as Produit[])
+            .catch(this.handleError);
+
     }
 
-    getProduitByFiltres(arrayTaille: number[], arrayMarques: number[], prixMin:number, prixMax: number){
-
-
-    }
-
-//*************** */
-// FEMMES 
-//****************/
+    //*************** */
+    // FEMMES 
+    //****************/
     getAllProduitsFemmes(): Promise<Produit[]> {
         return this.http.get(this.produitsFemmesUrl)
             .toPromise()
-            .then(response => 
+            .then(response =>
                 response.json() as Produit[])
             .catch(this.handleError);
     }
