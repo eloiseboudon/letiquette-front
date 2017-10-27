@@ -13,8 +13,8 @@ import { FamilleService } from '../familles/famille.service';
 
 
 
-// import { Fournisseur } from '../fournisseurs/fournisseur';
-// import { FournisseurService } from '../fournisseurs/fournisseur.service';
+import { Fournisseur } from '../fournisseurs/fournisseur';
+import { FournisseurService } from '../fournisseurs/fournisseur.service';
 
 
 @Component({
@@ -39,7 +39,7 @@ export class ProduitsComponent implements OnInit {
     prixMax: number;
 
     constructor(private produitService: ProduitService, private tailleTypeService: TailleTypeService,
-        private familleService: FamilleService, private router: Router) { }
+        private familleService: FamilleService, private fournisseurService: FournisseurService,private router: Router) { }
 
     //*************** */
     // GLOBAL 
@@ -49,6 +49,7 @@ export class ProduitsComponent implements OnInit {
         this.getAllProduitsFemmes();
         this.getAllTailleType();
         this.getFamilleBySexe();
+        // this.getAllFemmesFournisseurs();
     }
 
 
@@ -93,6 +94,8 @@ export class ProduitsComponent implements OnInit {
             });
     }
 
+
+
     //*************** */
     // EOF - FEMMES 
     //****************/
@@ -116,33 +119,41 @@ export class ProduitsComponent implements OnInit {
 
     filterTaille(taille) {
         this.arrayFiltresTaille.push(taille.id);
-        console.log(this.arrayFiltresTaille);
 
         if (this.familleFilter) {
             // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
         }
         else {
             // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-            this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
+            this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
+        }
+    }
+
+    filterAll(arrayTailles, arrayMarques) {
+
+        if(arrayMarques.length==0){
+            this.produitService
+            .getProduitByFiltreTaille(arrayTailles)
+            .then(produits => {
+                this.produitsList = produits;
+            });
+        }
+        else{
+            if(arrayTailles.length==0){
+                this.produitService
+                .getProduitByFiltreMarque(arrayMarques)
+                .then(produits => {
+                    this.produitsList = produits;
+                });
+            }
+            else{                
+                this.produitService
+                .getProduitByFiltres(arrayTailles,arrayMarques)
+                .then(produits => {
+                    this.produitsList = produits;
+                });
+            }
         }
 
-
-        // }
-
-
     }
-
-
-    filterAll(arrayTailles, arrayMarques, prixMin, prixMax) {
-        this.produitService
-        .getProduitByFiltres(arrayTailles)
-        .then(produits => {
-            this.produitsList = produits;
-        });
-
-    }
-
-
-
-
 }

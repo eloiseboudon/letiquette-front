@@ -17,6 +17,7 @@ export class ProduitService {
     private produitsFamilleUrl;
     private declinaisonTailleUrl = 'http://127.0.0.1:8000/produitsTaille';
     private produitsTailleFamilleUrl = 'http://127.0.0.1:8000/produitsTailleFamille';
+    private produitsFemmesFiltresUrl = 'http://127.0.0.1:8000/produitsFemmesFiltre';
     private produitsFiltresUrl = 'http://127.0.0.1:8000/produitsFiltres';
 
     constructor(private http: Http) { }
@@ -51,21 +52,29 @@ export class ProduitService {
                 response.json() as Produit[])
             .catch(this.handleError);
     }
-    // getProduitByFiltresFamilles(famille: Famille, arrayTailles: number[], arrayMarques: number[], prixMin: number,
-    //     prixMax: number): Promise<Produit[]> {
 
+    getProduitByFiltreTaille(arrayTailles: number[]){
+        return this.http.get(this.produitsFemmesFiltresUrl + "/taille/" + arrayTailles)
+        .toPromise()
+        .then(response =>
+            response.json() as Produit[])
+        .catch(this.handleError);
+    }
 
-    // }
-
-    // getProduitByFiltres(arrayTailles: number[], arrayMarques: number[], prixMin: number, prixMax: number): Promise<Produit[]> {
-        getProduitByFiltres(arrayTailles: number[]): Promise<Produit[]> {
-
-        return this.http.get(this.produitsFiltresUrl + "/" + arrayTailles)
+    getProduitByFiltreMarque(arrayMarques: number[]){
+        return this.http.get(this.produitsFemmesFiltresUrl + "/marque/" + arrayMarques)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])
             .catch(this.handleError);
+    }
 
+    getProduitByFiltres(arrayTailles: number[],  arrayMarques: number[]): Promise<Produit[]> {
+        return this.http.get(this.produitsFiltresUrl + "/" + arrayTailles + "/" + arrayMarques)
+            .toPromise()
+            .then(response =>
+                response.json() as Produit[])
+            .catch(this.handleError);
     }
 
     //*************** */

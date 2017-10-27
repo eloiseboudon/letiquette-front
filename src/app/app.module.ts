@@ -12,12 +12,12 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { FooterComponent } from './footer/footer.component';
 import { PaysComponent } from './pays/pays.component';
 import { VillesComponent } from './villes/villes.component';
-import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
+// import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 import { ProduitsComponent } from './produits/produits.component';
 
 
 import { PageNotFoundComponent } from './not-found.component';
-import { LibellePipe, SortByPipe, UniquePipe } from './pipes';
+import { LibellePipe, SortByPipe, UniquePipe, UniqueFournisseurPipe } from './pipes';
 
 import { PaysService } from './pays/pays.service';
 import { VilleService } from './villes/ville.service';
@@ -25,7 +25,6 @@ import { FournisseurService } from './fournisseurs/fournisseur.service';
 import { FamilleService } from './familles/famille.service';
 import { ProduitService } from './produits/produit.service';
 import { TailleTypeService } from './tailleType/tailleType.service';
-// import { DeclinaisonTailleService } from './declinaisonTaille/declinaisonTaille.service';
 
 
 
@@ -35,7 +34,7 @@ const appRoutes: Routes = [
   { path: 'villes', component: VillesComponent},
   { path: 'accueil', component: AccueilComponent},
   { path: 'pays', component: PaysComponent},
-  { path: 'fournisseurs', component: FournisseursComponent},
+  // { path: 'fournisseurs', component: FournisseursComponent},
   { path: 'produits', component: ProduitsComponent},
 
   { path: '**', component: PageNotFoundComponent }
@@ -49,10 +48,10 @@ const appRoutes: Routes = [
     FooterComponent,
     PaysComponent,
     VillesComponent,
-    FournisseursComponent,
     ProduitsComponent,
     PageNotFoundComponent,
-    LibellePipe, SortByPipe, UniquePipe
+    LibellePipe, SortByPipe, 
+    UniquePipe, UniqueFournisseurPipe
   ],
   imports: [
     BrowserModule,
@@ -71,7 +70,6 @@ const appRoutes: Routes = [
     ProduitService,
     TailleTypeService,
     TitleCasePipe
-    // DeclinaisonTailleService
   ],
   bootstrap: [AppComponent]
 })

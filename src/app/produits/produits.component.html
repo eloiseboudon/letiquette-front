@@ -40,6 +40,11 @@
                         </div>
                         <div class="col-3">
                             <h3>Marques</h3>
+                            <ul *ngFor="let marque of produitsList | uniqueFournisseur">
+                                <li>
+                                    <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-3">
                             <h3>Couleurs</h3>
