@@ -57,13 +57,9 @@
 
                 </div>
 
-                <ul *ngFor="let taille of taillesProduitsList">
-                   <li>{{taille.produit}}</li>
-                   <li>{{taille.taille}}</li>
-                </ul>
 
                 <div id="products_all_view">
-                    <ul id="products_view" *ngFor="let produit of produitsList">
+                    <ul id="products_view" *ngFor="let produit of produitsList | unique ">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
