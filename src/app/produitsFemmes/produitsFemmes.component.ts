@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Produit } from './produit';
-import { ProduitService } from './produit.service';
+import { Produit } from '../produits/produit';
+import { ProduitFemmesService } from './produitFemmes.service';
+import { ProduitService } from '../produits/produit.service';
+
 
 import { TailleType } from '../tailleType/tailleType';
 import { TailleTypeService } from '../tailleType/tailleType.service';
@@ -17,13 +19,14 @@ import { Fournisseur } from '../fournisseurs/fournisseur';
 import { FournisseurService } from '../fournisseurs/fournisseur.service';
 
 
+
 @Component({
-    selector: 'produits-root',
-    templateUrl: 'produits.component.html'
+    selector: 'produitsFemmes-root',
+    templateUrl: 'produitsFemmes.component.html'
 })
 
 
-export class ProduitsComponent implements OnInit {
+export class ProduitsFemmesComponent implements OnInit {
 
     produitsTailleList: Produit[];
     familleFilter: boolean = false;
@@ -38,7 +41,7 @@ export class ProduitsComponent implements OnInit {
     prixMin: number;
     prixMax: number;
 
-    constructor(private produitService: ProduitService, private tailleTypeService: TailleTypeService,
+    constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
         private familleService: FamilleService, private fournisseurService: FournisseurService,private router: Router) { }
 
     //*************** */
@@ -46,7 +49,7 @@ export class ProduitsComponent implements OnInit {
     //****************/
 
     ngOnInit(): void {
-        this.getAllProduitsFemmes();
+        this.getAllProduits();
         this.getAllTailleType();
         this.getFamilleBySexe();
         // this.getAllFemmesFournisseurs();
@@ -69,14 +72,9 @@ export class ProduitsComponent implements OnInit {
             });
     }
 
-
-    //*************** */
-    // FEMMES 
-    //****************/
-
-    getAllProduitsFemmes(): void {
-        this.produitService
-            .getAllProduitsFemmes()
+    getAllProduits(): void {
+        this.produitFemmesService
+            .getAllProduits()
             .then(produits => {
                 this.produitsList = produits;
             });
@@ -93,12 +91,6 @@ export class ProduitsComponent implements OnInit {
                 this.famillesList = famille;
             });
     }
-
-
-
-    //*************** */
-    // EOF - FEMMES 
-    //****************/
 
     filterFamille(famille) {
         this.getProduitByFamille(famille);
@@ -132,22 +124,22 @@ export class ProduitsComponent implements OnInit {
     filterAll(arrayTailles, arrayMarques) {
 
         if(arrayMarques.length==0){
-            this.produitService
+            this.produitFemmesService
             .getProduitByFiltreTaille(arrayTailles)
             .then(produits => {
                 this.produitsList = produits;
             });
         }
         else{
-            if(arrayTailles.length==0){
-                this.produitService
+            if(arrayTailles.produitFemmesService==0){
+                this.produitFemmesService
                 .getProduitByFiltreMarque(arrayMarques)
                 .then(produits => {
                     this.produitsList = produits;
                 });
             }
             else{                
-                this.produitService
+                this.produitFemmesService
                 .getProduitByFiltres(arrayTailles,arrayMarques)
                 .then(produits => {
                     this.produitsList = produits;

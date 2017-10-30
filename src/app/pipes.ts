@@ -2,22 +2,23 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 import * as _ from 'lodash'; 
 
-@Pipe({
-    name: 'libelle',
-    pure: false
-})
-export class LibellePipe implements PipeTransform {
 
-    constructor(private titlecasePipe: TitleCasePipe) { }
-    transform(items: any[], term): any {
-        term = this.titlecasePipe.transform(term);
 
-        return term
-            ? items.filter(item => item.libelle.indexOf(term) !== -1)
-            : items;
-    }
+// @Pipe({
+//     name: 'libelle',
+//     pure: false
+// })
+// export class LibellePipe implements PipeTransform {
 
-}
+//     constructor(private titlecasePipe: TitleCasePipe) { }
+//     transform(items: any[], term): any {
+//         term = this.titlecasePipe.transform(term);
+
+//         return term
+//             ? items.filter(item => item.libelle.indexOf(term) !== -1)
+//             : items;
+//     }
+// }
 
 
 @Pipe({
