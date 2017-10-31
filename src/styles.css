@@ -736,109 +736,21 @@ h1, h2 {
   font-family: 'Dosis', sans-serif;
 }
 
+.noUi-base, .noUi-target{
+  background: #880015;
+  height: 2px;
+  width:300px;
+}
 
-  .range-slider{
-  position: relative;
-  width: 300px;
-  height: 100px;
-  float:none;
-  }
- 
+.noUi-horizontal .noUi-handle{
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #f4ecde;
+  top:-8px;
+}
 
 
-  input[type=range] {
-    border:none; 
-    position:absolute;
-    -webkit-appearance: none;
-    width: 100%;
-    margin: 0;
-    top: 50px;
-    outline: none;
-    
-  }
-  input[type=range]:focus {
-    outline: none;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 1.8px;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px #ffffff, 0px 0px 1px #ffffff;
-    background: #880015;
-    border-radius: 1.3px;
-    border: 0.2px solid #880015;
-  }
-  input[type=range]::-webkit-slider-thumb {
-    box-shadow: 0px 0px 0.9px #000000, 0px 0px 0px #0d0d0d;
-    border: 0.2px solid #f4ecde;
-    height: 20px;
-    width: 20px;
-    border-radius: 50px;
-    background: #f4ecde;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -9.3px;
-    position:relative;
-    z-index: 1;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #9c0018;
-  }
-  input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 1.8px;
-    cursor: pointer;
-    box-shadow: 1px 1px 1px #ffffff, 0px 0px 1px #ffffff;
-    background: #880015;
-    border-radius: 1.3px;
-    border: 0.2px solid #880015;
-  }
-  input[type=range]::-moz-range-thumb {
-    box-shadow: 0px 0px 0.9px #000000, 0px 0px 0px #0d0d0d;
-    border: 0.2px solid #f4ecde;
-    height: 20px;
-    width: 20px;
-    border-radius: 50px;
-    background: #f4ecde;
-    cursor: pointer;
-  }
-  input[type=range]::-ms-track {
-    width: 100%;
-    height: 1.8px;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-  input[type=range]::-ms-fill-lower {
-    background: #740012;
-    border: 0.2px solid #880015;
-    border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #ffffff, 0px 0px 1px #ffffff;
-  }
-  input[type=range]::-ms-fill-upper {
-    background: #880015;
-    border: 0.2px solid #880015;
-    border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #ffffff, 0px 0px 1px #ffffff;
-  }
-  input[type=range]::-ms-thumb {
-    box-shadow: 0px 0px 0.9px #000000, 0px 0px 0px #0d0d0d;
-    border: 0.2px solid #f4ecde;
-    height: 20px;
-    width: 20px;
-    border-radius: 50px;
-    background: #f4ecde;
-    cursor: pointer;
-    height: 1.8px;
-  }
-  input[type=range]:focus::-ms-fill-lower {
-    background: #880015;
-  }
-  input[type=range]:focus::-ms-fill-upper {
-    background: #9c0018;
-  }
-  
 
 
 /* EOF - Affichage tous les produits */

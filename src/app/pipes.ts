@@ -71,9 +71,14 @@ export class UniqueFournisseurPipe implements PipeTransform {
     pure: false
 })
 export class FilterPricePipe implements PipeTransform {
-    transform(items: any[], prixMin: number, prixMax: number): any {
+    prixMin: any;
+    prixMax: any;
+    transform(items: any[]): any {
+        this.prixMin = document.getElementById('skip-value-lower').innerHTML;
+        this.prixMax = document.getElementById('skip-value-upper').innerHTML;
+console.log(items);
         if (items !== undefined) {
-            return items.filter(item => item.prix < prixMax && item.prix > prixMin);
+            return items.filter(item => item.prix < this.prixMax && item.prix > this.prixMin);
         }
     }
 }

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import * as jQuery from 'jquery';
+import noUiSlider from 'nouislider';
+import wNumb from 'wnumb';
+
 
 import { Produit } from '../produits/produit';
 import { ProduitFemmesService } from './produitFemmes.service';
@@ -44,50 +47,58 @@ export class ProduitsFemmesComponent implements OnInit {
     prixMax: number;
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
-        private familleService: FamilleService, private fournisseurService: FournisseurService,private router: Router) { }
+        private familleService: FamilleService, private fournisseurService: FournisseurService, private router: Router) { }
 
     //*************** */
     // GLOBAL 
     //****************/
 
     ngOnInit(): void {
+        this.prixMin=0;
+        this.prixMax=200;
         this.getAllProduits();
         this.getAllTailleType();
         this.getFamilleBySexe();
-        // this.getAllFemmesFournisseurs();
-        this.rangeSlide();
-
+        this.filtrePrix();
         
     }
-    getVals(){
-        // Get slider values
-        // var parent = this.parentNode;
-        var slides = document.getElementsByTagName("input");
-        var slide1 = parseFloat( slides[0].value );
-        var slide2 = parseFloat( slides[1].value );
-    
-        console.log(slide1 +" "+ slide2);
-        // Neither slider will clip the other, so make sure we determine which is larger
-        if( slide1 > slide2 ){ var tmp = slide2; slide2 = slide1; slide1 = tmp; }
+
+    filtrePrix(): void {
+
+
+        var skipSlider = document.getElementById('skipstep') as noUiSlider.Instance;
+        var upper, lower;
+
+
+        noUiSlider.create(skipSlider, {
+            start: [0, 200],
+            range: {
+                'min': [0],
+                'max': [200],
+            },
+            step:1,
+            format: wNumb({
+                decimals: 0
+            })
+        });
+
+
+
+        var skipValues = [
+            document.getElementById('skip-value-lower'),
+            document.getElementById('skip-value-upper')
+        ];
+
         
-        var displayElement = document.getElementsByClassName("rangeValues")[0];
-            displayElement.innerHTML = "$ " + slide1 + "k - $" + slide2 + "k";
-      }
+        
+        skipSlider.noUiSlider.on('update', function( values, handle ) {
+            skipValues[handle].innerHTML = values[handle];
+            
+        });
 
-
-    rangeSlide(){
-        var sliderSections = document.getElementsByClassName("range-slider");
-        for (var x = 0; x < sliderSections.length; x++) {
-            var sliders = sliderSections[x].getElementsByTagName("input");
-            for (var y = 0; y < sliders.length; y++) {
-                if (sliders[y].type === "range") {
-                    sliders[y].oninput = this.getVals;
-                    // Manually trigger event first time to display values
-                    // sliders[y].oninput();
-                }
-            }
-        }
     }
+
+
 
 
     getAllTailleType() {
@@ -157,27 +168,27 @@ export class ProduitsFemmesComponent implements OnInit {
 
     filterAll(arrayTailles, arrayMarques) {
 
-        if(arrayMarques.length==0){
+        if (arrayMarques.length == 0) {
             this.produitFemmesService
-            .getProduitByFiltreTaille(arrayTailles)
-            .then(produits => {
-                this.produitsList = produits;
-            });
+                .getProduitByFiltreTaille(arrayTailles)
+                .then(produits => {
+                    this.produitsList = produits;
+                });
         }
-        else{
-            if(arrayTailles.produitFemmesService==0){
+        else {
+            if (arrayTailles.produitFemmesService == 0) {
                 this.produitFemmesService
-                .getProduitByFiltreMarque(arrayMarques)
-                .then(produits => {
-                    this.produitsList = produits;
-                });
+                    .getProduitByFiltreMarque(arrayMarques)
+                    .then(produits => {
+                        this.produitsList = produits;
+                    });
             }
-            else{                
+            else {
                 this.produitFemmesService
-                .getProduitByFiltres(arrayTailles,arrayMarques)
-                .then(produits => {
-                    this.produitsList = produits;
-                });
+                    .getProduitByFiltres(arrayTailles, arrayMarques)
+                    .then(produits => {
+                        this.produitsList = produits;
+                    });
             }
         }
 
