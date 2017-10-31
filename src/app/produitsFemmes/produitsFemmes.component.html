@@ -38,10 +38,10 @@
                         <div class="col-3">
                             <h3>Prix</h3>
                             <section class="range-slider">
-                                    <span class="rangeValues"></span>
-                                    <input value="500" min="500" max="50000" step="500" type="range">
-                                    <input value="50000" min="500" max="50000" step="500" type="range">
-                                  </section>
+                                <span class="rangeValues"></span>
+                                <input value="prixMin" min="500" max="50000" step="500" type="range">
+                                <input value="prixMax" min="500" max="50000" step="500" type="range">
+                            </section>
                         </div>
                         <div class="col-3">
                             <h3>Marques</h3>
@@ -67,9 +67,9 @@
 
                 </div>
 
-<!-- | filterPrice: prixMin: prixMax -->
+                <!-- | filterPrice: prixMin: prixMax -->
                 <div id="products_all_view">
-                        <ul id="products_view" *ngFor="let produit of produitsList | unique ">
+                    <ul id="products_view" *ngFor="let produit of produitsList | unique ">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
@@ -87,5 +87,21 @@
 
 
 
-<script src= "../../../slider.js"></script>
+<!-- <script src="../../../slider.js"></script> -->
+<!-- <script>
+    window.onload = function () {
+        console.log("test");
+        var sliderSections = document.getElementsByClassName("range-slider");
+        for (var x = 0; x < sliderSections.length; x++) {
+            var sliders = sliderSections[x].getElementsByTagName("input");
+            for (var y = 0; y < sliders.length; y++) {
+                if (sliders[y].type === "range") {
+                    sliders[y].oninput = getVals;
+                    // Manually trigger event first time to display values
+                    sliders[y].oninput();
+                }
+            }
+        }
+    }
 
+</script> -->
