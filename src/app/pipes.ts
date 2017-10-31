@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
-import * as _ from 'lodash'; 
+import * as _ from 'lodash';
 
 
 
@@ -26,7 +26,7 @@ import * as _ from 'lodash';
 })
 export class SortByPipe implements PipeTransform {
     transform(items: any[], sortedBy: string): any {
-        console.log('sortedBy', sortedBy);
+        // console.log('sortedBy', sortedBy);
         if (items !== undefined) {
             return items.sort((a: any, b: any) => { return b[sortedBy] - a[sortedBy] });
         }
@@ -38,31 +38,42 @@ export class SortByPipe implements PipeTransform {
 @Pipe({
     name: 'unique',
     pure: false
-  })
-  
-  export class UniquePipe implements PipeTransform {
-      transform(value: any): any{
-          if(value!== undefined && value!== null){
-              return _.uniqBy(value, 'id');
-          }
-          return value;
-      }
-  }
+})
+
+export class UniquePipe implements PipeTransform {
+    transform(value: any): any {
+        if (value !== undefined && value !== null) {
+            return _.uniqBy(value, 'id');
+        }
+        return value;
+    }
+}
 
 
 
-  
-  @Pipe({
+@Pipe({
     name: 'uniqueFournisseur',
     pure: false
-  })
-  
-  export class UniqueFournisseurPipe implements PipeTransform {
-      transform(value: any): any{
-          if(value!== undefined && value!== null){
-              return _.uniqBy(value, 'fournisseur');
-          }
-          return value;
-      }
-  }
-  
+})
+
+export class UniqueFournisseurPipe implements PipeTransform {
+    transform(value: any): any {
+        if (value !== undefined && value !== null) {
+            return _.uniqBy(value, 'fournisseur');
+        }
+        return value;
+    }
+}
+
+
+@Pipe({
+    name: 'filterPrice',
+    pure: false
+})
+export class FilterPricePipe implements PipeTransform {
+    transform(items: any[], prixMin: number, prixMax: number): any {
+        if (items !== undefined) {
+            return items.filter(item => item.prix < prixMax && item.prix > prixMin);
+        }
+    }
+}

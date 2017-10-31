@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import * as jQuery from 'jquery';
+
 import { Produit } from '../produits/produit';
 import { ProduitFemmesService } from './produitFemmes.service';
 import { ProduitService } from '../produits/produit.service';
