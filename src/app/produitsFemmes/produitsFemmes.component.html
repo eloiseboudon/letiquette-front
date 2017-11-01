@@ -62,13 +62,13 @@
                     </div>
 
                 </div>  
-                <!-- <input type="text" [(ngModel)]="prixMin" id="skip-value-lower">
-                <input type="text" [(ngModel)]="prixMax" id="skip-value-upper"> -->
-                <span class="example-val" id="skip-value-lower">{{prixMin}}</span>
+<!-- Filtres prix -->
+                <span class="example-val" id="skip-value-lower"></span>
                 <span class="example-val" id="skip-value-upper"></span>
+<!-- EOF - Filtres prix -->
                 <div id="products_all_view">
                   
-                    <ul id="products_view" *ngFor="let produit of produitsList | unique | filterPrice">
+                    <ul id="products_view" *ngFor="let produit of produitsList | filterPrice">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>

@@ -736,10 +736,14 @@ h1, h2 {
   font-family: 'Dosis', sans-serif;
 }
 
+.noUi-horizontal{
+  margin-top:20px;
+}
+
 .noUi-base, .noUi-target{
   background: #880015;
   height: 2px;
-  width:300px;
+  width:250px;
 }
 
 .noUi-horizontal .noUi-handle{
@@ -748,6 +752,15 @@ h1, h2 {
   border-radius: 50px;
   background: #f4ecde;
   top:-8px;
+}
+
+.noUi-horizontal .noUi-tooltip {
+  bottom: -230%;
+}
+
+
+.example-val{
+  visibility: hidden;
 }
 
 

@@ -55,7 +55,7 @@ export class ProduitsFemmesComponent implements OnInit {
 
     ngOnInit(): void {
         this.prixMin=0;
-        this.prixMax=200;
+        this.prixMax=150;
         this.getAllProduits();
         this.getAllTailleType();
         this.getFamilleBySexe();
@@ -65,16 +65,15 @@ export class ProduitsFemmesComponent implements OnInit {
 
     filtrePrix(): void {
 
-
         var skipSlider = document.getElementById('skipstep') as noUiSlider.Instance;
         var upper, lower;
 
-
         noUiSlider.create(skipSlider, {
-            start: [0, 200],
+            start: [this.prixMin,  this.prixMax],
+            tooltips: true,
             range: {
-                'min': [0],
-                'max': [200],
+                'min': [this.prixMin],
+                'max': [ this.prixMax],
             },
             step:1,
             format: wNumb({
@@ -82,15 +81,11 @@ export class ProduitsFemmesComponent implements OnInit {
             })
         });
 
-
-
         var skipValues = [
             document.getElementById('skip-value-lower'),
             document.getElementById('skip-value-upper')
         ];
 
-        
-        
         skipSlider.noUiSlider.on('update', function( values, handle ) {
             skipValues[handle].innerHTML = values[handle];
             
