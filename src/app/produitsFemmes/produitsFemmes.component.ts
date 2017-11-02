@@ -32,7 +32,7 @@ import { FournisseurService } from '../fournisseurs/fournisseur.service';
 
 
 export class ProduitsFemmesComponent implements OnInit {
-
+    fournisseurList: Fournisseur[];
     produitsTailleList: Produit[];
     familleFilter: boolean = false;
     famillesList: Famille[];
@@ -58,6 +58,7 @@ export class ProduitsFemmesComponent implements OnInit {
         this.prixMax=150;
         this.getAllProduits();
         this.getAllTailleType();
+        this.getAllMarques();
         this.getFamilleBySexe();
         this.filtrePrix();
         
@@ -94,8 +95,6 @@ export class ProduitsFemmesComponent implements OnInit {
     }
 
 
-
-
     getAllTailleType() {
         this.tailleTypeService
             .getAllTailleType()
@@ -110,6 +109,15 @@ export class ProduitsFemmesComponent implements OnInit {
             .then(tailleType => {
                 this.tailleTypeList = tailleType;
             });
+    }
+
+
+    getAllMarques(): void{
+        this.fournisseurService
+        .getAllFournisseurs()
+        .then(fournisseur => {
+            this.fournisseurList = fournisseur;
+        });
     }
 
     getAllProduits(): void {
@@ -161,6 +169,19 @@ export class ProduitsFemmesComponent implements OnInit {
         }
     }
 
+    filterMarque(marque){
+        console.log(marque);
+        this.arrayFiltresMarque.push(marque.id);
+        if (this.familleFilter) {
+            // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
+        }
+        else {
+            // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
+            this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
+        }
+
+    }
+
     filterAll(arrayTailles, arrayMarques) {
 
         if (arrayMarques.length == 0) {
@@ -171,7 +192,7 @@ export class ProduitsFemmesComponent implements OnInit {
                 });
         }
         else {
-            if (arrayTailles.produitFemmesService == 0) {
+            if (arrayTailles.length == 0) {
                 this.produitFemmesService
                     .getProduitByFiltreMarque(arrayMarques)
                     .then(produits => {

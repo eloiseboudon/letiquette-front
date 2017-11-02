@@ -62,9 +62,9 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                    <ul *ngFor="let marque of produitsList | uniqueFournisseur">
+                                    <ul *ngFor="let marque of fournisseurList ">
                                         <li>
-                                            <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
+                                            <span (click)=filterMarque(marque)>{{marque.nomMarque}}</span>
                                         </li>
                                     </ul>
                                 </div>
