@@ -45,6 +45,8 @@ export class ProduitsFemmesComponent implements OnInit {
     arrayFiltresMatiere: number[] = [];
     prixMin: number;
     prixMax: number;
+    p: number = 1;
+    pageSize=2;
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
         private familleService: FamilleService, private fournisseurService: FournisseurService, private router: Router) { }
@@ -61,7 +63,6 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getAllMarques();
         this.getFamilleBySexe();
         this.filtrePrix();
-
     }
 
     filtrePrix(): void {

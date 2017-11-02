@@ -4,6 +4,7 @@ import { RouterModule, Routes }   from '@angular/router';
 import { HttpModule }    from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { TitleCasePipe } from '@angular/common';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 
 import { AppComponent } from './app.component';
@@ -62,7 +63,8 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } 
     ),
-    HttpModule
+    HttpModule,
+    NgxPaginationModule
   ],
   providers: [
     PaysService,

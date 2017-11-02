@@ -30,8 +30,8 @@
                                     <span class="fa fa-caret-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <ul *ngFor="let taille of tailleTypeList">
-                                        <li (click)=filterTaille(taille) [ngClass]="taille.isActive==true ? 'tailleActive' : 'tailleNonActive'">
+                                    <ul>
+                                        <li *ngFor="let taille of tailleTypeList" (click)=filterTaille(taille) [ngClass]="taille.isActive==true ? 'tailleActive' : 'tailleNonActive'">
                                             <span>{{taille.taille}}</span>
                                         </li>
                                     </ul>
@@ -135,7 +135,19 @@
                             </div>
                         </div>
 
+
+                    </div>
+                </div>
+
+
+                <div id="affichage_produit">
+                    <div class="row">
+                        <div class="col-6">
+                                <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Précédent"
+                                nextLabel="Suivant"></pagination-controls>
+                        </div>
                         <div class="col-3">
+
                             <div class="dropdown" id="dropdown-tri">
                                 <button class="btn btn-secondary btn-tri" type="button" data-toggle="dropdown" aria-expanded="false">
                                     <span class="dropdown-titre">Trier par</span>
@@ -155,24 +167,41 @@
                                         </li>
                                     </ul>
                                 </div>
-
                             </div>
+                        </div>
 
+                        <div class="col-3">
 
+                            <div class="dropdown" id="dropdown-nbItemsPage">
+                                <button class="btn btn-secondary btn-tri" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="dropdown-titre">
+                                        Articles par ligne
+                                        <!-- <i class="fa fa-th-large" aria-hidden="true"></i> -->
+                                    </span>
+                                    <span class="fa fa-caret-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <ul>
+                                        <li (click)="pageSize='4'">
+                                            <span>4</span>
+                                        </li>
+                                        <li (click)="pageSize='8'">
+                                            <span>8</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
 
                 <!-- Filtres prix -->
                 <span class="example-val" id="skip-value-lower"></span>
                 <span class="example-val" id="skip-value-upper"></span>
                 <!-- EOF - Filtres prix -->
-
-
                 <div id="products_all_view">
 
-                    <ul id="products_view" *ngFor="let produit of produitsList | filterPrice | unique | sortBy: 'prix' : tri">
+                    <ul id="products_view" *ngFor="let produit of produitsList | filterPrice | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p }">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
@@ -181,8 +210,12 @@
                         <li class="prix">{{produit.prix}} €</li>
                     </ul>
                 </div>
-            </div>
 
+
+                <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Précédent"
+                nextLabel="Suivant"></pagination-controls>
+
+            </div>
         </div>
     </div>
 </div>

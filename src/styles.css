@@ -697,7 +697,6 @@ h1, h2 {
 /* FAMILLES FILTRES  */
 .contenu #familles_filtres{
   background-color: #FBFFFE;
-  /* border:1px solid #880015; */
   height:100%;
   padding-left:8px;
   padding-top:8px;
@@ -720,9 +719,10 @@ h1, h2 {
 /*  FILRES GLOBAUX */
 .contenu #filtres{  
   background-color: #FBFFFE;
-  margin-bottom: 10px;
-  margin-left: 8px;
+  margin-bottom: 8px;
   padding-left: 8px;
+  padding-right: 8px;
+  padding-top:8px;
 }
 
 
@@ -732,60 +732,56 @@ h1, h2 {
 }
 
 
-.contenu #filtres .btn-filter, .contenu #filtres .btn-tri{
-  width:250px;
+.contenu #filtres .btn-filter,  .contenu #affichage_produit .btn-tri{
   margin: 10px;
+  min-width: 100%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.contenu #filtres .btn-filter .dropdown-titre, .contenu #filtres .btn-tri .dropdown-titre{
+.contenu #filtres .btn-filter .dropdown-titre,  .contenu #affichage_produit .btn-tri .dropdown-titre{
   font-family: 'Dosis', sans-serif;
   font-size:24px;  
-  float:left;
+  padding-left: 10px;
+  padding-right: 20px;
+  text-align: left;
 }
 
-.contenu #filtres .btn-tri .dropdown-titre{
-  color: #880015;
+.contenu #filtres .btn-filter span, .contenu #affichage_produit .btn-tri span{
+  display:block;
 }
 
-.contenu #filtres .btn-filter .fa, .contenu #filtres .btn-tri .fa{
+.contenu #filtres .btn-filter .fa, .contenu #affichage_produit .fa{
+ font-size: 22px; 
   bottom: 22px;
   margin: 0;
   position: absolute;
-  right: 90px;
-  font-size: 22px;
+  right:10px;
 
 }
 
-.contenu #filtres .dropdown-toggle::after{
+.contenu #filtres .dropdown-toggle::after, .contenu #affichage_produit .dropdown-toggle::after,{
   text-align:right;
 }
 
 
-.contenu #filtres .btn-group .btn-dropdown{
-  border-left: none;
-}
-
 
 /*  FILTRE PRIX */
-.noUi-horizontal{
-  margin-top:20px;
-}
-
-.noUi-base, .noUi-target{
-  background: #880015;
-  height: 2px;
-  width:220px;
-  
-}
-
-.noUi-horizontal{
+.noUi-horizontal{  
   margin:20px;
   margin-top:50px;
 }
 
+.noUi-base, .noUi-target{
+  background: #880015;
+  height: 2px; 
+  width:220px;
+  
+}
+
+
 .noUi-horizontal .noUi-handle{  
-  /* margin-left:5px; */
-  /* margin:10px; */
   height: 20px;
   width: 20px;
   border-radius: 50px;
@@ -807,28 +803,35 @@ h1, h2 {
   visibility: hidden;
 }
 
-#filtres .dropdown .dropdown-menu{
+/* #filtres .dropdown,  #affichage_produit .dropdown{
+  text-align: center;
+} */
+
+#filtres .dropdown .dropdown-menu, #affichage_produit .dropdown .dropdown-menu{
   padding-left: 16px;
   padding-right: 16px;
+  font-size: 20px;
 }
 
 /* FILTRES TAILLES */
 
-#filtres #dropdown-tailles ul{
-  list-style:none;  
-  display:inline-block;
-  padding:5px;
+#filtres #dropdown-tailles ul, #affichage_produit #dropdown-nbItemsPage ul{
+padding:0;
   margin:0;
 }
 
 
-#filtres #dropdown-tailles .dropdown-menu li{
+#filtres #dropdown-tailles .dropdown-menu li, #affichage_produit #dropdown-nbItemsPage li{
+  list-style:none;  
+  display:inline-block;
+  padding:5px;
+  margin:5px;
   border: 1px solid #880015;
   width:40px;
   text-align: center;
 }
 
-#filtres #dropdown-tailles .dropdown-menu li:hover{
+#filtres #dropdown-tailles .dropdown-menu li:hover, #affichage_produit #dropdown-nbItemsPage li:hover{
   background-color:  #BE737F;
   color:white;
   cursor: pointer;
@@ -839,19 +842,49 @@ h1, h2 {
   color:white;
 }
 
-#filtres #dropdown-tri ul{
+#affichage_produit{
+  margin-bottom: 8px;
+  padding-left: 8px;
+  padding-top:8px;
+}
+
+#affichage_produit #dropdown-tri ul{
   list-style:none;    
   padding:5px;
   margin:0;
 }
 
 
-#filtres #dropdown-tri .dropdown-menu li:hover{
-  font-size: 18px;
+#affichage_produit #dropdown-tri .dropdown-menu li:hover{
+  font-size: 22px;
   font-weight: 400;
   cursor: pointer;
 }
 
+.my-pagination .ngx-pagination{
+  margin-top:10px;
+}
+
+.my-pagination /deep/ .ngx-pagination .current{
+  background: #880015;
+  color:white;
+}
+
+.my-pagination .ngx-pagination li:not(.current):hover{
+  color: #880015;  
+}
+
+.my-pagination .ngx-pagination a:hover,.my-pagination .ngx-pagination button:hover, 
+.my-pagination .ngx-pagination li:not(.pagination-next) button:hover, .my-pagination .ngx-pagination li:not(.pagination-next) a:hover{
+  background: white;
+  border-radius: 50%;
+}
+
+.my-pagination .ngx-pagination li{
+  border-radius: 50%;
+  margin:2px;
+  font-size:18px;
+}
 
 
 /* EOF - Affichage tous les produits */
