@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
-
+import { Router }            from '@angular/router';
 
 import { Ville } from './ville';
 import { VilleService } from './ville.service';
+
+
+import { Pays } from '../pays/pays';
+import { PaysService } from '../pays/pays.service';
 
 @Component({
     selector: 'villes-root',
@@ -11,16 +14,46 @@ import { VilleService } from './ville.service';
 })
 
 export class VillesComponent implements OnInit {
+    villesList: Ville[];
     villes: Ville[];
-    selectedVille: Ville;
+    pays:Pays[];
+    paysList:Pays[];
 
-    constructor (private http: Http){}
-
-    ngOnInit(){
-        this.http.get("http://127.0.0.1:8000/villes").subscribe(
-            (res: Response) => {
-                this.villes = res.json();               
-            }
-        )
+    constructor (private villeService: VilleService, private paysService: PaysService, private router: Router) { }
+    
+    ngOnInit(): void {
+        this.getAllVille();
+        this.getAllPays();
     }
+
+    getAllVille(): void {
+        this.villeService
+            .getVilles()
+            .then(villes => {
+                this.villesList = villes;
+            });
+    }
+    
+    getAllPays(): void {
+        this.paysService
+            .getAllPays()
+            .then(pays => {
+                this.paysList = pays;
+            });  
+    } 
+
+
+    create(name, codePostal, idPays): void {
+        this.villeService
+        .create(name, codePostal, idPays)
+        .then(new_ville => {
+            this.villesList.push(new_ville);
+            console.log(this.villesList);
+        });
+    }
+
+    delete(idVille): void {
+        this.villeService.delete(idVille);
+    }
+
 }

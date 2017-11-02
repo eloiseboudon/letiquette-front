@@ -8,24 +8,17 @@ import { Pays } from './pays';
 @Injectable()
 export class PaysService {
 
-    // private headers = new Headers({'Content-Type': 'application/json, application/x-www-form-urlencoded;charset=utf-8, multipart/form-data, text/plain',
-    // 'Accept' : 'application/json'});
-
-    // private headers = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-
-
     private paysUrl = 'http://127.0.0.1:8000/pays';
-
 
     constructor(private http: Http) { }
 
     getAllPays(): Promise<Pays[]> {
-        // console.log(this.paysUrl);
+        console.log("test");
         return this.http.get(this.paysUrl)
             .toPromise()
             .then(response =>
-                 response.json() as Pays[] )
+                 response.json() as Pays[])
             .catch(this.handleError); 
     }
 
@@ -47,17 +40,6 @@ export class PaysService {
     // }
 
     create(name: string): Promise<Pays>{  
-        // console.log(JSON.stringify({name: name}));
-        // let dataJson = JSON.stringify({name: name});
-        // let data = {name: name};
-
-
-        // const data = new URLSearchParams();
-        // data.set("name", name);
-
-        // let data = new URLSearchParams();
-        // data.set('name', name);
-
         let data ='name='+name;
 
         return this.http

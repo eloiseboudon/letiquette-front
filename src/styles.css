@@ -648,3 +648,193 @@ h1, h2 {
   font-size:1.5em;
   font-family: 'Quicksand', sans-serif;
 }
+
+
+
+
+/* Affichage tous les produits */
+
+
+.contenu #products_view{
+  padding: 16px 10px 0 10px;
+  background: #FBFFFE; 
+}
+.contenu #products_all_view{
+  margin-left:42.5px;
+}
+
+.contenu #products_all_view ul {
+  list-style:none;
+  margin-left:10px;
+  width:320px;
+  display:inline-block;
+  margin-right:10px;
+}
+
+
+.contenu #products_view img{
+  width:300px;
+}
+
+
+.contenu #products_view .marque{
+  font-size:20px;
+  font-weight: bolder;
+
+}
+
+
+.contenu #products_view .libelle{
+  text-align:center;
+}
+
+.contenu #products_view .prix{
+  text-align:center;
+  font-weight: bold;
+  color:#880015;
+}
+
+/* FAMILLES FILTRES  */
+.contenu #familles_filtres{
+  background-color: #FBFFFE;
+  /* border:1px solid #880015; */
+  height:100%;
+  padding-left:8px;
+  padding-top:8px;
+}
+
+.contenu #familles_filtres h2{  
+  font-family: 'Dosis', sans-serif;
+  color:#880015;
+}
+
+
+.contenu #familles_filtres .famille span{
+  font-size:1.3em;
+}
+
+.contenu #familles_filtres ul{ 
+  list-style:none;
+}
+
+/*  FILRES GLOBAUX */
+.contenu #filtres{  
+  background-color: #FBFFFE;
+  margin-bottom: 10px;
+  margin-left: 8px;
+  padding-left: 8px;
+}
+
+
+.contenu #filtres h2{
+  color:#880015;
+  font-size:36px;
+}
+
+
+.contenu #filtres .btn-filter{
+  width:250px;
+  margin: 10px;
+}
+
+.contenu #filtres .btn-filter .dropdown-titre{
+  font-family: 'Dosis', sans-serif;
+  font-size:24px;  
+  float:left;
+}
+
+.contenu #filtres .btn-filter .fa{
+  bottom: 22px;
+  margin: 0;
+  position: absolute;
+  right: 90px;
+  font-size: 22px;
+
+}
+
+.contenu #filtres .dropdown-toggle::after{
+  /* margin-left: none; */
+  text-align:right;
+}
+
+
+.contenu #filtres .btn-group .btn-dropdown{
+  border-left: none;
+}
+
+
+/*  FILTRE PRIX */
+.noUi-horizontal{
+  margin-top:20px;
+}
+
+.noUi-base, .noUi-target{
+  background: #880015;
+  height: 2px;
+  width:220px;
+  
+}
+
+.noUi-horizontal{
+  margin:20px;
+  margin-top:50px;
+}
+
+.noUi-horizontal .noUi-handle{  
+  /* margin-left:5px; */
+  /* margin:10px; */
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #f4ecde;
+  top:-8px;
+}
+
+
+.noUi-handle-upper{
+  margin-left:10px;
+}
+
+.noUi-horizontal .noUi-tooltip {
+  color: #880015;
+}
+
+
+.example-val{
+  visibility: hidden;
+}
+
+#filtres .dropdown .dropdown-menu{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* FILTRES TAILLES */
+
+#filtres #dropdown-tailles ul{
+  list-style:none;  
+  display:inline-block;
+  padding:5px;
+  margin:0;
+}
+
+
+#filtres #dropdown-tailles .dropdown-menu li{
+  border: 1px solid #880015;
+  width:40px;
+  text-align: center;
+}
+
+#filtres #dropdown-tailles .dropdown-menu li:hover{
+  background-color:  #BE737F;
+  color:white;
+  cursor: pointer;
+}
+
+#filtres #dropdown-tailles .dropdown-menu .tailleActive{
+  background-color: #880015;
+  color:white;
+}
+
+
+/* EOF - Affichage tous les produits */
