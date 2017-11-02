@@ -134,16 +134,45 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-3">
+                            <div class="dropdown" id="dropdown-tri">
+                                <button class="btn btn-secondary btn-tri" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="dropdown-titre">Trier par</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <ul>
+                                        <li>
+                                            <span (click)="tri='asc'">
+                                                Prix croissant
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span (click)="tri='desc'">
+                                                Prix décroissant
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+
+                        </div>
                     </div>
 
                 </div>
+
                 <!-- Filtres prix -->
                 <span class="example-val" id="skip-value-lower"></span>
                 <span class="example-val" id="skip-value-upper"></span>
                 <!-- EOF - Filtres prix -->
+
+
                 <div id="products_all_view">
 
-                    <ul id="products_view" *ngFor="let produit of produitsList | filterPrice | unique">
+                    <ul id="products_view" *ngFor="let produit of produitsList | filterPrice | unique | sortBy: 'prix' : tri">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
