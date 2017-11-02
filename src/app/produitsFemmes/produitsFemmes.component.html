@@ -5,7 +5,7 @@
         </h1>
         <div class="row">
             <div class="col-2">
-                <div id="products_filtres">
+                <div id="familles_filtres">
                     <h2>
                         <span (click)="getAllProduitsFemmes()">Tous les produits</span>
                     </h2>
@@ -17,7 +17,6 @@
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
             <div class="col-10">
@@ -25,37 +24,37 @@
                     <h2>Filtres</h2>
                     <div class="row">
                         <div class="col-3">
-                            <div class="dropdown">
+                            <div class="dropdown" id="dropdown-tailles">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
                                     <span class="dropdown-titre">Tailles</span>
                                     <span class="fa fa-caret-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <ul *ngFor="let taille of tailleTypeList">
-                                        <li>
-                                            <span (click)=filterTaille(taille)>{{taille.taille}}</span>
+                                        <li (click)=filterTaille(taille)>
+                                            <span >{{taille.taille}}</span>
                                         </li>
                                     </ul>
                                 </div>
+                                
                             </div>
                         </div>
 
                         <div class="col-3">
 
-                            <div class="dropdown">
+                            <div class="dropdown" id="dropdown-prix">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
                                     <span class="dropdown-titre">Prix</span>
                                     <span class="fa fa-caret-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
                                     <div id="skipstep"></div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-3">
-                            <div class="dropdown">
+                            <div class="dropdown" id="dropdown-marques">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
                                     <span class="dropdown-titre">Marques</span>
                                     <span class="fa fa-caret-down"></span>
@@ -71,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col-3">
-                            <div class="dropdown">
+                            <div class="dropdown" id="dropdown-couleurs">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
                                     <span class="dropdown-titre">Couleurs</span>
                                     <span class="fa fa-caret-down"></span>
@@ -87,7 +86,7 @@
                             </div>
                         </div>
                         <div class="col-3">
-                                <div class="dropdown">
+                                <div class="dropdown" id="dropdown-matieres">
                                         <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
                                             <span class="dropdown-titre">Matières</span>
                                             <span class="fa fa-caret-down"></span>
@@ -103,7 +102,7 @@
                                     </div>
                         </div>
                         <div class="col-3">
-                                <div class="dropdown">
+                                <div class="dropdown" id="dropdown-occasions">
                                         <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
                                             <span class="dropdown-titre">Occasions</span>
                                             <span class="fa fa-caret-down"></span>
@@ -119,7 +118,7 @@
                                     </div>
                         </div>
                         <div class="col-3">
-                                <div class="dropdown">
+                                <div class="dropdown" id="dropdown-impact_ecolo">
                                         <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
                                             <span class="dropdown-titre">Impact écologique</span>
                                             <span class="fa fa-caret-down"></span>
