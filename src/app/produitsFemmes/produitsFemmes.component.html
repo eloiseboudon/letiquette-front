@@ -7,7 +7,7 @@
             <div class="col-2">
                 <div id="familles_filtres">
                     <h2>
-                        <span (click)="getAllProduitsFemmes()">Tous les produits</span>
+                        <span (click)="getAllProduits()">Tous les produits</span>
                     </h2>
 
                     <div class="famille">
@@ -31,12 +31,12 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <ul *ngFor="let taille of tailleTypeList">
-                                        <li (click)=filterTaille(taille)>
-                                            <span >{{taille.taille}}</span>
+                                        <li (click)=filterTaille(taille) [ngClass]="taille.isActive==true ? 'tailleActive' : 'tailleNonActive'">
+                                            <span>{{taille.taille}}</span>
                                         </li>
                                     </ul>
                                 </div>
-                                
+
                             </div>
                         </div>
 
@@ -60,12 +60,13 @@
                                     <span class="fa fa-caret-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                                    <ul *ngFor="let marque of fournisseurList ">
-                                        <li>
-                                            <span (click)=filterMarque(marque)>{{marque.nomMarque}}</span>
-                                        </li>
-                                    </ul>
+                                    <table>
+                                        <tr *ngFor="let marque of fournisseurList ">
+                                            <td>
+                                                <input type="checkbox" (change)=ifChange(marque)> {{marque.nomMarque}}
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -86,52 +87,52 @@
                             </div>
                         </div>
                         <div class="col-3">
-                                <div class="dropdown" id="dropdown-matieres">
-                                        <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="dropdown-titre">Matières</span>
-                                            <span class="fa fa-caret-down"></span>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        
-                                            <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
+                            <div class="dropdown" id="dropdown-matieres">
+                                <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="dropdown-titre">Matières</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                    <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
                                                 <li>
                                                     <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
                                                 </li>
                                             </ul> -->
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-3">
-                                <div class="dropdown" id="dropdown-occasions">
-                                        <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="dropdown-titre">Occasions</span>
-                                            <span class="fa fa-caret-down"></span>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        
-                                            <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
+                            <div class="dropdown" id="dropdown-occasions">
+                                <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="dropdown-titre">Occasions</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                    <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
                                                 <li>
                                                     <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
                                                 </li>
                                             </ul> -->
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-3">
-                                <div class="dropdown" id="dropdown-impact_ecolo">
-                                        <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
-                                            <span class="dropdown-titre">Impact écologique</span>
-                                            <span class="fa fa-caret-down"></span>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        
-                                            <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
+                            <div class="dropdown" id="dropdown-impact_ecolo">
+                                <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    <span class="dropdown-titre">Impact écologique</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                    <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
                                                 <li>
                                                     <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
                                                 </li>
                                             </ul> -->
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -142,7 +143,7 @@
                 <!-- EOF - Filtres prix -->
                 <div id="products_all_view">
 
-                    <ul id="products_view" *ngFor="let produit of produitsList | filterPrice">
+                    <ul id="products_view" *ngFor="let produit of produitsList | filterPrice | unique">
                         <a href="#">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>

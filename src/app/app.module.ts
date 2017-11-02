@@ -17,7 +17,7 @@ import { ProduitsFemmesComponent } from './produitsFemmes/produitsFemmes.compone
 
 
 import { PageNotFoundComponent } from './not-found.component';
-import { SortByPipe, UniquePipe, UniqueFournisseurPipe, FilterPricePipe } from './pipes';
+import { SortByPipe, UniquePipe, FilterPricePipe } from './pipes';
 
 import { PaysService } from './pays/pays.service';
 import { VilleService } from './villes/ville.service';
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     // LibellePipe, 
     SortByPipe, 
-    UniquePipe, UniqueFournisseurPipe, FilterPricePipe
+    UniquePipe, FilterPricePipe
   ],
   imports: [
     BrowserModule,

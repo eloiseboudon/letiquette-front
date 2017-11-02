@@ -51,20 +51,6 @@ export class UniquePipe implements PipeTransform {
 
 
 
-@Pipe({
-    name: 'uniqueFournisseur',
-    pure: false
-})
-
-export class UniqueFournisseurPipe implements PipeTransform {
-    transform(value: any): any {
-        if (value !== undefined && value !== null) {
-            return _.uniqBy(value, 'fournisseur');
-        }
-        return value;
-    }
-}
-
 
 @Pipe({
     name: 'filterPrice',

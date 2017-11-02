@@ -831,5 +831,10 @@ h1, h2 {
   cursor: pointer;
 }
 
+#filtres #dropdown-tailles .dropdown-menu .tailleActive{
+  background-color: #880015;
+  color:white;
+}
+
 
 /* EOF - Affichage tous les produits */
