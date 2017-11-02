@@ -732,18 +732,22 @@ h1, h2 {
 }
 
 
-.contenu #filtres .btn-filter{
+.contenu #filtres .btn-filter, .contenu #filtres .btn-tri{
   width:250px;
   margin: 10px;
 }
 
-.contenu #filtres .btn-filter .dropdown-titre{
+.contenu #filtres .btn-filter .dropdown-titre, .contenu #filtres .btn-tri .dropdown-titre{
   font-family: 'Dosis', sans-serif;
   font-size:24px;  
   float:left;
 }
 
-.contenu #filtres .btn-filter .fa{
+.contenu #filtres .btn-tri .dropdown-titre{
+  color: #880015;
+}
+
+.contenu #filtres .btn-filter .fa, .contenu #filtres .btn-tri .fa{
   bottom: 22px;
   margin: 0;
   position: absolute;
@@ -753,7 +757,6 @@ h1, h2 {
 }
 
 .contenu #filtres .dropdown-toggle::after{
-  /* margin-left: none; */
   text-align:right;
 }
 
@@ -835,6 +838,20 @@ h1, h2 {
   background-color: #880015;
   color:white;
 }
+
+#filtres #dropdown-tri ul{
+  list-style:none;    
+  padding:5px;
+  margin:0;
+}
+
+
+#filtres #dropdown-tri .dropdown-menu li:hover{
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
 
 
 /* EOF - Affichage tous les produits */

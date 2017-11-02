@@ -25,10 +25,14 @@ import * as _ from 'lodash';
     name: 'sortBy'
 })
 export class SortByPipe implements PipeTransform {
-    transform(items: any[], sortedBy: string): any {
-        // console.log('sortedBy', sortedBy);
+    transform(items: any[], sortedBy: string, order: any): any {
         if (items !== undefined) {
-            return items.sort((a: any, b: any) => { return b[sortedBy] - a[sortedBy] });
+            if (order == 'desc') {
+                return items.sort((a: any, b: any) => { return b[sortedBy] - a[sortedBy] });
+            }else{
+                return items.sort((a: any, b: any) => { return a[sortedBy] - b[sortedBy] });
+            }
+
         }
     }
 }
@@ -61,7 +65,7 @@ export class FilterPricePipe implements PipeTransform {
     prixMax: number;
     transform(items: any[]): any {
         this.prixMin = parseInt(document.getElementById('skip-value-lower').innerHTML);
-        this.prixMax =  parseInt(document.getElementById('skip-value-upper').innerHTML);
+        this.prixMax = parseInt(document.getElementById('skip-value-upper').innerHTML);
         if (items !== undefined) {
             return items.filter(item => item.prix < this.prixMax && item.prix > this.prixMin);
         }
