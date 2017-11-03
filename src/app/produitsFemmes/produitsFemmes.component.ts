@@ -46,7 +46,7 @@ export class ProduitsFemmesComponent implements OnInit {
     prixMin: number;
     prixMax: number;
     p: number = 1;
-    pageSize=2;
+    pageSize=4;
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
         private familleService: FamilleService, private fournisseurService: FournisseurService, private router: Router) { }

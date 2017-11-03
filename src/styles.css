@@ -656,7 +656,7 @@ h1, h2 {
 
 
 .contenu #products_view{
-  padding: 16px 10px 0 10px;
+  padding: 10px 10px 0 10px;
   background: #FBFFFE; 
 }
 .contenu #products_all_view{
@@ -740,7 +740,8 @@ h1, h2 {
   margin-right: 0;
 }
 
-.contenu #filtres .btn-filter .dropdown-titre,  .contenu #affichage_produit .btn-tri .dropdown-titre{
+.contenu #filtres .btn-filter .dropdown-titre,
+.contenu #affichage_produit .btn-tri .dropdown-titre, .contenu .filtre-titre{
   font-family: 'Dosis', sans-serif;
   font-size:24px;  
   padding-left: 10px;
@@ -761,7 +762,7 @@ h1, h2 {
 
 }
 
-.contenu #filtres .dropdown-toggle::after, .contenu #affichage_produit .dropdown-toggle::after,{
+.contenu #filtres .dropdown-toggle::after, .contenu #affichage_produit .dropdown-toggle::after{
   text-align:right;
 }
 
@@ -776,7 +777,7 @@ h1, h2 {
 .noUi-base, .noUi-target{
   background: #880015;
   height: 2px; 
-  width:220px;
+  width:auto;
   
 }
 
@@ -807,21 +808,28 @@ h1, h2 {
   text-align: center;
 } */
 
-#filtres .dropdown .dropdown-menu, #affichage_produit .dropdown .dropdown-menu{
+#filtres .dropdown .dropdown-menu,
+#affichage_produit .dropdown .dropdown-menu{
   padding-left: 16px;
   padding-right: 16px;
   font-size: 20px;
 }
 
+
+#affichage_produit .nbItemsPage{
+
+  font-size: 20px;
+}
+
 /* FILTRES TAILLES */
 
-#filtres #dropdown-tailles ul, #affichage_produit #dropdown-nbItemsPage ul{
-padding:0;
+#filtres #dropdown-tailles ul, #affichage_produit .nbItemsPage ul{
+  padding:0;
   margin:0;
 }
 
 
-#filtres #dropdown-tailles .dropdown-menu li, #affichage_produit #dropdown-nbItemsPage li{
+#filtres #dropdown-tailles .dropdown-menu li, #affichage_produit .nbItemsPage li{
   list-style:none;  
   display:inline-block;
   padding:5px;
@@ -831,7 +839,7 @@ padding:0;
   text-align: center;
 }
 
-#filtres #dropdown-tailles .dropdown-menu li:hover, #affichage_produit #dropdown-nbItemsPage li:hover{
+#filtres #dropdown-tailles .dropdown-menu li:hover, #affichage_produit .nbItemsPage li:hover{
   background-color:  #BE737F;
   color:white;
   cursor: pointer;
@@ -863,6 +871,7 @@ padding:0;
 
 .my-pagination .ngx-pagination{
   margin-top:10px;
+  margin-bottom:10px;
 }
 
 .my-pagination /deep/ .ngx-pagination .current{
@@ -870,20 +879,27 @@ padding:0;
   color:white;
 }
 
-.my-pagination .ngx-pagination li:not(.current):hover{
-  color: #880015;  
-}
 
-.my-pagination .ngx-pagination a:hover,.my-pagination .ngx-pagination button:hover, 
-.my-pagination .ngx-pagination li:not(.pagination-next) button:hover, .my-pagination .ngx-pagination li:not(.pagination-next) a:hover{
+.my-pagination .ngx-pagination li:not(.pagination-next):not(.current):not(.pagination-previous) a:hover{
   background: white;
   border-radius: 50%;
+  color: #880015;   
 }
 
+.my-pagination .ngx-pagination .pagination-next a:hover, .my-pagination .ngx-pagination .pagination-previous a:hover{
+  background: none;
+  color:#880015;  
+}
 .my-pagination .ngx-pagination li{
   border-radius: 50%;
   margin:2px;
-  font-size:18px;
+  font-size:20px;
+}
+
+.my-pagination .ngx-pagination li:not(.pagination-next):not(.pagination-previous){
+  width:33px;
+  height:33px;
+  text-align: center;
 }
 
 

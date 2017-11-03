@@ -40,18 +40,7 @@
                             </div>
                         </div>
 
-                        <div class="col-3">
 
-                            <div class="dropdown" id="dropdown-prix">
-                                <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="dropdown-titre">Prix</span>
-                                    <span class="fa fa-caret-down"></span>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <div id="skipstep"></div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="col-3">
                             <div class="dropdown" id="dropdown-marques">
@@ -86,6 +75,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-3">
+                            <span class="filtre-titre">Prix</span>
+                            <div id="skipstep"></div>
+
+                        </div>
+
                         <div class="col-3">
                             <div class="dropdown" id="dropdown-matieres">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
@@ -143,8 +138,7 @@
                 <div id="affichage_produit">
                     <div class="row">
                         <div class="col-6">
-                                <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Précédent"
-                                nextLabel="Suivant"></pagination-controls>
+                            <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
                         </div>
                         <div class="col-3">
 
@@ -171,26 +165,21 @@
                         </div>
 
                         <div class="col-3">
+                            <span class="filtre-titre">
+                                Articles par page
+                            </span>
+                            <div class="nbItemsPage">
 
-                            <div class="dropdown" id="dropdown-nbItemsPage">
-                                <button class="btn btn-secondary btn-tri" type="button" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="dropdown-titre">
-                                        Articles par ligne
-                                        <!-- <i class="fa fa-th-large" aria-hidden="true"></i> -->
-                                    </span>
-                                    <span class="fa fa-caret-down"></span>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <ul>
-                                        <li (click)="pageSize='4'">
-                                            <span>4</span>
-                                        </li>
-                                        <li (click)="pageSize='8'">
-                                            <span>8</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <ul>
+                                <li (click)="pageSize='4'">
+                                    <span>4</span>
+                                </li>
+                                <li (click)="pageSize='8'">
+                                    <span>8</span>
+                                </li>
+                            </ul>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -199,6 +188,8 @@
                 <span class="example-val" id="skip-value-lower"></span>
                 <span class="example-val" id="skip-value-upper"></span>
                 <!-- EOF - Filtres prix -->
+
+
                 <div id="products_all_view">
 
                     <ul id="products_view" *ngFor="let produit of produitsList | filterPrice | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p }">
@@ -212,8 +203,7 @@
                 </div>
 
 
-                <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Précédent"
-                nextLabel="Suivant"></pagination-controls>
+                <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
 
             </div>
         </div>
