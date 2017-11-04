@@ -15,6 +15,7 @@ import { PaysComponent } from './pays/pays.component';
 import { VillesComponent } from './villes/villes.component';
 // import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 import { ProduitsFemmesComponent } from './produitsFemmes/produitsFemmes.component';
+import { ProduitViewComponent } from './produitView/produitView.component';
 
 
 import { PageNotFoundComponent } from './not-found.component';
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   { path: 'pays', component: PaysComponent},
   // { path: 'fournisseurs', component: FournisseursComponent},
   { path: 'produits/femmes', component: ProduitsFemmesComponent},
+  { path: 'produit/:id', component: ProduitViewComponent},
 
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -51,6 +53,7 @@ const appRoutes: Routes = [
     PaysComponent,
     VillesComponent,
     ProduitsFemmesComponent,
+    ProduitViewComponent,
     PageNotFoundComponent,
     // LibellePipe, 
     SortByPipe, 

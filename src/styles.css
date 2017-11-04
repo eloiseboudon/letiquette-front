@@ -297,8 +297,27 @@ h1, h2 {
 
 /* EOF NAVBARS - NAV */
 
+        
+.top_link{
+  position: fixed;
+  right:20px;
+  bottom:50px;
+  display: none;
+  padding:20px;
+  background: white;
+  color:#000000;
+  -moz-border-radius:	20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  opacity:0.9;
+  z-index:2000;
+  font-size:22px;
+  border: 1.4px solid #880015;
+}
 
-
+.top_link .fa{
+  color:#880015;
+}
 
 
 /* FOOTER */

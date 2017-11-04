@@ -1,3 +1,7 @@
+<div (click)="scroll()" class="top_link" title="Revenir en haut de page">TOP
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+
 <div class="contenu">
     <div class="global_width">
         <h1>
@@ -76,7 +80,7 @@
                             </div>
                         </div>
                         <div class="col-3">
-                            <span class="filtre-titre">Prix</span>
+                            <span class="filtre-titre">Prix (€)</span>
                             <div id="skipstep"></div>
 
                         </div>
@@ -171,15 +175,15 @@
                             <div class="nbItemsPage">
 
                                 <ul>
-                                <li (click)="pageSize='4'">
-                                    <span>4</span>
-                                </li>
-                                <li (click)="pageSize='8'">
-                                    <span>8</span>
-                                </li>
-                            </ul>
+                                    <li (click)="pageSize='4'">
+                                        <span>4</span>
+                                    </li>
+                                    <li (click)="pageSize='8'">
+                                        <span>8</span>
+                                    </li>
+                                </ul>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -193,7 +197,7 @@
                 <div id="products_all_view">
 
                     <ul id="products_view" *ngFor="let produit of produitsList | filterPrice | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p }">
-                        <a href="#">
+                        <a routerLink (click)="getUri(produit.id, produit.libelle)">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
                         <li class="marque">{{produit.fournisseur}}</li>

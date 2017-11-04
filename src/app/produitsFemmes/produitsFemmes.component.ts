@@ -47,6 +47,8 @@ export class ProduitsFemmesComponent implements OnInit {
     prixMax: number;
     p: number = 1;
     pageSize=4;
+    uri:string;
+    uri_encode:string;
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
         private familleService: FamilleService, private fournisseurService: FournisseurService, private router: Router) { }
@@ -63,6 +65,16 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getAllMarques();
         this.getFamilleBySexe();
         this.filtrePrix();
+        this.goToTop();
+
+        
+    }
+
+    getUri(id, libelle){
+        alert(libelle);
+        this.uri = "/produit/"+libelle;
+        this.uri_encode = decodeURIComponent (this.uri);
+        alert(this.uri_encode);
     }
 
     filtrePrix(): void {
@@ -92,7 +104,19 @@ export class ProduitsFemmesComponent implements OnInit {
             skipValues[handle].innerHTML = values[handle];
 
         });
+    }
 
+    goToTop(): void{        
+        $(window).scroll(function(){
+            var posScroll = $(document).scrollTop();
+            if(posScroll >=180) 
+                $('.top_link').fadeIn(600);
+            else
+                $('.top_link').fadeOut(600);
+        });
+    }
+    scroll():void{
+        window.scrollTo(0, 0);
     }
 
 
