@@ -83,18 +83,24 @@ h1, h2 {
 
 #top-page, #top-page-scroll{
   background-color: #000000;
-  padding-top:10px;
-  padding-bottom:10px;
+  /* padding-top:10px; */
+  /* padding-bottom:10px; */
   font-size:1.2em;
 }
+#top-page .logo, #top-page-scroll .logo{
+  margin-top:0;
+}
+
 
 #top-page img, #top-page-scroll img{
+  margin-top:2.5px;
+  margin-bottom:2.5px;
   padding:0px;
-  width:40px;
+  height: 55px;
 }
 
 #top-page #right-top, #top-page-scroll #right-top{
-  padding-top: 5px;
+  padding-top:10px;
   padding-right: 0px;
   padding-left: 0px;
   width: 80px;
@@ -118,7 +124,7 @@ h1, h2 {
 #top-page #right-top a:hover {
   background-color: #F4ECDE; 
   color: #000000;
-  padding-bottom: 17px;
+  padding-bottom: 13px;
   border-bottom: 1.5px solid #880015; 
   font-family: 'Dosis', sans-serif;
 }
@@ -136,8 +142,7 @@ h1, h2 {
 }
 
 #top-page #top-icon{
-  visibility: hidden;
-
+  display:none;
 }
 
 
@@ -159,6 +164,7 @@ h1, h2 {
   padding: 0px;
   right:0;
   position: absolute;
+  padding-top:13px;
 }
 
 
@@ -186,8 +192,8 @@ h1, h2 {
   width:25%;
   font-family: 'Open Sans Condensed', sans-serif;
   color:#FBFFFE;
-  font-size:1.2em;
-  font-weight: bold;
+  font-size:1.5em;
+  /* font-weight: bold; */
   text-decoration:none; 
   text-align: center;
 }
@@ -196,7 +202,7 @@ h1, h2 {
 #top-page-scroll #categorie-item{
   text-align: center;
   vertical-align: middle;
-  padding-top:5px;
+  padding-top:10px;
 
 }
 
@@ -232,6 +238,7 @@ h1, h2 {
   position: relative;
   margin:0;
   width:400px;
+  padding-top:13px;
 }
 
 #searchLabel .fa-search{
@@ -240,6 +247,8 @@ h1, h2 {
   right: 10px;
   position: absolute;
   font-size:25px;
+  
+  padding-top:13px;
 }
 
 #searchLabel span{
