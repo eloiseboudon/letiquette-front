@@ -13,15 +13,15 @@ import { Taille } from '../tailles/taille';
 @Injectable()
 export class ProduitFemmesService {
     private headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    private produitsFemmesUrl = 'http://127.0.0.1:8000/produitsFemmes';  // URL to api
-    private produitsFemmesFiltresUrl = 'http://127.0.0.1:8000/produitsFemmesFiltre';
+    private produitsFemmesUrl = 'http://127.0.0.1:8000/femmes';  // URL to api
+    // private produitsFemmesFiltresUrl = 'http://127.0.0.1:8000/produitsFemmesFiltre';
 
     constructor(private http: Http) { }
 
 
 
     getProduitByFiltreTaille(arrayTailles: number[]){
-        return this.http.get(this.produitsFemmesFiltresUrl + "/taille/" + arrayTailles)
+        return this.http.get(this.produitsFemmesUrl + "/taille/" + arrayTailles)
         .toPromise()
         .then(response =>
             response.json() as Produit[])
@@ -29,7 +29,7 @@ export class ProduitFemmesService {
     }
 
     getProduitByFiltreMarque(arrayMarques: number[]){
-        return this.http.get(this.produitsFemmesFiltresUrl + "/marque/" + arrayMarques)
+        return this.http.get(this.produitsFemmesUrl + "/marque/" + arrayMarques)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])
@@ -37,7 +37,7 @@ export class ProduitFemmesService {
     }
 
     getProduitByFiltres(arrayTailles: number[],  arrayMarques: number[]): Promise<Produit[]> {
-        return this.http.get(this.produitsFemmesFiltresUrl + "/" + arrayTailles + "/" + arrayMarques)
+        return this.http.get(this.produitsFemmesUrl + "/" + arrayTailles + "/" + arrayMarques)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])

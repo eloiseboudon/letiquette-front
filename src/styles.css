@@ -111,7 +111,7 @@ h1, h2 {
 }
 
 #top-page #right-top a {
-  color: #FBFFFE;  
+  color: white;  
   text-decoration:none; 
   padding-top: 20px;
   padding-bottom: 20px;
@@ -181,7 +181,7 @@ h1, h2 {
   height:40px;
   background:#F4ECDE;
   border-radius:50%;
-  border:2px solid #FBFFFE; 
+  border:2px solid white; 
 }
 
 #top-page-scroll #right-top span:hover{
@@ -191,7 +191,7 @@ h1, h2 {
 #top-page-scroll #categorie-item a{
   width:25%;
   font-family: 'Open Sans Condensed', sans-serif;
-  color:#FBFFFE;
+  color:white;
   font-size:1.5em;
   /* font-weight: bold; */
   text-decoration:none; 
@@ -277,7 +277,7 @@ h1, h2 {
   margin-bottom: 20px;  
   border:0;
   width:100%;
-  background-color: #FBFFFE;  
+  background-color: white;  
   border-bottom: 2px solid #880015;  
   position: static;
   top:60px;
@@ -357,7 +357,7 @@ h1, h2 {
 .bottom-bar{
   margin-top:30px;
   padding-top:10px;
-  background-color: #FBFFFE;   
+  background-color: white;   
   border-top: 1.5px solid #880015;
 }
 
@@ -378,7 +378,7 @@ h1, h2 {
 
 .bottom-copyright{
   background-color: #880015;  
-  color:#FBFFFE;
+  color:white;
   text-align: center;
   padding-top:10px;
   padding-bottom:20px;
@@ -444,7 +444,7 @@ h1, h2 {
     height:40px;
     background:#F4ECDE;
     border-radius:50%;
-    border:2px solid #FBFFFE; 
+    border:2px solid white; 
   }
 
   #top-page #right-top a:hover {
@@ -455,8 +455,6 @@ h1, h2 {
   .contenu{
     padding-bottom:80px;    
   }
-
-
 
   #top-page #top-icon span{
     display:block;
@@ -600,8 +598,6 @@ h1, h2 {
     margin-right: 20px;
   }
 
-
-
 }
 
 
@@ -640,7 +636,7 @@ h1, h2 {
 /* Page d'acceuil */
 .contenu #soldes{
   padding: 16px 8px 0 8px;
-  background: #FBFFFE; 
+  background: white; 
 }
 
 .contenu .max_width{
@@ -666,7 +662,7 @@ h1, h2 {
 
 .not-found img{
   padding: 16px 16px;
-  background: #FBFFFE; 
+  background: white; 
   max-width: 100%;
   height: auto; 
 }
@@ -685,7 +681,7 @@ h1, h2 {
 
 .contenu #products_view{
   padding: 10px 10px 0 10px;
-  background: #FBFFFE; 
+  background: white; 
 }
 .contenu #products_all_view{
   margin-left:42.5px;
@@ -724,7 +720,7 @@ h1, h2 {
 
 /* FAMILLES FILTRES  */
 .contenu #familles_filtres{
-  background-color: #FBFFFE;
+  background-color: white;
   height:100%;
   padding-left:8px;
   padding-top:8px;
@@ -746,7 +742,7 @@ h1, h2 {
 
 /*  FILRES GLOBAUX */
 .contenu #filtres{  
-  background-color: #FBFFFE;
+  background-color: white;
   margin-bottom: 8px;
   padding-left: 8px;
   padding-right: 8px;

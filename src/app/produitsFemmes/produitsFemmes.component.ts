@@ -115,6 +115,7 @@ export class ProduitsFemmesComponent implements OnInit {
                 $('.top_link').fadeOut(600);
         });
     }
+
     scroll():void{
         window.scrollTo(0, 0);
     }
@@ -223,17 +224,17 @@ export class ProduitsFemmesComponent implements OnInit {
     }
 
 
-    // filterMarque(marque) {
-    //     // console.log(marque);
-    //     this.arrayFiltresMarque.push(marque.id);
-    //     if (this.familleFilter) {
-    //         // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-    //     }
-    //     else {
-    //         // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-    //         this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
-    //     }
-    // }
+    filterMarque(marque) {
+        // console.log(marque);
+        this.arrayFiltresMarque.push(marque.id);
+        if (this.familleFilter) {
+            // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
+        }
+        else {
+            // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
+            this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
+        }
+    }
 
     filterAll(arrayTailles, arrayMarques) {
         if (arrayMarques.length == 0 && arrayTailles.length == 0) {

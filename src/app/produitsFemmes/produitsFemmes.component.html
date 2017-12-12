@@ -120,7 +120,7 @@
                         <div class="col-3">
                             <div class="dropdown" id="dropdown-impact_ecolo">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown" aria-expanded="false">
-                                    <span class="dropdown-titre">Impact écologique</span>
+                                    <span class="dropdown-titre">Impact éthique</span>
                                     <span class="fa fa-caret-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -130,6 +130,28 @@
                                                     <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
                                                 </li>
                                             </ul> -->
+
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <input type="checkbox">  Matière écologique, bio, recyclée
+                                                    </td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>
+                                                        <input type="checkbox">  Social et solidaire
+                                                    </td>
+                                                </tr><tr>
+                                                    <td>
+                                                        <input type="checkbox">  Vegan
+                                                    </td></tr>
+                                                    <tr>
+                                                    <td>
+                                                        <input type="checkbox">  Made in France
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        
                                 </div>
                             </div>
                         </div>

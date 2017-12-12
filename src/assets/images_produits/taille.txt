@@ -1,2 +1,2 @@
-300*450
+300 largeur*450 hauteur
 rapport 2/3
