@@ -12,14 +12,22 @@ body{
   background-color: #F4ECDE; 
 }
 
-h1, h2 {
+h1{
   font-family: 'Open Sans Condensed', sans-serif;
 }
 
+h1{
+  font-size: 2em;
+}
+
+h2{
+  font-family: 'Dosis', sans-serif;
+    font-size:1.8em;
+}
 
 .global_width{
   max-width: 1760px;
-  margin: auto;
+  margin: 16px;
   padding: 0 10px;  
   height: 100%;
 }
@@ -75,7 +83,7 @@ h1, h2 {
 
 #top-page{
   z-index: 1000;
-  height:60px;
+  height:54px;
   position: static;
   width:100%;
 
@@ -96,7 +104,7 @@ h1, h2 {
   margin-top:2.5px;
   margin-bottom:2.5px;
   padding:0px;
-  height: 55px;
+  height: 50px;
 }
 
 #top-page #right-top, #top-page-scroll #right-top{
@@ -117,7 +125,7 @@ h1, h2 {
   padding-bottom: 20px;
   padding-right: 10px;
   font-family: 'Dosis', sans-serif;
-  font-size:1.2em;
+  font-size:1em;
   
 }
 
@@ -238,7 +246,7 @@ h1, h2 {
   position: relative;
   margin:0;
   width:400px;
-  padding-top:13px;
+  padding-top:10px;
 }
 
 #searchLabel .fa-search{
@@ -247,8 +255,7 @@ h1, h2 {
   right: 10px;
   position: absolute;
   font-size:25px;
-  
-  padding-top:13px;
+  padding-top:10px;
 }
 
 #searchLabel span{
@@ -271,7 +278,7 @@ h1, h2 {
 
 /* NAVBARS - NAV */
 .menu{
-  height:60px;
+  height:50px;
   padding-left: 120px;  
   padding-right: 120px;  
   margin-bottom: 20px;  
@@ -289,7 +296,7 @@ h1, h2 {
 .menu .menu-item {
   text-align:center;
   font-family: 'Open Sans Condensed', sans-serif;
-  font-size:2.5em;
+  font-size:2em;
   color:#000000;
   display:inline-block;
   width:19%;
@@ -359,6 +366,7 @@ h1, h2 {
   padding-top:10px;
   background-color: white;   
   border-top: 1.5px solid #880015;
+
 }
 
 .bottom-bar .icon_social{
@@ -371,7 +379,7 @@ h1, h2 {
 }
 
 .bottom-bar .icon_social img{
-  width: 50px;
+  width: 40px;
   margin: 10px;
 }
 
@@ -389,6 +397,7 @@ h1, h2 {
   max-width: 1580px;
   margin: auto;
   padding: 0 10px;
+  width:80%;
 }
 
 
@@ -632,10 +641,9 @@ h1, h2 {
  }
 }
 
-
 /* Page d'acceuil */
 .contenu #soldes{
-  padding: 16px 8px 0 8px;
+  padding: 8px 4px 0 4px;
   background: white; 
 }
 
@@ -645,7 +653,7 @@ h1, h2 {
 }
 
 .contenu #soldes .image{
-  padding: 0 8px 16px 8px;
+  padding: 0 4px 8px 4px;
   text-align:center;
 
 }
@@ -752,7 +760,6 @@ h1, h2 {
 
 .contenu #filtres h2{
   color:#880015;
-  font-size:36px;
 }
 
 
@@ -766,10 +773,8 @@ h1, h2 {
 
 .contenu #filtres .btn-filter .dropdown-titre,
 .contenu #affichage_produit .btn-tri .dropdown-titre, .contenu .filtre-titre{
-  font-family: 'Dosis', sans-serif;
-  font-size:24px;  
-  padding-left: 10px;
-  padding-right: 20px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size:24px;
   text-align: left;
 }
 
@@ -778,7 +783,7 @@ h1, h2 {
 }
 
 .contenu #filtres .btn-filter .fa, .contenu #affichage_produit .fa{
- font-size: 22px; 
+  font-size: 22px;
   bottom: 22px;
   margin: 0;
   position: absolute;
@@ -836,12 +841,11 @@ h1, h2 {
 #affichage_produit .dropdown .dropdown-menu{
   padding-left: 16px;
   padding-right: 16px;
-  font-size: 20px;
+  /*font-size: 20px;*/
 }
 
 
 #affichage_produit .nbItemsPage{
-
   font-size: 20px;
 }
 
@@ -880,16 +884,15 @@ h1, h2 {
   padding-top:8px;
 }
 
-#affichage_produit #dropdown-tri ul{
+#dropdown-tri ul{
   list-style:none;    
   padding:5px;
   margin:0;
 }
 
 
-#affichage_produit #dropdown-tri .dropdown-menu li:hover{
-  font-size: 22px;
-  font-weight: 400;
+#dropdown-tri .dropdown-menu li:hover{
+  color:#880015;
   cursor: pointer;
 }
 
