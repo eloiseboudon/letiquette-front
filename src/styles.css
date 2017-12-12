@@ -83,18 +83,24 @@ h1, h2 {
 
 #top-page, #top-page-scroll{
   background-color: #000000;
-  padding-top:10px;
-  padding-bottom:10px;
+  /* padding-top:10px; */
+  /* padding-bottom:10px; */
   font-size:1.2em;
 }
+#top-page .logo, #top-page-scroll .logo{
+  margin-top:0;
+}
+
 
 #top-page img, #top-page-scroll img{
+  margin-top:2.5px;
+  margin-bottom:2.5px;
   padding:0px;
-  width:40px;
+  height: 55px;
 }
 
 #top-page #right-top, #top-page-scroll #right-top{
-  padding-top: 5px;
+  padding-top:10px;
   padding-right: 0px;
   padding-left: 0px;
   width: 80px;
@@ -105,7 +111,7 @@ h1, h2 {
 }
 
 #top-page #right-top a {
-  color: #FBFFFE;  
+  color: white;  
   text-decoration:none; 
   padding-top: 20px;
   padding-bottom: 20px;
@@ -118,7 +124,7 @@ h1, h2 {
 #top-page #right-top a:hover {
   background-color: #F4ECDE; 
   color: #000000;
-  padding-bottom: 17px;
+  padding-bottom: 13px;
   border-bottom: 1.5px solid #880015; 
   font-family: 'Dosis', sans-serif;
 }
@@ -136,8 +142,7 @@ h1, h2 {
 }
 
 #top-page #top-icon{
-  visibility: hidden;
-
+  display:none;
 }
 
 
@@ -159,6 +164,7 @@ h1, h2 {
   padding: 0px;
   right:0;
   position: absolute;
+  padding-top:13px;
 }
 
 
@@ -175,7 +181,7 @@ h1, h2 {
   height:40px;
   background:#F4ECDE;
   border-radius:50%;
-  border:2px solid #FBFFFE; 
+  border:2px solid white; 
 }
 
 #top-page-scroll #right-top span:hover{
@@ -185,9 +191,9 @@ h1, h2 {
 #top-page-scroll #categorie-item a{
   width:25%;
   font-family: 'Open Sans Condensed', sans-serif;
-  color:#FBFFFE;
-  font-size:1.2em;
-  font-weight: bold;
+  color:white;
+  font-size:1.5em;
+  /* font-weight: bold; */
   text-decoration:none; 
   text-align: center;
 }
@@ -196,7 +202,7 @@ h1, h2 {
 #top-page-scroll #categorie-item{
   text-align: center;
   vertical-align: middle;
-  padding-top:5px;
+  padding-top:10px;
 
 }
 
@@ -232,6 +238,7 @@ h1, h2 {
   position: relative;
   margin:0;
   width:400px;
+  padding-top:13px;
 }
 
 #searchLabel .fa-search{
@@ -240,6 +247,8 @@ h1, h2 {
   right: 10px;
   position: absolute;
   font-size:25px;
+  
+  padding-top:13px;
 }
 
 #searchLabel span{
@@ -268,7 +277,7 @@ h1, h2 {
   margin-bottom: 20px;  
   border:0;
   width:100%;
-  background-color: #FBFFFE;  
+  background-color: white;  
   border-bottom: 2px solid #880015;  
   position: static;
   top:60px;
@@ -297,8 +306,27 @@ h1, h2 {
 
 /* EOF NAVBARS - NAV */
 
+        
+.top_link{
+  position: fixed;
+  right:20px;
+  bottom:50px;
+  display: none;
+  padding:20px;
+  background: white;
+  color:#000000;
+  -moz-border-radius:	20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  opacity:0.9;
+  z-index:2000;
+  font-size:22px;
+  border: 1.4px solid #880015;
+}
 
-
+.top_link .fa{
+  color:#880015;
+}
 
 
 /* FOOTER */
@@ -329,7 +357,7 @@ h1, h2 {
 .bottom-bar{
   margin-top:30px;
   padding-top:10px;
-  background-color: #FBFFFE;   
+  background-color: white;   
   border-top: 1.5px solid #880015;
 }
 
@@ -350,7 +378,7 @@ h1, h2 {
 
 .bottom-copyright{
   background-color: #880015;  
-  color:#FBFFFE;
+  color:white;
   text-align: center;
   padding-top:10px;
   padding-bottom:20px;
@@ -416,7 +444,7 @@ h1, h2 {
     height:40px;
     background:#F4ECDE;
     border-radius:50%;
-    border:2px solid #FBFFFE; 
+    border:2px solid white; 
   }
 
   #top-page #right-top a:hover {
@@ -427,8 +455,6 @@ h1, h2 {
   .contenu{
     padding-bottom:80px;    
   }
-
-
 
   #top-page #top-icon span{
     display:block;
@@ -572,8 +598,6 @@ h1, h2 {
     margin-right: 20px;
   }
 
-
-
 }
 
 
@@ -612,7 +636,7 @@ h1, h2 {
 /* Page d'acceuil */
 .contenu #soldes{
   padding: 16px 8px 0 8px;
-  background: #FBFFFE; 
+  background: white; 
 }
 
 .contenu .max_width{
@@ -638,7 +662,7 @@ h1, h2 {
 
 .not-found img{
   padding: 16px 16px;
-  background: #FBFFFE; 
+  background: white; 
   max-width: 100%;
   height: auto; 
 }
@@ -656,8 +680,8 @@ h1, h2 {
 
 
 .contenu #products_view{
-  padding: 16px 10px 0 10px;
-  background: #FBFFFE; 
+  padding: 10px 10px 0 10px;
+  background: white; 
 }
 .contenu #products_all_view{
   margin-left:42.5px;
@@ -696,8 +720,7 @@ h1, h2 {
 
 /* FAMILLES FILTRES  */
 .contenu #familles_filtres{
-  background-color: #FBFFFE;
-  /* border:1px solid #880015; */
+  background-color: white;
   height:100%;
   padding-left:8px;
   padding-top:8px;
@@ -719,10 +742,11 @@ h1, h2 {
 
 /*  FILRES GLOBAUX */
 .contenu #filtres{  
-  background-color: #FBFFFE;
-  margin-bottom: 10px;
-  margin-left: 8px;
+  background-color: white;
+  margin-bottom: 8px;
   padding-left: 8px;
+  padding-right: 8px;
+  padding-top:8px;
 }
 
 
@@ -732,60 +756,57 @@ h1, h2 {
 }
 
 
-.contenu #filtres .btn-filter, .contenu #filtres .btn-tri{
-  width:250px;
+.contenu #filtres .btn-filter,  .contenu #affichage_produit .btn-tri{
   margin: 10px;
+  min-width: 100%;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.contenu #filtres .btn-filter .dropdown-titre, .contenu #filtres .btn-tri .dropdown-titre{
+.contenu #filtres .btn-filter .dropdown-titre,
+.contenu #affichage_produit .btn-tri .dropdown-titre, .contenu .filtre-titre{
   font-family: 'Dosis', sans-serif;
   font-size:24px;  
-  float:left;
+  padding-left: 10px;
+  padding-right: 20px;
+  text-align: left;
 }
 
-.contenu #filtres .btn-tri .dropdown-titre{
-  color: #880015;
+.contenu #filtres .btn-filter span, .contenu #affichage_produit .btn-tri span{
+  display:block;
 }
 
-.contenu #filtres .btn-filter .fa, .contenu #filtres .btn-tri .fa{
+.contenu #filtres .btn-filter .fa, .contenu #affichage_produit .fa{
+ font-size: 22px; 
   bottom: 22px;
   margin: 0;
   position: absolute;
-  right: 90px;
-  font-size: 22px;
+  right:10px;
 
 }
 
-.contenu #filtres .dropdown-toggle::after{
+.contenu #filtres .dropdown-toggle::after, .contenu #affichage_produit .dropdown-toggle::after{
   text-align:right;
 }
 
 
-.contenu #filtres .btn-group .btn-dropdown{
-  border-left: none;
-}
-
 
 /*  FILTRE PRIX */
-.noUi-horizontal{
-  margin-top:20px;
-}
-
-.noUi-base, .noUi-target{
-  background: #880015;
-  height: 2px;
-  width:220px;
-  
-}
-
-.noUi-horizontal{
+.noUi-horizontal{  
   margin:20px;
   margin-top:50px;
 }
 
+.noUi-base, .noUi-target{
+  background: #880015;
+  height: 2px; 
+  width:auto;
+  
+}
+
+
 .noUi-horizontal .noUi-handle{  
-  /* margin-left:5px; */
-  /* margin:10px; */
   height: 20px;
   width: 20px;
   border-radius: 50px;
@@ -807,28 +828,42 @@ h1, h2 {
   visibility: hidden;
 }
 
-#filtres .dropdown .dropdown-menu{
+/* #filtres .dropdown,  #affichage_produit .dropdown{
+  text-align: center;
+} */
+
+#filtres .dropdown .dropdown-menu,
+#affichage_produit .dropdown .dropdown-menu{
   padding-left: 16px;
   padding-right: 16px;
+  font-size: 20px;
+}
+
+
+#affichage_produit .nbItemsPage{
+
+  font-size: 20px;
 }
 
 /* FILTRES TAILLES */
 
-#filtres #dropdown-tailles ul{
-  list-style:none;  
-  display:inline-block;
-  padding:5px;
+#filtres #dropdown-tailles ul, #affichage_produit .nbItemsPage ul{
+  padding:0;
   margin:0;
 }
 
 
-#filtres #dropdown-tailles .dropdown-menu li{
+#filtres #dropdown-tailles .dropdown-menu li, #affichage_produit .nbItemsPage li{
+  list-style:none;  
+  display:inline-block;
+  padding:5px;
+  margin:5px;
   border: 1px solid #880015;
   width:40px;
   text-align: center;
 }
 
-#filtres #dropdown-tailles .dropdown-menu li:hover{
+#filtres #dropdown-tailles .dropdown-menu li:hover, #affichage_produit .nbItemsPage li:hover{
   background-color:  #BE737F;
   color:white;
   cursor: pointer;
@@ -839,19 +874,57 @@ h1, h2 {
   color:white;
 }
 
-#filtres #dropdown-tri ul{
+#affichage_produit{
+  margin-bottom: 8px;
+  padding-left: 8px;
+  padding-top:8px;
+}
+
+#affichage_produit #dropdown-tri ul{
   list-style:none;    
   padding:5px;
   margin:0;
 }
 
 
-#filtres #dropdown-tri .dropdown-menu li:hover{
-  font-size: 18px;
+#affichage_produit #dropdown-tri .dropdown-menu li:hover{
+  font-size: 22px;
   font-weight: 400;
   cursor: pointer;
 }
 
+.my-pagination .ngx-pagination{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.my-pagination /deep/ .ngx-pagination .current{
+  background: #880015;
+  color:white;
+}
+
+
+.my-pagination .ngx-pagination li:not(.pagination-next):not(.current):not(.pagination-previous) a:hover{
+  background: white;
+  border-radius: 50%;
+  color: #880015;   
+}
+
+.my-pagination .ngx-pagination .pagination-next a:hover, .my-pagination .ngx-pagination .pagination-previous a:hover{
+  background: none;
+  color:#880015;  
+}
+.my-pagination .ngx-pagination li{
+  border-radius: 50%;
+  margin:2px;
+  font-size:20px;
+}
+
+.my-pagination .ngx-pagination li:not(.pagination-next):not(.pagination-previous){
+  width:33px;
+  height:33px;
+  text-align: center;
+}
 
 
 /* EOF - Affichage tous les produits */
