@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes }   from '@angular/router';
-import { HttpModule }    from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { TitleCasePipe } from '@angular/common';
-import {NgxPaginationModule} from 'ngx-pagination'; 
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 import { AppComponent } from './app.component';
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
   { path: 'pays', component: PaysComponent},
   // { path: 'fournisseurs', component: FournisseursComponent},
   { path: 'produits/femmes', component: ProduitsFemmesComponent},
-  { path: 'produit/:id', component: ProduitViewComponent},
+  { path: 'produits/:id', component: ProduitViewComponent},
 
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -56,7 +56,7 @@ const appRoutes: Routes = [
     ProduitViewComponent,
     PageNotFoundComponent,
     // LibellePipe, 
-    SortByPipe, 
+    SortByPipe,
     UniquePipe, FilterPricePipe
   ],
   imports: [
@@ -64,8 +64,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } 
-    ),
+      { enableTracing: true }),
     HttpModule,
     NgxPaginationModule
   ],

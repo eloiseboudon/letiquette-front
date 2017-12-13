@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 import * as jQuery from 'jquery';
 import noUiSlider from 'nouislider';
 import wNumb from 'wnumb';
 
 
-import { Produit } from '../produits/produit';
-import { ProduitFemmesService } from './produitFemmes.service';
-import { ProduitService } from '../produits/produit.service';
+import {Produit} from '../produits/produit';
+import {ProduitFemmesService} from './produitFemmes.service';
+import {ProduitService} from '../produits/produit.service';
 
 
-import { TailleType } from '../tailleType/tailleType';
-import { TailleTypeService } from '../tailleType/tailleType.service';
+import {TailleType} from '../tailleType/tailleType';
+import {TailleTypeService} from '../tailleType/tailleType.service';
 
 
-import { Famille } from '../familles/famille';
-import { FamilleService } from '../familles/famille.service';
+import {Famille} from '../familles/famille';
+import {FamilleService} from '../familles/famille.service';
 
 
-
-import { Fournisseur } from '../fournisseurs/fournisseur';
-import { FournisseurService } from '../fournisseurs/fournisseur.service';
-
+import {Fournisseur} from '../fournisseurs/fournisseur';
+import {FournisseurService} from '../fournisseurs/fournisseur.service';
 
 
 @Component({
@@ -46,12 +44,11 @@ export class ProduitsFemmesComponent implements OnInit {
     prixMin: number;
     prixMax: number;
     p: number = 1;
-    pageSize=4;
-    uri:string;
-    uri_encode:string;
+    pageSize = 4;
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
-        private familleService: FamilleService, private fournisseurService: FournisseurService, private router: Router) { }
+                private familleService: FamilleService, private fournisseurService: FournisseurService, private router: Router) {
+    }
 
     //*************** */
     // GLOBAL 
@@ -66,21 +63,13 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getFamilleBySexe();
         this.filtrePrix();
         this.goToTop();
-
-        
     }
 
-    getUri(id, libelle){
-        alert(libelle);
-        this.uri = "/produit/"+libelle;
-        this.uri_encode = decodeURIComponent (this.uri);
-        alert(this.uri_encode);
-    }
 
     filtrePrix(): void {
 
         var skipSlider = document.getElementById('skipstep') as noUiSlider.Instance;
-        var upper, lower;
+
 
         noUiSlider.create(skipSlider, {
             start: [this.prixMin, this.prixMax],
@@ -106,17 +95,17 @@ export class ProduitsFemmesComponent implements OnInit {
         });
     }
 
-    goToTop(): void{        
-        $(window).scroll(function(){
-            var posScroll = $(document).scrollTop();
-            if(posScroll >=180) 
+    goToTop(): void {
+        $(window).scroll(function () {
+            const posScroll = $(document).scrollTop();
+            if (posScroll >= 180)
                 $('.top_link').fadeIn(600);
             else
                 $('.top_link').fadeOut(600);
         });
     }
 
-    scroll():void{
+    scroll(): void {
         window.scrollTo(0, 0);
     }
 
@@ -152,15 +141,24 @@ export class ProduitsFemmesComponent implements OnInit {
             .then(produits => {
                 this.produitsList = produits;
             });
-        this.view = "Vêtements Femmes";
+        this.view = 'Vêtements Femmes';
         this.getAllTailleType();
         this.familleFilter = false;
         this.arrayFiltresTaille = [];
     }
 
+    getProduit(id): void {
+        this.produitFemmesService
+            .getProduit(id)
+            .then(produit => {
+                this.produitsList = produit;
+            });
+
+    }
+
     getFamilleBySexe(): void {
         this.familleService
-            .getFamilleBySexe("F")
+            .getFamilleBySexe('F')
             .then(famille => {
                 this.famillesList = famille;
             });
@@ -179,8 +177,8 @@ export class ProduitsFemmesComponent implements OnInit {
             .then(produits => {
                 this.produitsList = produits;
             });
-        this.view = famille.famille
-        this.viewFamille = famille
+        this.view = famille.famille;
+        this.viewFamille = famille;
     }
 
     filterTaille(taille) {
@@ -201,7 +199,6 @@ export class ProduitsFemmesComponent implements OnInit {
             this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
         }
     }
-
 
 
     ifChange(marque) {
@@ -229,37 +226,34 @@ export class ProduitsFemmesComponent implements OnInit {
         this.arrayFiltresMarque.push(marque.id);
         if (this.familleFilter) {
             // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-        }
-        else {
+        } else {
             // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
             this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
         }
     }
 
     filterAll(arrayTailles, arrayMarques) {
-        if (arrayMarques.length == 0 && arrayTailles.length == 0) {
+        if (arrayMarques.length === 0 && arrayTailles.length === 0) {
             this.produitFemmesService
                 .getAllProduits()
                 .then(produits => {
                     this.produitsList = produits;
                 });
         } else {
-            if (arrayMarques.length == 0) {
+            if (arrayMarques.length === 0) {
                 this.produitFemmesService
                     .getProduitByFiltreTaille(arrayTailles)
                     .then(produits => {
                         this.produitsList = produits;
                     });
-            }
-            else {
-                if (arrayTailles.length == 0) {
+            }else {
+                if (arrayTailles.length === 0) {
                     this.produitFemmesService
                         .getProduitByFiltreMarque(arrayMarques)
                         .then(produits => {
                             this.produitsList = produits;
                         });
-                }
-                else {
+                }else {
                     this.produitFemmesService
                         .getProduitByFiltres(arrayTailles, arrayMarques)
                         .then(produits => {
@@ -270,8 +264,6 @@ export class ProduitsFemmesComponent implements OnInit {
 
         }
     }
-
-
 
 
 }
