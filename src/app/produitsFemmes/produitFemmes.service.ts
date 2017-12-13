@@ -13,7 +13,7 @@ import {Taille} from '../tailles/taille';
 export class ProduitFemmesService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     private produitsFemmesUrl = 'http://127.0.0.1:8000/femmes';  // URL to api
-    private produits = 'http://127.0.0.1:8000/produits';
+
 
     // private produitsFemmesFiltresUrl = 'http://127.0.0.1:8000/produitsFemmesFiltre';
 
@@ -53,13 +53,7 @@ export class ProduitFemmesService {
             .catch(this.handleError);
     }
 
-    getProduit(id: number): Promise<Produit[]> {
-        return this.http.get(this.produits + '/' + id)
-            .toPromise()
-            .then(response =>
-                response.json() as Produit[])
-            .catch(this.handleError);
-    }
+
 
 
     private handleError(error: any): Promise<any> {

@@ -50,10 +50,6 @@ export class ProduitsFemmesComponent implements OnInit {
                 private familleService: FamilleService, private fournisseurService: FournisseurService, private router: Router) {
     }
 
-    //*************** */
-    // GLOBAL 
-    //****************/
-
     ngOnInit(): void {
         this.prixMin = 0;
         this.prixMax = 150;
@@ -68,7 +64,7 @@ export class ProduitsFemmesComponent implements OnInit {
 
     filtrePrix(): void {
 
-        var skipSlider = document.getElementById('skipstep') as noUiSlider.Instance;
+        const skipSlider = document.getElementById('skipstep') as noUiSlider.Instance;
 
 
         noUiSlider.create(skipSlider, {
@@ -84,7 +80,7 @@ export class ProduitsFemmesComponent implements OnInit {
             })
         });
 
-        var skipValues = [
+        const skipValues = [
             document.getElementById('skip-value-lower'),
             document.getElementById('skip-value-upper')
         ];
@@ -98,10 +94,11 @@ export class ProduitsFemmesComponent implements OnInit {
     goToTop(): void {
         $(window).scroll(function () {
             const posScroll = $(document).scrollTop();
-            if (posScroll >= 180)
+            if (posScroll >= 180) {
                 $('.top_link').fadeIn(600);
-            else
+            } else {
                 $('.top_link').fadeOut(600);
+            }
         });
     }
 
@@ -147,14 +144,7 @@ export class ProduitsFemmesComponent implements OnInit {
         this.arrayFiltresTaille = [];
     }
 
-    getProduit(id): void {
-        this.produitFemmesService
-            .getProduit(id)
-            .then(produit => {
-                this.produitsList = produit;
-            });
 
-    }
 
     getFamilleBySexe(): void {
         this.familleService
@@ -246,14 +236,14 @@ export class ProduitsFemmesComponent implements OnInit {
                     .then(produits => {
                         this.produitsList = produits;
                     });
-            }else {
+            } else {
                 if (arrayTailles.length === 0) {
                     this.produitFemmesService
                         .getProduitByFiltreMarque(arrayMarques)
                         .then(produits => {
                             this.produitsList = produits;
                         });
-                }else {
+                } else {
                     this.produitFemmesService
                         .getProduitByFiltres(arrayTailles, arrayMarques)
                         .then(produits => {

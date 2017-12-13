@@ -17,12 +17,22 @@ export class ProduitService {
     private declinaisonTailleUrl = 'http://127.0.0.1:8000/produitsTaille';
     private produitsTailleFamilleUrl = 'http://127.0.0.1:8000/produitsTailleFamille';s
     private produitsFiltresUrl = 'http://127.0.0.1:8000/produitsFiltres';
-
+    private produits = 'http://127.0.0.1:8000/produits';
     constructor(private http: Http) { }
 
     //*************** */
     // GLOBAL 
     //****************/
+
+    getProduit(id: number): Promise<Produit[]> {
+        return this.http.get(this.produits + '/' + id)
+            .toPromise()
+            .then(response =>
+                response.json() as Produit[])
+            .catch(this.handleError);
+    }
+
+
     getProduitByFamille(famille: Famille): Promise<Produit[]> {
         this.produitsFamilleUrl = 'http://127.0.0.1:8000/produitsFamille';
         this.produitsFamilleUrl = this.produitsFamilleUrl + '/' + famille.id;
