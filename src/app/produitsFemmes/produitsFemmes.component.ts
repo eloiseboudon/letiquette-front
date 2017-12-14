@@ -39,7 +39,6 @@ export class ProduitsFemmesComponent implements OnInit {
     view: string;
     viewFamille: Famille;
     arrayFiltresTaille: number[] = [];
-    arrayFiltresMarque: number[] = [];
     arrayFiltresMatiere: number[] = [];
     prixMin: number;
     prixMax: number;
@@ -177,83 +176,51 @@ export class ProduitsFemmesComponent implements OnInit {
             this.arrayFiltresTaille.push(taille.id);
         } else {
             taille.isActive = false;
-            const index: number = this.arrayFiltresMarque.indexOf(taille.id);
-            this.arrayFiltresTaille.splice(index, 1);
+            // const index: number = this.arrayFiltresMarque.indexOf(taille.id);
+            // this.arrayFiltresTaille.splice(index, 1);
         }
 
-        if (this.familleFilter) {
-            // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-        }
-        else {
-            // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-            this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
-        }
-    }
-
-
-    ifChange(marque) {
-        if (!marque.isActive) {
-            marque.isActive = true;
-            this.arrayFiltresMarque.push(marque.id);
-        }
-        else {
-            marque.isActive = false;
-            const index: number = this.arrayFiltresMarque.indexOf(marque.id);
-            this.arrayFiltresMarque.splice(index, 1);
-        }
-        if (this.familleFilter) {
-            // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-        }
-        else {
-            // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-            this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
-        }
-    }
-
-
-    filterMarque(marque) {
-        // console.log(marque);
-        this.arrayFiltresMarque.push(marque.id);
         if (this.familleFilter) {
             // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
         } else {
             // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-            this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
+            // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
         }
     }
 
-    filterAll(arrayTailles, arrayMarques) {
-        if (arrayMarques.length === 0 && arrayTailles.length === 0) {
-            this.produitFemmesService
-                .getAllProduits()
-                .then(produits => {
-                    this.produitsList = produits;
-                });
-        } else {
-            if (arrayMarques.length === 0) {
-                this.produitFemmesService
-                    .getProduitByFiltreTaille(arrayTailles)
-                    .then(produits => {
-                        this.produitsList = produits;
-                    });
-            } else {
-                if (arrayTailles.length === 0) {
-                    this.produitFemmesService
-                        .getProduitByFiltreMarque(arrayMarques)
-                        .then(produits => {
-                            this.produitsList = produits;
-                        });
-                } else {
-                    this.produitFemmesService
-                        .getProduitByFiltres(arrayTailles, arrayMarques)
-                        .then(produits => {
-                            this.produitsList = produits;
-                        });
-                }
-            }
 
-        }
-    }
+    // filterAll(arrayTailles, arrayMarques) {
+    //     if (arrayMarques.length === 0 && arrayTailles.length === 0) {
+    //         this.produitFemmesService
+    //             .getAllProduits()
+    //             .then(produits => {
+    //                 this.produitsList = produits;
+    //             });
+    //     } else {
+    //         if (arrayMarques.length === 0) {
+    //             this.produitFemmesService
+    //                 .getProduitByFiltreTaille(arrayTailles)
+    //                 .then(produits => {
+    //                     this.produitsList = produits;
+    //                 });
+    //         } else {
+    //             if (arrayTailles.length === 0) {
+    //                 this.produitFemmesService
+    //                     .getProduitByFiltreMarque(arrayMarques)
+    //                     .then(produits => {
+    //                         this.produitsList = produits;
+    //                     });
+    //             } else {
+    //                 this.produitFemmesService
+    //                     .getProduitByFiltres(arrayTailles, arrayMarques)
+    //                     .then(produits => {
+    //                         this.produitsList = produits;
+    //                     });
+    //             }
+    //         }
+    //
+    //     }
+    // }
 
 
 }

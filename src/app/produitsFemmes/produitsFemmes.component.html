@@ -58,7 +58,8 @@
                                     <table>
                                         <tr *ngFor="let marque of fournisseurList ">
                                             <td>
-                                                <input type="checkbox" (change)=ifChange(marque)> {{marque.nomMarque}}
+                                                <input id="marque" type="checkbox" (change)=ifChange(marque)  ngModel="[(marque)]" >
+                                                <label for="marque">{{marque.nomMarque}}</label>
                                             </td>
                                         </tr>
                                     </table>
@@ -222,6 +223,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <!-- Filtres prix -->
                 <span class="example-val" id="skip-value-lower"></span>
                 <span class="example-val" id="skip-value-upper"></span>
@@ -231,8 +235,8 @@
                 <div id="products_all_view">
 
                     <ul id="products_view"
-                        *ngFor="let produit of produitsList | filterPrice | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p }">
-                        <a  [routerLink]="['/produits', produit.id]">
+                        *ngFor="let produit of produitsList | filterPrice | unique | sortBy: 'prix' : tri | filterMarque: marque | paginate: { itemsPerPage: pageSize, currentPage: p }">
+                        <a [routerLink]="['/produits', produit.id]">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
                         <li class="marque">{{produit.fournisseur}}</li>

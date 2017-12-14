@@ -1,7 +1,6 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { TitleCasePipe } from '@angular/common';
+import {Pipe, PipeTransform} from '@angular/core';
+import {TitleCasePipe} from '@angular/common';
 import * as _ from 'lodash';
-
 
 
 // @Pipe({
@@ -28,15 +27,18 @@ export class SortByPipe implements PipeTransform {
     transform(items: any[], sortedBy: string, order: any): any {
         if (items !== undefined) {
             if (order == 'desc') {
-                return items.sort((a: any, b: any) => { return b[sortedBy] - a[sortedBy] });
-            }else{
-                return items.sort((a: any, b: any) => { return a[sortedBy] - b[sortedBy] });
+                return items.sort((a: any, b: any) => {
+                    return b[sortedBy] - a[sortedBy];
+                });
+            } else {
+                return items.sort((a: any, b: any) => {
+                    return a[sortedBy] - b[sortedBy];
+                });
             }
 
         }
     }
 }
-
 
 
 @Pipe({
@@ -54,8 +56,6 @@ export class UniquePipe implements PipeTransform {
 }
 
 
-
-
 @Pipe({
     name: 'filterPrice',
     pure: false
@@ -63,6 +63,7 @@ export class UniquePipe implements PipeTransform {
 export class FilterPricePipe implements PipeTransform {
     prixMin: number;
     prixMax: number;
+
     transform(items: any[]): any {
         this.prixMin = parseInt(document.getElementById('skip-value-lower').innerHTML);
         this.prixMax = parseInt(document.getElementById('skip-value-upper').innerHTML);
@@ -71,3 +72,18 @@ export class FilterPricePipe implements PipeTransform {
         }
     }
 }
+
+
+@Pipe({
+    name: 'filterMarque',
+    pure: false
+})
+export class FilterMarquePipe implements PipeTransform {
+
+    transform(items: any[], term): any {
+        return term
+            ? items.filter(item => item.fournisseur.indexOf(term) !== -1)
+            : items;
+    }
+}
+

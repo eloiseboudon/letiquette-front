@@ -19,7 +19,7 @@ import {ProduitViewComponent} from './produitView/produitView.component';
 
 
 import {PageNotFoundComponent} from './not-found.component';
-import {SortByPipe, UniquePipe, FilterPricePipe} from './pipes';
+import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe} from './pipes';
 
 import {PaysService} from './pays/pays.service';
 import {VilleService} from './villes/ville.service';
@@ -54,7 +54,7 @@ const appRoutes: Routes = [
         ProduitViewComponent,
         PageNotFoundComponent,
         SortByPipe,
-        UniquePipe, FilterPricePipe
+        UniquePipe, FilterPricePipe, FilterMarquePipe
     ],
     imports: [
         BrowserModule,

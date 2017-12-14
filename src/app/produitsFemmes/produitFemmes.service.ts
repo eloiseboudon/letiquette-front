@@ -29,21 +29,21 @@ export class ProduitFemmesService {
             .catch(this.handleError);
     }
 
-    getProduitByFiltreMarque(arrayMarques: number[]) {
-        return this.http.get(this.produitsFemmesUrl + '/marque/' + arrayMarques)
-            .toPromise()
-            .then(response =>
-                response.json() as Produit[])
-            .catch(this.handleError);
-    }
+    // getProduitByFiltreMarque(arrayMarques: number[]) {
+    //     return this.http.get(this.produitsFemmesUrl + '/marque/' + arrayMarques)
+    //         .toPromise()
+    //         .then(response =>
+    //             response.json() as Produit[])
+    //         .catch(this.handleError);
+    // }
 
-    getProduitByFiltres(arrayTailles: number[], arrayMarques: number[]): Promise<Produit[]> {
-        return this.http.get(this.produitsFemmesUrl + '/' + arrayTailles + '/' + arrayMarques)
-            .toPromise()
-            .then(response =>
-                response.json() as Produit[])
-            .catch(this.handleError);
-    }
+    // getProduitByFiltres(arrayTailles: number[]): Promise<Produit[]> {
+    //     return this.http.get(this.produitsFemmesUrl + '/' + arrayTailles)
+    //         .toPromise()
+    //         .then(response =>
+    //             response.json() as Produit[])
+    //         .catch(this.handleError);
+    // }
 
     getAllProduits(): Promise<Produit[]> {
         return this.http.get(this.produitsFemmesUrl)
