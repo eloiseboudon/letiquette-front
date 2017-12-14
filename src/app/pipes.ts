@@ -60,6 +60,7 @@ export class UniquePipe implements PipeTransform {
     name: 'filterPrice',
     pure: false
 })
+
 export class FilterPricePipe implements PipeTransform {
     prixMin: number;
     prixMax: number;
@@ -78,6 +79,7 @@ export class FilterPricePipe implements PipeTransform {
     name: 'filterMarque',
     pure: false
 })
+
 export class FilterMarquePipe implements PipeTransform {
 
     transform(items: any[], term): any {
