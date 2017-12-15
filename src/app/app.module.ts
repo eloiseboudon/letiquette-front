@@ -5,7 +5,7 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {TitleCasePipe} from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe} from './pipes';
 
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './nav/nav.component';
@@ -19,7 +19,8 @@ import {ProduitViewComponent} from './produitView/produitView.component';
 
 
 import {PageNotFoundComponent} from './not-found.component';
-import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe} from './pipes';
+
+
 
 import {PaysService} from './pays/pays.service';
 import {VilleService} from './villes/ville.service';
