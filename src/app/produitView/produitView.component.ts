@@ -1,7 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+
 import {Produit} from '../produits/produit';
 import {ProduitService} from '../produits/produit.service';
+
+import {Image} from '../image/image';
+import {ImageService} from '../image/image.service';
+
 
 @Component({
     selector: 'produitView-root',
@@ -13,8 +18,10 @@ export class ProduitViewComponent implements OnInit {
     produit: Produit[];
     id: number;
     private sub: any;
+    imageList: Image[];
 
-    constructor(private route: ActivatedRoute, private produitService: ProduitService) {
+    constructor(private route: ActivatedRoute, private produitService: ProduitService,
+                private imageService: ImageService) {
     }
 
     ngOnInit(): void {
@@ -23,6 +30,7 @@ export class ProduitViewComponent implements OnInit {
             this.id = +params['id'];
         });
         this.getProduit(this.id);
+        this.getImages(this.id);
     }
 
     getProduit(id): void {
@@ -33,6 +41,15 @@ export class ProduitViewComponent implements OnInit {
             })
             .catch(this.handleError);
 
+    }
+
+
+    getImages(id): void {
+        this.imageService
+            .getImagesByProduit(id)
+            .then(image =>
+                this.imageList = image)
+            .catch(this.handleError);
     }
 
     private handleError(error: any): Promise<any> {

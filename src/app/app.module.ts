@@ -25,6 +25,7 @@ import {PaysService} from './pays/pays.service';
 import {VilleService} from './villes/ville.service';
 import {FournisseurService} from './fournisseurs/fournisseur.service';
 import {FamilleService} from './familles/famille.service';
+import {ImageService} from './image/image.service';
 import {ProduitService} from './produits/produit.service';
 import {TailleTypeService} from './tailleType/tailleType.service';
 import {ProduitFemmesService} from './produitsFemmes/produitFemmes.service';
@@ -71,6 +72,7 @@ const appRoutes: Routes = [
         FournisseurService,
         FamilleService,
         ProduitService,
+        ImageService,
         ProduitFemmesService,
         TailleTypeService,
         TitleCasePipe

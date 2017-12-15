@@ -46,6 +46,11 @@ h2 {
 .contenu {
     padding-bottom: 260px;
     height: 100%;
+    min-height: 100vh;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 /* EOF GLOBAL */
@@ -691,17 +696,17 @@ h2 {
     width: 250px;
 }
 
-.contenu #products_view .marque {
+.contenu #products_view .marque, .contenu #product_view .marque {
     font-size: 20px;
     font-weight: bolder;
 
 }
 
-.contenu #products_view .libelle {
+.contenu #products_view .libelle, .contenu #product_view .libelle {
     text-align: center;
 }
 
-.contenu #products_view .prix {
+.contenu #products_view .prix, .contenu #product_view .prix {
     text-align: center;
     font-weight: bold;
     color: #880015;
@@ -778,6 +783,73 @@ h2 {
     text-align: right;
 }
 
+.contenu #product_view ul {
+    list-style: none;
+}
+
+.contenu #product_view .images-produit{
+    margin: 10px;
+    /*height: auto;*/
+}
+
+.contenu #product_view .contenu-produit {
+    margin: 10px;
+}
+
+.contenu .images-produit {
+    display: flex;
+    /*float: left;*/
+}
+
+.contenu #product_view .images-produit img.image-principale {
+    box-shadow: 8px 8px 12px #aaa;
+    width: 300px;
+    margin: 10px;
+}
+
+.contenu #product_view .prix {
+    text-align: left;
+}
+
+.contenu #product_view .titre {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.contenu #product_view .images-produit .img-mignatures img {
+    width: 80px;
+    margin: 10px;
+}
+
+.contenu #product_view .tailles li {
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #880015;
+    width: 40px;
+    text-align: center;
+}
+
+.contenu #product_view .tailles li:hover {
+    background-color: #921729;
+    color:white;
+}
+
+.contenu .ajouter_panier .btn_ajout_panier {
+    color: #ffffff;
+    font-size: 20px;
+    background: #880014;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 0;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.contenu .ajouter_panier .btn_ajout_panier:hover {
+    background: #921729;
+    text-decoration: none;
+}
+
 /*  FILTRE PRIX */
 .noUi-horizontal {
     margin: 20px;
@@ -844,7 +916,7 @@ h2 {
 }
 
 #filtres #dropdown-tailles .dropdown-menu li:hover, #affichage_produit .nbItemsPage li:hover {
-    background-color: #BE737F;
+    background-color: #921729;
     color: white;
     cursor: pointer;
 }
