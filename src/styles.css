@@ -796,11 +796,6 @@ h2 {
     margin: 10px;
 }
 
-/*.contenu .images-produit {*/
-    /*display: flex;*/
-    /*!*float: left;*!*/
-/*}*/
-
 .contenu #product_view .images-produit img.image-principale {
     box-shadow: 8px 8px 12px #aaa;
     width: 300px;
@@ -815,10 +810,23 @@ h2 {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-.contenu #product_view .images-produit .img-mignatures img {
+.contenu #product_view .images-produit .images-mignatures img {
     width: 80px;
     margin: 10px;
 }
+.contenu #product_view .images-mignatures ul, .contenu #product_view .tailles ul{
+    padding: 0;
+}
+
+.contenu #product_view .images-mignatures li{
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    width: 80px;
+    text-align: center;
+}
+
 
 .contenu #product_view .tailles li {
     list-style: none;
