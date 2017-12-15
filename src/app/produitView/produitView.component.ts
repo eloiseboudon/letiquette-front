@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
+import * as jQuery from 'jquery';
+
 import {Produit} from '../produits/produit';
 import {ProduitService} from '../produits/produit.service';
 
@@ -52,6 +54,7 @@ export class ProduitViewComponent implements OnInit {
             .catch(this.handleError);
     }
 
+    
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

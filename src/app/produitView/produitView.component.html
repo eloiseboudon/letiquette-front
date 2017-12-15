@@ -1,15 +1,22 @@
 <div class="contenu">
     <div class="global_width">
         <div id="product_view" class="product_view">
+
+            <div class="slider">
+                <div>your content</div>
+                <div>your content</div>
+                <div>your content</div>
+            </div>
+
             <ul *ngFor="let item of produit">
 
                 <div class="row">
                     <div class="col-xs-6 col-md-7 col-lg-8">
                         <div class="images-produit">
 
-                            <div class="img-mignatures">
+                            <div class="img-mignatures slider">
                                 <ul *ngFor="let image of imageList">
-                                    <li><img src="assets/images_produits/{{image.image}}"></li>
+                                    <div><li><img src="assets/images_produits/{{image.image}}"></li></div>
                                 </ul>
                             </div>
                             <img src="assets/images_produits/{{item.image}}" class="image-principale">
