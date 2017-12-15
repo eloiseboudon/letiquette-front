@@ -1,4 +1,4 @@
-import { Injectable }    from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
@@ -14,17 +14,14 @@ export class FournisseurService {
     private fournisseurUrl = 'http://127.0.0.1:8000/fournisseurs';
     // private fournisseursFemmesUrl = 'http://127.0.0.1:8000/produitsFemmes/fournisseurs';
 
-
-    
     constructor(private http: Http) { }
-    
+
     getAllFournisseurs(): Promise<Fournisseur[]> {
         return this.http.get(this.fournisseurUrl)
             .toPromise()
             .then(response =>
                     response.json() as Fournisseur[])
-            .catch(this.handleError); 
-    }
+            .catch(this.handleError);}
 
     // getAllFemmesFournisseurs(): Promise<Fournisseur[]> {
     //     console.log("test");
