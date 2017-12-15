@@ -223,4 +223,9 @@ export class ProduitsFemmesComponent implements OnInit {
     // }
 
 
+    checked() {
+        return this.fournisseurList.filter(item => { return item.checked; });
+    }
+
+
 }

@@ -1,10 +1,10 @@
-import { Ville } from "../villes/ville";
+import { Ville } from '../villes/ville';
 
-export class Fournisseur{
+export class Fournisseur {
     id: number;
     ville: Ville;
     nomMarque: string;
-    // isActive: boolean = false;
+    checked: boolean = false;
     nomResponsable: string;
     adMail: string;
     adresse: string;
