@@ -1,5 +1,6 @@
 import {Famille} from '../familles/famille';
 import {Fournisseur} from '../fournisseurs/fournisseur';
+import {Couleur} from '../couleurs/couleur';
 
 export class Produit {
     id: number;
@@ -9,5 +10,6 @@ export class Produit {
     prix: number;
     image: string;
     description: string;
+    couleur: Couleur;
 }
 

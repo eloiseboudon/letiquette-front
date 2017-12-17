@@ -72,6 +72,7 @@ const appRoutes: Routes = [
         VilleService,
         FournisseurService,
         FamilleService,
+        CouleurService,
         ProduitService,
         ImageService,
         ProduitFemmesService,
