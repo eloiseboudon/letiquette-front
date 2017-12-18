@@ -80,8 +80,8 @@
                                     <ul >
                                         <li *ngFor="let couleur of couleurList">
                                             <input type="checkbox" [(ngModel)]="couleur.checked"
-                                                   [value]="couleur.name" class="checkbox-couleur"
-                                                   [ngStyle]="{'background-color': couleur.hexa}" alt="TEst">
+                                                   [value]="couleur.name"
+                                                   [ngStyle]="{'background-color': couleur.hexa}"   [ngClass]="couleur.checked == true ? 'couleurActive' : 'couleurNonActive'">
 
                                         </li>
                                     </ul>
@@ -235,7 +235,6 @@
                 <span class="example-val" id="skip-value-upper"></span>
                 <!-- EOF - Filtres prix -->
 
-                <!--<input [(ngModel)]="fournisseur">{{fournisseur}}-->
 
                 <div id="products_all_view">
 
