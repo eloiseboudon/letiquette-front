@@ -12,7 +12,6 @@ export class FournisseurService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     private fournisseurUrl = 'http://127.0.0.1:8000/fournisseurs';
-    // private fournisseursFemmesUrl = 'http://127.0.0.1:8000/produitsFemmes/fournisseurs';
 
     constructor(private http: Http) { }
 
@@ -23,22 +22,9 @@ export class FournisseurService {
                     response.json() as Fournisseur[])
             .catch(this.handleError);}
 
-    // getAllFemmesFournisseurs(): Promise<Fournisseur[]> {
-    //     console.log("test");
-    //     return this.http.get(this.fournisseurUrl)
-    //         .toPromise()
-    //         .then(response =>
-    //                 response.json() as Fournisseur[])
-    //         .catch(this.handleError); 
-    // }
-
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
-
-  
-
-
 
 }

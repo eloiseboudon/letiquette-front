@@ -31,9 +31,13 @@
 
                             <div class="tailles">
                                 <ul>
-                                    <li>S</li>
-                                    <li>M</li>
-                                    <li>L</li>
+                                    <li *ngFor="let taille of tailleList">
+                                        {{taille.name}}
+                                    </li>
+
+                                    <!--<li>S</li>-->
+                                    <!--<li>M</li>-->
+                                    <!--<li>L</li>-->
                                 </ul>
                             </div>
                             <div class="couleurs"></div>
