@@ -5,7 +5,7 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {TitleCasePipe} from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe} from './pipes';
+import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe} from './pipes';
 
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './nav/nav.component';
@@ -30,6 +30,7 @@ import {ImageService} from './image/image.service';
 import {ProduitService} from './produits/produit.service';
 import {TailleTypeService} from './tailleType/tailleType.service';
 import {ProduitFemmesService} from './produitsFemmes/produitFemmes.service';
+import {CouleurService} from './couleurs/couleur.service';
 
 
 const appRoutes: Routes = [
@@ -56,7 +57,7 @@ const appRoutes: Routes = [
         ProduitViewComponent,
         PageNotFoundComponent,
         SortByPipe,
-        UniquePipe, FilterPricePipe, FilterMarquePipe
+        UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe
     ],
     imports: [
         BrowserModule,

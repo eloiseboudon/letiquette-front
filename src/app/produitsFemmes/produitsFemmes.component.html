@@ -77,11 +77,14 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                    <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
-                                        <li>
-                                            <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
+                                    <ul >
+                                        <li *ngFor="let couleur of couleurList">
+                                            <input type="checkbox" [(ngModel)]="couleur.checked"
+                                                   [value]="couleur.name" class="checkbox-couleur"
+                                                   [ngStyle]="{'background-color': couleur.hexa}" alt="TEst">
+
                                         </li>
-                                    </ul> -->
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -237,13 +240,14 @@
                 <div id="products_all_view">
 
                     <ul id="products_view"
-                        *ngFor="let produit of (produitsList | filterPrice | filterMarque: { fournisseur: ''} : checked() : false | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
+                        *ngFor="let produit of (produitsList | filterPrice | filterMarque: { fournisseur: ''} : checkedFournisseur() : false  |  filterCouleur: { couleur: ''} : checkedCouleur() : false | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
                         <a [routerLink]="['/produits', produit.id]">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
                         <li class="marque">{{produit.fournisseur}}</li>
-                        <li class="libelle">{{produit.libelle}}</li>
+                        <li class="libelle">{{produit.libelle}} {{produit.couleur}}</li>
                         <li class="prix">{{produit.prix}} €</li>
+                        <!--<li class="couleur"></li>-->
                     </ul>
                 </div>
 

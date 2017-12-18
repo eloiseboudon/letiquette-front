@@ -21,6 +21,8 @@ import {FamilleService} from '../familles/famille.service';
 
 import {Fournisseur} from '../fournisseurs/fournisseur';
 import {FournisseurService} from '../fournisseurs/fournisseur.service';
+import {Couleur} from '../couleurs/couleur';
+import {CouleurService} from '../couleurs/couleur.service';
 
 
 @Component({
@@ -31,7 +33,8 @@ import {FournisseurService} from '../fournisseurs/fournisseur.service';
 
 export class ProduitsFemmesComponent implements OnInit {
     fournisseurList: Fournisseur[];
-    produitsTailleList: Produit[];
+    couleurList: Couleur[];
+    // produitsTailleList: Produit[];
     familleFilter: boolean = false;
     famillesList: Famille[];
     tailleTypeList: TailleType[];
@@ -46,7 +49,8 @@ export class ProduitsFemmesComponent implements OnInit {
     pageSize = 4;
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
-                private familleService: FamilleService, private fournisseurService: FournisseurService, private router: Router) {
+                private familleService: FamilleService, private fournisseurService: FournisseurService, private  couleurService: CouleurService,
+                private router: Router) {
     }
 
     ngOnInit(): void {
@@ -55,6 +59,7 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getAllProduits();
         this.getAllTailleType();
         this.getAllMarques();
+        this.getAllCouleurs();
         this.getFamilleBySexe();
         this.filtrePrix();
         this.goToTop();
@@ -129,6 +134,14 @@ export class ProduitsFemmesComponent implements OnInit {
             .then(fournisseur => {
                 this.fournisseurList = fournisseur;
             });
+    }
+
+    getAllCouleurs(): void {
+        this.couleurService
+            .getAllCouleurs()
+            .then(couleur => {
+                this.couleurList = couleur;
+        });
     }
 
     getAllProduits(): void {
@@ -223,9 +236,13 @@ export class ProduitsFemmesComponent implements OnInit {
     // }
 
 
-    checked() {
+    checkedFournisseur() {
         return this.fournisseurList.filter(item => { return item.checked; });
     }
 
+
+    checkedCouleur() {
+        return this.couleurList.filter(item => { return item.checked; });
+    }
 
 }
