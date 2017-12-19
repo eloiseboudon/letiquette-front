@@ -3,11 +3,11 @@ import { Ville } from '../villes/ville';
 export class Fournisseur {
     id: number;
     ville: Ville;
-    nomMarque: string;
+    nom_marque: string;
     checked: boolean = false;
-    nomResponsable: string;
-    adMail: string;
+    nom_responsable: string;
+    ad_mail: string;
     adresse: string;
-    numTel: number;
+    num_tel: number;
     logo: string;
 }
