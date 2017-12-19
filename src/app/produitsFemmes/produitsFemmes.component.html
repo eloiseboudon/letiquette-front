@@ -1,4 +1,4 @@
-<div (click)="scroll()" class="top_link" title="Revenir en haut de page">TOP
+<div (click)="scroll()" class="top_link" title="Revenir en haut de page" xmlns="">TOP
     <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </div>
 
@@ -243,8 +243,9 @@
                         <a [routerLink]="['/produits', produit.id]">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
-                        <li class="marque">{{produit.fournisseur}}</li>
-                        <li class="libelle">{{produit.libelle}} {{produit.couleur}}</li>
+                        <li class="marque">{{produit.fournisseur.nom_marque}} </li>
+                        <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}} {{produit.couleur.name}}</li>
+                        <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
                         <li class="prix">{{produit.prix}} €</li>
                         <!--<li class="couleur"></li>-->
                     </ul>
@@ -258,3 +259,6 @@
         </div>
     </div>
 </div>
+
+
+
