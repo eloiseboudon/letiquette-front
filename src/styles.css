@@ -859,6 +859,38 @@ h2 {
     text-decoration: none;
 }
 
+.contenu #product_view .images-produit .zoom {
+    width: 320px;
+    height: 470px;
+    margin:auto;
+}
+.contenu #product_view .images-produit .image {
+    width: 100%;
+    height: 100%;
+}
+.contenu #product_view .images-produit .image img {
+    /* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
+    -webkit-transition: all 1s ease; /* Safari et Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* Internet Explorer 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+}
+
+.contenu #product_view .images-produit img.image-principale:hover{
+    box-shadow: none;
+    border: solid 1.5px #880015;
+}
+
+.contenu #product_view .images-produit .image:hover img {
+    /* L'image est grossie de 25% */
+    -webkit-transform:scale(1.25); /* Safari et Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* Internet Explorer 9 */
+    -o-transform:scale(1.25); /* Opera */
+    transform:scale(1.25);
+}
+
 /*  FILTRE PRIX */
 .noUi-horizontal {
     margin: 20px;
@@ -913,7 +945,7 @@ h2 {
     padding: 0;
     margin: 0;
 }
-#filtres #dropdown-tailles ul{
+#filtres #dropdown-tailles ul, #filtres #dropdown-couleurs .dropdown-menu ul{
     text-align: center;
 }
 
@@ -938,9 +970,15 @@ h2 {
     color: white;
 }
 
+#filtres #dropdown-couleurs .dropdown-menu .couleurActive {
+    opacity: 0.5;
+    border: 1px solid black;
+}
+
 #filtres #dropdown-couleurs .dropdown-menu ul, #filtres #dropdown-couleurs .dropdown-menu{
     padding: 0;
     margin: 0;
+
 }
 
 #filtres #dropdown-couleurs .dropdown-menu li{
@@ -948,16 +986,17 @@ h2 {
     display: inline-block;
 }
 
+#filtres #dropdown-couleurs .dropdown-menu input:hover{
+    cursor:pointer;
+}
 
-#filtres #dropdown-couleurs .dropdown-menu .checkbox-couleur{
+
+#filtres #dropdown-couleurs .dropdown-menu input{
     -webkit-appearance: none;
-    /*background-color: red;*/
     border-radius:50%;
     border: 1px solid #cacece;
-    /*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
-    padding: 9px;
+    padding: 12px;
     margin:2px;
-    /*border-radius: 3px;*/
     display: inline-block;
     position: relative;
 }

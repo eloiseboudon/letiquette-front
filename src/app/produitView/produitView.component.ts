@@ -6,6 +6,8 @@ import {ProduitService} from '../produits/produit.service';
 
 import {Image} from '../image/image';
 import {ImageService} from '../image/image.service';
+import {TailleService} from '../tailles/taille.service';
+import {Taille} from '../tailles/taille';
 
 
 @Component({
@@ -19,8 +21,10 @@ export class ProduitViewComponent implements OnInit {
     id: number;
     private sub: any;
     imageList: Image[];
+    tailleList: Taille[];
 
     constructor(private route: ActivatedRoute, private produitService: ProduitService,
+                private tailleService: TailleService,
                 private imageService: ImageService) {
     }
 
@@ -31,6 +35,7 @@ export class ProduitViewComponent implements OnInit {
         });
         this.getProduit(this.id);
         this.getImages(this.id);
+        this.getTailles(this.id);
     }
 
     getProduit(id): void {
@@ -41,6 +46,15 @@ export class ProduitViewComponent implements OnInit {
             })
             .catch(this.handleError);
 
+    }
+
+    getTailles(id): void {
+        this.tailleService
+            .getTailleByIDProduct(id)
+            .then(tailles => {
+                this.tailleList = tailles;
+            })
+            .catch(this.handleError);
     }
 
 

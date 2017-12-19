@@ -1,51 +1,59 @@
 <div class="contenu">
     <div class="global_width">
         <div id="product_view" class="product_view">
-            <ul *ngFor="let item of produit">
-                <div class="row">
-                    <div class="col-xs-6 col-md-7 col-lg-8">
-                        <div class="images-produit">
-<img src="assets/images_produits/{{item.image}}" class="image-principale" onclick="window.open(this.src,'_blank','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width='+this.width+', height='+this.height);">
+            <!--<ul *ngFor="let item of produit">-->
+            <div class="row">
+                <div class="col-xs-6 col-md-7 col-lg-8">
 
-                            <div class="images-mignatures">
-                                <ul>
-                                    <li *ngFor="let image of imageList" (click)="item.image=image.image">
-                                     <img src="assets/images_produits/{{image.image}}">
-                                    </li>
-                                </ul>
+
+                    <div class="images-produit">
+                        <div class=zoom>
+                            <div class="image">
+                                <img src="assets/images_produits/{{produit.image}}" class="image-principale">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-6 col-md-5 col-lg-4">
-                        <div class="contenu-produit">
-
-                            <li>
-                                <div class="titre">
-                                    <h1>{{item.libelle}} - {{item.fournisseur}}</h1>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="prix">{{item.prix}} €</div>
-                            </li>
-
-                            <div class="tailles">
-                                <ul>
-                                    <li>S</li>
-                                    <li>M</li>
-                                    <li>L</li>
-                                </ul>
-                            </div>
-                            <div class="couleurs"></div>
-
-
-                            <div class="ajouter_panier">
-                                <button class="btn btn_ajout_panier">AJOUTER AU PANIER</button>
-                            </div>
+                        <div class="images-mignatures">
+                            <ul>
+                                <li *ngFor="let image of imageList" (click)="item.image=image.image">
+                                    <img src="assets/images_produits/{{image.image}}">
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </ul>
+                <div class="col-xs-6 col-md-5 col-lg-4">
+                    <div class="contenu-produit">
+
+
+                        <div class="titre">
+                            <h1>{{produit.libelle}} - {{produit.fournisseur.nom_marque}}</h1>
+                        </div>
+
+
+                        <div class="prix">{{produit.prix}} €</div>
+
+
+                        <div class="tailles">
+                            <ul>
+                                <li *ngFor="let taille of tailleList">
+                                    {{taille.name}}
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="description">
+                            {{produit.description}}
+                        </div>
+
+
+                        <div class="ajouter_panier">
+                            <button class="btn btn_ajout_panier">AJOUTER AU PANIER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</ul>-->
         </div>
     </div>
 </div>
+

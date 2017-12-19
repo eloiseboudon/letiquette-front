@@ -29,6 +29,7 @@ import {FamilleService} from './familles/famille.service';
 import {ImageService} from './image/image.service';
 import {ProduitService} from './produits/produit.service';
 import {TailleTypeService} from './tailleType/tailleType.service';
+import {TailleService} from './tailles/taille.service';
 import {ProduitFemmesService} from './produitsFemmes/produitFemmes.service';
 import {CouleurService} from './couleurs/couleur.service';
 
@@ -77,6 +78,7 @@ const appRoutes: Routes = [
         ProduitService,
         ImageService,
         ProduitFemmesService,
+        TailleService,
         TailleTypeService,
         TitleCasePipe
     ],

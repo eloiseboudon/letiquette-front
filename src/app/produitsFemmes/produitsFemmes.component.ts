@@ -141,7 +141,7 @@ export class ProduitsFemmesComponent implements OnInit {
             .getAllCouleurs()
             .then(couleur => {
                 this.couleurList = couleur;
-        });
+            });
     }
 
     getAllProduits(): void {
@@ -155,7 +155,6 @@ export class ProduitsFemmesComponent implements OnInit {
         this.familleFilter = false;
         this.arrayFiltresTaille = [];
     }
-
 
 
     getFamilleBySexe(): void {
@@ -187,17 +186,13 @@ export class ProduitsFemmesComponent implements OnInit {
         if (!taille.isActive) {
             taille.isActive = true;
             this.arrayFiltresTaille.push(taille.id);
+            this.produitFemmesService
+                .getProduitByFiltreTaille(this.arrayFiltresTaille)
+                .then(produits => {
+                    this.produitsList = produits;
+                });
         } else {
             taille.isActive = false;
-            // const index: number = this.arrayFiltresMarque.indexOf(taille.id);
-            // this.arrayFiltresTaille.splice(index, 1);
-        }
-
-        if (this.familleFilter) {
-            // this.filterAllWithFamille(this.viewFamille, this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-        } else {
-            // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque, this.prixMin, this.prixMax);
-            // this.filterAll(this.arrayFiltresTaille, this.arrayFiltresMarque);
         }
     }
 
@@ -237,12 +232,16 @@ export class ProduitsFemmesComponent implements OnInit {
 
 
     checkedFournisseur() {
-        return this.fournisseurList.filter(item => { return item.checked; });
+        return this.fournisseurList.filter(item => {
+            return item.checked;
+        });
     }
 
 
     checkedCouleur() {
-        return this.couleurList.filter(item => { return item.checked; });
+        return this.couleurList.filter(item => {
+            return item.checked;
+        });
     }
 
 }

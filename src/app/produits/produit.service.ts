@@ -15,14 +15,10 @@ export class ProduitService {
     private headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     private produitsFamilleUrl;
     private declinaisonTailleUrl = 'http://127.0.0.1:8000/produitsTaille';
-    private produitsTailleFamilleUrl = 'http://127.0.0.1:8000/produitsTailleFamille';s
+    private produitsTailleFamilleUrl = 'http://127.0.0.1:8000/produitsTailleFamille';
     private produitsFiltresUrl = 'http://127.0.0.1:8000/produitsFiltres';
     private produits = 'http://127.0.0.1:8000/produits';
     constructor(private http: Http) { }
-
-    //*************** */
-    // GLOBAL 
-    //****************/
 
     getProduit(id: number): Promise<Produit[]> {
         return this.http.get(this.produits + '/' + id)
@@ -45,7 +41,7 @@ export class ProduitService {
 
 
     getProduitByTaille(taille: Taille): Promise<Produit[]> {
-        return this.http.get(this.declinaisonTailleUrl + "/" + taille.id)
+        return this.http.get(this.declinaisonTailleUrl + '/' + taille.id)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])
@@ -54,7 +50,7 @@ export class ProduitService {
 
 
     getProduitByTailleFamille(taille: Taille, famille: Famille): Promise<Produit[]> {
-        return this.http.get(this.produitsTailleFamilleUrl + "/" + taille.id + "/" + famille.id)
+        return this.http.get(this.produitsTailleFamilleUrl + '/' + taille.id + '/' + famille.id)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])
