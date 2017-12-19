@@ -83,8 +83,10 @@ export class FilterPricePipe implements PipeTransform {
 export class FilterMarquePipe implements PipeTransform {
 
     transform(items: any, filter: any, filterItems: Array<any>, isAnd: boolean): any {
+
         if (filter && Array.isArray(items) && filterItems) {
             let filterKeys = Object.keys(filter);
+            console.log(filterKeys);
             let checkedItems = filterItems.filter(item => { return item.checked; });
             if (!checkedItems || checkedItems.length === 0) { return items; }
             if (isAnd) {
