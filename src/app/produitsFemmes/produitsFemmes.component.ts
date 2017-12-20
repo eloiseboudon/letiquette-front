@@ -110,6 +110,10 @@ export class ProduitsFemmesComponent implements OnInit {
         window.scrollTo(0, 0);
     }
 
+    annulerFiltres(): void {
+        window.location.reload();
+    }
+
 
     getAllTailleType() {
         this.tailleTypeService
@@ -192,7 +196,22 @@ export class ProduitsFemmesComponent implements OnInit {
                     this.produitsList = produits;
                 });
         } else {
-            taille.isActive = false;
+            if (this.arrayFiltresTaille.length > 1) {
+                taille.isActive = false;
+                const index = this.arrayFiltresTaille.indexOf(taille);
+                this.arrayFiltresTaille.splice(index, 1);
+                this.produitFemmesService
+                    .getProduitByFiltreTaille(this.arrayFiltresTaille)
+                    .then(produits => {
+                        this.produitsList = produits;
+                    });
+            } else {
+                this.produitFemmesService
+                    .getAllProduits()
+                    .then(produits => {
+                        this.produitsList = produits;
+                    });
+            }
         }
     }
 
@@ -231,17 +250,17 @@ export class ProduitsFemmesComponent implements OnInit {
     // }
 
 
-    checkedFournisseur() {
-        return this.fournisseurList.filter(item => {
-            return item.checked;
-        });
-    }
-
-
-    checkedCouleur() {
-        return this.couleurList.filter(item => {
-            return item.checked;
-        });
-    }
+    // checkedFournisseur() {
+    //     return this.fournisseurList.filter(item => {
+    //         return item.checked;
+    //     });
+    // }
+    //
+    //
+    // checkedCouleur() {
+    //     return this.couleurList.filter(item => {
+    //         return item.checked;
+    //     });
+    // }
 
 }

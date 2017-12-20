@@ -59,7 +59,7 @@
                                         <tr *ngFor="let marque of fournisseurList">
                                             <td>
                                                 <input type="checkbox" [(ngModel)]="marque.checked"
-                                                       [value]="marque.nom_marque">
+                                                       name="marque" [value]="marque.nom_marque">
                                                 {{marque.nom_marque}}
                                             </td>
                                         </tr>
@@ -77,11 +77,12 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                    <ul >
+                                    <ul>
                                         <li *ngFor="let couleur of couleurList">
                                             <input type="checkbox" [(ngModel)]="couleur.checked"
                                                    [value]="couleur.name"
-                                                   [ngStyle]="{'background-color': couleur.hexa}"   [ngClass]="couleur.checked == true ? 'couleurActive' : 'couleurNonActive'">
+                                                   [ngStyle]="{'background-color': couleur.hexa}"
+                                                   [ngClass]="couleur.checked == true ? 'couleurActive' : 'couleurNonActive'">
 
                                         </li>
                                     </ul>
@@ -198,6 +199,12 @@
 
                         </div>
 
+                        <div class="col-5">
+
+                        </div>
+                        <div class="col-2 annuler_filtres">
+                            <span  (click)=annulerFiltres()><i class="fa fa-times" aria-hidden="true"></i> Annuler filtres</span>
+                        </div>
 
                     </div>
                 </div>
@@ -239,11 +246,11 @@
                 <div id="products_all_view">
 
                     <ul id="products_view"
-                        *ngFor="let produit of (produitsList | filterPrice | filterMarque: {fournisseur: ''} : checkedFournisseur() : false |  filterCouleur: { couleur: ''} : checkedCouleur() : false  |  unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
+                        *ngFor="let produit of (produitsList | filterPrice | filterMarque: marque.checked |  unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
                         <a [routerLink]="['/produits', produit.id]">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
-                        <li class="marque">{{produit.fournisseur}} </li>
+                        <li class="marque">{{produit.fournisseur}}</li>
                         <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}} {{produit.couleur}}</li>
                         <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
                         <li class="prix">{{produit.prix}} €</li>

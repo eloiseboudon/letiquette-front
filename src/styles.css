@@ -813,6 +813,10 @@ h2 {
 .contenu #product_view .images-produit .images-mignatures img {
     width: 80px;
 }
+
+.contenu #product_view .images-produit .images-mignatures img:hover{
+    cursor: pointer;
+}
 .contenu #product_view .images-mignatures ul, .contenu #product_view .tailles ul{
     padding: 0;
 }
@@ -1017,6 +1021,19 @@ h2 {
     color: #880015;
     cursor: pointer;
 }
+
+#filtres .annuler_filtres span:hover{
+    cursor: pointer;
+}
+
+#filtres .annuler_filtres{
+    margin-top:30px;
+}
+
+#filtres .annuler_filtres .fa{
+    color:#880015;
+}
+
 
 .my-pagination .ngx-pagination {
     margin-top: 10px;

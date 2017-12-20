@@ -1,7 +1,7 @@
 <div class="contenu">
     <div class="global_width">
         <div id="product_view" class="product_view">
-            <!--<ul *ngFor="let item of produit">-->
+            <ul *ngFor="let item of produit">
             <div class="row">
                 <div class="col-xs-6 col-md-7 col-lg-8">
 
@@ -9,7 +9,7 @@
                     <div class="images-produit">
                         <div class=zoom>
                             <div class="image">
-                                <img src="assets/images_produits/{{produit.image}}" class="image-principale">
+                                <img src="assets/images_produits/{{item.image}}" class="image-principale">
                             </div>
                         </div>
                         <div class="images-mignatures">
@@ -26,11 +26,11 @@
 
 
                         <div class="titre">
-                            <h1>{{produit.libelle}} - {{produit.fournisseur.nom_marque}}</h1>
+                            <h1>{{item.libelle}} - {{item.fournisseur}}</h1>
                         </div>
 
 
-                        <div class="prix">{{produit.prix}} €</div>
+                        <div class="prix">{{item.prix}} €</div>
 
 
                         <div class="tailles">
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="description">
-                            {{produit.description}}
+                            {{item.description}}
                         </div>
 
 
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <!--</ul>-->
+            </ul>
         </div>
     </div>
 </div>
