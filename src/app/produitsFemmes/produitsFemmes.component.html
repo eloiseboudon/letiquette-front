@@ -59,7 +59,7 @@
                                         <tr *ngFor="let marque of fournisseurList">
                                             <td>
                                                 <input type="checkbox" [(ngModel)]="marque.checked"
-                                                       name="marque" [value]="marque.nom_marque">
+                                                       value="marque.nom_marque">
                                                 {{marque.nom_marque}}
                                             </td>
                                         </tr>
@@ -246,12 +246,12 @@
                 <div id="products_all_view">
 
                     <ul id="products_view"
-                        *ngFor="let produit of (produitsList | filterPrice | filterMarque: marque.checked |  unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
+                        *ngFor="let produit of (produitsList | filterPrice | filterMarque: checkedFournisseur() | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
                         <a [routerLink]="['/produits', produit.id]">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
-                        <li class="marque">{{produit.fournisseur}}</li>
-                        <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}} {{produit.couleur}}</li>
+                        <li class="marque">{{produit.fournisseur.nom_marque}}</li>
+                        <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}} {{produit.couleur.name}}</li>
                         <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
                         <li class="prix">{{produit.prix}} €</li>
                         <!--<li class="couleur"></li>-->

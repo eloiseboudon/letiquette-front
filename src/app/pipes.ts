@@ -1,6 +1,8 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {TitleCasePipe} from '@angular/common';
 import * as _ from 'lodash';
+import {forEach} from '@angular/router/src/utils/collection';
+import {letProto} from 'rxjs/operator/let';
 
 
 // @Pipe({
@@ -82,12 +84,14 @@ export class FilterPricePipe implements PipeTransform {
 
 export class FilterMarquePipe implements PipeTransform {
 
-    transform(check: any, checked: any): any {
-        console.log('checked', checked);
-        return checked
-            ? check.filter(marque =>  marque.nom_marque== checked)
-            : check;
-
+    transform(items: any, checked: any): any {
+        // console.log('checked', checked);
+        return (checked && checked.length > 0)
+            ? items.filter(
+                produit => produit.fournisseur.nom_marque === checked[0].nom_marque
+            )
+            :
+            items;
     }
 }
 
@@ -95,14 +99,18 @@ export class FilterMarquePipe implements PipeTransform {
     name: 'filterCouleur',
     pure: false
 })
-//
+
 export class FilterCouleurPipe implements PipeTransform {
 
     transform(items: any, filter: any, filterItems: Array<any>, isAnd: boolean): any {
         if (filter && Array.isArray(items) && filterItems) {
             let filterKeys = Object.keys(filter);
-            let checkedItems = filterItems.filter(item => { return item.checked; });
-            if (!checkedItems || checkedItems.length === 0) { return items; }
+            let checkedItems = filterItems.filter(item => {
+                return item.checked;
+            });
+            if (!checkedItems || checkedItems.length === 0) {
+                return items;
+            }
             if (isAnd) {
                 return items.filter(item =>
                     filterKeys.reduce((acc1, keyName) =>
