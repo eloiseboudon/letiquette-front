@@ -47,6 +47,8 @@ export class ProduitsFemmesComponent implements OnInit {
     prixMax: number;
     p: number = 1;
     pageSize = 4;
+    filterArrMarque = [];
+    filterArrCouleur = [];
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
                 private familleService: FamilleService, private fournisseurService: FournisseurService, private  couleurService: CouleurService,
@@ -249,18 +251,5 @@ export class ProduitsFemmesComponent implements OnInit {
     //     }
     // }
 
-
-    // checkedFournisseur() {
-    //     return this.fournisseurList.filter(item => {
-    //         return item.checked;
-    //     });
-    // }
-    //
-    //
-    // checkedCouleur() {
-    //     return this.couleurList.filter(item => {
-    //         return item.checked;
-    //     });
-    // }
 
 }

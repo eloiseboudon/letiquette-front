@@ -1,6 +1,9 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {TitleCasePipe} from '@angular/common';
 import * as _ from 'lodash';
+import {letProto} from 'rxjs/operator/let';
+// import {forEach} from '@angular/router/src/utils/collection';
+// import {letProto} from 'rxjs/operator/let';
 
 
 // @Pipe({
@@ -82,45 +85,35 @@ export class FilterPricePipe implements PipeTransform {
 
 export class FilterMarquePipe implements PipeTransform {
 
-    transform(check: any, checked: any): any {
-        console.log('checked', checked);
-        return checked
-            ? check.filter(marque =>  marque.nom_marque== checked)
-            : check;
-
+    transform(values: any, args?: any[]): any[] {
+        if (values) {
+            return values = values.filter(a => {
+                return args.length ? args.indexOf(a.fournisseur.nom_marque) !== -1 : values;
+            });
+        }
     }
 }
+
 
 @Pipe({
     name: 'filterCouleur',
     pure: false
 })
-//
+
 export class FilterCouleurPipe implements PipeTransform {
 
-    transform(items: any, filter: any, filterItems: Array<any>, isAnd: boolean): any {
-        if (filter && Array.isArray(items) && filterItems) {
-            let filterKeys = Object.keys(filter);
-            let checkedItems = filterItems.filter(item => { return item.checked; });
-            if (!checkedItems || checkedItems.length === 0) { return items; }
-            if (isAnd) {
-                return items.filter(item =>
-                    filterKeys.reduce((acc1, keyName) =>
-                            (acc1 && checkedItems.reduce((acc2, checkedItem) =>
-                                acc2 && new RegExp(item[keyName], 'gi').test(checkedItem.name) || checkedItem.name === '', true))
-                        , true)
-                );
-            } else {
-                return items.filter(item => {
-                    return filterKeys.some((keyName) => {
-                        return checkedItems.some((checkedItem) => {
-                            return new RegExp(item[keyName], 'gi').test(checkedItem.name) || checkedItem.name === '';
-                        });
-                    });
-                });
-            }
-        } else {
-            return items;
+    transform(values: any, args?: any[]): any[] {
+        if (values) {
+            return values = values.filter(a => {
+                if (!a.couleur && args.length) {
+                    return null;
+                } else if (args.length) {
+                    return args.indexOf(a.couleur.name) !== -1;
+                } else {
+                    return values;
+                }
+                // return args.length ? args.indexOf(a.couleur.name) !== -1 : values;
+            });
         }
     }
 }
