@@ -12,7 +12,7 @@ import {Taille} from '../tailles/taille';
 @Injectable()
 export class ProduitFemmesService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private produitsFemmesUrl = 'http://127.0.0.1:8000/femmes';  // URL to api
+    private produitsFemmesUrl = 'http://127.0.0.1:8000/tout/femmes';  // URL to api
 
 
     // private produitsFemmesFiltresUrl = 'http://127.0.0.1:8000/produitsFemmesFiltre';
