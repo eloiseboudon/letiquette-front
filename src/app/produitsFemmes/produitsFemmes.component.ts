@@ -49,6 +49,8 @@ export class ProduitsFemmesComponent implements OnInit {
     pageSize = 4;
     filterArrMarque = [];
     filterArrCouleur = [];
+    filterArrTaille = [];
+
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
                 private familleService: FamilleService, private fournisseurService: FournisseurService, private  couleurService: CouleurService,

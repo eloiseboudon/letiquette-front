@@ -945,15 +945,15 @@ h2 {
 
 /* FILTRES TAILLES */
 
-#filtres #dropdown-tailles ul, #affichage_produit .nbItemsPage ul, #filtres #dropdown-tailles .dropdown-menu {
+#filtres #dropdown-tailles ul, #affichage_produit .nbItemsPage ul {
     padding: 0;
     margin: 0;
 }
-#filtres #dropdown-tailles ul, #filtres #dropdown-couleurs .dropdown-menu ul{
+#filtres #dropdown-couleurs .dropdown-menu ul{
     text-align: center;
 }
 
-#filtres #dropdown-tailles .dropdown-menu li, #affichage_produit .nbItemsPage li {
+#affichage_produit .nbItemsPage li {
     list-style: none;
     display: inline-block;
     padding: 5px;
@@ -963,16 +963,16 @@ h2 {
     text-align: center;
 }
 
-#filtres #dropdown-tailles .dropdown-menu li:hover, #affichage_produit .nbItemsPage li:hover {
+#affichage_produit .nbItemsPage li:hover {
     background-color: #921729;
     color: white;
     cursor: pointer;
 }
 
-#filtres #dropdown-tailles .dropdown-menu .tailleActive {
-    background-color: #880015;
-    color: white;
-}
+/*#filtres #dropdown-tailles .dropdown-menu .tailleActive {*/
+    /*background-color: #880015;*/
+    /*color: white;*/
+/*}*/
 
 #filtres #dropdown-couleurs .dropdown-menu .couleurActive {
     opacity: 0.5;
@@ -994,7 +994,6 @@ h2 {
     cursor:pointer;
 }
 
-
 #filtres #dropdown-couleurs .dropdown-menu input{
     -webkit-appearance: none;
     border-radius:50%;
@@ -1004,6 +1003,7 @@ h2 {
     display: inline-block;
     position: relative;
 }
+
 
 #affichage_produit {
     margin-bottom: 8px;

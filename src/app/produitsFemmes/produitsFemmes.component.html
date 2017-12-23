@@ -35,12 +35,16 @@
                                     <span class="fa fa-caret-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <ul>
-                                        <li *ngFor="let taille of tailleTypeList" (click)=filterTaille(taille)
-                                            [ngClass]="taille.isActive == true ? 'tailleActive' : 'tailleNonActive'">
-                                            <span>{{taille.taille}}</span>
-                                        </li>
-                                    </ul>
+                                    <table>
+                                        <tr *ngFor="let taille of tailleTypeList">
+                                            <td>
+                                                <input type="checkbox" [(ngModel)]="taille.checked"
+                                                       (click)="!taille.checked ? filterArrTaille.push(taille.taille) : filterArrTaille.splice(filterArrTaille.indexOf(taille.taille),1)">
+                                                {{taille.taille}}
+                                                <!--<span></span>-->
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
 
                             </div>
@@ -81,7 +85,7 @@
                                         <li *ngFor="let couleur of couleurList">
                                             <input type="checkbox" [(ngModel)]="couleur.checked"
                                                    (click)="!couleur.checked ? filterArrCouleur.push(couleur.name) : filterArrCouleur.splice(filterArrMarque.indexOf(couleur.name),1)"
-                                            [value]="couleur.name"
+                                                   [value]="couleur.name"
                                                    [ngStyle]="{'background-color': couleur.hexa}"
                                                    [ngClass]="couleur.checked == true ? 'couleurActive' : 'couleurNonActive'">
 
@@ -204,7 +208,7 @@
 
                         </div>
                         <div class="col-2 annuler_filtres">
-                            <span  (click)=annulerFiltres()><i class="fa fa-times" aria-hidden="true"></i> Annuler filtres</span>
+                            <span (click)=annulerFiltres()><i class="fa fa-times" aria-hidden="true"></i> Annuler filtres</span>
                         </div>
 
                     </div>
@@ -247,7 +251,7 @@
                 <div id="products_all_view">
 
                     <ul id="products_view"
-                        *ngFor="let produit of (produitsList | filterPrice | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur |  unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
+                        *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur |  unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
                         <a [routerLink]="['/produits', produit.id]">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>

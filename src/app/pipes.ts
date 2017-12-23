@@ -57,6 +57,24 @@ export class FilterPricePipe implements PipeTransform {
 }
 
 
+
+@Pipe({
+    name: 'filterTaille',
+    pure: false
+})
+
+export class FilterTaillePipe implements PipeTransform {
+
+    transform(values: any, args?: any[]): any[] {
+        if (values) {
+            return values = values.filter(a => {
+                return args.length ? args.indexOf(a.taille) !== -1 : values;
+            });
+        }
+    }
+}
+
+
 @Pipe({
     name: 'filterMarque',
     pure: false
