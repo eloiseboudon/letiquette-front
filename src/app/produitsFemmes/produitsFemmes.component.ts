@@ -23,6 +23,8 @@ import {Fournisseur} from '../fournisseurs/fournisseur';
 import {FournisseurService} from '../fournisseurs/fournisseur.service';
 import {Couleur} from '../couleurs/couleur';
 import {CouleurService} from '../couleurs/couleur.service';
+import {PointsEthiques} from '../pointsEthiques/pointsEthiques';
+import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 
 
 @Component({
@@ -39,6 +41,7 @@ export class ProduitsFemmesComponent implements OnInit {
     famillesList: Famille[];
     tailleTypeList: TailleType[];
     produitsList: Produit[];
+    pointsEthiquesList: PointsEthiques[];
     view: string;
     viewFamille: Famille;
     arrayFiltresTaille: number[] = [];
@@ -50,10 +53,12 @@ export class ProduitsFemmesComponent implements OnInit {
     filterArrMarque = [];
     filterArrCouleur = [];
     filterArrTaille = [];
+    filterArrEthique = [];
 
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
                 private familleService: FamilleService, private fournisseurService: FournisseurService, private  couleurService: CouleurService,
+                private pointsEthiquesService: PointsEthiquesService,
                 private router: Router) {
     }
 
@@ -64,6 +69,7 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getAllTailleType();
         this.getAllMarques();
         this.getAllCouleurs();
+        this.getAllPointsEthiques();
         this.getFamilleBySexe();
         this.filtrePrix();
         this.goToTop();
@@ -149,6 +155,14 @@ export class ProduitsFemmesComponent implements OnInit {
             .getAllCouleurs()
             .then(couleur => {
                 this.couleurList = couleur;
+            });
+    }
+
+    getAllPointsEthiques(): void {
+        this.pointsEthiquesService
+            .getAllPointsEthiques()
+            .then(pointsEthiques => {
+                this.pointsEthiquesList = pointsEthiques;
             });
     }
 

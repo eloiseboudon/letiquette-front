@@ -5,7 +5,7 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {TitleCasePipe} from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe} from './pipes';
+import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe, FilterEthiquePipe} from './pipes';
 
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './nav/nav.component';
@@ -32,6 +32,7 @@ import {TailleTypeService} from './tailleType/tailleType.service';
 import {TailleService} from './tailles/taille.service';
 import {ProduitFemmesService} from './produitsFemmes/produitFemmes.service';
 import {CouleurService} from './couleurs/couleur.service';
+import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
 
 
 const appRoutes: Routes = [
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
         ProduitViewComponent,
         PageNotFoundComponent,
         SortByPipe,
-        UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe
+        UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe,FilterEthiquePipe
     ],
     imports: [
         BrowserModule,
@@ -76,6 +77,7 @@ const appRoutes: Routes = [
         FamilleService,
         CouleurService,
         ProduitService,
+        PointsEthiquesService,
         ImageService,
         ProduitFemmesService,
         TailleService,

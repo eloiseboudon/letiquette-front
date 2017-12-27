@@ -105,11 +105,6 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                    <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
-                                                <li>
-                                                    <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
-                                                </li>
-                                            </ul> -->
                                 </div>
                             </div>
                         </div>
@@ -139,31 +134,12 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                    <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
-                                                <li>
-                                                    <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
-                                                </li>
-                                            </ul> -->
-
                                     <table>
-                                        <tr>
+                                        <tr *ngFor="let point of pointsEthiquesList">
                                             <td>
-                                                <input type="checkbox"> Matière écologique, bio, recyclée
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox"> Social et solidaire
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox"> Vegan
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input type="checkbox"> Made in France
+                                                <input type="checkbox" [(ngModel)]="point.checked"
+                                                       (click)="!point.checked ? filterArrEthique.push(point.nom_ethique) : filterArrEthique.splice(filterArrEthique.indexOf(point.nom_ethique),1)">
+                                                {{point.nom_ethique}}
                                             </td>
                                         </tr>
                                     </table>
@@ -251,7 +227,7 @@
                 <div id="products_all_view">
 
                     <ul id="products_view"
-                        *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur |  unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
+                        *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
                         <a [routerLink]="['/produits', produit.id]">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
@@ -259,7 +235,6 @@
                         <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}} {{produit.couleur}}</li>
                         <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
                         <li class="prix">{{produit.prix}} €</li>
-                        <!--<li class="couleur"></li>-->
                     </ul>
                 </div>
 

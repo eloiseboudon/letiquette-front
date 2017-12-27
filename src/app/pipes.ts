@@ -113,3 +113,27 @@ export class FilterCouleurPipe implements PipeTransform {
         }
     }
 }
+
+
+
+@Pipe({
+    name: 'filterEthique',
+    pure: false
+})
+
+export class FilterEthiquePipe implements PipeTransform {
+
+    transform(values: any, args?: any[]): any[] {
+        if (values) {
+            return values = values.filter(a => {
+                if (!a.ethique && args.length) {
+                    return null;
+                } else if (args.length) {
+                    return args.indexOf(a.ethique) !== -1;
+                } else {
+                    return values;
+                }
+            });
+        }
+    }
+}
