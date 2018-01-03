@@ -1,4 +1,4 @@
-<div (click)="scroll()" class="top_link" title="Revenir en haut de page" xmlns="">TOP
+<div (click)="scroll()" class="top_link" title="Revenir en haut de page" xmlns="">HAUT
     <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </div>
 
@@ -180,8 +180,13 @@
 
                         </div>
 
-                        <div class="col-5">
-
+                        <div class="col-5 view_filtres">
+                            <ul *ngFor="let taille of filterArrTaille">
+                                <li (click)=deleteTaille(taille)>{{taille}}</li>
+                            </ul>
+                            <ul *ngFor="let couleur of filterArrCouleur">
+                                <li>{{couleur}}</li>
+                            </ul>
                         </div>
                         <div class="col-2 annuler_filtres">
                             <span (click)=annulerFiltres()><i class="fa fa-times" aria-hidden="true"></i> Annuler filtres</span>

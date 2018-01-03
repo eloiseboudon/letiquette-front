@@ -110,9 +110,9 @@ h2 {
 }
 
 #top-page #right-top, #top-page-scroll #right-top {
-    padding-top: 10px;
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-top: 8px;
+    padding-right: 0;
+    padding-left: 0;
     width: 80px;
 }
 
@@ -208,7 +208,7 @@ h2 {
 #top-page-scroll #categorie-item {
     text-align: center;
     vertical-align: middle;
-    padding-top: 10px;
+    padding-top: 8px;
 
 }
 
@@ -319,7 +319,7 @@ h2 {
     right: 20px;
     bottom: 40%;
     display: none;
-    padding: 20px;
+    padding: 16px;
     background: white;
     color: #000000;
     -moz-border-radius: 20px;
@@ -327,7 +327,7 @@ h2 {
     border-radius: 20px;
     opacity: 0.9;
     z-index: 2000;
-    font-size: 22px;
+    font-size: 18px;
     border: 1.4px solid #880015;
 }
 

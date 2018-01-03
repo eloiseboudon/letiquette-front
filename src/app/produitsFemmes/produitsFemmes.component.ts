@@ -120,8 +120,31 @@ export class ProduitsFemmesComponent implements OnInit {
         window.scrollTo(0, 0);
     }
 
+    getIndexOf(arr, val, prop) {
+        const l = arr.length;
+        let k = 0;
+        for (k = 0; k < l; k = k + 1) {
+            if (arr[k][prop] === val) {
+                return k;
+            }
+        }
+        return -1;
+    }
+
+    deleteTaille(taille): void {
+        const index = this.getIndexOf(this.tailleTypeList, taille, 'taille');
+        console.log(index);
+        this.tailleTypeList[index].checked = false;
+        this.filterArrTaille.splice(this.filterArrTaille.indexOf(taille), 1);
+
+    }
+
+
     annulerFiltres(): void {
-        window.location.reload();
+        this.filterArrTaille = [];
+        this.filterArrMarque = [];
+        this.filterArrEthique = [];
+        this.filterArrCouleur = [];
     }
 
 
