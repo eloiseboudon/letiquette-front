@@ -57,6 +57,24 @@ export class FilterPricePipe implements PipeTransform {
 }
 
 
+
+@Pipe({
+    name: 'filterTaille',
+    pure: false
+})
+
+export class FilterTaillePipe implements PipeTransform {
+
+    transform(values: any, args?: any[]): any[] {
+        if (values) {
+            return values = values.filter(a => {
+                return args.length ? args.indexOf(a.taille) !== -1 : values;
+            });
+        }
+    }
+}
+
+
 @Pipe({
     name: 'filterMarque',
     pure: false
@@ -88,6 +106,30 @@ export class FilterCouleurPipe implements PipeTransform {
                     return null;
                 } else if (args.length) {
                     return args.indexOf(a.couleur) !== -1;
+                } else {
+                    return values;
+                }
+            });
+        }
+    }
+}
+
+
+
+@Pipe({
+    name: 'filterEthique',
+    pure: false
+})
+
+export class FilterEthiquePipe implements PipeTransform {
+
+    transform(values: any, args?: any[]): any[] {
+        if (values) {
+            return values = values.filter(a => {
+                if (!a.ethique && args.length) {
+                    return null;
+                } else if (args.length) {
+                    return args.indexOf(a.ethique) !== -1;
                 } else {
                     return values;
                 }

@@ -110,9 +110,9 @@ h2 {
 }
 
 #top-page #right-top, #top-page-scroll #right-top {
-    padding-top: 10px;
-    padding-right: 0px;
-    padding-left: 0px;
+    padding-top: 8px;
+    padding-right: 0;
+    padding-left: 0;
     width: 80px;
 }
 
@@ -208,7 +208,7 @@ h2 {
 #top-page-scroll #categorie-item {
     text-align: center;
     vertical-align: middle;
-    padding-top: 10px;
+    padding-top: 8px;
 
 }
 
@@ -319,7 +319,7 @@ h2 {
     right: 20px;
     bottom: 40%;
     display: none;
-    padding: 20px;
+    padding: 16px;
     background: white;
     color: #000000;
     -moz-border-radius: 20px;
@@ -327,7 +327,7 @@ h2 {
     border-radius: 20px;
     opacity: 0.9;
     z-index: 2000;
-    font-size: 22px;
+    font-size: 18px;
     border: 1.4px solid #880015;
 }
 
@@ -945,15 +945,15 @@ h2 {
 
 /* FILTRES TAILLES */
 
-#filtres #dropdown-tailles ul, #affichage_produit .nbItemsPage ul, #filtres #dropdown-tailles .dropdown-menu {
+#filtres #dropdown-tailles ul, #affichage_produit .nbItemsPage ul {
     padding: 0;
     margin: 0;
 }
-#filtres #dropdown-tailles ul, #filtres #dropdown-couleurs .dropdown-menu ul{
+#filtres #dropdown-couleurs .dropdown-menu ul{
     text-align: center;
 }
 
-#filtres #dropdown-tailles .dropdown-menu li, #affichage_produit .nbItemsPage li {
+#affichage_produit .nbItemsPage li {
     list-style: none;
     display: inline-block;
     padding: 5px;
@@ -963,16 +963,16 @@ h2 {
     text-align: center;
 }
 
-#filtres #dropdown-tailles .dropdown-menu li:hover, #affichage_produit .nbItemsPage li:hover {
+#affichage_produit .nbItemsPage li:hover {
     background-color: #921729;
     color: white;
     cursor: pointer;
 }
 
-#filtres #dropdown-tailles .dropdown-menu .tailleActive {
-    background-color: #880015;
-    color: white;
-}
+/*#filtres #dropdown-tailles .dropdown-menu .tailleActive {*/
+    /*background-color: #880015;*/
+    /*color: white;*/
+/*}*/
 
 #filtres #dropdown-couleurs .dropdown-menu .couleurActive {
     opacity: 0.5;
@@ -994,7 +994,6 @@ h2 {
     cursor:pointer;
 }
 
-
 #filtres #dropdown-couleurs .dropdown-menu input{
     -webkit-appearance: none;
     border-radius:50%;
@@ -1004,6 +1003,7 @@ h2 {
     display: inline-block;
     position: relative;
 }
+
 
 #affichage_produit {
     margin-bottom: 8px;
