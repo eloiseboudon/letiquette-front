@@ -350,7 +350,6 @@ h2 {
 
 #bottom-page a > li {
     list-style-type: none;
-
 }
 
 #bottom-page h1 {
@@ -364,7 +363,6 @@ h2 {
     padding-top: 10px;
     background-color: white;
     border-top: 1.5px solid #880015;
-
 }
 
 .bottom-bar .icon_social {
@@ -783,11 +781,32 @@ h2 {
     text-align: right;
 }
 
+.contenu #filtres .view_filtres ul {
+    list-style: none;
+    display: inline;
+    padding:0;
+}
+
+.contenu #filtres .view_filtres li {
+    border: 1px solid #880015;
+    display: inline-block;
+    margin: 5px;
+    padding:3px;
+}
+.contenu #filtres .view_filtres li:hover{
+    cursor: pointer;
+}
+
+.contenu #filtres .view_filtres li .fa{
+    -webkit-text-stroke: 2px white;
+}
+
+/*PRODUCTS*/
 .contenu #product_view ul {
     list-style: none;
 }
 
-.contenu #product_view .images-produit{
+.contenu #product_view .images-produit {
     margin: 10px;
     text-align: center;
 }
@@ -814,14 +833,15 @@ h2 {
     width: 80px;
 }
 
-.contenu #product_view .images-produit .images-mignatures img:hover{
+.contenu #product_view .images-produit .images-mignatures img:hover {
     cursor: pointer;
 }
-.contenu #product_view .images-mignatures ul, .contenu #product_view .tailles ul{
+
+.contenu #product_view .images-mignatures ul, .contenu #product_view .tailles ul {
     padding: 0;
 }
 
-.contenu #product_view .images-mignatures li{
+.contenu #product_view .images-mignatures li {
     list-style: none;
     display: inline-block;
     padding: 5px;
@@ -829,7 +849,6 @@ h2 {
     width: 80px;
     text-align: center;
 }
-
 
 .contenu #product_view .tailles li {
     list-style: none;
@@ -845,7 +864,7 @@ h2 {
 
 .contenu #product_view .tailles li:hover {
     background-color: #921729;
-    color:white;
+    color: white;
 }
 
 .contenu .ajouter_panier .btn_ajout_panier {
@@ -866,12 +885,14 @@ h2 {
 .contenu #product_view .images-produit .zoom {
     width: 320px;
     height: 470px;
-    margin:auto;
+    margin: auto;
 }
+
 .contenu #product_view .images-produit .image {
     width: 100%;
     height: 100%;
 }
+
 .contenu #product_view .images-produit .image img {
     /* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
     -webkit-transition: all 1s ease; /* Safari et Chrome */
@@ -881,18 +902,18 @@ h2 {
     transition: all 1s ease;
 }
 
-.contenu #product_view .images-produit img.image-principale:hover{
+.contenu #product_view .images-produit img.image-principale:hover {
     box-shadow: none;
     border: solid 1.5px #880015;
 }
 
 .contenu #product_view .images-produit .image:hover img {
     /* L'image est grossie de 25% */
-    -webkit-transform:scale(1.25); /* Safari et Chrome */
-    -moz-transform:scale(1.25); /* Firefox */
-    -ms-transform:scale(1.25); /* Internet Explorer 9 */
-    -o-transform:scale(1.25); /* Opera */
-    transform:scale(1.25);
+    -webkit-transform: scale(1.25); /* Safari et Chrome */
+    -moz-transform: scale(1.25); /* Firefox */
+    -ms-transform: scale(1.25); /* Internet Explorer 9 */
+    -o-transform: scale(1.25); /* Opera */
+    transform: scale(1.25);
 }
 
 /*  FILTRE PRIX */
@@ -949,7 +970,8 @@ h2 {
     padding: 0;
     margin: 0;
 }
-#filtres #dropdown-couleurs .dropdown-menu ul{
+
+#filtres #dropdown-couleurs .dropdown-menu ul {
     text-align: center;
 }
 
@@ -970,8 +992,8 @@ h2 {
 }
 
 /*#filtres #dropdown-tailles .dropdown-menu .tailleActive {*/
-    /*background-color: #880015;*/
-    /*color: white;*/
+/*background-color: #880015;*/
+/*color: white;*/
 /*}*/
 
 #filtres #dropdown-couleurs .dropdown-menu .couleurActive {
@@ -979,31 +1001,30 @@ h2 {
     border: 1px solid black;
 }
 
-#filtres #dropdown-couleurs .dropdown-menu ul, #filtres #dropdown-couleurs .dropdown-menu{
+#filtres #dropdown-couleurs .dropdown-menu ul, #filtres #dropdown-couleurs .dropdown-menu {
     padding: 0;
     margin: 0;
 
 }
 
-#filtres #dropdown-couleurs .dropdown-menu li{
+#filtres #dropdown-couleurs .dropdown-menu li {
     list-style: none;
     display: inline-block;
 }
 
-#filtres #dropdown-couleurs .dropdown-menu input:hover{
-    cursor:pointer;
+#filtres #dropdown-couleurs .dropdown-menu input:hover {
+    cursor: pointer;
 }
 
-#filtres #dropdown-couleurs .dropdown-menu input{
+#filtres #dropdown-couleurs .dropdown-menu input {
     -webkit-appearance: none;
-    border-radius:50%;
+    border-radius: 50%;
     border: 1px solid #cacece;
     padding: 12px;
-    margin:2px;
+    margin: 2px;
     display: inline-block;
     position: relative;
 }
-
 
 #affichage_produit {
     margin-bottom: 8px;
@@ -1022,18 +1043,17 @@ h2 {
     cursor: pointer;
 }
 
-#filtres .annuler_filtres span:hover{
+#filtres .annuler_filtres span:hover {
     cursor: pointer;
 }
 
-#filtres .annuler_filtres{
-    margin-top:30px;
+#filtres .annuler_filtres {
+    margin-top: 30px;
 }
 
-#filtres .annuler_filtres .fa{
-    color:#880015;
+#filtres .annuler_filtres .fa {
+    color: #880015;
 }
-
 
 .my-pagination .ngx-pagination {
     margin-top: 10px;

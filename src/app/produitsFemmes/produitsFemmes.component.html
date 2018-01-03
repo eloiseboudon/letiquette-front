@@ -181,11 +181,23 @@
                         </div>
 
                         <div class="col-5 view_filtres">
-                            <ul *ngFor="let taille of filterArrTaille">
-                                <li (click)=deleteTaille(taille)>{{taille}}</li>
-                            </ul>
-                            <ul *ngFor="let couleur of filterArrCouleur">
-                                <li>{{couleur}}</li>
+                            <ul>
+                                <li *ngFor="let taille of filterArrTaille" (click)=deleteFilterTaille(taille)>
+                                    {{taille}} <i class="fa fa-times" aria-hidden="true"></i>
+                                </li>
+
+                                <li *ngFor="let marque of filterArrMarque" (click)=deleteFilterMarque(marque)>
+                                    {{marque}} <i class="fa fa-times" aria-hidden="true"></i>
+                                </li>
+
+                                <li *ngFor="let couleur of filterArrCouleur" (click)=deleteFilterCouleur(couleur)>
+                                    {{couleur}} <i class="fa fa-times" aria-hidden="true"></i>
+                                </li>
+
+                                <li *ngFor="let impact of filterArrEthique" (click)=deleteFilterImpact(impact)>
+                                    {{impact}} <i class="fa fa-times" aria-hidden="true"></i>
+                                </li>
+
                             </ul>
                         </div>
                         <div class="col-2 annuler_filtres">

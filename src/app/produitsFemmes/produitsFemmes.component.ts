@@ -131,20 +131,63 @@ export class ProduitsFemmesComponent implements OnInit {
         return -1;
     }
 
-    deleteTaille(taille): void {
+    deleteFilterTaille(taille): void {
         const index = this.getIndexOf(this.tailleTypeList, taille, 'taille');
-        console.log(index);
         this.tailleTypeList[index].checked = false;
         this.filterArrTaille.splice(this.filterArrTaille.indexOf(taille), 1);
-
     }
 
+    deleteFilterAllTaille(): void {
+        this.filterArrTaille = [];
+        for (let i = 0; i < this.tailleTypeList.length; i++) {
+            this.tailleTypeList[i].checked = false;
+        }
+    }
+
+    deleteFilterMarque(marque): void {
+        const index = this.getIndexOf(this.fournisseurList, marque, 'nom_marque');
+        this.fournisseurList[index].checked = false;
+        this.filterArrMarque.splice(this.filterArrMarque.indexOf(marque), 1);
+    }
+
+    deleteFilterAllMarque(): void {
+        this.filterArrMarque = [];
+        for (let i = 0; i < this.fournisseurList.length; i++) {
+            this.fournisseurList[i].checked = false;
+        }
+    }
+
+    deleteFilterCouleur(couleur): void {
+        const index = this.getIndexOf(this.couleurList, couleur, 'name');
+        this.couleurList[index].checked = false;
+        this.filterArrCouleur.splice(this.filterArrCouleur.indexOf(couleur), 1);
+    }
+
+    deleteFilterAllCouleur(): void {
+        this.filterArrCouleur = [];
+        for (let i = 0; i < this.couleurList.length; i++) {
+            this.couleurList[i].checked = false;
+        }
+    }
+
+    deleteFilterImpact(impact): void {
+        const index = this.getIndexOf(this.pointsEthiquesList, impact, 'nom_ethique');
+        this.pointsEthiquesList[index].checked = false;
+        this.filterArrEthique.splice(this.filterArrEthique.indexOf(impact), 1);
+    }
+
+    deleteFilterAllImpact(): void {
+        this.filterArrEthique = [];
+        for (let i = 0; i < this.pointsEthiquesList.length; i++) {
+            this.pointsEthiquesList[i].checked = false;
+        }
+    }
 
     annulerFiltres(): void {
-        this.filterArrTaille = [];
-        this.filterArrMarque = [];
-        this.filterArrEthique = [];
-        this.filterArrCouleur = [];
+        this.deleteFilterAllTaille();
+        this.deleteFilterAllCouleur();
+        this.deleteFilterAllMarque();
+        this.deleteFilterAllImpact();
     }
 
 
