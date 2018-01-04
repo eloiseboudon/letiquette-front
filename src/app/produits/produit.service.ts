@@ -34,6 +34,9 @@ export class ProduitService {
             .catch(this.handleError);
     }
 
+    // ajouterPanier(id: number):  Promise<Produit[]> {
+    //
+    // }
 
 
     private handleError(error: any): Promise<any> {
