@@ -28,7 +28,7 @@ import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 
 
 @Component({
-    selector: 'produitsFemmes-root',
+    // selector: 'produitsFemmes-root',
     templateUrl: 'produitsFemmes.component.html'
 })
 
@@ -299,40 +299,4 @@ export class ProduitsFemmesComponent implements OnInit {
             }
         }
     }
-
-
-    // filterAll(arrayTailles, arrayMarques) {
-    //     if (arrayMarques.length === 0 && arrayTailles.length === 0) {
-    //         this.produitFemmesService
-    //             .getAllProduits()
-    //             .then(produits => {
-    //                 this.produitsList = produits;
-    //             });
-    //     } else {
-    //         if (arrayMarques.length === 0) {
-    //             this.produitFemmesService
-    //                 .getProduitByFiltreTaille(arrayTailles)
-    //                 .then(produits => {
-    //                     this.produitsList = produits;
-    //                 });
-    //         } else {
-    //             if (arrayTailles.length === 0) {
-    //                 this.produitFemmesService
-    //                     .getProduitByFiltreMarque(arrayMarques)
-    //                     .then(produits => {
-    //                         this.produitsList = produits;
-    //                     });
-    //             } else {
-    //                 this.produitFemmesService
-    //                     .getProduitByFiltres(arrayTailles, arrayMarques)
-    //                     .then(produits => {
-    //                         this.produitsList = produits;
-    //                     });
-    //             }
-    //         }
-    //
-    //     }
-    // }
-
-
 }

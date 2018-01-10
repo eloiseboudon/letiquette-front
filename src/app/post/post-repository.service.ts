@@ -9,7 +9,7 @@ export class PostRepository {
     }
 
     getList() {
-        const url = 'http://127.0.0.1:8000/posts';
+        const url = 'http://127.0.0.1:8000/pays';
 
         return this.authHttp
             .get(url)

@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     {path: 'accueil', component: AccueilComponent},
     {path: 'pays', component: PaysComponent},
     // { path: 'fournisseurs', component: FournisseursComponent},
-    {path: 'produits/femmes', component: ProduitsFemmesComponent},
+    {path: 'produits/femmes', component: ProduitsFemmesComponent, canActivate: [AuthGuard]},
     {path: 'produits/:id', component: ProduitViewComponent},
     {
         path: 'login',
@@ -27,8 +27,8 @@ const appRoutes: Routes = [
     },
     {
         path: 'post',
-        component: PostComponent,
-        canActivate: [AuthGuard]
+        component: PostComponent
+        // canActivate: [AuthGuard]
     },
     {path: '**', component: PageNotFoundComponent}
 ];

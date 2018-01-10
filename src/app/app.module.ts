@@ -64,15 +64,15 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         VillesComponent,
         ProduitsFemmesComponent,
         ProduitViewComponent,
-        PageNotFoundComponent,
+        PageNotFoundComponent, PostComponent,
         SortByPipe,
         UniquePipe,
         FilterPricePipe,
         FilterMarquePipe,
         FilterCouleurPipe,
         FilterTaillePipe,
-        FilterEthiquePipe,
-        PostComponent
+        FilterEthiquePipe
+
     ],
     imports: [
         BrowserModule,

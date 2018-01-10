@@ -28,6 +28,6 @@ export class AuthenticationService {
     }
 
     loggedIn() {
-        return tokenNotExpired();
+        return tokenNotExpired('id_token');
     }
 }

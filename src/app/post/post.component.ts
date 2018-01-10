@@ -4,9 +4,10 @@ import {Component, OnInit} from '@angular/core';
 import {PostRepository} from './post-repository.service';
 
 @Component({
-    selector: 'app-post',
+    // selector: 'app-post',
     templateUrl: './post.component.html'
 })
+
 export class PostComponent implements OnInit {
     posts: any[] = [];
     error: string = '';
