@@ -33,6 +33,7 @@ import {TailleService} from './tailles/taille.service';
 import {ProduitFemmesService} from './produitsFemmes/produitFemmes.service';
 import {CouleurService} from './couleurs/couleur.service';
 import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
+import {AuthenticationService} from './authentication/authentication.service';
 
 
 const appRoutes: Routes = [
@@ -82,6 +83,7 @@ const appRoutes: Routes = [
         ProduitFemmesService,
         TailleService,
         TailleTypeService,
+        AuthenticationService,
         TitleCasePipe
     ],
     bootstrap: [AppComponent]
