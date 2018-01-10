@@ -49,6 +49,10 @@ import {CouleurService} from './couleurs/couleur.service';
 import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
 
 
+import {MembresComponent} from './membres/membres.component';
+import {MembresServices} from './membres/membres.service';
+
+
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({}), http, options);
 }
@@ -71,7 +75,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         FilterMarquePipe,
         FilterCouleurPipe,
         FilterTaillePipe,
-        FilterEthiquePipe
+        FilterEthiquePipe,
+        MembresComponent
 
     ],
     imports: [
@@ -102,6 +107,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         AuthenticationService,
         PostRepository,
         AuthGuard,
+        MembresServices,
         TitleCasePipe
     ],
     bootstrap: [AppComponent]

@@ -19,7 +19,9 @@ const appRoutes: Routes = [
     {path: 'accueil', component: AccueilComponent},
     {path: 'pays', component: PaysComponent},
     // { path: 'fournisseurs', component: FournisseursComponent},
-    {path: 'produits/femmes', component: ProduitsFemmesComponent, canActivate: [AuthGuard]},
+    {path: 'produits/femmes', component: ProduitsFemmesComponent
+        // , canActivate: [AuthGuard]
+    },
     {path: 'produits/:id', component: ProduitViewComponent},
     {
         path: 'login',

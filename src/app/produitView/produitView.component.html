@@ -1,58 +1,58 @@
 <div class="contenu">
     <div class="global_width">
         <div id="product_view" class="product_view">
-            <ul *ngFor="let item of produit">
-            <div class="row">
-                <div class="col-xs-6 col-md-7 col-lg-8">
+            <!--<ul *ngFor="let item of produit">-->
+                <div class="row">
+                    <div class="col-xs-6 col-md-7 col-lg-8">
 
 
-                    <div class="images-produit">
-                        <div class=zoom>
-                            <div class="image">
-                                <img src="assets/images_produits/{{item.image}}" class="image-principale">
+                        <div class="images-produit">
+                            <div class=zoom>
+                                <div class="image">
+                                    <img src="assets/images_produits/{{produit.image}}" class="image-principale">
+                                </div>
+                            </div>
+                            <div class="images-mignatures">
+                                <ul>
+                                    <li *ngFor="let image of imageList" (click)="produit.image=image.image">
+                                        <img src="assets/images_produits/{{image.image}}">
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="images-mignatures">
-                            <ul>
-                                <li *ngFor="let image of imageList" (click)="produit.image=image.image">
-                                    <img src="assets/images_produits/{{image.image}}">
-                                </li>
-                            </ul>
+                    </div>
+                    <div class="col-xs-6 col-md-5 col-lg-4">
+                        <div class="contenu-produit">
+
+
+                            <div class="titre">
+                                <h1>{{produit.libelle}} - {{produit.fournisseur.nom_marque}}</h1>
+                            </div>
+
+
+                            <div class="prix">{{produit.prix}} €</div>
+
+
+                            <div class="tailles">
+                                <ul>
+                                    <li *ngFor="let item of tailleList">
+                                        {{item.taille.taille}}
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="description">
+                                {{produit.description}}
+                            </div>
+
+
+                            <div class="ajouter_panier">
+                                <button class="btn btn_ajout_panier">AJOUTER AU PANIER</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6 col-md-5 col-lg-4">
-                    <div class="contenu-produit">
-
-
-                        <div class="titre">
-                            <h1>{{item.libelle}} - {{item.fournisseur.nom_marque}}</h1>
-                        </div>
-
-
-                        <div class="prix">{{item.prix}} €</div>
-
-
-                        <div class="tailles">
-                            <ul>
-                                <li *ngFor="let taille of tailleList">
-                                    {{taille.name}}
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="description">
-                            {{item.description}}
-                        </div>
-
-
-                        <div class="ajouter_panier">
-                            <button class="btn btn_ajout_panier">AJOUTER AU PANIER</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </ul>
+            <!--</ul>-->
         </div>
     </div>
 </div>

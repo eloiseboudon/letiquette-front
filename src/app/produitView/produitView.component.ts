@@ -17,7 +17,7 @@ import {Taille} from '../tailles/taille';
 
 
 export class ProduitViewComponent implements OnInit {
-    produit: Produit[];
+    produit: Produit;
     id: number;
     private sub: any;
     imageList: Image[];
@@ -66,9 +66,9 @@ export class ProduitViewComponent implements OnInit {
             .catch(this.handleError);
     }
 
-    ajouterPanier(produit): void {
+    ajouterPanier(): void {
         // this.produitService
-        //     .ajouterPanier(produit.id)
+        //     .ajouterPanier(this.id)
     }
 
     private handleError(error: any): Promise<any> {
