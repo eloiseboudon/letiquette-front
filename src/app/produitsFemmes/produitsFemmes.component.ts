@@ -54,6 +54,7 @@ export class ProduitsFemmesComponent implements OnInit {
     filterArrCouleur = [];
     filterArrTaille = [];
     filterArrEthique = [];
+    tri: string = 'asc';
 
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,

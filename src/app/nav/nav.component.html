@@ -12,14 +12,19 @@
                     <a routerLink="/accueil" routerLinkActive="active"><img src="assets/logo_V4.png"/></a>
                 </div>
                 <div class="col-sm-4 col-xs-4" id="searchBox">
-                    <label id="searchLabel"> 
-                        <input type="text" id="searchInput" placeholder="Rechercher"> 
-                        <span class="fa fa-search"></span> 
+                    <label id="searchLabel">
+                        <input type="text" id="searchInput" placeholder="Rechercher">
+                        <span class="fa fa-search"></span>
                     </label>
                 </div>
                 <div class="col-sm-4 col-xs-4 right-top-all">
-                    <span class="smallSearchBox" id="right-top"><a href="#"><i class="fa fa-search cercle" aria-hidden="true"></i> Search</a></span>
-                    <span id="right-top"><a href="#"><i class="fa fa-user cercle" aria-hidden="true"></i> Compte</a></span>
+                    <span class="smallSearchBox" id="right-top"><a href="#"><i class="fa fa-search cercle"
+                                                                               aria-hidden="true"></i> Search</a></span>
+
+                    <span *ngIf="!hasAuthToken()"><a [routerLink]="['login']">Login</a> </span>
+                    <span *ngIf="hasAuthToken()"><a (click)="logout()" href="#">Logout</a> </span>
+                    <span id="right-top"><a href="#"><i class="fa fa-user cercle"
+                                                        aria-hidden="true"></i> Compte</a></span>
                     <span id="right-top"><a href="#"><i class="fa fa-shopping-basket cercle " aria-hidden="true"></i> Panier</a></span>
                     <span id="right-top"><a href="#"><i class="fa fa-heart cercle" aria-hidden="true"></i> Wishlist</a></span>
                 </div>
@@ -27,13 +32,13 @@
         </div>
     </div>
 
-<nav class="menu" id="menu">
-    <div class="menu-item"><a routerLink="/produits/femmes" routerLinkActive="active">FEMMES</a></div>
-    <div class="menu-item"><a href="#">HOMMES</a></div>
-    <div class="menu-item"><a href="#">ENFANTS</a></div>
-    <div class="menu-item"><a href="#">NOS MARQUES</a></div>
-    <div class="menu-item"><a href="#">BLOG</a></div>
-</nav>
+    <nav class="menu" id="menu">
+        <div class="menu-item"><a routerLink="/produits/femmes" routerLinkActive="active">FEMMES</a></div>
+        <div class="menu-item"><a href="#">HOMMES</a></div>
+        <div class="menu-item"><a href="#">ENFANTS</a></div>
+        <div class="menu-item"><a href="#">NOS MARQUES</a></div>
+        <div class="menu-item"><a href="#">BLOG</a></div>
+    </nav>
 
 </div>
 

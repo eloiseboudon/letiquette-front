@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
-import { AuthenticationService } from './authentication.service';
+import {AuthenticationService} from './authentication.service';
 
 @Component({
     selector: 'app-authentication',
@@ -12,11 +12,9 @@ export class AuthenticationComponent {
     loginForm: FormGroup;
     error: string = '';
 
-    constructor(
-        private formBuilder: FormBuilder,
-        private authenticationService: AuthenticationService,
-        private router: Router
-    ) {
+    constructor(private formBuilder: FormBuilder,
+                private authenticationService: AuthenticationService,
+                private router: Router) {
         this.loginForm = formBuilder.group({
             'username': ['', Validators.required],
             'password': ['', Validators.required]
