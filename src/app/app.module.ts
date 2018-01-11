@@ -17,10 +17,8 @@ import {AuthGuard} from './_guard/index';
 import {AuthenticationComponent} from './authentication/authentication.component';
 import {AuthenticationService} from './authentication/authentication.service';
 
-
-import {PostComponent} from './post/post.component';
-import {PostRepository} from './post/post-repository.service';
-
+import {MembresComponent} from './membres/membres.component';
+import {MembresService} from './membres/membres.service';
 
 import {NavbarComponent} from './nav/nav.component';
 import {AccueilComponent} from './accueil/accueil.component';
@@ -49,10 +47,6 @@ import {CouleurService} from './couleurs/couleur.service';
 import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
 
 
-import {MembresComponent} from './membres/membres.component';
-import {MembresServices} from './membres/membres.service';
-
-
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     return new AuthHttp(new AuthConfig({}), http, options);
 }
@@ -68,9 +62,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         VillesComponent,
         ProduitsFemmesComponent,
         ProduitViewComponent,
-        PageNotFoundComponent, PostComponent,
-        SortByPipe,
+        PageNotFoundComponent,
         UniquePipe,
+        SortByPipe,
         FilterPricePipe,
         FilterMarquePipe,
         FilterCouleurPipe,
@@ -105,9 +99,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         TailleService,
         TailleTypeService,
         AuthenticationService,
-        PostRepository,
         AuthGuard,
-        MembresServices,
+        MembresService,
         TitleCasePipe
     ],
     bootstrap: [AppComponent]

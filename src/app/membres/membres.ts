@@ -9,5 +9,5 @@ export class Membres {
     prenom: string;
     adMail: string;
     adersse: string;
-    numTel: number;
+    numTel: string;
 }

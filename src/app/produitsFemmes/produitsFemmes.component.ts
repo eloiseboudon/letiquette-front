@@ -28,7 +28,7 @@ import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 
 
 @Component({
-    // selector: 'produitsFemmes-root',
+    selector: 'produitsFemmes-root',
     templateUrl: 'produitsFemmes.component.html'
 })
 

@@ -1,7 +1,6 @@
 import {Routes, RouterModule} from '@angular/router';
 
 import {AuthenticationComponent} from './authentication/authentication.component';
-import {PostComponent} from './post/post.component';
 import {AuthGuard} from './_guard/index';
 
 
@@ -11,6 +10,7 @@ import {ProduitViewComponent} from './produitView/produitView.component';
 import {PageNotFoundComponent} from './not-found.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {ProduitsFemmesComponent} from './produitsFemmes/produitsFemmes.component';
+import {MembresComponent} from './membres/membres.component';
 
 
 const appRoutes: Routes = [
@@ -18,6 +18,7 @@ const appRoutes: Routes = [
     {path: 'villes', component: VillesComponent},
     {path: 'accueil', component: AccueilComponent},
     {path: 'pays', component: PaysComponent},
+    {path: 'membres', component: MembresComponent},
     // { path: 'fournisseurs', component: FournisseursComponent},
     {path: 'produits/femmes', component: ProduitsFemmesComponent
         // , canActivate: [AuthGuard]
@@ -27,11 +28,11 @@ const appRoutes: Routes = [
         path: 'login',
         component: AuthenticationComponent
     },
-    {
-        path: 'post',
-        component: PostComponent
-        // canActivate: [AuthGuard]
-    },
+    // {
+    //     path: 'post',
+    //     component: PostComponent
+    //     // canActivate: [AuthGuard]
+    // },
     {path: '**', component: PageNotFoundComponent}
 ];
 

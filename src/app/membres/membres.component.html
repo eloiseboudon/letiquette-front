@@ -1,3 +1,81 @@
-<p>
-  membres works!
-</p>
+<div class="contenu">
+    <div class="global_width">
+        <form>
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control"
+                       id="nom"
+                       required
+                       [(ngModel)]="nom"
+                       name="nom">
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" class="form-control"
+                       id="prenom"
+                       required
+                       [(ngModel)]="prenom"
+                       name="prenom">
+            </div>
+
+            <div class="form-group">
+                <label for="login">Login</label>
+                <input type="text" class="form-control"
+                       id="login"
+                       required
+                       [(ngModel)]="login"
+                       name="login">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="text" class="form-control"
+                       id="password"
+                       required
+                       [(ngModel)]="password"
+                       name="password">
+            </div>
+
+
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" class="form-control"
+                       id="adresse"
+                       required
+                       [(ngModel)]="adresse"
+                       name="adresse">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Adresse email</label>
+                <input type="text" class="form-control"
+                       id="email"
+                       required
+                       [(ngModel)]="email"
+                       name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">N° téléphone</label>
+                <input type="text" class="form-control"
+                       id="telephone"
+                       required
+                       [(ngModel)]="telephone"
+                       name="telephone">
+            </div>
+
+            <div class="form-group">
+                <label for="ville">Ville</label>
+                <select class="form-control" id="ville" required [(ngModel)]="ville" name="ville">
+                    <option value="">Choisissez une ville</option>
+                    <option *ngFor="let ville of villesList"
+                            [value]="ville.id">
+                        {{ville.name}}
+                    </option>
+                </select>
+            </div>
+            <button type="submit" (click)="create(nom,prenom,login,password,adresse,email,telephone,ville)">Créer</button>
+        </form>
+    </div>
+</div>
