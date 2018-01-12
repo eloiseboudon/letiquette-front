@@ -8,6 +8,9 @@ import {Image} from '../image/image';
 import {ImageService} from '../image/image.service';
 import {TailleService} from '../tailles/taille.service';
 import {Taille} from '../tailles/taille';
+import {PanierService} from '../panier/panier.service';
+import {Panier} from '../panier/panier';
+import {browser} from 'protractor';
 
 
 @Component({
@@ -17,15 +20,17 @@ import {Taille} from '../tailles/taille';
 
 
 export class ProduitViewComponent implements OnInit {
-    produit: Produit[];
+    produit: Produit;
     id: number;
     private sub: any;
     imageList: Image[];
     tailleList: Taille[];
+    panier: Panier;
+    panierList: Panier[];
 
     constructor(private route: ActivatedRoute, private produitService: ProduitService,
                 private tailleService: TailleService,
-                private imageService: ImageService) {
+                private imageService: ImageService, private panierService: PanierService) {
     }
 
     ngOnInit(): void {
@@ -66,9 +71,34 @@ export class ProduitViewComponent implements OnInit {
             .catch(this.handleError);
     }
 
-    ajouterPanier(produit): void {
-        // this.produitService
-        //     .ajouterPanier(produit.id)
+
+    async ajouterPanier(idProduit) {
+        if (!this.isPanier()) {
+            this.creerPanier();
+            this.panier = await this.panierService.creerPanier();
+        }
+
+
+        this.panierService
+            .ajouterPanier(idProduit)
+            .then(panier =>
+                this.panierList = panier)
+            .catch(this.handleError);
+
+    }
+
+    isPanier() {
+        return localStorage.getItem('id_panier') !== null;
+    }
+
+    creerPanier(): void {
+        this.panierService
+            .creerPanier()
+            .then(panier => {
+                this.panier = panier;
+                localStorage.setItem('id_panier', panier.id);
+            })
+            .catch(this.handleError);
     }
 
     private handleError(error: any): Promise<any> {

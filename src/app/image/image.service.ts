@@ -15,7 +15,7 @@ export class ImageService {
     constructor(private http: Http) { }
 
     getImagesByProduit(id: number): Promise<Image[]> {
-        return this.http.get(this.imageUrl + "/" + id )
+        return this.http.get(this.imageUrl + '/' + id )
             .toPromise()
             .then(response =>
                 response.json() as Famille[])
