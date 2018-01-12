@@ -110,10 +110,13 @@ h2 {
 }
 
 #top-page #right-top, #top-page-scroll #right-top {
-    padding-top: 8px;
     padding-right: 0;
     padding-left: 0;
     width: 80px;
+}
+
+#top-page-scroll #right-top{
+    padding-top: 8px;
 }
 
 #top-page #right-top-all {
@@ -211,6 +214,45 @@ h2 {
     padding-top: 8px;
 
 }
+
+
+#top-page .right-top-all .dropdown .dropbtn{
+    background: none;
+    color:white;
+}
+
+#top-page .right-top-all .dropdown .dropbtn:hover, #top-page .dropdown .dropbtn:focus {
+    background: #F4ECDE;
+    color:black;
+}
+
+
+#top-page .right-top-all .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#top-page .right-top-all .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+#top-page .right-top-all #right-top .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#top-page .right-top-all .dropdown a:hover {background-color: #f1f1f1}
+
+#top-page .right-top-all .dropdown .show {display:block;}
 
 #searchBox {
     text-align: center;

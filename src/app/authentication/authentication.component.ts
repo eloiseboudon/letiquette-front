@@ -26,8 +26,9 @@ export class AuthenticationComponent {
             .authenticate(this.loginForm.value)
             .subscribe(
                 data => {
-                    localStorage.setItem('id_token', data.token);
-                    this.router.navigate(['post']);
+                    localStorage.setItem('id_token', data.value);
+                    localStorage.setItem('id_membre', data.membre.id);
+                    localStorage.setItem('membre_login', data.membre.login);
                 },
                 error => this.error = error.message
             );

@@ -21,10 +21,25 @@
                     <span class="smallSearchBox" id="right-top"><a href="#"><i class="fa fa-search cercle"
                                                                                aria-hidden="true"></i> Search</a></span>
 
-                    <span *ngIf="!hasAuthToken()"><a [routerLink]="['login']">Login</a> </span>
-                    <span *ngIf="hasAuthToken()"><a (click)="logout()" href="#">Logout</a> </span>
-                    <span id="right-top"><a href="#"><i class="fa fa-user cercle"
-                                                        aria-hidden="true"></i> Compte</a></span>
+                    <span *ngIf="!hasAuthToken()" id="right-top"><a [routerLink]="['login']"><i
+                            class="fa fa-user cercle"
+                            aria-hidden="true"></i>  Connexion</a> </span>
+
+                    <div *ngIf="hasAuthToken()" id="right-top" class="dropdown">
+                        <a (click)="dropdown()" class="dropbtn"><i class="fa fa-user cercle" aria-hidden="true"></i> {{membre_nom}}
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </a>
+
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="#">Mon compte</a>
+                                <a (click)="logout()">Déconnexion</a>
+                            </div>
+
+                    </div>
+                    <!--<span *ngIf="hasAuthToken()" id="right-top"><a (click)="logout()" href="#"><i class="fa fa-user cercle"-->
+                    <!--aria-hidden="true"></i> Déconnexion</a> </span>-->
+                    <!--<span id="right-top"><a href="#"><i class="fa fa-user cercle"-->
+                    <!--aria-hidden="true"></i> Compte</a></span>-->
                     <span id="right-top"><a href="#"><i class="fa fa-shopping-basket cercle " aria-hidden="true"></i> Panier</a></span>
                     <span id="right-top"><a href="#"><i class="fa fa-heart cercle" aria-hidden="true"></i> Wishlist</a></span>
                 </div>

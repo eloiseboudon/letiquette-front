@@ -6,12 +6,11 @@ import {TitleCasePipe} from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe, FilterEthiquePipe} from './pipes';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
-import {AuthHttp, AuthConfig} from 'angular2-jwt';
+// import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
 
 import {AppComponent} from './app.component';
 import {Routing} from './app.routing';
-import {AuthGuard} from './_guard/index';
 
 
 import {AuthenticationComponent} from './authentication/authentication.component';
@@ -39,6 +38,10 @@ import {ProduitsFemmesComponent} from './produitsFemmes/produitsFemmes.component
 import {ProduitFemmesService} from './produitsFemmes/produitFemmes.service';
 import {ProduitViewComponent} from './produitView/produitView.component';
 
+import {PanierComponent} from './panier/panier.component';
+import {PanierService} from './panier/panier.service';
+
+
 import {FamilleService} from './familles/famille.service';
 import {ImageService} from './image/image.service';
 import {TailleTypeService} from './tailleType/tailleType.service';
@@ -47,9 +50,9 @@ import {CouleurService} from './couleurs/couleur.service';
 import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
 
 
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-    return new AuthHttp(new AuthConfig({}), http, options);
-}
+// export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+//     return new AuthHttp(new AuthConfig({}), http, options);
+// }
 
 @NgModule({
     declarations: [
@@ -70,7 +73,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         FilterCouleurPipe,
         FilterTaillePipe,
         FilterEthiquePipe,
-        MembresComponent
+        MembresComponent,
+        PanierComponent
 
     ],
     imports: [
@@ -82,11 +86,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         NgxPaginationModule
     ],
     providers: [
-        {
-            provide: AuthHttp,
-            useFactory: authHttpServiceFactory,
-            deps: [Http, RequestOptions]
-        },
+        // {
+        //     provide: AuthHttp,
+        //     useFactory: authHttpServiceFactory,
+        //     deps: [Http, RequestOptions]
+        // },
         PaysService,
         VilleService,
         FournisseurService,
@@ -99,8 +103,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         TailleService,
         TailleTypeService,
         AuthenticationService,
-        AuthGuard,
+        // AuthGuard,
         MembresService,
+        PanierService,
         TitleCasePipe
     ],
     bootstrap: [AppComponent]

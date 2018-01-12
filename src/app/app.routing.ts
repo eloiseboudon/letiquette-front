@@ -1,7 +1,7 @@
 import {Routes, RouterModule} from '@angular/router';
 
 import {AuthenticationComponent} from './authentication/authentication.component';
-import {AuthGuard} from './_guard/index';
+// import {AuthGuard} from './_guard/index';
 
 
 import {PaysComponent} from './pays/pays.component';
@@ -11,6 +11,7 @@ import {PageNotFoundComponent} from './not-found.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {ProduitsFemmesComponent} from './produitsFemmes/produitsFemmes.component';
 import {MembresComponent} from './membres/membres.component';
+import {PanierComponent} from './panier/panier.component';
 
 
 const appRoutes: Routes = [
@@ -20,14 +21,10 @@ const appRoutes: Routes = [
     {path: 'pays', component: PaysComponent},
     {path: 'membres', component: MembresComponent},
     // { path: 'fournisseurs', component: FournisseursComponent},
-    {path: 'produits/femmes', component: ProduitsFemmesComponent
-        // , canActivate: [AuthGuard]
-    },
+    {path: 'produits/femmes', component: ProduitsFemmesComponent},
     {path: 'produits/:id', component: ProduitViewComponent},
-    {
-        path: 'login',
-        component: AuthenticationComponent
-    },
+    {path: 'login', component: AuthenticationComponent},
+    {path: 'panier', component: PanierComponent},
     // {
     //     path: 'post',
     //     component: PostComponent
