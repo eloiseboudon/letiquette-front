@@ -27,6 +27,7 @@ export class AuthenticationService {
         localStorage.removeItem('id_token');
         localStorage.removeItem('id_membre');
         localStorage.removeItem('id_panier');
+        //    route symfony pour destroy les sessions
     }
 
     loggedIn() {
