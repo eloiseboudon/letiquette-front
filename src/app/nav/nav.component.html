@@ -9,7 +9,7 @@
 
 
                 <div class="col-sm-4 col-xs-4 logo">
-                    <a routerLink="/accueil" routerLinkActive="active"><img src="assets/logo_V4.png"/></a>
+                    <a routerLink="/accueil" routerLinkActive="active"><img src="assets/logo.png"/></a>
                 </div>
                 <div class="col-sm-4 col-xs-4" id="searchBox">
                     <label id="searchLabel">
@@ -25,15 +25,18 @@
                             class="fa fa-user cercle"
                             aria-hidden="true"></i>  Connexion</a> </span>
 
-                    <div *ngIf="hasAuthToken()" id="right-top" class="dropdown">
-                        <a (click)="dropdown()" class="dropbtn"><i class="fa fa-user cercle" aria-hidden="true"></i> {{membre_nom}}
-                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    <div *ngIf="hasAuthToken()" id="right-top" class="dropdown" (click)="dropdown()">
+                        <a class="dropbtn">
+                            <span class="fa fa-user cercle dropbtn" aria-hidden="true">
+                            </span> {{membre_nom}}
+                            <span class="fa fa-caret-down dropbtn" aria-hidden="true">
+                            </span>
                         </a>
 
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="#">Mon compte</a>
-                                <a (click)="logout()">Déconnexion</a>
-                            </div>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#">Mon compte</a>
+                            <a (click)="logout()">Déconnexion</a>
+                        </div>
 
                     </div>
                     <!--<span *ngIf="hasAuthToken()" id="right-top"><a (click)="logout()" href="#"><i class="fa fa-user cercle"-->

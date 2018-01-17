@@ -94,8 +94,19 @@
                                 </div>
                             </div>
                         </div>
-
-
+                        <div class="col-4 prix">
+                            <div class="row">
+                                <div class="col-3">
+                                    <span class="filtre-titre">Prix (€)</span>
+                                </div>
+                                <div class="col-9">
+                                    <div id="skipstep"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 annuler_filtres">
+                            <span (click)=annulerFiltres()><i class="fa fa-times" aria-hidden="true"></i> Annuler filtres</span>
+                        </div>
                         <div class="col-2">
                             <div class="dropdown" id="dropdown-matieres">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
@@ -108,6 +119,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="col-2">
                             <div class="dropdown" id="dropdown-occasions">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
@@ -174,13 +187,7 @@
                         </div>
 
 
-                        <div class="col-3">
-                            <span class="filtre-titre">Prix (€)</span>
-                            <div id="skipstep"></div>
-
-                        </div>
-
-                        <div class="col-5 view_filtres">
+                        <div class="col-4 view_filtres">
                             <ul>
                                 <li *ngFor="let taille of filterArrTaille" (click)=deleteFilterTaille(taille)>
                                     {{taille}} <i class="fa fa-times" aria-hidden="true"></i>
@@ -200,9 +207,7 @@
 
                             </ul>
                         </div>
-                        <div class="col-2 annuler_filtres">
-                            <span (click)=annulerFiltres()><i class="fa fa-times" aria-hidden="true"></i> Annuler filtres</span>
-                        </div>
+
 
                     </div>
                 </div>
@@ -235,12 +240,6 @@
                 </div>
 
 
-                <!-- Filtres prix -->
-                <span class="example-val" id="skip-value-lower"></span>
-                <span class="example-val" id="skip-value-upper"></span>
-                <!-- EOF - Filtres prix -->
-
-
                 <div id="products_all_view">
 
                     <ul id="products_view"
@@ -256,10 +255,23 @@
                 </div>
 
 
-                <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Précédent"
-                                     nextLabel="Suivant"></pagination-controls>
-
+                <div id="affichage_produit">
+                    <div class="row">
+                        <div class="col-6">
+                            <pagination-controls class="my-pagination" (pageChange)="p = $event"
+                                                 previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+                        </div>
+                        <div class="col-6">
+                            <!-- Filtres prix -->
+                            <span class="example-val" id="skip-value-lower"></span>
+                            <span class="example-val" id="skip-value-upper"></span>
+                            <!-- EOF - Filtres prix -->
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
         </div>
     </div>
 </div>
