@@ -3,6 +3,7 @@ import {Headers, Http, Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import {Panier} from './panier';
+import {DetailPanier} from '../detailPanier/detailPanier';
 
 
 @Injectable()
@@ -15,27 +16,28 @@ export class PanierService {
     constructor(private http: Http) {
     }
 
-    ajouterPanier(idProduit: number): Promise<Panier[]> {
-        this.idPanier = localStorage.getItem('id_panier');
-        const data = 'idPanier=' + this.idPanier + '&idProduit=' + idProduit;
-        return this.http.post(this.panierUrl + '/ajout', data, {headers: this.headers})
+    ajouterPanier(idProduit: number): Promise<DetailPanier> {
+        this.idMembre = localStorage.getItem('id_membre');
+        const data = new URLSearchParams();
+        data.append('idMembre', this.idMembre);
+        data.append('idProduit', idProduit.toString());
+        if (this.isPanier()) {
+            this.idPanier = localStorage.getItem('id_panier');
+            data.append('idPanier', this.idPanier);
+        }
+
+        // const data = 'idMembre=' + this.idMembre + '&idProduit=' + idProduit;
+        return this.http.post(this.panierUrl + '/ajout', data.toString(), {headers: this.headers})
             .toPromise()
             .then(response =>
                 response.json() as Panier[])
             .catch(this.handleError);
     }
 
-
-    creerPanier(): Promise<Panier> {
-        this.idMembre = localStorage.getItem('id_membre');
-        const data = 'idMembre=' + this.idMembre;
-        return this.http.post(this.panierUrl, data, {headers: this.headers})
-            .toPromise()
-            .then(response =>
-                response.json() as Panier)
-            .catch(this.handleError);
-
+    isPanier() {
+        return localStorage.getItem('id_panier') !== null;
     }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
