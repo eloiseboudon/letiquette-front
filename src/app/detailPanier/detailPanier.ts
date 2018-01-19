@@ -5,4 +5,5 @@ export class DetailPanier{
     id: string;
     panier: Panier;
     produit: Produit;
+    quantite: number;
 }

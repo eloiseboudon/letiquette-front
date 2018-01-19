@@ -5,6 +5,7 @@
 
 html, body {
     height: 100%;
+    font-family: 'Quicksand', sans-serif;
 }
 
 body {
@@ -199,7 +200,7 @@ h2 {
 }
 
 /*#top-page-scroll #right-top span:hover {*/
-    /*cursor: pointer;*/
+/*cursor: pointer;*/
 /*}*/
 
 #top-page-scroll #categorie-item a {
@@ -875,7 +876,7 @@ h2 {
 .contenu #product_view .contenu-produit {
     margin: 10px;
     padding: 10px;
-    background-color: #fff ;
+    background-color: #fff;
 }
 
 .contenu #product_view .images-produit img.image-principale {
@@ -893,8 +894,8 @@ h2 {
 }
 
 /*.contenu #product_view .images-produit .images-mignatures{*/
-    /*!*margin:auto;*!*/
-    /*transform: translateY(30%);*/
+/*!*margin:auto;*!*/
+/*transform: translateY(30%);*/
 /*}*/
 
 .contenu #product_view .images-produit .images-mignatures img {
@@ -936,24 +937,135 @@ h2 {
     background-color: #921729;
     color: white;
 }
-.contenu .ajouter_panier{
+
+.contenu .ajouter_panier {
     text-align: center;
 }
 
-.contenu .ajouter_panier .btn_ajout_panier {
+.contenu .ajouter_panier .btn_ajout_panier, .contenu .btn_panier {
     color: #ffffff;
-    font-size: 1.6em;
+    font-size: 1.5em;
     background: #880014;
     padding: 10px;
     text-decoration: none;
     border-radius: 0;
+    font-weight:600;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.contenu .btn_continuer_achat{
+    /*background: #fff;*/
+    /*color:#880015;*/
+    background-color: #000;
 }
 
 .contenu .ajouter_panier .btn_ajout_panier:hover {
     background: #921729;
     text-decoration: none;
 }
+
+.contenu .panier_content {
+    text-align: center;
+}
+
+.contenu .panier_table {
+    margin: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.contenu .panier_table table {
+    width: 100%;
+}
+
+.contenu .panier_table thead {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2em;
+    border-bottom: 2px solid #880015;
+}
+
+.contenu .panier_table thead th{
+    text-align: center;
+}
+
+.contenu .panier_table tbody tr {
+    border-bottom: 1px solid #880015;
+    background-color: rgba(255, 255, 255, 0.5);
+    height:250px;
+}
+
+
+.contenu .panier_table .produit {
+    width: 40%;
+}
+
+.contenu .panier_table .detailProduit {
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align:left;
+}
+
+.contenu .panier_table .detailProduit img {
+    height: 230.4px;
+    margin-right: 10px;
+    float: left;
+}
+
+.contenu .panier_table .taille, .contenu .panier_table .prix, .contenu .panier_table .prixTotal {
+    width: 15%;
+}
+.contenu .panier_table td{text-align: center}
+
+.contenu .panier_table .produitLibelle{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.4em;
+}
+
+.contenu .panier_table .produitCouleur{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size:1.3em;
+    color: #880015;
+    font-weight:600;
+}
+
+.contenu .panier_table .produitMarque {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.contenu .panier_table .produitPrix {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.3em;
+    color: #880015;
+    font-weight: bold;
+    text-align: center;
+}
+
+.contenu .panier_table .produitQuantite{
+    font-size: 1.4em;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+}
+
+.contenu .panier_table .produitQuantite .fa{
+    color: #880015;
+}
+
+.contenu .panier_table .produitTrash .fa{
+    color: #000;
+    font-size: 1.4em;
+}
+
+
+.contenu .panier_table tfoot{
+    background-color: #fff;
+    border-bottom: solid 2px #880015;
+    font-size:1.3em;
+    font-weight: bold;
+}
+
 
 .contenu #product_view .images-produit .zoom {
     width: 320px;
@@ -976,17 +1088,17 @@ h2 {
 }
 
 /*.contenu #product_view .images-produit img.image-principale:hover {*/
-    /*box-shadow: none;*/
-    /*border: solid 1.5px #880015;*/
+/*box-shadow: none;*/
+/*border: solid 1.5px #880015;*/
 /*}*/
 
 /*.contenu #product_view .images-produit .image:hover img {*/
-    /*!* L'image est grossie de 25% *!*/
-    /*-webkit-transform: scale(1.25); !* Safari et Chrome *!*/
-    /*-moz-transform: scale(1.25); !* Firefox *!*/
-    /*-ms-transform: scale(1.25); !* Internet Explorer 9 *!*/
-    /*-o-transform: scale(1.25); !* Opera *!*/
-    /*transform: scale(1.25);*/
+/*!* L'image est grossie de 25% *!*/
+/*-webkit-transform: scale(1.25); !* Safari et Chrome *!*/
+/*-moz-transform: scale(1.25); !* Firefox *!*/
+/*-ms-transform: scale(1.25); !* Internet Explorer 9 *!*/
+/*-o-transform: scale(1.25); !* Opera *!*/
+/*transform: scale(1.25);*/
 /*}*/
 
 /*  FILTRE PRIX */
