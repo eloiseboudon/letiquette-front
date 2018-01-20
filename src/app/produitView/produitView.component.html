@@ -38,24 +38,42 @@
 
                         <div class="prix">{{produit.prix}} €</div>
 
+                        <form>
+                            <!--<div class="tailles">-->
+                                <!--<div class="form-group">-->
+                                    <!--<label for="tailleID">Taille</label>-->
+                                    <!--<select class="form-control" id="tailleID" required [(ngModel)]="tailleID"-->
+                                            <!--name="tailleID">-->
+                                        <!--<option *ngFor="let item of tailleList" [value]="item.id">{{item.taille}}-->
+                                        <!--</option>-->
 
-                        <div class="tailles">
-                            <ul>
-                                <li *ngFor="let item of tailleList">
-                                    {{item.taille.taille}}
-                                </li>
-                            </ul>
-                        </div>
+                                    <!--</select>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <div class="form-group tailles">
+                                <span  id="tailleID"
+                                      *ngFor="let item of tailleList"
+                                (click)="!item.checked ? produitTaille(item) : item.checked = false"
+                                       [ngClass]="item.checked == true ? 'tailleActive' : 'tailleNonActive'">
+                                    <label>{{item.taille}}</label>
+
+                                </span>
 
 
-                        <div class="ajouter_panier">
-                            <button class="btn btn_ajout_panier" (click)="ajouterPanier(produit.id)">AJOUTER AU PANIER
-                            </button>
-                        </div>
+                            </div>
 
+
+                            <div class="ajouter_panier">
+                                <button type="submit" class="btn btn_ajout_panier"
+                                        (click)="ajouterPanier(produit.id)">
+                                    AJOUTER AU PANIER
+                                </button>
+                            </div>
+                        </form>
                         <div class="description">
-                        {{produit.description}}
-                    </div>
+                            {{produit.description}}
+                        </div>
                     </div>
                 </div>
             </div>

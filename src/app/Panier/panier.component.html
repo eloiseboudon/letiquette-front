@@ -45,7 +45,7 @@
 
                     </td>
                     <td class="detailTaille">
-                        {{detailPanier.produit.famille.famille}}
+                        {{detailPanier.taille.taille}}
                     </td>
                     <td class="produitPrix">
                         <!--<div class="produitPrix">-->
@@ -54,12 +54,14 @@
                     </td>
 
                     <td class="produitQuantite">
-                        <span><i class="fa fa-minus-square-o" aria-hidden="true"></i></span> {{detailPanier.quantite}} <span><i class="fa fa-plus-square-o" aria-hidden="true"></i></span>
+                        <span *ngIf="detailPanier.quantite>1" (click)="quantiteMoins(detailPanier.id)"><i class="fa fa-minus-square-o" aria-hidden="true"></i></span>
+                        {{detailPanier.quantite}}
+                        <span (click)="quantitePlus(detailPanier.id)"><i class="fa fa-plus-square-o" aria-hidden="true"></i></span>
                     </td>
                     <td class="produitPrix">
                         {{detailPanier.produit.prix * detailPanier.quantite}} €
                     </td>
-                    <td class="produitTrash"><span><i class="fa fa-trash-o" aria-hidden="true"></i></span></td>
+                    <td class="produitTrash"><span (click)="supprimerProduit(detailPanier.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></span></td>
                 </tr>
                 </tbody>
                 <tfoot>

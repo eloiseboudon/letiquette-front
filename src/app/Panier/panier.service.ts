@@ -17,9 +17,10 @@ export class PanierService {
     constructor(private http: Http) {
     }
 
-    ajouterPanier(idProduit: number): Promise<DetailPanier> {
+    ajouterPanier(idProduit: number, idTaille: number): Promise<DetailPanier> {
         const data = new URLSearchParams();
         data.append('idProduit', idProduit.toString());
+        data.append('idTaille', idTaille.toString());
 
         if (this.isPanier()) {
             this.idPanier = localStorage.getItem('id_panier');
@@ -47,6 +48,39 @@ export class PanierService {
                 // this.detailPanier = response.json().detailPanier;
                 response.json() as DetailPanier[]
             )
+            .catch(this.handleError);
+    }
+
+
+    quantiteMoins(detailPanierId: number): Promise<DetailPanier[]> {
+        const data = new URLSearchParams();
+        data.append('idDetailPanier', detailPanierId.toString());
+
+        return this.http.put(this.panierUrl + '/quantiteMoins', data.toString(), {headers: this.headers})
+            .toPromise()
+            .then(response =>
+                response.json() as DetailPanier[])
+            .catch(this.handleError);
+    }
+
+    quantitePlus(detailPanierId: number): Promise<DetailPanier[]> {
+        const data = new URLSearchParams();
+        data.append('idDetailPanier', detailPanierId.toString());
+
+        return this.http.put(this.panierUrl + '/quantitePlus', data.toString(), {headers: this.headers})
+            .toPromise()
+            .then(response =>
+                response.json() as DetailPanier[])
+            .catch(this.handleError);
+    }
+
+
+    supprimerProduit(detailPanierId: number): Promise<DetailPanier[]> {
+        console.log('supprimer');
+        return this.http.delete(this.panierUrl + '/supprimerProduit/' + detailPanierId, {headers: this.headers})
+            .toPromise()
+            .then(response =>
+                response.json() as DetailPanier[])
             .catch(this.handleError);
     }
 

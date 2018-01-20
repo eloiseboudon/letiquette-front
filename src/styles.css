@@ -906,7 +906,7 @@ h2 {
     cursor: pointer;
 }
 
-.contenu #product_view .images-mignatures ul, .contenu #product_view .tailles ul {
+.contenu #product_view .images-mignatures ul {
     padding: 0;
     margin: 0;
 }
@@ -920,7 +920,7 @@ h2 {
     text-align: center;
 }
 
-.contenu #product_view .tailles li {
+.contenu #product_view .tailles span {
     list-style: none;
     display: inline-block;
     padding: 5px;
@@ -933,9 +933,26 @@ h2 {
     font-family: 'Quicksand', sans-serif;
 }
 
-.contenu #product_view .tailles li:hover {
-    background-color: #921729;
+.contenu #product_view .tailles span:hover, .contenu #product_view .tailles .tailleActive {
+    background-color: #880015;
     color: white;
+}
+
+.contenu #product_view .tailles label{
+    margin:0;
+}
+
+
+.contenu #product_view .tailles .tailleNonActive{
+    background-color: #fff;
+    color: #880015;
+}
+
+
+.contenu #product_view .tailles input{
+    opacity:0;
+    position: absolute;
+
 }
 
 .contenu .ajouter_panier {

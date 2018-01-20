@@ -12,6 +12,7 @@ import {PanierService} from '../panier/panier.service';
 import {Panier} from '../panier/panier';
 import {browser} from 'protractor';
 import {DetailPanier} from '../detailPanier/detailPanier';
+import {forEach} from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -22,11 +23,13 @@ import {DetailPanier} from '../detailPanier/detailPanier';
 
 export class ProduitViewComponent implements OnInit {
     produit: Produit;
+    taille: Taille;
     id: number;
     private sub: any;
     imageList: Image[];
     tailleList: Taille[];
     panier: DetailPanier;
+
     // panierList: DetailPanier[];
 
     constructor(private route: ActivatedRoute, private produitService: ProduitService,
@@ -59,6 +62,7 @@ export class ProduitViewComponent implements OnInit {
             .getTailleByIDProduct(id)
             .then(tailles => {
                 this.tailleList = tailles;
+                console.log(this.tailleList);
             })
             .catch(this.handleError);
     }
@@ -73,15 +77,25 @@ export class ProduitViewComponent implements OnInit {
     }
 
 
-    ajouterPanier(idProduit) {
+    ajouterPanier(idProduit): void {
         this.panierService
-            .ajouterPanier(idProduit)
+            .ajouterPanier(idProduit,this.taille.id)
             .then(panier => {
                 this.panier = panier;
                 localStorage.setItem('id_panier', panier.panier.id);
             })
             .catch(this.handleError);
     }
+
+    produitTaille(taille): void {
+        this.taille = taille;
+        for (let i = 0; i < this.tailleList.length; i++) {
+            this.tailleList[i].checked = false;
+        }
+
+        taille.checked = true;
+    }
+
 
 
     private handleError(error: any): Promise<any> {
