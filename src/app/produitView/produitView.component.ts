@@ -79,7 +79,7 @@ export class ProduitViewComponent implements OnInit {
 
     ajouterPanier(idProduit): void {
         this.panierService
-            .ajouterPanier(idProduit,this.taille.id)
+            .ajouterPanier(idProduit, this.taille.id)
             .then(panier => {
                 this.panier = panier;
                 localStorage.setItem('id_panier', panier.panier.id);
@@ -87,15 +87,18 @@ export class ProduitViewComponent implements OnInit {
             .catch(this.handleError);
     }
 
-    produitTaille(taille): void {
+    produitTailleCheck(taille): void {
         this.taille = taille;
         for (let i = 0; i < this.tailleList.length; i++) {
             this.tailleList[i].checked = false;
         }
-
         taille.checked = true;
     }
 
+    produitTailleUncheck(taille): void {
+        taille.checked = false;
+        this.taille = null;
+    }
 
 
     private handleError(error: any): Promise<any> {

@@ -13,11 +13,13 @@ export class PanierComponent implements OnInit {
     detailPanierList: DetailPanier[];
     total: number = 0;
 
+
     constructor(private panierService: PanierService, private router: Router) {
     }
 
     ngOnInit(): void {
         this.getProduitsPanier();
+
     }
 
     getProduitsPanier(): void {
@@ -29,7 +31,6 @@ export class PanierComponent implements OnInit {
                 this.prixTotal();
             })
             .catch(this.handleError);
-
     }
 
     quantitePlus(detailPanierId): void {
@@ -62,12 +63,19 @@ export class PanierComponent implements OnInit {
             .catch(this.handleError);
     }
 
-
     prixTotal(): number {
         this.detailPanierList.forEach(detailPanier =>
             this.total += detailPanier.produit.prix * detailPanier.quantite
         );
         return this.total;
+    }
+
+    quantite(): number {
+        let quantiteTotale = 0;
+        this.detailPanierList.forEach(detailPanier =>
+            quantiteTotale += detailPanier.quantite
+        );
+        return quantiteTotale;
     }
 
     private handleError(error: any): Promise<any> {

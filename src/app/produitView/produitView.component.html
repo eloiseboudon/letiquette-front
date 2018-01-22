@@ -1,7 +1,6 @@
 <div class="contenu">
     <div class="global_width">
         <div id="product_view" class="product_view">
-            <!--<ul *ngFor="let item of produit">-->
             <div class="row">
                 <div class="col-xs-6 col-md-7 col-lg-8">
 
@@ -39,45 +38,35 @@
                         <div class="prix">{{produit.prix}} €</div>
 
                         <form>
-                            <!--<div class="tailles">-->
-                                <!--<div class="form-group">-->
-                                    <!--<label for="tailleID">Taille</label>-->
-                                    <!--<select class="form-control" id="tailleID" required [(ngModel)]="tailleID"-->
-                                            <!--name="tailleID">-->
-                                        <!--<option *ngFor="let item of tailleList" [value]="item.id">{{item.taille}}-->
-                                        <!--</option>-->
-
-                                    <!--</select>-->
-                                <!--</div>-->
-                            <!--</div>-->
-
                             <div class="form-group tailles">
                                 <span  id="tailleID"
                                       *ngFor="let item of tailleList"
-                                (click)="!item.checked ? produitTaille(item) : item.checked = false"
+                                (click)="!item.checked ? produitTailleCheck(item) :  produitTailleUncheck(item)"
                                        [ngClass]="item.checked == true ? 'tailleActive' : 'tailleNonActive'">
                                     <label>{{item.taille}}</label>
 
                                 </span>
-
+                                <div *ngIf="!taille">
+                                    Veuillez sélectionner une taille.
+                                </div>
 
                             </div>
 
-
                             <div class="ajouter_panier">
                                 <button type="submit" class="btn btn_ajout_panier"
+                                        [ngClass]="taille ? 'tailleOk' : 'tailleNonOk'"
                                         (click)="ajouterPanier(produit.id)">
                                     AJOUTER AU PANIER
                                 </button>
                             </div>
                         </form>
+
                         <div class="description">
                             {{produit.description}}
                         </div>
                     </div>
                 </div>
             </div>
-            <!--</ul>-->
         </div>
     </div>
 </div>

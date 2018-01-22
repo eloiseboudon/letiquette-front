@@ -1,99 +1,109 @@
 <div class="contenu">
     <div class="global_width">
+        <div *ngIf="detailPanierList">
+            <div *ngIf="detailPanierList.length > 0">
+                <div class="panier_content">
 
-        <div class="panier_content">
 
-
-            <div class="row">
-                <div class="col-4">
-                    <h1>Mon panier</h1>
-                </div>
-                <div class="col-4">
-                    <button class="btn btn_panier btn_continuer_achat">CONTINUER MES ACHATS</button>
-                </div>
-                <div class="col-4">
-                    <button class="btn btn_panier btn_valider_panier">VALIDER MON PANIER</button>
-                </div>
-            </div>
-        </div>
-        <div class="panier_table">
-            <table>
-                <thead>
-                <tr>
-                    <th class="produit">Produits</th>
-                    <th class="taille">Taille</th>
-                    <th class="prix">Prix Unitaire TTC</th>
-                    <th class="quantite">Quantité</th>
-                    <th class="prixTotal">Prix Total TTC</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let detailPanier of detailPanierList">
-                    <td class="detailProduit">
-                        <img src="assets/images_produits/{{detailPanier.produit.image}}"/>
-                        <div class="produitLibelle">
-                            {{detailPanier.produit.libelle}}
+                    <div class="row">
+                        <div class="col-4">
+                            <h1>Mon panier</h1>
                         </div>
-                        <div class="produitMarque">
-                            {{detailPanier.produit.fournisseur.nom_marque}}
+                        <div class="col-4">
+                            <button class="btn btn_panier btn_continuer_achat">CONTINUER MES ACHATS</button>
                         </div>
-                        <div class="produitCouleur" *ngIf="detailPanier.produit.couleur != null">
-                            {{detailPanier.produit.couleur.name}}
+                        <div class="col-4">
+                            <button class="btn btn_panier btn_valider_panier">VALIDER MON PANIER</button>
                         </div>
-                        {{detailPanier.produit.description}}
+                    </div>
+                </div>
+                <div class="panier_table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th class="produit">Produits</th>
+                            <th class="taille">Taille</th>
+                            <th class="prix">Prix Unitaire TTC</th>
+                            <th class="quantite">Quantité</th>
+                            <th class="prixTotal">Prix Total TTC</th>
 
-                    </td>
-                    <td class="detailTaille">
-                        {{detailPanier.taille.taille}}
-                    </td>
-                    <td class="produitPrix">
-                        <!--<div class="produitPrix">-->
-                        {{detailPanier.produit.prix}} €
-                        <!--</div>-->
-                    </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let detailPanier of detailPanierList">
+                            <td class="detailProduit">
+                                <img src="assets/images_produits/{{detailPanier.produit.image}}"/>
+                                <div class="produitLibelle">
+                                    {{detailPanier.produit.libelle}}
+                                </div>
+                                <div class="produitMarque">
+                                    {{detailPanier.produit.fournisseur.nom_marque}}
+                                </div>
+                                <div class="produitCouleur" *ngIf="detailPanier.produit.couleur != null">
+                                    {{detailPanier.produit.couleur.name}}
+                                </div>
+                                {{detailPanier.produit.description}}
 
-                    <td class="produitQuantite">
+                            </td>
+                            <td class="detailTaille">
+                                {{detailPanier.taille.taille}}
+                            </td>
+                            <td class="produitPrix">
+                                <!--<div class="produitPrix">-->
+                                {{detailPanier.produit.prix}} €
+                                <!--</div>-->
+                            </td>
+
+                            <td class="produitQuantite">
                         <span *ngIf="detailPanier.quantite>1" (click)="quantiteMoins(detailPanier.id)"><i
                                 class="fa fa-minus-square-o" aria-hidden="true"></i></span>
-                        {{detailPanier.quantite}}
-                        <span (click)="quantitePlus(detailPanier.id)"><i class="fa fa-plus-square-o"
-                                                                         aria-hidden="true"></i></span>
-                    </td>
-                    <td class="produitPrix">
-                        {{detailPanier.produit.prix * detailPanier.quantite}} €
-                    </td>
-                    <td class="produitTrash"><span (click)="supprimerProduit(detailPanier.id)"><i class="fa fa-trash-o"
-                                                                                                  aria-hidden="true"></i></span>
-                    </td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td class="total">Total</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>{{total}} €</td>
-                    <td></td>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="panier_content">
-
-            <div class="row">
-                <div class="col-4">
-
+                                {{detailPanier.quantite}}
+                                <span (click)="quantitePlus(detailPanier.id)"><i class="fa fa-plus-square-o"
+                                                                                 aria-hidden="true"></i></span>
+                            </td>
+                            <td class="produitPrix">
+                                {{detailPanier.produit.prix * detailPanier.quantite}} €
+                            </td>
+                            <td class="produitTrash"><span (click)="supprimerProduit(detailPanier.id)"><i
+                                    class="fa fa-trash-o"
+                                    aria-hidden="true"></i></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td class="total">Total</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{total}} €</td>
+                            <td></td>
+                        </tr>
+                        </tfoot>
+                    </table>
                 </div>
-                <div class="col-4">
-                    <button class="btn btn_panier btn_continuer_achat">CONTINUER MES ACHATS</button>
-                </div>
-                <div class="col-4">
-                    <button class="btn btn_panier btn_valider_panier">VALIDER MON PANIER</button>
+                <div class="panier_content">
 
+                    <div class="row">
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn_panier btn_continuer_achat">CONTINUER MES ACHATS</button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn_panier btn_valider_panier">VALIDER MON PANIER</button>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div *ngIf="!detailPanierList || detailPanierList.length == 0">
+            Le panier est vide
+        </div>
+
+
     </div>
 </div>

@@ -959,10 +959,15 @@ h2 {
     text-align: center;
 }
 
+.contenu .ajouter_panier .tailleNonOk{
+    cursor: no-drop;
+    background-color: rgba(136, 0, 21, 0.5)!important;
+}
+
 .contenu .ajouter_panier .btn_ajout_panier, .contenu .btn_panier {
     color: #ffffff;
     font-size: 1.5em;
-    background: #880014;
+    background: #880015;
     padding: 10px;
     text-decoration: none;
     border-radius: 0;

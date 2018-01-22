@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import * as jQuery from 'jquery';
 import {AuthenticationService} from '../authentication/authentication.service';
 import {Router} from '@angular/router';
+import {PanierComponent} from '../panier/panier.component';
 
 
 @Component({
@@ -12,29 +13,15 @@ import {Router} from '@angular/router';
 
 export class NavbarComponent implements OnInit {
     membre_nom: string;
+    quantiteTotale: number = 0;
+    private panierComponent: PanierComponent;
 
     constructor(private authenticationService: AuthenticationService, private router: Router) {
     }
 
-    hasAuthToken() {
-        return localStorage.getItem('id_token') !== null;
-    }
-
-    logout() {
-        this.authenticationService.logout();
-        this.router.navigate(['accueil']);
-    }
-
-
-    setLogin() {
-        this.membre_nom = localStorage.getItem('membre_login');
-    }
-
-    dropdown() {
-        document.getElementById('myDropdown').classList.toggle('show');
-    }
 
     ngOnInit(): void {
+        this.quantite();
 
         if (this.hasAuthToken()) {
             this.setLogin();
@@ -60,7 +47,6 @@ export class NavbarComponent implements OnInit {
             }
 
         });
-
 
         $(window).resize(function () {
             if (window.innerWidth > 1260) {
@@ -88,7 +74,6 @@ export class NavbarComponent implements OnInit {
             $('body').toggleClass('sidebar');
         });
 
-
         $('#global-cache').click(function (e) {
             $('body').removeClass('sidebar');
         });
@@ -105,9 +90,27 @@ export class NavbarComponent implements OnInit {
                 }
             }
         });
-
-
     }
 
+    hasAuthToken() {
+        return localStorage.getItem('id_token') !== null;
+    }
 
+    logout() {
+        this.authenticationService.logout();
+        this.router.navigate(['accueil']);
+    }
+
+    setLogin() {
+        this.membre_nom = localStorage.getItem('membre_login');
+    }
+
+    dropdown() {
+        document.getElementById('myDropdown').classList.toggle('show');
+    }
+
+    quantite(): void {
+        this.quantiteTotale = this.panierComponent.quantite();
+        console.log(this.quantiteTotale);
+    }
 }
