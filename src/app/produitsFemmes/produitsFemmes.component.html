@@ -4,9 +4,6 @@
 
 <div class="contenu">
     <div class="global_width">
-        <h1>
-            {{view}}
-        </h1>
         <div class="row">
             <div class="col-2">
                 <div id="familles_filtres">
@@ -17,7 +14,10 @@
                     <div class="famille">
                         <ul *ngFor="let famille of famillesList">
                             <li>
-                                <span (click)="filterFamille(famille)">{{famille.famille}}</span>
+                                <span (click)="filterFamille(famille)"
+                                      [ngClass]="famille.checked == true ? 'familleActive' : 'familleNonActive'">
+                                    {{famille.famille}}
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -25,7 +25,6 @@
             </div>
             <div class="col-10">
                 <div id="filtres">
-                    <h2>Filtres</h2>
                     <div class="row">
                         <div class="col-2">
                             <div class="dropdown" id="dropdown-tailles">
@@ -87,6 +86,7 @@
                                                    (click)="!couleur.checked ? filterArrCouleur.push(couleur.name) : filterArrCouleur.splice(filterArrMarque.indexOf(couleur.name),1)"
                                                    [value]="couleur.name"
                                                    [ngStyle]="{'background-color': couleur.hexa}"
+                                                   title="{{couleur.name}}"
                                                    [ngClass]="couleur.checked == true ? 'couleurActive' : 'couleurNonActive'">
 
                                         </li>
@@ -94,17 +94,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 prix">
-                            <div class="row">
-                                <div class="col-3">
-                                    <span class="filtre-titre">Prix (€)</span>
-                                </div>
-                                <div class="col-9">
+
+                        <div class="col-2">
+
+                            <div class="dropdown" id="dropdown-prix">
+                                <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
+                                        aria-expanded="false">
+                                    <span class="dropdown-titre">Prix</span>
+                                    <span class="fa fa-caret-down"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <div id="skipstep"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-2 annuler_filtres">
+
+                        <div class="col-4 annuler_filtres">
                             <span (click)=annulerFiltres()><i class="fa fa-times" aria-hidden="true"></i> Annuler filtres</span>
                         </div>
                         <div class="col-2">
@@ -121,23 +126,23 @@
                         </div>
 
 
-                        <div class="col-2">
-                            <div class="dropdown" id="dropdown-occasions">
-                                <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
-                                        aria-expanded="false">
-                                    <span class="dropdown-titre">Occasions</span>
-                                    <span class="fa fa-caret-down"></span>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!--<div class="col-2">-->
+                        <!--<div class="dropdown" id="dropdown-occasions">-->
+                        <!--<button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"-->
+                        <!--aria-expanded="false">-->
+                        <!--<span class="dropdown-titre">Occasions</span>-->
+                        <!--<span class="fa fa-caret-down"></span>-->
+                        <!--</button>-->
+                        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
 
-                                    <!-- <ul *ngFor="let marque of produitsList | uniqueFournisseur">
-                                                <li>
-                                                    <span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>
-                                                </li>
-                                            </ul> -->
-                                </div>
-                            </div>
-                        </div>
+                        <!--&lt;!&ndash; <ul *ngFor="let marque of produitsList | uniqueFournisseur">-->
+                        <!--<li>-->
+                        <!--<span (click)=filterMarque(marque.fournisseurID)>{{marque.fournisseur}}</span>-->
+                        <!--</li>-->
+                        <!--</ul> &ndash;&gt;-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
                         <div class="col-2">
                             <div class="dropdown" id="dropdown-impact_ecolo">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
@@ -187,6 +192,18 @@
                         </div>
 
 
+                        <!--<div class="col-4 prix">-->
+                        <!--<div class="row">-->
+                        <!--<div class="col-3">-->
+                        <!--<span class="filtre-titre">Prix (€)</span>-->
+                        <!--</div>-->
+                        <!--<div class="col-9">-->
+                        <!--<div id="skipstep"></div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+
                         <div class="col-4 view_filtres">
                             <ul>
                                 <li *ngFor="let taille of filterArrTaille" (click)=deleteFilterTaille(taille)>
@@ -213,68 +230,73 @@
                 </div>
 
 
-                <div id="affichage_produit">
+                <div id="affichage_produit" *ngIf="produitsList.length > 96">
                     <div class="row">
                         <div class="col-6">
                             <pagination-controls class="my-pagination" (pageChange)="p = $event"
                                                  previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="col-6" style="display: flex;">
+                    <!--<div class="col-6" style="display: flex;">-->
 
-                            <div class="filtre-titre">
-                                Articles par page
+                    <!--<div class="filtre-titre">-->
+                    <!--Articles par page-->
+                    <!--</div>-->
+                    <!--<div class="nbItemsPage">-->
+                    <!--<ul>-->
+                    <!--<li (click)="pageSize=4">-->
+                    <!--<span>4</span>-->
+                    <!--</li>-->
+                    <!--<li (click)="pageSize=8">-->
+                    <!--<span>8</span>-->
+                    <!--</li>-->
+                    <!--</ul>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+
+                    <div id="products_all_view">
+
+                        <ul id="products_view"
+                            *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
+                            <a [routerLink]="['/produits', produit.id]">
+                                <img src="assets/images_produits/{{produit.image}}">
+                            </a>
+                            <li class="marque">{{produit.marque}}</li>
+                            <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}}
+                                {{produit.couleur}}
+                            </li>
+                            <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
+                            <li class="prix">{{produit.prix}} €</li>
+                        </ul>
+                    </div>
+
+
+                    <div id="affichage_produit" >
+                        <div class="row">
+                            <div class="col-6">
+                                <pagination-controls *ngIf="produitsList.length > 96" class="my-pagination" (pageChange)="p = $event"
+                                                     previousLabel="Précédent"
+                                                     nextLabel="Suivant"></pagination-controls>
                             </div>
-                            <div class="nbItemsPage">
-                                <ul>
-                                    <li (click)="pageSize=4">
-                                        <span>4</span>
-                                    </li>
-                                    <li (click)="pageSize=8">
-                                        <span>8</span>
-                                    </li>
-                                </ul>
+                            <div class="col-6">
+                                <!-- Filtres prix -->
+                                <span class="example-val" id="skip-value-lower"></span>
+                                <span class="example-val" id="skip-value-upper"></span>
+                                <!-- EOF - Filtres prix -->
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-                <div id="products_all_view">
-
-                    <ul id="products_view"
-                        *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
-                        <a [routerLink]="['/produits', produit.id]">
-                            <img src="assets/images_produits/{{produit.image}}">
-                        </a>
-                        <li class="marque">{{produit.marque}}</li>
-                        <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}} {{produit.couleur}}</li>
-                        <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
-                        <li class="prix">{{produit.prix}} €</li>
-                    </ul>
-                </div>
-
-
-                <div id="affichage_produit">
-                    <div class="row">
-                        <div class="col-6">
-                            <pagination-controls class="my-pagination" (pageChange)="p = $event"
-                                                 previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
-                        </div>
-                        <div class="col-6">
-                            <!-- Filtres prix -->
-                            <span class="example-val" id="skip-value-lower"></span>
-                            <span class="example-val" id="skip-value-upper"></span>
-                            <!-- EOF - Filtres prix -->
-                        </div>
-                    </div>
-                </div>
             </div>
-
-
         </div>
     </div>
-</div>
 
 
 

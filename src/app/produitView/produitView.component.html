@@ -54,7 +54,7 @@
 
                             <div class="ajouter_panier">
                                 <button type="submit" class="btn btn_ajout_panier"
-                                        [ngClass]="taille ? 'tailleOk' : 'tailleNonOk'"
+                                       [disabled]="!taille"
                                         (click)="ajouterPanier(produit.id)">
                                     AJOUTER AU PANIER
                                 </button>

@@ -42,14 +42,12 @@ export class ProduitsFemmesComponent implements OnInit {
     tailleTypeList: TailleType[];
     produitsList: Produit[];
     pointsEthiquesList: PointsEthiques[];
-    view: string;
-    viewFamille: Famille;
     arrayFiltresTaille: number[] = [];
     arrayFiltresMatiere: number[] = [];
     prixMin: number;
     prixMax: number;
     p: number = 1;
-    pageSize = 4;
+    pageSize = 96;
     filterArrMarque = [];
     filterArrCouleur = [];
     filterArrTaille = [];
@@ -239,7 +237,6 @@ export class ProduitsFemmesComponent implements OnInit {
             .then(produits => {
                 this.produitsList = produits;
             });
-        this.view = 'Vêtements Femmes';
         this.getAllTailleType();
         this.familleFilter = false;
         this.arrayFiltresTaille = [];
@@ -259,6 +256,10 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getTailleTypeByFamille(famille.globalId);
         this.familleFilter = true;
         this.arrayFiltresTaille = [];
+        for (let i = 0; i < this.famillesList.length; i++) {
+            this.famillesList[i].checked = false;
+        }
+        famille.checked = true;
     }
 
     getProduitByFamille(famille): void {
@@ -267,8 +268,6 @@ export class ProduitsFemmesComponent implements OnInit {
             .then(produits => {
                 this.produitsList = produits;
             });
-        this.view = famille.famille;
-        this.viewFamille = famille;
     }
 
     filterTaille(taille) {

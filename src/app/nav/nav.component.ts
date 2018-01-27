@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import * as jQuery from 'jquery';
 import {AuthenticationService} from '../authentication/authentication.service';
 import {Router} from '@angular/router';
@@ -14,14 +14,15 @@ import {PanierComponent} from '../panier/panier.component';
 export class NavbarComponent implements OnInit {
     membre_nom: string;
     quantiteTotale: number = 0;
-    private panierComponent: PanierComponent;
+    // private panierComponent: PanierComponent;
+    // @Output panierComponent : PanierComponent<any> = new PanierComponent();
 
     constructor(private authenticationService: AuthenticationService, private router: Router) {
     }
 
 
     ngOnInit(): void {
-        this.quantite();
+        // this.quantite();
 
         if (this.hasAuthToken()) {
             this.setLogin();
@@ -109,8 +110,8 @@ export class NavbarComponent implements OnInit {
         document.getElementById('myDropdown').classList.toggle('show');
     }
 
-    quantite(): void {
-        this.quantiteTotale = this.panierComponent.quantite();
-        console.log(this.quantiteTotale);
-    }
+    // quantite(): void {
+    //     this.quantiteTotale = this.panierComponent.quantite();
+    //     console.log(this.quantiteTotale);
+    // }
 }
