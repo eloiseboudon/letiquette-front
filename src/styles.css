@@ -827,8 +827,29 @@ h2 {
     padding-top: 8px;
 }
 
+.contenu #familles_filtres .famille_global{
+    font-size:1.4em;
+}
+
 .contenu #familles_filtres .famille .familleActive{
     font-weight: bold;
+}
+
+.contenu #familles_filtres .familleGlobalNonActive:hover,
+.contenu #familles_filtres .familleGlobalNonActive:focus{
+    font-weight: bold;
+}
+
+.contenu #familles_filtres .famille li:hover,
+.contenu #familles_filtres .famille li:focus{
+    font-weight: normal;
+    color:#880015;
+}
+
+
+.contenu #familles_filtres .famillesGlobal .familleGlobalActive{
+    font-weight: bold;
+    color:#880015;
 }
 
 .contenu #familles_filtres h2 {
@@ -838,7 +859,7 @@ h2 {
 }
 
 .contenu #familles_filtres .famille span {
-    font-size: 1.3em;
+    font-size: 0.9em;
     width:100%;
     float:left;
 }
@@ -852,6 +873,7 @@ h2 {
     margin: 0;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1.2em;
+    padding: 0;
 }
 
 /*  FILRES GLOBAUX */

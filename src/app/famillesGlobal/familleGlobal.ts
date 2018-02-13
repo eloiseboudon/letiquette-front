@@ -1,4 +1,5 @@
 export class FamilleGlobal{
     id: number;
-    famille_global : string;
+    famille_global: string;
+    checked: boolean = false;
 }

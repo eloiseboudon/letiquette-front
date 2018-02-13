@@ -35,9 +35,15 @@ export class ProduitService {
             .catch(this.handleError);
     }
 
-    // ajouterPanier(id: number):  Promise<Produit[]> {
-    //
-    // }
+
+    getProduitByFamilleGlobale(famille: Famille): Promise<Produit[]> {
+        return this.http.get(this.produits + '/famille/' + famille.id)
+            .toPromise()
+            .then(response =>
+                response.json() as Produit[])
+            .catch(this.handleError);
+    }
+
 
 
     private handleError(error: any): Promise<any> {

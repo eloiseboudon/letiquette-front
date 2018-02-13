@@ -11,21 +11,24 @@
                         <span (click)="getAllProduits()">Tous les produits</span>
                     </h2>
 
-                    <!--<div class="famille">-->
-                        <!--<ul *ngFor="let famille of famillesList">-->
-                            <!--<li>-->
-                                <!--<span (click)="filterFamille(famille)"-->
-                                      <!--[ngClass]="famille.checked == true ? 'familleActive' : 'familleNonActive'">-->
-                                    <!--{{famille.famille}}-->
-                                <!--</span>-->
-                            <!--</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-
-                    <div class="famille">
+                    <div class="famillesGlobal">
                         <ul *ngFor="let familleGlobal of familleGlobalList">
-                            <li>
-                                {{familleGlobal.famille_global}}
+                            <li *ngIf="familleGlobal.id != 6">
+                                <span (click)="afficherFamille(familleGlobal)" class="famille_global"
+                                      [ngClass]="familleGlobal.checked == true ? 'familleGlobalActive' : 'familleGlobalNonActive'">
+                                    {{familleGlobal.famille_global}}
+                                </span>
+                                <div class="famille">
+                                    <ul *ngFor="let famille of famillesList">
+                                        <li *ngIf="familleGlobal.checked">
+                                        <span (click)="filterFamille(famille)"
+                                              [ngClass]="famille.checked == true ? 'familleActive' : 'familleNonActive'">
+                                            {{famille.famille}}
+                                        </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
                             </li>
                         </ul>
                     </div>
@@ -50,7 +53,6 @@
                                                 <input type="checkbox" [(ngModel)]="taille.checked"
                                                        (click)="!taille.checked ? filterArrTaille.push(taille.taille) : filterArrTaille.splice(filterArrTaille.indexOf(taille.taille),1)">
                                                 {{taille.taille}}
-                                                <!--<span></span>-->
                                             </td>
                                         </tr>
                                     </table>
@@ -249,64 +251,65 @@
                     </div>
                 </div>
 
-                    <!--<div class="col-6" style="display: flex;">-->
+                <!--<div class="col-6" style="display: flex;">-->
 
-                    <!--<div class="filtre-titre">-->
-                    <!--Articles par page-->
-                    <!--</div>-->
-                    <!--<div class="nbItemsPage">-->
-                    <!--<ul>-->
-                    <!--<li (click)="pageSize=4">-->
-                    <!--<span>4</span>-->
-                    <!--</li>-->
-                    <!--<li (click)="pageSize=8">-->
-                    <!--<span>8</span>-->
-                    <!--</li>-->
-                    <!--</ul>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-
-                    <div id="products_all_view">
-
-                        <ul id="products_view"
-                            *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
-                            <a [routerLink]="['/produits', produit.id]">
-                                <img src="assets/images_produits/{{produit.image}}">
-                            </a>
-                            <li class="marque">{{produit.marque}}</li>
-                            <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}}
-                                {{produit.couleur}}
-                            </li>
-                            <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
-                            <li class="prix">{{produit.prix}} €</li>
-                        </ul>
-                    </div>
+                <!--<div class="filtre-titre">-->
+                <!--Articles par page-->
+                <!--</div>-->
+                <!--<div class="nbItemsPage">-->
+                <!--<ul>-->
+                <!--<li (click)="pageSize=4">-->
+                <!--<span>4</span>-->
+                <!--</li>-->
+                <!--<li (click)="pageSize=8">-->
+                <!--<span>8</span>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
 
 
-                    <div id="affichage_produit" >
-                        <div class="row">
-                            <div class="col-6">
-                                <pagination-controls *ngIf="produitsList.length > 96" class="my-pagination" (pageChange)="p = $event"
-                                                     previousLabel="Précédent"
-                                                     nextLabel="Suivant"></pagination-controls>
-                            </div>
-                            <div class="col-6">
-                                <!-- Filtres prix -->
-                                <span class="example-val" id="skip-value-lower"></span>
-                                <span class="example-val" id="skip-value-upper"></span>
-                                <!-- EOF - Filtres prix -->
-                            </div>
-                        </div>
-                    </div>
+                <div id="products_all_view">
+
+                    <ul id="products_view"
+                        *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
+                        <a [routerLink]="['/produits', produit.id]">
+                            <img src="assets/images_produits/{{produit.image}}">
+                        </a>
+                        <li class="marque">{{produit.marque}}</li>
+                        <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}}
+                            {{produit.couleur}}
+                        </li>
+                        <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
+                        <li class="prix">{{produit.prix}} €</li>
+                    </ul>
                 </div>
 
 
+                <div id="affichage_produit">
+                    <div class="row">
+                        <div class="col-6">
+                            <pagination-controls *ngIf="produitsList.length > 96" class="my-pagination"
+                                                 (pageChange)="p = $event"
+                                                 previousLabel="Précédent"
+                                                 nextLabel="Suivant"></pagination-controls>
+                        </div>
+                        <div class="col-6">
+                            <!-- Filtres prix -->
+                            <span class="example-val" id="skip-value-lower"></span>
+                            <span class="example-val" id="skip-value-upper"></span>
+                            <!-- EOF - Filtres prix -->
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
         </div>
     </div>
+</div>
 
 
 

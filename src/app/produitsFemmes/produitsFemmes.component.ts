@@ -29,7 +29,6 @@ import {PointsEthiques} from '../pointsEthiques/pointsEthiques';
 import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 
 
-
 @Component({
     selector: 'produitsFemmes-root',
     templateUrl: 'produitsFemmes.component.html'
@@ -39,15 +38,12 @@ import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 export class ProduitsFemmesComponent implements OnInit {
     fournisseurList: Fournisseur[];
     couleurList: Couleur[];
-    // produitsTailleList: Produit[];
-    familleFilter: boolean = false;
     famillesList: Famille[];
     familleGlobalList: FamilleGlobal[];
     tailleTypeList: TailleType[];
     produitsList: Produit[];
     pointsEthiquesList: PointsEthiques[];
     arrayFiltresTaille: number[] = [];
-    arrayFiltresMatiere: number[] = [];
     prixMin: number;
     prixMax: number;
     p: number = 1;
@@ -73,7 +69,6 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getAllMarques();
         this.getAllCouleurs();
         this.getAllPointsEthiques();
-        this.getFamilleBySexe();
         this.getProduitByFamillesGlobales();
         this.filtrePrix();
         this.goToTop();
@@ -243,8 +238,7 @@ export class ProduitsFemmesComponent implements OnInit {
                 this.produitsList = produits;
             });
         this.getAllTailleType();
-        this.familleFilter = false;
-        this.arrayFiltresTaille = [];
+        // this.arrayFiltresTaille = [];
     }
 
 
@@ -257,19 +251,10 @@ export class ProduitsFemmesComponent implements OnInit {
     }
 
 
-    getFamilleBySexe(): void {
-        this.familleService
-            .getFamilleBySexe('F')
-            .then(famille => {
-                this.famillesList = famille;
-            });
-    }
-
     filterFamille(famille) {
         this.getProduitByFamille(famille);
-        this.getTailleTypeByFamille(famille.globalId);
-        this.familleFilter = true;
-        this.arrayFiltresTaille = [];
+        this.getTailleTypeByFamille(famille.famille_global.id);
+        // this.arrayFiltresTaille = [];
         for (let i = 0; i < this.famillesList.length; i++) {
             this.famillesList[i].checked = false;
         }
@@ -284,32 +269,31 @@ export class ProduitsFemmesComponent implements OnInit {
             });
     }
 
-    // filterTaille(taille) {
-    //     if (!taille.isActive) {
-    //         taille.isActive = true;
-    //         this.arrayFiltresTaille.push(taille.id);
-    //         this.produitFemmesService
-    //             .getProduitByFiltreTaille(this.arrayFiltresTaille)
-    //             .then(produits => {
-    //                 this.produitsList = produits;
-    //             });
-    //     } else {
-    //         if (this.arrayFiltresTaille.length > 1) {
-    //             taille.isActive = false;
-    //             const index = this.arrayFiltresTaille.indexOf(taille);
-    //             this.arrayFiltresTaille.splice(index, 1);
-    //             this.produitFemmesService
-    //                 .getProduitByFiltreTaille(this.arrayFiltresTaille)
-    //                 .then(produits => {
-    //                     this.produitsList = produits;
-    //                 });
-    //         } else {
-    //             this.produitFemmesService
-    //                 .getAllProduits()
-    //                 .then(produits => {
-    //                     this.produitsList = produits;
-    //                 });
-    //         }
-    //     }
-    // }
+
+    getProduitByFamilleGlobale(familleGlobale): void {
+        this.produitService
+            .getProduitByFamilleGlobale(familleGlobale)
+            .then(produits => {
+                this.produitsList = produits;
+            });
+    }
+
+    afficherFamille(familleGlobale): void {
+        this.getFamilleByFamilleGlobalAndSexe(familleGlobale.id);
+        this.getProduitByFamilleGlobale(familleGlobale);
+        for (let i = 0; i < this.familleGlobalList.length; i++) {
+            this.familleGlobalList[i].checked = false;
+        }
+        familleGlobale.checked = true;
+    }
+
+
+    getFamilleByFamilleGlobalAndSexe(familleGlobaleID): void {
+        this.familleService
+            .getFamilleByFamilleGlobalAndSexe('F', familleGlobaleID)
+            .then(familles => {
+                this.famillesList = familles;
+            });
+    }
+
 }
