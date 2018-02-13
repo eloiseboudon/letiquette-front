@@ -18,6 +18,8 @@ import {TailleTypeService} from '../tailleType/tailleType.service';
 import {Famille} from '../familles/famille';
 import {FamilleService} from '../familles/famille.service';
 
+import {FamilleGlobal} from '../famillesGlobal/familleGlobal';
+import {FamilleGlobalService} from '../famillesGlobal/familleGlobal.service';
 
 import {Fournisseur} from '../fournisseurs/fournisseur';
 import {FournisseurService} from '../fournisseurs/fournisseur.service';
@@ -25,6 +27,7 @@ import {Couleur} from '../couleurs/couleur';
 import {CouleurService} from '../couleurs/couleur.service';
 import {PointsEthiques} from '../pointsEthiques/pointsEthiques';
 import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
+
 
 
 @Component({
@@ -39,6 +42,7 @@ export class ProduitsFemmesComponent implements OnInit {
     // produitsTailleList: Produit[];
     familleFilter: boolean = false;
     famillesList: Famille[];
+    familleGlobalList: FamilleGlobal[];
     tailleTypeList: TailleType[];
     produitsList: Produit[];
     pointsEthiquesList: PointsEthiques[];
@@ -56,7 +60,7 @@ export class ProduitsFemmesComponent implements OnInit {
 
 
     constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
-                private familleService: FamilleService, private fournisseurService: FournisseurService, private  couleurService: CouleurService,
+                private familleService: FamilleService, private familleGlobalService: FamilleGlobalService, private fournisseurService: FournisseurService, private  couleurService: CouleurService,
                 private pointsEthiquesService: PointsEthiquesService,
                 private router: Router) {
     }
@@ -70,6 +74,7 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getAllCouleurs();
         this.getAllPointsEthiques();
         this.getFamilleBySexe();
+        this.getProduitByFamillesGlobales();
         this.filtrePrix();
         this.goToTop();
     }
@@ -243,6 +248,15 @@ export class ProduitsFemmesComponent implements OnInit {
     }
 
 
+    getProduitByFamillesGlobales(): void {
+        this.familleGlobalService
+            .getAllFamillesGlobal()
+            .then(familleGlobal => {
+                this.familleGlobalList = familleGlobal;
+            });
+    }
+
+
     getFamilleBySexe(): void {
         this.familleService
             .getFamilleBySexe('F')
@@ -270,32 +284,32 @@ export class ProduitsFemmesComponent implements OnInit {
             });
     }
 
-    filterTaille(taille) {
-        if (!taille.isActive) {
-            taille.isActive = true;
-            this.arrayFiltresTaille.push(taille.id);
-            this.produitFemmesService
-                .getProduitByFiltreTaille(this.arrayFiltresTaille)
-                .then(produits => {
-                    this.produitsList = produits;
-                });
-        } else {
-            if (this.arrayFiltresTaille.length > 1) {
-                taille.isActive = false;
-                const index = this.arrayFiltresTaille.indexOf(taille);
-                this.arrayFiltresTaille.splice(index, 1);
-                this.produitFemmesService
-                    .getProduitByFiltreTaille(this.arrayFiltresTaille)
-                    .then(produits => {
-                        this.produitsList = produits;
-                    });
-            } else {
-                this.produitFemmesService
-                    .getAllProduits()
-                    .then(produits => {
-                        this.produitsList = produits;
-                    });
-            }
-        }
-    }
+    // filterTaille(taille) {
+    //     if (!taille.isActive) {
+    //         taille.isActive = true;
+    //         this.arrayFiltresTaille.push(taille.id);
+    //         this.produitFemmesService
+    //             .getProduitByFiltreTaille(this.arrayFiltresTaille)
+    //             .then(produits => {
+    //                 this.produitsList = produits;
+    //             });
+    //     } else {
+    //         if (this.arrayFiltresTaille.length > 1) {
+    //             taille.isActive = false;
+    //             const index = this.arrayFiltresTaille.indexOf(taille);
+    //             this.arrayFiltresTaille.splice(index, 1);
+    //             this.produitFemmesService
+    //                 .getProduitByFiltreTaille(this.arrayFiltresTaille)
+    //                 .then(produits => {
+    //                     this.produitsList = produits;
+    //                 });
+    //         } else {
+    //             this.produitFemmesService
+    //                 .getAllProduits()
+    //                 .then(produits => {
+    //                     this.produitsList = produits;
+    //                 });
+    //         }
+    //     }
+    // }
 }

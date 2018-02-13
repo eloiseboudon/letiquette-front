@@ -11,16 +11,26 @@
                         <span (click)="getAllProduits()">Tous les produits</span>
                     </h2>
 
+                    <!--<div class="famille">-->
+                        <!--<ul *ngFor="let famille of famillesList">-->
+                            <!--<li>-->
+                                <!--<span (click)="filterFamille(famille)"-->
+                                      <!--[ngClass]="famille.checked == true ? 'familleActive' : 'familleNonActive'">-->
+                                    <!--{{famille.famille}}-->
+                                <!--</span>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+
                     <div class="famille">
-                        <ul *ngFor="let famille of famillesList">
+                        <ul *ngFor="let familleGlobal of familleGlobalList">
                             <li>
-                                <span (click)="filterFamille(famille)"
-                                      [ngClass]="famille.checked == true ? 'familleActive' : 'familleNonActive'">
-                                    {{famille.famille}}
-                                </span>
+                                {{familleGlobal.famille_global}}
                             </li>
                         </ul>
                     </div>
+
+
                 </div>
             </div>
             <div class="col-10">

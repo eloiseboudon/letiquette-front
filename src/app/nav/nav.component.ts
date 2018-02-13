@@ -2,7 +2,8 @@ import {Component, OnInit, Output} from '@angular/core';
 import * as jQuery from 'jquery';
 import {AuthenticationService} from '../authentication/authentication.service';
 import {Router} from '@angular/router';
-import {PanierComponent} from '../panier/panier.component';
+import {PanierService} from '../panier/panier.service';
+import {DetailPanier} from '../detailPanier/detailPanier';
 
 
 @Component({
@@ -14,15 +15,14 @@ import {PanierComponent} from '../panier/panier.component';
 export class NavbarComponent implements OnInit {
     membre_nom: string;
     quantiteTotale: number = 0;
-    // private panierComponent: PanierComponent;
-    // @Output panierComponent : PanierComponent<any> = new PanierComponent();
+    detailPanierList: DetailPanier[];
 
-    constructor(private authenticationService: AuthenticationService, private router: Router) {
+    constructor(private authenticationService: AuthenticationService, private panierService: PanierService, private router: Router) {
     }
 
 
     ngOnInit(): void {
-        // this.quantite();
+        this.getProduitsPanier();
 
         if (this.hasAuthToken()) {
             this.setLogin();
@@ -110,8 +110,28 @@ export class NavbarComponent implements OnInit {
         document.getElementById('myDropdown').classList.toggle('show');
     }
 
-    // quantite(): void {
-    //     this.quantiteTotale = this.panierComponent.quantite();
-    //     console.log(this.quantiteTotale);
-    // }
+    getProduitsPanier(): void {
+        this.panierService
+            .getProduitPanier()
+            .then(async detailPanier => {
+                this.detailPanierList = detailPanier;
+                await this.detailPanierList;
+                this.quantite();
+            })
+            .catch(this.handleError);
+    }
+
+
+    quantite(): number {
+        this.detailPanierList.forEach(detailPanier =>
+            this.quantiteTotale += detailPanier.quantite
+        );
+        return this.quantiteTotale;
+    }
+
+
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
+    }
 }

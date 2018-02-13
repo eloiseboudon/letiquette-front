@@ -43,6 +43,7 @@ import {PanierService} from './panier/panier.service';
 
 
 import {FamilleService} from './familles/famille.service';
+import {FamilleGlobalService} from './famillesGlobal/familleGlobal.service';
 import {ImageService} from './image/image.service';
 import {TailleTypeService} from './tailleType/tailleType.service';
 import {TailleService} from './tailles/taille.service';
@@ -95,6 +96,7 @@ import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
         VilleService,
         FournisseurService,
         FamilleService,
+        FamilleGlobalService,
         CouleurService,
         ProduitService,
         PointsEthiquesService,

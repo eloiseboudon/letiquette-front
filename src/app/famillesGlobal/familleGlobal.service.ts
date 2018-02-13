@@ -1,35 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
-
-
 import 'rxjs/add/operator/toPromise';
 
-import { Famille } from './famille';
+import { FamilleGlobal } from './familleGlobal';
 
 @Injectable()
-export class FamilleService {
+export class FamilleGlobalService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private familleUrl = 'http://127.0.0.1:8000/familles';
+    private famillesglobalesUrl = 'http://127.0.0.1:8000/famillesGlobales';
 
     constructor(private http: Http) { }
 
-    getAllFamilles(): Promise<Famille[]> {
-        return this.http.get(this.familleUrl)
+    getAllFamillesGlobal(): Promise<FamilleGlobal[]> {
+        return this.http.get(this.famillesglobalesUrl)
             .toPromise()
             .then(response =>
-                response.json() as Famille[])
+                response.json() as FamilleGlobal[])
             .catch(this.handleError);
     }
 
-
-    getFamilleBySexe(sexe : string): Promise<Famille[]> {
-        return this.http.get(this.familleUrl +"/" + sexe)
-            .toPromise()
-            .then(response =>
-                response.json() as Famille[])
-            .catch(this.handleError);
-    }
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
