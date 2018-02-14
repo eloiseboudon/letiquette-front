@@ -105,6 +105,11 @@ export class NavbarComponent implements OnInit {
                 }
             }
         });
+
+        if ($('.famille_global').hasClass('hover')) {
+            alert('test');
+        }
+
     }
 
     hasAuthToken() {
@@ -142,7 +147,6 @@ export class NavbarComponent implements OnInit {
         return this.quantiteTotale;
     }
 
-
     getProduitByFamillesGlobales(): void {
         this.familleGlobalService
             .getAllFamillesGlobal()
@@ -151,17 +155,17 @@ export class NavbarComponent implements OnInit {
             });
     }
 
-
-
     filterFamille(famille) {
-        this.getProduitByFamille(famille);
-        this.getTailleTypeByFamille(famille.famille_global.id);
-        for (let i = 0; i < this.famillesList.length; i++) {
-            this.famillesList[i].checked = false;
-        }
-        famille.checked = true;
-    }
+        // this.getProduitByFamille(famille);
+        // this.getTailleTypeByFamille(famille.famille_global.id);
+        // for (let i = 0; i < this.famillesList.length; i++) {
+        //     this.famillesList[i].checked = false;
+        // }
+        // famille.checked = true;
 
+
+        alert(famille);
+    }
 
 
     getProduitByFamille(famille): void {
