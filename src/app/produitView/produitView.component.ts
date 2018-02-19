@@ -8,6 +8,8 @@ import {Image} from '../image/image';
 import {ImageService} from '../image/image.service';
 import {TailleService} from '../tailles/taille.service';
 import {Taille} from '../tailles/taille';
+import {PanierService} from '../panier/panier.service';
+import {DetailPanier} from '../detailPanier/detailPanier';
 
 
 @Component({
@@ -17,15 +19,19 @@ import {Taille} from '../tailles/taille';
 
 
 export class ProduitViewComponent implements OnInit {
-    produit: Produit[];
+    produit: Produit;
+    taille: Taille;
     id: number;
     private sub: any;
     imageList: Image[];
     tailleList: Taille[];
+    panier: DetailPanier;
+
+    // panierList: DetailPanier[];
 
     constructor(private route: ActivatedRoute, private produitService: ProduitService,
                 private tailleService: TailleService,
-                private imageService: ImageService) {
+                private imageService: ImageService, private panierService: PanierService) {
     }
 
     ngOnInit(): void {
@@ -53,6 +59,7 @@ export class ProduitViewComponent implements OnInit {
             .getTailleByIDProduct(id)
             .then(tailles => {
                 this.tailleList = tailles;
+                console.log(this.tailleList);
             })
             .catch(this.handleError);
     }
@@ -66,10 +73,30 @@ export class ProduitViewComponent implements OnInit {
             .catch(this.handleError);
     }
 
-    ajouterPanier(produit): void {
-        // this.produitService
-        //     .ajouterPanier(produit.id)
+
+    ajouterPanier(idProduit): void {
+        this.panierService
+            .ajouterPanier(idProduit, this.taille.id)
+            .then(panier => {
+                this.panier = panier;
+                localStorage.setItem('id_panier', panier.panier.id);
+            })
+            .catch(this.handleError);
     }
+
+    produitTailleCheck(taille): void {
+        this.taille = taille;
+        for (let i = 0; i < this.tailleList.length; i++) {
+            this.tailleList[i].checked = false;
+        }
+        taille.checked = true;
+    }
+
+    produitTailleUncheck(taille): void {
+        taille.checked = false;
+        this.taille = null;
+    }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

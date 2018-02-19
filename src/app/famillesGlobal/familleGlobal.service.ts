@@ -1,26 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
-
 import 'rxjs/add/operator/toPromise';
 
-import { Image } from './image';
-import {Famille} from '../familles/famille';
+import { FamilleGlobal } from './familleGlobal';
 
 @Injectable()
-export class ImageService {
+export class FamilleGlobalService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private imageUrl = 'http://127.0.0.1:8000/images';
+    private famillesglobalesUrl = 'http://127.0.0.1:8000/famillesGlobales';
 
     constructor(private http: Http) { }
 
-    getImagesByProduit(id: number): Promise<Image[]> {
-        return this.http.get(this.imageUrl + '/' + id )
+    getAllFamillesGlobal(): Promise<FamilleGlobal[]> {
+        return this.http.get(this.famillesglobalesUrl)
             .toPromise()
             .then(response =>
-                response.json() as Famille[])
+                response.json() as FamilleGlobal[])
             .catch(this.handleError);
     }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);

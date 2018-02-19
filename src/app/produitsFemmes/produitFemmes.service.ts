@@ -29,7 +29,6 @@ export class ProduitFemmesService {
             .catch(this.handleError);
     }
 
-
     getAllProduits(): Promise<Produit[]> {
         return this.http.get(this.produitsFemmesUrl)
             .toPromise()
@@ -37,9 +36,6 @@ export class ProduitFemmesService {
                 response.json() as Produit[])
             .catch(this.handleError);
     }
-
-
-
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

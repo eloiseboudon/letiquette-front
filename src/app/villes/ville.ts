@@ -1,8 +1,8 @@
-import { Pays } from "../pays/pays";
+import {Pays} from '../pays/pays';
 
 export class Ville {
     id: number;
     name: string;
-    codePostal:string;
-    pays:Pays;
-  }
+    codePostal: string;
+    pays: Pays;
+}

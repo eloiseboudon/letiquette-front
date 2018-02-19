@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import * as jQuery from 'jquery';
 import noUiSlider from 'nouislider';
@@ -18,6 +18,8 @@ import {TailleTypeService} from '../tailleType/tailleType.service';
 import {Famille} from '../familles/famille';
 import {FamilleService} from '../familles/famille.service';
 
+import {FamilleGlobal} from '../famillesGlobal/familleGlobal';
+import {FamilleGlobalService} from '../famillesGlobal/familleGlobal.service';
 
 import {Fournisseur} from '../fournisseurs/fournisseur';
 import {FournisseurService} from '../fournisseurs/fournisseur.service';
@@ -25,6 +27,7 @@ import {Couleur} from '../couleurs/couleur';
 import {CouleurService} from '../couleurs/couleur.service';
 import {PointsEthiques} from '../pointsEthiques/pointsEthiques';
 import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
+import {split} from 'ts-node/dist';
 
 
 @Component({
@@ -34,45 +37,76 @@ import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 
 
 export class ProduitsFemmesComponent implements OnInit {
+
+    id: string;
     fournisseurList: Fournisseur[];
     couleurList: Couleur[];
-    // produitsTailleList: Produit[];
-    familleFilter: boolean = false;
     famillesList: Famille[];
+    familleGlobalList: FamilleGlobal[];
     tailleTypeList: TailleType[];
     produitsList: Produit[];
     pointsEthiquesList: PointsEthiques[];
-    view: string;
-    viewFamille: Famille;
     arrayFiltresTaille: number[] = [];
-    arrayFiltresMatiere: number[] = [];
     prixMin: number;
     prixMax: number;
     p: number = 1;
-    pageSize = 4;
+    pageSize = 96;
     filterArrMarque = [];
     filterArrCouleur = [];
     filterArrTaille = [];
     filterArrEthique = [];
+    tri: string = 'asc';
+
+    page: any;
 
 
-    constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
-                private familleService: FamilleService, private fournisseurService: FournisseurService, private  couleurService: CouleurService,
-                private pointsEthiquesService: PointsEthiquesService,
-                private router: Router) {
+    constructor(private route: ActivatedRoute, private router: Router, private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
+                private familleService: FamilleService, private familleGlobalService: FamilleGlobalService, private fournisseurService: FournisseurService,
+                private  couleurService: CouleurService, private pointsEthiquesService: PointsEthiquesService) {
+        this.route.params.subscribe(params => {
+            this.page = params.name;
+            if (this.page) {
+                this.pageToLoad(this.page);
+            }
+        });
+
+
     }
+
 
     ngOnInit(): void {
         this.prixMin = 0;
         this.prixMax = 150;
-        this.getAllProduits();
+
         this.getAllTailleType();
         this.getAllMarques();
         this.getAllCouleurs();
         this.getAllPointsEthiques();
-        this.getFamilleBySexe();
+        this.getProduitByFamillesGlobales();
         this.filtrePrix();
         this.goToTop();
+
+
+        this.route.params.subscribe(params => {
+            this.page = params.name;
+            if (this.page) {
+                this.pageToLoad(this.page);
+            } else {
+                this.getAllProduits();
+            }
+        });
+    }
+
+
+    pageToLoad(page): void {
+        const pagefamille = page.split('-')[0];
+        if (pagefamille === 'FG') {
+            const familleglobal = page.split('-')[1];
+            this.getProduitByFamilleGlobale(familleglobal);
+        } else if (pagefamille === 'F') {
+            const famille = page.split('-')[1];
+            this.getProduitByFamille(famille);
+        }
     }
 
 
@@ -238,100 +272,63 @@ export class ProduitsFemmesComponent implements OnInit {
             .then(produits => {
                 this.produitsList = produits;
             });
-        this.view = 'Vêtements Femmes';
         this.getAllTailleType();
-        this.familleFilter = false;
-        this.arrayFiltresTaille = [];
+        // this.arrayFiltresTaille = [];
     }
 
 
-    getFamilleBySexe(): void {
-        this.familleService
-            .getFamilleBySexe('F')
-            .then(famille => {
-                this.famillesList = famille;
+    getProduitByFamillesGlobales(): void {
+        this.familleGlobalService
+            .getAllFamillesGlobal()
+            .then(familleGlobal => {
+                this.familleGlobalList = familleGlobal;
             });
     }
 
+
     filterFamille(famille) {
-        this.getProduitByFamille(famille);
-        this.getTailleTypeByFamille(famille.globalId);
-        this.familleFilter = true;
-        this.arrayFiltresTaille = [];
+        this.getProduitByFamille(famille.id);
+        this.getTailleTypeByFamille(famille.famille_global.id);
+        // this.arrayFiltresTaille = [];
+        for (let i = 0; i < this.famillesList.length; i++) {
+            this.famillesList[i].checked = false;
+        }
+        famille.checked = true;
     }
 
-    getProduitByFamille(famille): void {
+    getProduitByFamille(familleGlobaleID): void {
         this.produitService
-            .getProduitByFamille(famille)
+            .getProduitByFamille(familleGlobaleID)
             .then(produits => {
                 this.produitsList = produits;
             });
-        this.view = famille.famille;
-        this.viewFamille = famille;
     }
 
-    filterTaille(taille) {
-        if (!taille.isActive) {
-            taille.isActive = true;
-            this.arrayFiltresTaille.push(taille.id);
-            this.produitFemmesService
-                .getProduitByFiltreTaille(this.arrayFiltresTaille)
-                .then(produits => {
-                    this.produitsList = produits;
-                });
-        } else {
-            if (this.arrayFiltresTaille.length > 1) {
-                taille.isActive = false;
-                const index = this.arrayFiltresTaille.indexOf(taille);
-                this.arrayFiltresTaille.splice(index, 1);
-                this.produitFemmesService
-                    .getProduitByFiltreTaille(this.arrayFiltresTaille)
-                    .then(produits => {
-                        this.produitsList = produits;
-                    });
-            } else {
-                this.produitFemmesService
-                    .getAllProduits()
-                    .then(produits => {
-                        this.produitsList = produits;
-                    });
-            }
+
+    getProduitByFamilleGlobale(familleGlobaleID): void {
+        this.produitService
+            .getProduitByFamilleGlobaleAndSexe(familleGlobaleID, 'F')
+            .then(produits => {
+                this.produitsList = produits;
+            });
+    }
+
+    afficherFamille(familleGlobale): void {
+        this.getFamilleByFamilleGlobalAndSexe(familleGlobale.id);
+        this.getProduitByFamilleGlobale(familleGlobale.id);
+        for (let i = 0; i < this.familleGlobalList.length; i++) {
+            this.familleGlobalList[i].checked = false;
         }
+        familleGlobale.checked = true;
     }
 
 
-    // filterAll(arrayTailles, arrayMarques) {
-    //     if (arrayMarques.length === 0 && arrayTailles.length === 0) {
-    //         this.produitFemmesService
-    //             .getAllProduits()
-    //             .then(produits => {
-    //                 this.produitsList = produits;
-    //             });
-    //     } else {
-    //         if (arrayMarques.length === 0) {
-    //             this.produitFemmesService
-    //                 .getProduitByFiltreTaille(arrayTailles)
-    //                 .then(produits => {
-    //                     this.produitsList = produits;
-    //                 });
-    //         } else {
-    //             if (arrayTailles.length === 0) {
-    //                 this.produitFemmesService
-    //                     .getProduitByFiltreMarque(arrayMarques)
-    //                     .then(produits => {
-    //                         this.produitsList = produits;
-    //                     });
-    //             } else {
-    //                 this.produitFemmesService
-    //                     .getProduitByFiltres(arrayTailles, arrayMarques)
-    //                     .then(produits => {
-    //                         this.produitsList = produits;
-    //                     });
-    //             }
-    //         }
-    //
-    //     }
-    // }
-
+    getFamilleByFamilleGlobalAndSexe(familleGlobaleID): void {
+        this.familleService
+            .getFamilleByFamilleGlobalAndSexe('F', familleGlobaleID)
+            .then(familles => {
+                this.famillesList = familles;
+            });
+    }
 
 }

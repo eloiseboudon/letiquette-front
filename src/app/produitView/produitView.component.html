@@ -1,26 +1,31 @@
 <div class="contenu">
     <div class="global_width">
         <div id="product_view" class="product_view">
-            <!--<ul *ngFor="let item of produit">-->
             <div class="row">
                 <div class="col-xs-6 col-md-7 col-lg-8">
 
-
                     <div class="images-produit">
-                        <div class=zoom>
-                            <div class="image">
-                                <img src="assets/images_produits/{{produit.image}}" class="image-principale">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class=zoom>
+                                    <div class="image">
+                                        <img src="assets/images_produits/{{produit.image}}" class="image-principale">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="images-mignatures">
-                            <ul>
-                                <li *ngFor="let image of imageList" (click)="produit.image=image.image">
-                                    <img src="assets/images_produits/{{image.image}}">
-                                </li>
-                            </ul>
+                            <div class="col-4">
+                                <div class="images-mignatures">
+                                    <ul>
+                                        <li *ngFor="let image of imageList" (click)="produit.image=image.image">
+                                            <img src="assets/images_produits/{{image.image}}">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-xs-6 col-md-5 col-lg-4">
                     <div class="contenu-produit">
 
@@ -32,27 +37,36 @@
 
                         <div class="prix">{{produit.prix}} €</div>
 
+                        <form>
+                            <div class="form-group tailles">
+                                <span  id="tailleID"
+                                      *ngFor="let item of tailleList"
+                                (click)="!item.checked ? produitTailleCheck(item) :  produitTailleUncheck(item)"
+                                       [ngClass]="item.checked == true ? 'tailleActive' : 'tailleNonActive'">
+                                    <label>{{item.taille}}</label>
 
-                        <div class="tailles">
-                            <ul>
-                                <li *ngFor="let taille of tailleList">
-                                    {{taille.name}}
-                                </li>
-                            </ul>
-                        </div>
+                                </span>
+                                <div *ngIf="!taille">
+                                    Veuillez sélectionner une taille.
+                                </div>
+
+                            </div>
+
+                            <div class="ajouter_panier">
+                                <button type="submit" class="btn btn_ajout_panier"
+                                       [disabled]="!taille"
+                                        (click)="ajouterPanier(produit.id)">
+                                    AJOUTER AU PANIER
+                                </button>
+                            </div>
+                        </form>
 
                         <div class="description">
                             {{produit.description}}
                         </div>
-
-
-                        <div class="ajouter_panier">
-                            <button class="btn btn_ajout_panier">AJOUTER AU PANIER</button>
-                        </div>
                     </div>
                 </div>
             </div>
-            <!--</ul>-->
         </div>
     </div>
 </div>

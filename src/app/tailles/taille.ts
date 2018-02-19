@@ -1,4 +1,5 @@
 export class Taille {
     id: number;
-    name: string;
+    taille: string;
+    checked: boolean = false;
 }
