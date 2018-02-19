@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import * as jQuery from 'jquery';
 import noUiSlider from 'nouislider';
@@ -27,6 +27,7 @@ import {Couleur} from '../couleurs/couleur';
 import {CouleurService} from '../couleurs/couleur.service';
 import {PointsEthiques} from '../pointsEthiques/pointsEthiques';
 import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
+import {split} from 'ts-node/dist';
 
 
 @Component({
@@ -36,6 +37,8 @@ import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 
 
 export class ProduitsFemmesComponent implements OnInit {
+
+    id: string;
     fournisseurList: Fournisseur[];
     couleurList: Couleur[];
     famillesList: Famille[];
@@ -54,17 +57,27 @@ export class ProduitsFemmesComponent implements OnInit {
     filterArrEthique = [];
     tri: string = 'asc';
 
+    page: any;
 
-    constructor(private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
-                private familleService: FamilleService, private familleGlobalService: FamilleGlobalService, private fournisseurService: FournisseurService, private  couleurService: CouleurService,
-                private pointsEthiquesService: PointsEthiquesService,
-                private router: Router) {
+
+    constructor(private route: ActivatedRoute, private router: Router, private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
+                private familleService: FamilleService, private familleGlobalService: FamilleGlobalService, private fournisseurService: FournisseurService,
+                private  couleurService: CouleurService, private pointsEthiquesService: PointsEthiquesService) {
+        this.route.params.subscribe(params => {
+            this.page = params.name;
+            if (this.page) {
+                this.pageToLoad(this.page);
+            }
+        });
+
+
     }
+
 
     ngOnInit(): void {
         this.prixMin = 0;
         this.prixMax = 150;
-        this.getAllProduits();
+
         this.getAllTailleType();
         this.getAllMarques();
         this.getAllCouleurs();
@@ -72,6 +85,28 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getProduitByFamillesGlobales();
         this.filtrePrix();
         this.goToTop();
+
+
+        this.route.params.subscribe(params => {
+            this.page = params.name;
+            if (this.page) {
+                this.pageToLoad(this.page);
+            } else {
+                this.getAllProduits();
+            }
+        });
+    }
+
+
+    pageToLoad(page): void {
+        const pagefamille = page.split('-')[0];
+        if (pagefamille === 'FG') {
+            const familleglobal = page.split('-')[1];
+            this.getProduitByFamilleGlobale(familleglobal);
+        } else if (pagefamille === 'F') {
+            const famille = page.split('-')[1];
+            this.getProduitByFamille(famille);
+        }
     }
 
 
@@ -252,7 +287,7 @@ export class ProduitsFemmesComponent implements OnInit {
 
 
     filterFamille(famille) {
-        this.getProduitByFamille(famille);
+        this.getProduitByFamille(famille.id);
         this.getTailleTypeByFamille(famille.famille_global.id);
         // this.arrayFiltresTaille = [];
         for (let i = 0; i < this.famillesList.length; i++) {
@@ -261,18 +296,18 @@ export class ProduitsFemmesComponent implements OnInit {
         famille.checked = true;
     }
 
-    getProduitByFamille(famille): void {
+    getProduitByFamille(familleGlobaleID): void {
         this.produitService
-            .getProduitByFamille(famille)
+            .getProduitByFamille(familleGlobaleID)
             .then(produits => {
                 this.produitsList = produits;
             });
     }
 
 
-    getProduitByFamilleGlobale(familleGlobale): void {
+    getProduitByFamilleGlobale(familleGlobaleID): void {
         this.produitService
-            .getProduitByFamilleGlobale(familleGlobale)
+            .getProduitByFamilleGlobaleAndSexe(familleGlobaleID, 'F')
             .then(produits => {
                 this.produitsList = produits;
             });
@@ -280,7 +315,7 @@ export class ProduitsFemmesComponent implements OnInit {
 
     afficherFamille(familleGlobale): void {
         this.getFamilleByFamilleGlobalAndSexe(familleGlobale.id);
-        this.getProduitByFamilleGlobale(familleGlobale);
+        this.getProduitByFamilleGlobale(familleGlobale.id);
         for (let i = 0; i < this.familleGlobalList.length; i++) {
             this.familleGlobalList[i].checked = false;
         }

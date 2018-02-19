@@ -242,7 +242,8 @@
                 </div>
 
 
-                <div class="affichage_produit" *ngIf="produitsList.length > 96">
+                <!--<div class="affichage_produit" *ngIf="produitsList.length > 96">-->
+                <div class="affichage_produit">
                     <div class="row">
                         <div class="col-6">
                             <pagination-controls class="my-pagination" (pageChange)="p = $event"
@@ -275,7 +276,7 @@
 
                     <ul id="products_view"
                         *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
-                        <a [routerLink]="['/produits', produit.id]">
+                        <a [routerLink]="['/produit', produit.id]">
                             <img src="assets/images_produits/{{produit.image}}">
                         </a>
                         <li class="marque">{{produit.marque}}</li>
@@ -291,7 +292,8 @@
                 <div class="affichage_produit">
                     <div class="row">
                         <div class="col-6">
-                            <pagination-controls *ngIf="produitsList.length > 96" class="my-pagination"
+                            <!--<pagination-controls *ngIf="produitsList.length > 96" class="my-pagination"-->
+                            <pagination-controls class="my-pagination"
                                                  (pageChange)="p = $event"
                                                  previousLabel="Précédent"
                                                  nextLabel="Suivant"></pagination-controls>

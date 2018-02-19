@@ -44,8 +44,7 @@
                     <!--<span id="right-top"><a href="#"><i class="fa fa-user cercle"-->
                     <!--aria-hidden="true"></i> Compte</a></span>-->
                     <span id="right-top"><a [routerLink]="['panier']"><i class="fa fa-shopping-basket cercle"
-                                                                         aria-hidden="true"></i> Panier <i
-                            class="qte-panier" *ngIf="quantiteTotale>0">{{quantiteTotale}}</i></a></span>
+                                                                         aria-hidden="true"></i> Panier</a></span>
                     <span id="right-top"><a href="#"><i class="fa fa-heart cercle" aria-hidden="true"></i> Wishlist</a></span>
                 </div>
             </div>
@@ -53,61 +52,71 @@
     </div>
 
     <nav class="menu" id="menu">
-        <div class="menu-item"><a routerLink="/produits/femmes" routerLinkActive="active">FEMMES</a>
+        <div class="menu-item">
+            <div class="familleGName">
+                <a routerLink="/produits/femmes" routerLinkActive="active" (mouseover)="reinitFamilleGlobal()">FEMMES</a>
+            </div>
             <div class="menu-dropdown femme">
                 <div class="menu-dropdown-familleglobale">
                     <ul *ngFor="let familleGlobal of familleGlobalList" class="menu-item-5"
                         [ngClass]="familleGlobal.id == 5 ? 'nonVisible' : 'visible'">
-                        <li class="famille_global">
-                         <span class="menu-famille" (mouseover)="afficherFamille(familleGlobal)">
-                            <!--<i></i>-->
-                            <!--<span>-->
-                                {{familleGlobal.famille_global}}
-                            <!--</span>-->
-                         </span>
+
+                        <li class="famille_global" *ngIf="familleGlobal.id != 5">
+                            <a [routerLink]="['/produits/femmes', 'FG-' + familleGlobal.id + '-' + familleGlobal.famille_global]"
+                               routerLinkActive="active">
+                                <span class="menu-famille" (mouseover)="afficherFamilleF(familleGlobal)" [ngClass]="familleGlobal.checked ? 'familleGActive' : 'familleGNonActive'">
+                                    <img src="assets/icones_navbar/icone_{{familleGlobal.id}}_F.png">
+                                    {{familleGlobal.famille_global}}
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <div class="menu-dropdown-famille">
-                    <ul>
-                        <li>
-                            Tous les produits
-                        </li>
-                    </ul>
                     <ul *ngFor="let famille of famillesList">
                         <li>
-                            <span (click)="filterFamille(famille)">
+                            <a [routerLink]="['/produits/femmes', 'F-' + famille.id + '-' + famille.famille]"
+                               routerLinkActive="active">
+                            <span>
                                 {{famille.famille}}
                             </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="menu-item"><a href="#">HOMMES</a>
+        <div class="menu-item">
+
+            <div class="familleGName">
+                <a routerLink="/produits/hommes" routerLinkActive="active" (mouseover)="reinitFamilleGlobal()">HOMMES</a>
+            </div>
             <div class="menu-dropdown homme">
                 <div class="menu-dropdown-familleglobale">
                     <ul *ngFor="let familleGlobal of familleGlobalList" class="menu-item-5"
                         [ngClass]="familleGlobal.id == 4 ? 'nonVisible' : 'visible'">
-                        <li class="famille_global">
-                         <span class="menu-famille" (mouseover)="afficherFamille(familleGlobal)">
-                            {{familleGlobal.famille_global}}
-                         </span>
+                        <li class="famille_global" *ngIf="familleGlobal.id != 4">
+                            <a [routerLink]="['/produits/hommes', 'FG-' + familleGlobal.id + '-' + familleGlobal.famille_global ]"
+                               routerLinkActive="active">
+                                <span class="menu-famille" (mouseover)="afficherFamilleH(familleGlobal)" [ngClass]="familleGlobal.checked ? 'familleGActive' : 'familleGNonActive'">
+                                    <img src="assets/icones_navbar/icone_{{familleGlobal.id}}_H.png">
+                                    {{familleGlobal.famille_global}}
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <div class="menu-dropdown-famille">
-                    <ul>
-                        <li>
-                            Tous les produits
-                        </li>
-                    </ul>
+
                     <ul *ngFor="let famille of famillesList">
                         <li>
-                            <span (click)="filterFamille(famille)">
-                                {{famille.famille}}
-                            </span>
+                            <a [routerLink]="['/produits/hommes', 'F-' + famille.id + '-' + famille.famille ]"
+                               routerLinkActive="active">
+                                <span>
+                                    {{famille.famille}}
+                                </span>
+                            </a>
                         </li>
                     </ul>
                 </div>
