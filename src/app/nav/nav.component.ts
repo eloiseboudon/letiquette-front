@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as jQuery from 'jquery';
 import {AuthenticationService} from '../authentication/authentication.service';
 import {Router} from '@angular/router';
@@ -12,6 +12,7 @@ import {Produit} from '../produits/produit';
 import {TailleTypeService} from '../tailleType/tailleType.service';
 import {TailleType} from '../tailleType/tailleType';
 import {FamilleService} from '../familles/famille.service';
+import {ProduitsFemmesComponent} from '../produitsFemmes/produitsFemmes.component';
 
 @Component({
     moduleId: module.id,
@@ -22,20 +23,17 @@ import {FamilleService} from '../familles/famille.service';
 export class NavbarComponent implements OnInit {
     membre_nom: string;
     quantiteTotale: number = 0;
-    detailPanierList: DetailPanier[];
     familleGlobalList: FamilleGlobal[];
     famillesList: Famille[];
-    produitsList: Produit[];
-    tailleTypeList: TailleType[];
 
     constructor(private authenticationService: AuthenticationService, private panierService: PanierService,
                 private tailleTypeService: TailleTypeService, private familleService: FamilleService,
                 private produitService: ProduitService, private familleGlobalService: FamilleGlobalService, private router: Router) {
+
     }
 
 
     ngOnInit(): void {
-        this.getProduitsPanier();
         this.getProduitByFamillesGlobales();
 
         if (this.hasAuthToken()) {
@@ -124,25 +122,6 @@ export class NavbarComponent implements OnInit {
         document.getElementById('myDropdown').classList.toggle('show');
     }
 
-    getProduitsPanier(): void {
-        this.panierService
-            .getProduitPanier()
-            .then(async detailPanier => {
-                this.detailPanierList = detailPanier;
-                await this.detailPanierList;
-                this.quantite();
-            })
-            .catch(this.handleError);
-    }
-
-    quantite(): number {
-        this.detailPanierList.forEach(detailPanier =>
-            this.quantiteTotale += detailPanier.quantite
-        );
-        return this.quantiteTotale;
-    }
-
-
     getProduitByFamillesGlobales(): void {
         this.familleGlobalService
             .getAllFamillesGlobal()
@@ -151,55 +130,29 @@ export class NavbarComponent implements OnInit {
             });
     }
 
-
-
-    filterFamille(famille) {
-        this.getProduitByFamille(famille);
-        this.getTailleTypeByFamille(famille.famille_global.id);
-        for (let i = 0; i < this.famillesList.length; i++) {
-            this.famillesList[i].checked = false;
+    reinitFamilleGlobal(): void {
+        for (let i = 0; i < this.familleGlobalList.length; i++) {
+            this.familleGlobalList[i].checked = false;
         }
-        famille.checked = true;
     }
 
-
-
-    getProduitByFamille(famille): void {
-        this.produitService
-            .getProduitByFamille(famille)
-            .then(produits => {
-                this.produitsList = produits;
-            });
-    }
-
-    getTailleTypeByFamille(id): void {
-        this.tailleTypeService
-            .getTailleTypeByFamille(id)
-            .then(tailleType => {
-                this.tailleTypeList = tailleType;
-            });
-    }
-
-    afficherFamille(familleGlobale): void {
-        this.getFamilleByFamilleGlobalAndSexe(familleGlobale.id);
-        this.getProduitByFamilleGlobale(familleGlobale);
+    afficherFamilleF(familleGlobale): void {
+        this.getFamillesByFamilleGlobalAndFemme(familleGlobale.id);
         for (let i = 0; i < this.familleGlobalList.length; i++) {
             this.familleGlobalList[i].checked = false;
         }
         familleGlobale.checked = true;
     }
 
-
-    getProduitByFamilleGlobale(familleGlobale): void {
-        this.produitService
-            .getProduitByFamilleGlobale(familleGlobale)
-            .then(produits => {
-                this.produitsList = produits;
-            });
+    afficherFamilleH(familleGlobale): void {
+        this.getFamillesByFamilleGlobalAndHomme(familleGlobale.id);
+        for (let i = 0; i < this.familleGlobalList.length; i++) {
+            this.familleGlobalList[i].checked = false;
+        }
+        familleGlobale.checked = true;
     }
 
-
-    getFamilleByFamilleGlobalAndSexe(familleGlobaleID): void {
+    getFamillesByFamilleGlobalAndFemme(familleGlobaleID): void {
         this.familleService
             .getFamilleByFamilleGlobalAndSexe('F', familleGlobaleID)
             .then(familles => {
@@ -208,9 +161,13 @@ export class NavbarComponent implements OnInit {
     }
 
 
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
+    getFamillesByFamilleGlobalAndHomme(familleGlobaleID): void {
+        this.familleService
+            .getFamilleByFamilleGlobalAndSexe('M', familleGlobaleID)
+            .then(familles => {
+                this.famillesList = familles;
+            });
     }
+
 }
 

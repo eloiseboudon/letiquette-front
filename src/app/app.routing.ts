@@ -22,7 +22,8 @@ const appRoutes: Routes = [
     {path: 'membres', component: MembresComponent},
     // { path: 'fournisseurs', component: FournisseursComponent},
     {path: 'produits/femmes', component: ProduitsFemmesComponent},
-    {path: 'produits/:id', component: ProduitViewComponent},
+    {path: 'produits/femmes/:name', component: ProduitsFemmesComponent},
+    {path: 'produit/:id', component: ProduitViewComponent},
     {path: 'login', component: AuthenticationComponent},
     {path: 'panier', component: PanierComponent},
     // {

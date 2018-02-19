@@ -4,9 +4,9 @@ import {Headers, Http, Response} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {Produit} from './produit';
-import {Famille} from '../familles/famille';
-import {Fournisseur} from '../fournisseurs/fournisseur';
-import {Taille} from '../tailles/taille';
+// import {Famille} from '../familles/famille';
+// import {Fournisseur} from '../fournisseurs/fournisseur';
+// import {Taille} from '../tailles/taille';
 
 
 @Injectable()
@@ -27,8 +27,8 @@ export class ProduitService {
     }
 
 
-    getProduitByFamille(famille: Famille): Promise<Produit[]> {
-        return this.http.get(this.produits + '/famille/' + famille.id)
+    getProduitByFamille(idFamille: number): Promise<Produit[]> {
+        return this.http.get(this.produits + '/famille/' + idFamille)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])
@@ -36,8 +36,17 @@ export class ProduitService {
     }
 
 
-    getProduitByFamilleGlobale(famille: Famille): Promise<Produit[]> {
-        return this.http.get(this.produits + '/famille/' + famille.id)
+    // getProduitByFamilleGlobale(idFamille: number): Promise<Produit[]> {
+    //     return this.http.get(this.produits + '/famille/' + idFamille)
+    //         .toPromise()
+    //         .then(response =>
+    //             response.json() as Produit[])
+    //         .catch(this.handleError);
+    // }
+
+
+    getProduitByFamilleGlobaleAndSexe(idFamille: number, sexe: string): Promise<Produit[]> {
+        return this.http.get(this.produits + '/familleGlobal/' + idFamille + '/sexe/' + sexe)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])

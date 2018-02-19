@@ -9,10 +9,7 @@ import {ImageService} from '../image/image.service';
 import {TailleService} from '../tailles/taille.service';
 import {Taille} from '../tailles/taille';
 import {PanierService} from '../panier/panier.service';
-import {Panier} from '../panier/panier';
-import {browser} from 'protractor';
 import {DetailPanier} from '../detailPanier/detailPanier';
-import {forEach} from '@angular/router/src/utils/collection';
 
 
 @Component({
