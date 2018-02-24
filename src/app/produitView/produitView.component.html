@@ -1,3 +1,4 @@
+<script src="../membres/membres.component.ts"></script>
 <div class="contenu">
     <div class="global_width">
         <div id="product_view" class="product_view">
@@ -39,10 +40,10 @@
 
                         <form>
                             <div class="form-group tailles">
-                                <span  id="tailleID"
+                                <span id="tailleID"
                                       *ngFor="let item of tailleList"
-                                (click)="!item.checked ? produitTailleCheck(item) :  produitTailleUncheck(item)"
-                                       [ngClass]="item.checked == true ? 'tailleActive' : 'tailleNonActive'">
+                                      (click)="!item.checked ? produitTailleCheck(item) :  produitTailleUncheck(item)"
+                                      [ngClass]="item.checked == true ? 'tailleActive' : 'tailleNonActive'">
                                     <label>{{item.taille}}</label>
 
                                 </span>
@@ -54,7 +55,7 @@
 
                             <div class="ajouter_panier">
                                 <button type="submit" class="btn btn_ajout_panier"
-                                       [disabled]="!taille"
+                                        [disabled]="!taille"
                                         (click)="ajouterPanier(produit.id)">
                                     AJOUTER AU PANIER
                                 </button>
@@ -68,6 +69,58 @@
                 </div>
             </div>
         </div>
+
+
+        <div class="selling">
+            <div class="titre">
+                <h2>
+                    Articles que vous pourriez aimer
+                </h2>
+            </div>
+            <ul *ngFor="let upSellingItem of upSellingProduits">
+
+                <a [routerLink]="['/produit', upSellingItem.id]">
+                    <li>
+                        <img src="assets/images_produits/{{upSellingItem.image}}">
+                    </li>
+                    <li class="marque">
+                        {{upSellingItem.fournisseur.nom_marque}}
+                    </li>
+                    <li class="libelle">
+                        {{upSellingItem.libelle}}
+                    </li>
+                    <li class="prix">
+                        {{upSellingItem.prix}} €
+                    </li>
+                </a>
+            </ul>
+        </div>
+
+        <div class="selling">
+            <div class="titre">
+                <h2>
+                    Les clients ayant acheté cet article ont également acheté
+                </h2>
+            </div>
+            <ul *ngFor="let crossSellingItem of crossSellingProduits">
+                <a [routerLink]="['/produit', crossSellingItem.id]">
+                    <li>
+                        <img src="assets/images_produits/{{crossSellingItem.image}}">
+                    </li>
+                    <li class="marque">
+                        {{crossSellingItem.fournisseur.nom_marque}}
+                    </li>
+                    <li class="libelle">
+                        {{crossSellingItem.libelle}}
+                    </li>
+                    <li class="prix">
+                        {{crossSellingItem.prix}} €
+                    </li>
+                </a>
+            </ul>
+        </div>
+
+
     </div>
 </div>
 

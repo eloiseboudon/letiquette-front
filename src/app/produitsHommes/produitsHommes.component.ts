@@ -7,7 +7,7 @@ import wNumb from 'wnumb';
 
 
 import {Produit} from '../produits/produit';
-import {ProduitFemmesService} from './produitFemmes.service';
+import {ProduitHommesService} from './produitHommes.service';
 import {ProduitService} from '../produits/produit.service';
 
 
@@ -31,12 +31,12 @@ import {split} from 'ts-node/dist';
 
 
 @Component({
-    selector: 'produitsFemmes-root',
-    templateUrl: 'produitsFemmes.component.html'
+    selector: 'produitsHommes-root',
+    templateUrl: 'produitsHommes.component.html'
 })
 
 
-export class ProduitsFemmesComponent implements OnInit {
+export class ProduitsHommesComponent implements OnInit {
 
     id: string;
     fournisseurList: Fournisseur[];
@@ -60,7 +60,7 @@ export class ProduitsFemmesComponent implements OnInit {
     page: any;
 
 
-    constructor(private route: ActivatedRoute, private router: Router, private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
+    constructor(private route: ActivatedRoute, private router: Router, private produitHommesService: ProduitHommesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
                 private familleService: FamilleService, private familleGlobalService: FamilleGlobalService, private fournisseurService: FournisseurService,
                 private  couleurService: CouleurService, private pointsEthiquesService: PointsEthiquesService) {
         this.route.params.subscribe(params => {
@@ -266,7 +266,7 @@ export class ProduitsFemmesComponent implements OnInit {
     }
 
     getAllProduits(): void {
-        this.produitFemmesService
+        this.produitHommesService
             .getAllProduits()
             .then(produits => {
                 this.produitsList = produits;
@@ -306,7 +306,7 @@ export class ProduitsFemmesComponent implements OnInit {
 
     getProduitByFamilleGlobale(familleGlobaleID): void {
         this.produitService
-            .getProduitByFamilleGlobaleAndSexe(familleGlobaleID, 'F')
+            .getProduitByFamilleGlobaleAndSexe(familleGlobaleID, 'M')
             .then(produits => {
                 this.produitsList = produits;
             });
@@ -325,7 +325,7 @@ export class ProduitsFemmesComponent implements OnInit {
 
     getFamilleByFamilleGlobalAndSexe(familleGlobaleID): void {
         this.familleService
-            .getFamilleByFamilleGlobalAndSexe('F', familleGlobaleID)
+            .getFamilleByFamilleGlobalAndSexe('M', familleGlobaleID)
             .then(familles => {
                 this.famillesList = familles;
             });

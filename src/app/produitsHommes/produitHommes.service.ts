@@ -10,9 +10,9 @@ import {Taille} from '../tailles/taille';
 
 
 @Injectable()
-export class ProduitFemmesService {
+export class ProduitHommesService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private produitsFemmesUrl = 'http://api.letiquette-shop.fr/tout/femmes';  // URL to api
+    private produitsHommesUrl = 'http://api.letiquette-shop.fr/tout/hommes';  // URL to api
 
 
     // private produitsFemmesFiltresUrl = 'http://api.letiquette-shop.fr/produitsFemmesFiltre';
@@ -22,7 +22,7 @@ export class ProduitFemmesService {
 
 
     getProduitByFiltreTaille(arrayTailles: number[]) {
-        return this.http.get(this.produitsFemmesUrl + '/taille/' + arrayTailles)
+        return this.http.get(this.produitsHommesUrl + '/taille/' + arrayTailles)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])
@@ -30,7 +30,7 @@ export class ProduitFemmesService {
     }
 
     getAllProduits(): Promise<Produit[]> {
-        return this.http.get(this.produitsFemmesUrl)
+        return this.http.get(this.produitsHommesUrl)
             .toPromise()
             .then(response =>
                 response.json() as Produit[])

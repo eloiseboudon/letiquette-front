@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TitleCasePipe} from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe, FilterEthiquePipe} from './pipes';
+import {SortByPipe, UniquePipe, UniqueTaillePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe, FilterEthiquePipe} from './pipes';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
 // import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
@@ -36,6 +36,10 @@ import {FournisseurService} from './fournisseurs/fournisseur.service';
 import {ProduitService} from './produits/produit.service';
 import {ProduitsFemmesComponent} from './produitsFemmes/produitsFemmes.component';
 import {ProduitFemmesService} from './produitsFemmes/produitFemmes.service';
+
+import {ProduitsHommesComponent} from './produitsHommes/produitsHommes.component';
+import {ProduitHommesService} from './produitsHommes/produitHommes.service';
+
 import {ProduitViewComponent} from './produitView/produitView.component';
 
 import {PanierComponent} from './panier/panier.component';
@@ -65,9 +69,11 @@ import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
         PaysComponent,
         VillesComponent,
         ProduitsFemmesComponent,
+        ProduitsHommesComponent,
         ProduitViewComponent,
         PageNotFoundComponent,
         UniquePipe,
+        UniqueTaillePipe,
         SortByPipe,
         FilterPricePipe,
         FilterMarquePipe,
@@ -102,6 +108,7 @@ import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
         PointsEthiquesService,
         ImageService,
         ProduitFemmesService,
+        ProduitHommesService,
         TailleService,
         TailleTypeService,
         AuthenticationService,

@@ -1,81 +1,81 @@
-<div class="contenu">
-    <div class="global_width">
+<!--<div class="contenu">-->
+    <!--<div class="global_width">-->
 
-        <!--<div class="row">-->
-            <!--<div class="col-md-7">-->
-                <!--Villes-->
+        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-7">&ndash;&gt;-->
+                <!--&lt;!&ndash;Villes&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-5" id="searchBox">&ndash;&gt;-->
+                <!--&lt;!&ndash;<form class="search">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<input type="text" class="searchInput" placeholder="Rechercher..."><button class="bouton"><span class="fa fa-search"></span></button>&ndash;&gt;-->
+                <!--&lt;!&ndash;</form>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+        <!--<table class="table">-->
+            <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>Nom</th>-->
+                    <!--<th>Code Postal</th>-->
+                    <!--<th>Pays</th>-->
+                    <!--<th>Action</th>-->
+
+                <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+                <!--<tr *ngFor="let ville of villesList">-->
+                    <!--<td>{{ville.name}}</td>-->
+                    <!--<td>{{ville.codePostal}}</td>-->
+                    <!--<td>{{ville.pays}}</td>-->
+                    <!--<td><i class="fa fa-trash-o" aria-hidden="true" (click)=delete(ville.id)></i></td>-->
+                <!--</tr>-->
+
+            <!--</tbody>-->
+
+        <!--</table>-->
+
+        <!--&lt;!&ndash; <table class="table">-->
+            <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th>ID</th>-->
+                    <!--<th>Nom</th>-->
+                <!--</tr>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+                <!--<tr *ngFor="let pays of paysList">-->
+                    <!--<td>{{pays.id}}</td>-->
+                    <!--<td>{{pays.name}}</td>-->
+                <!--</tr>-->
+            <!--</tbody>-->
+        <!--</table> &ndash;&gt;-->
+
+
+        <!--<form>-->
+            <!--<div class="form-group">-->
+                <!--<label for="name">Nom</label>-->
+                <!--<input type="text" class="form-control"-->
+                <!--id="name"-->
+                <!--required-->
+                <!--[(ngModel)]="name"-->
+                <!--name="name">-->
             <!--</div>-->
-            <!--<div class="col-md-5" id="searchBox">-->
-                <!--<form class="search">-->
-                    <!--<input type="text" class="searchInput" placeholder="Rechercher..."><button class="bouton"><span class="fa fa-search"></span></button>-->
-                <!--</form>-->
+            <!--<div class="form-group">-->
+                <!--<label for="codePostal">Code Postal</label>-->
+                <!--<input type="text" class="form-control" id="codePostal" required [(ngModel)]="codePostal" name="codePostal">-->
             <!--</div>-->
-        <!--</div>-->
 
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Code Postal</th>
-                    <th>Pays</th>
-                    <th>Action</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let ville of villesList">
-                    <td>{{ville.name}}</td>
-                    <td>{{ville.codePostal}}</td>
-                    <td>{{ville.pays}}</td>
-                    <td><i class="fa fa-trash-o" aria-hidden="true" (click)=delete(ville.id)></i></td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-        <!-- <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let pays of paysList">
-                    <td>{{pays.id}}</td>
-                    <td>{{pays.name}}</td>
-                </tr>
-            </tbody>
-        </table> -->
-
-
-        <form>
-            <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" class="form-control"
-                id="name"
-                required
-                [(ngModel)]="name"
-                name="name">
-            </div>
-            <div class="form-group">
-                <label for="codePostal">Code Postal</label>
-                <input type="text" class="form-control" id="codePostal" required [(ngModel)]="codePostal" name="codePostal">
-            </div>
-
-            <div class="form-group">
-                <label for="pays">Pays</label>
-                <select class="form-control" id="pays" required [(ngModel)]="pays" name="pays">
-            <option value="">Choisissez un pays</option>
-            <option *ngFor="let pays of paysList"
-                [value]="pays.id">
-                {{pays.name}}
-            </option>
-        </select>
-            </div>
-            <button type="submit" (click)="create(name, codePostal, pays)">Créer</button>
-        </form>
-    </div>
-</div>
+            <!--<div class="form-group">-->
+                <!--<label for="pays">Pays</label>-->
+                <!--<select class="form-control" id="pays" required [(ngModel)]="pays" name="pays">-->
+            <!--<option value="">Choisissez un pays</option>-->
+            <!--<option *ngFor="let pays of paysList"-->
+                <!--[value]="pays.id">-->
+                <!--{{pays.name}}-->
+            <!--</option>-->
+        <!--</select>-->
+            <!--</div>-->
+            <!--<button type="submit" (click)="create(name, codePostal, pays)">Créer</button>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
