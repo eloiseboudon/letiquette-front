@@ -91,6 +91,10 @@ export class NavbarComponent implements OnInit {
             $('body').removeClass('sidebar');
         });
 
+        $('.menu-dropdown').click(function (e) {
+            $('body').removeClass('sidebar');
+        });
+
         $(window).click(function (event) {
             if (!event.target.matches('.dropbtn')) {
                 const dropdowns = document.getElementsByClassName('dropdown-content');

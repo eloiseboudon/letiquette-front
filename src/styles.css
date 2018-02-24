@@ -370,6 +370,21 @@ a, a:hover{
     background-color: #F9F4ED;
 }
 
+
+.sidebar .menu .menu-item .menu-dropdown{
+    left:120px;
+}
+
+.sidebar .menu .menu-dropdown ul{
+    display: block;
+}
+
+
+.sidebar .menu .menu-dropdown-famille{
+    display: none;
+}
+
+
 .menu .menu-dropdown ul {
     padding: 0;
     margin: 0;
