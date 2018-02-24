@@ -22,6 +22,20 @@ export class SortByPipe implements PipeTransform {
     }
 }
 
+@Pipe({
+    name: 'uniqueTailleType',
+    pure: false
+})
+
+export class UniqueTaillePipe implements PipeTransform {
+    transform(value: any): any {
+        if (value !== undefined && value !== null) {
+            return _.uniqBy(value, 'taille');
+        }
+        return value;
+    }
+}
+
 
 @Pipe({
     name: 'unique',

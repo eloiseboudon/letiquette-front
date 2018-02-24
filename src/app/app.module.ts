@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TitleCasePipe} from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {SortByPipe, UniquePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe, FilterEthiquePipe} from './pipes';
+import {SortByPipe, UniquePipe, UniqueTaillePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe, FilterEthiquePipe} from './pipes';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
 // import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
@@ -73,6 +73,7 @@ import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
         ProduitViewComponent,
         PageNotFoundComponent,
         UniquePipe,
+        UniqueTaillePipe,
         SortByPipe,
         FilterPricePipe,
         FilterMarquePipe,

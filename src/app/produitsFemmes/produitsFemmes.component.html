@@ -48,7 +48,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <table>
-                                        <tr *ngFor="let taille of tailleTypeList">
+                                        <tr *ngFor="let taille of (tailleTypeList | uniqueTailleType)">
                                             <td>
                                                 <input type="checkbox" [(ngModel)]="taille.checked"
                                                        (click)="!taille.checked ? filterArrTaille.push(taille.taille) : filterArrTaille.splice(filterArrTaille.indexOf(taille.taille),1)">
