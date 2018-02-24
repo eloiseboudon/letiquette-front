@@ -8,7 +8,7 @@ import {TailleType} from './tailleType';
 @Injectable()
 export class TailleTypeService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private tailleTypeUrl = 'http://127.0.0.1:8000/tailleType';  // URL to api 
+    private tailleTypeUrl = 'http://api.letiquette-shop.fr/tailleType';  // URL to api
     private tailleTypeByFamilleUrl;
 
 
@@ -23,8 +23,7 @@ export class TailleTypeService {
             .catch(this.handleError);
     }
 
-    getTailleTypeByFamille(idFamille: number): Promise<TailleType[]> {
-
+    getTailleTypeByFamilleGlobale(idFamille: number): Promise<TailleType[]> {
         this.tailleTypeByFamilleUrl = this.tailleTypeUrl + '/' + idFamille;
         return this.http.get(this.tailleTypeByFamilleUrl)
             .toPromise()
@@ -35,7 +34,7 @@ export class TailleTypeService {
 
 
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only 
+        console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
 }

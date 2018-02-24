@@ -10,6 +10,7 @@ import {ProduitViewComponent} from './produitView/produitView.component';
 import {PageNotFoundComponent} from './not-found.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {ProduitsFemmesComponent} from './produitsFemmes/produitsFemmes.component';
+import {ProduitsHommesComponent} from './produitsHommes/produitsHommes.component';
 import {MembresComponent} from './membres/membres.component';
 import {PanierComponent} from './panier/panier.component';
 
@@ -22,7 +23,9 @@ const appRoutes: Routes = [
     {path: 'membres', component: MembresComponent},
     // { path: 'fournisseurs', component: FournisseursComponent},
     {path: 'produits/femmes', component: ProduitsFemmesComponent},
+    {path: 'produits/hommes', component: ProduitsHommesComponent},
     {path: 'produits/femmes/:name', component: ProduitsFemmesComponent},
+    {path: 'produits/hommes/:name', component: ProduitsHommesComponent},
     {path: 'produit/:id', component: ProduitViewComponent},
     {path: 'login', component: AuthenticationComponent},
     {path: 'panier', component: PanierComponent},
@@ -35,4 +38,4 @@ const appRoutes: Routes = [
 ];
 
 
-export const Routing = RouterModule.forRoot(appRoutes);
+export const Routing = RouterModule.forRoot(appRoutes, { useHash: true });

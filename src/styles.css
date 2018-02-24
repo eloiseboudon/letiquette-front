@@ -25,6 +25,12 @@ h2 {
     font-size: 1.5em;
 }
 
+a, a:hover{
+    text-decoration: none;
+    color:#000;
+}
+
+
 .global_width {
     max-width: 1760px;
     margin: 16px;
@@ -876,6 +882,10 @@ h2 {
     margin: 0;
 }
 
+.contenu #products_view .marque, .contenu #products_view .libelle{
+    color:#000;
+}
+
 .contenu #products_view img {
     /*width: 260px;*/
     height: auto;
@@ -886,7 +896,10 @@ h2 {
 .contenu #products_view .marque {
     font-size: 1.6em;
     font-weight: bolder;
+}
 
+.contenu #products_view a{
+    text-decoration:none;
 }
 
 .contenu #products_view .libelle, .contenu #product_view .libelle {
@@ -902,6 +915,54 @@ h2 {
     font-size: 1.3em;
     font-family: 'Open Sans Condensed', sans-serif;
 }
+
+.contenu .selling{
+    background-color: #fff;
+    width:60%;
+    text-align: center;
+    margin:auto;
+    padding-top:10px;
+    margin-top:40px;
+}
+
+
+.contenu .selling a:hover .libelle{
+    color:#880015;
+    font-weight: bold;
+}
+
+.contenu .selling h2{
+    font-family: 'Open Sans Condensed',sans-serif;
+    font-weight:bold;
+    color:#880015;
+    font-size:1.6em;
+}
+
+.contenu .selling .marque{
+    color: #880015;
+    font-size:1.3em;
+}
+
+.contenu .selling .prix{
+
+}
+
+.contenu .selling ul{
+    list-style: none;
+    display: inline-block;
+    padding:0;
+    margin:10px;
+}
+
+.contenu .selling img{
+    width:150px;
+    height: 225px;
+}
+
+.contenu .selling .libelle, .contenu .selling .marque{
+    width:20%;
+}
+
 
 /* FAMILLES FILTRES  */
 .contenu #familles_filtres {

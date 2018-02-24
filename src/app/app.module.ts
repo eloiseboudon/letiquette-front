@@ -36,6 +36,10 @@ import {FournisseurService} from './fournisseurs/fournisseur.service';
 import {ProduitService} from './produits/produit.service';
 import {ProduitsFemmesComponent} from './produitsFemmes/produitsFemmes.component';
 import {ProduitFemmesService} from './produitsFemmes/produitFemmes.service';
+
+import {ProduitsHommesComponent} from './produitsHommes/produitsHommes.component';
+import {ProduitHommesService} from './produitsHommes/produitHommes.service';
+
 import {ProduitViewComponent} from './produitView/produitView.component';
 
 import {PanierComponent} from './panier/panier.component';
@@ -65,6 +69,7 @@ import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
         PaysComponent,
         VillesComponent,
         ProduitsFemmesComponent,
+        ProduitsHommesComponent,
         ProduitViewComponent,
         PageNotFoundComponent,
         UniquePipe,
@@ -102,6 +107,7 @@ import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
         PointsEthiquesService,
         ImageService,
         ProduitFemmesService,
+        ProduitHommesService,
         TailleService,
         TailleTypeService,
         AuthenticationService,

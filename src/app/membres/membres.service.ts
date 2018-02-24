@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class MembresService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private membresUrl = 'http://127.0.0.1:8000/membres';  // URL to api
+    private membresUrl = 'http://api.letiquette-shop.fr/membres';  // URL to api
 
     constructor(private http: Http) {
     }

@@ -8,6 +8,6 @@ export class Membres {
     nom: string;
     prenom: string;
     adMail: string;
-    adersse: string;
+    adresse: string;
     numTel: string;
 }

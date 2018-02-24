@@ -26,22 +26,41 @@ export class ProduitViewComponent implements OnInit {
     imageList: Image[];
     tailleList: Taille[];
     panier: DetailPanier;
+    crossSellingProduits: Produit[];
+    upSellingProduits: Produit[];
 
     // panierList: DetailPanier[];
 
     constructor(private route: ActivatedRoute, private produitService: ProduitService,
                 private tailleService: TailleService,
                 private imageService: ImageService, private panierService: PanierService) {
+        this.route.params.subscribe(params => {
+            // if (this.id !== params.id) {
+            this.id = params.id;
+            // window.location.reload();
+            // alert(this.id);
+            // }
+
+            this.getProduit(this.id);
+            this.getImages(this.id);
+            this.getTailles(this.id);
+            this.crossSelling(this.id);
+            this.upSelling(this.id);
+            window.scroll(0,0);
+
+        });
     }
 
     ngOnInit(): void {
 
         this.sub = this.route.params.subscribe(params => {
-            this.id = +params['id'];
+            this.id = params.id;
         });
         this.getProduit(this.id);
         this.getImages(this.id);
         this.getTailles(this.id);
+        this.crossSelling(this.id);
+        this.upSelling(this.id);
     }
 
     getProduit(id): void {
@@ -59,7 +78,6 @@ export class ProduitViewComponent implements OnInit {
             .getTailleByIDProduct(id)
             .then(tailles => {
                 this.tailleList = tailles;
-                console.log(this.tailleList);
             })
             .catch(this.handleError);
     }
@@ -95,6 +113,21 @@ export class ProduitViewComponent implements OnInit {
     produitTailleUncheck(taille): void {
         taille.checked = false;
         this.taille = null;
+    }
+
+
+    crossSelling(idProduit): void {
+        this.produitService
+            .crossSelling(idProduit)
+            .then(crossseling =>
+                this.crossSellingProduits = crossseling);
+    }
+
+    upSelling(idProduit): void {
+        this.produitService
+            .upSelling(idProduit)
+            .then(upselling =>
+                this.upSellingProduits = upselling);
     }
 
 

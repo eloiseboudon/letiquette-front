@@ -1,3 +1,4 @@
+<script src="../produits/produit.ts"></script>
 <div (click)="scroll()" class="top_link" title="Revenir en haut de page" xmlns="">HAUT
     <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </div>
@@ -13,7 +14,7 @@
 
                     <div class="famillesGlobal">
                         <ul *ngFor="let familleGlobal of familleGlobalList">
-                            <li *ngIf="familleGlobal.id != 5">
+                            <li *ngIf="familleGlobal.id != 4">
                                 <span (click)="afficherFamille(familleGlobal)" class="famille_global"
                                       [ngClass]="familleGlobal.checked == true ? 'familleGlobalActive' : 'familleGlobalNonActive'">
                                     {{familleGlobal.famille_global}}

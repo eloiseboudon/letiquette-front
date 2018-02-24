@@ -13,7 +13,7 @@ import {Produit} from './produit';
 export class ProduitService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
 
-    private produits = 'http://127.0.0.1:8000/produits';
+    private produits = 'http://api.letiquette-shop.fr/produits';
 
     constructor(private http: Http) {
     }
@@ -53,6 +53,22 @@ export class ProduitService {
             .catch(this.handleError);
     }
 
+
+    crossSelling(idProduit: number): Promise<Produit[]> {
+        return this.http.get(this.produits + '/cross_selling/' + idProduit)
+            .toPromise()
+            .then(response =>
+                response.json() as Produit[])
+            .catch(this.handleError);
+    }
+
+    upSelling(idProduit: number): Promise<Produit []> {
+        return this.http.get(this.produits + '/up_selling/' + idProduit)
+            .toPromise()
+            .then(response =>
+                response.json() as Produit[])
+            .catch(this.handleError);
+    }
 
 
     private handleError(error: any): Promise<any> {

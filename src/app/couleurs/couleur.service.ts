@@ -9,7 +9,7 @@ import { Couleur } from './couleur';
 export class CouleurService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private couleurUrl = 'http://127.0.0.1:8000/couleurs';
+    private couleurUrl = 'http://api.letiquette-shop.fr/couleurs';
 
     constructor(private http: Http) { }
 
