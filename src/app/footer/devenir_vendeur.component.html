@@ -1,0 +1,58 @@
+<div class="contenu">
+    <div class="global_width">
+        <div class="footer">
+            <h1>Devenir vendeur</h1>
+            Nous sommes en train de développer une marketplace de mode éthique. Vous souhaitez nous proposer des
+            produits ? Merci de bien vouloir remplir le formulaire ci-dessous, nous vous recontacterons dans les plus
+            brefs délais. <br />
+            A bientôt !
+
+            <form [formGroup]="devenirVendeurForm" (ngSubmit)="devenirVendeur(contact)">
+
+
+                <div class="form-group">
+                    <label for="entreprise">Nom de l'entreprise</label>
+                    <input id="entreprise" class="form-control" formControlName="entreprise" type="text" [(ngModel)]="contact.entreprise" name="entreprise"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="site_internet">Site internet</label>
+                    <input id="site_internet" class="form-control" formControlName="site_internet" type="text" [(ngModel)]="contact.site_internet" name="site_internet"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input id="nom" class="form-control" formControlName="nom" type="text" [(ngModel)]="contact.nom" name="nom" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input id="prenom" class="form-control" formControlName="prenom" type="text" [(ngModel)]="contact.prenom" name="prenom" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" class="form-control" formControlName="email" type="email" [(ngModel)]="contact.email" name="email" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input id="telephone" class="form-control" formControlName="telephone" type="number" [(ngModel)]="contact.telephone" name="telephone" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" class="form-control" formControlName="message" [(ngModel)]="contact.message" name="message"
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn" [disabled]="!devenirVendeurForm.valid">Envoyer</button>
+            </form>
+
+
+        </div>
+    </div>
+</div>

@@ -4,7 +4,16 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TitleCasePipe} from '@angular/common';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {SortByPipe, UniquePipe, UniqueTaillePipe, FilterPricePipe, FilterMarquePipe, FilterCouleurPipe, FilterTaillePipe, FilterEthiquePipe} from './pipes';
+import {
+    SortByPipe,
+    UniquePipe,
+    UniqueTaillePipe,
+    FilterPricePipe,
+    FilterMarquePipe,
+    FilterCouleurPipe,
+    FilterTaillePipe,
+    FilterEthiquePipe
+} from './pipes';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
 // import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
@@ -54,6 +63,13 @@ import {TailleService} from './tailles/taille.service';
 import {CouleurService} from './couleurs/couleur.service';
 import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
 
+import {FaqComponent} from './footer/faq.component';
+import {LivraisonRetourComponent} from './footer/livraison_retour.component';
+import {ContactComponent} from './footer/contactez_nous.component';
+import {FooterService} from './footer/footer.service';
+import {LequipeComponent} from './footer/lequipe.component';
+import {DevenirVendeurComponent} from './footer/devenir_vendeur.component';
+
 
 // export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 //     return new AuthHttp(new AuthConfig({}), http, options);
@@ -81,8 +97,12 @@ import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
         FilterTaillePipe,
         FilterEthiquePipe,
         MembresComponent,
-        PanierComponent
-
+        PanierComponent,
+        FaqComponent,
+        LivraisonRetourComponent,
+        ContactComponent,
+        DevenirVendeurComponent,
+        LequipeComponent
     ],
     imports: [
         BrowserModule,
@@ -115,7 +135,8 @@ import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
         // AuthGuard,
         MembresService,
         PanierService,
-        TitleCasePipe
+        TitleCasePipe,
+        FooterService
     ],
     bootstrap: [AppComponent]
 })

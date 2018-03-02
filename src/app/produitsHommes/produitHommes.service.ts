@@ -12,10 +12,10 @@ import {Taille} from '../tailles/taille';
 @Injectable()
 export class ProduitHommesService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private produitsHommesUrl = 'http://api.letiquette-shop.fr/tout/hommes';  // URL to api
+    private produitsHommesUrl = 'http://127.0.0.1:8000/tout/hommes';  // URL to api
 
 
-    // private produitsFemmesFiltresUrl = 'http://api.letiquette-shop.fr/produitsFemmesFiltre';
+    // private produitsFemmesFiltresUrl = 'http://127.0.0.1:8000/produitsFemmesFiltre';
 
     constructor(private http: Http) {
     }

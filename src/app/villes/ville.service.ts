@@ -10,7 +10,7 @@ import {Pays} from '../pays/pays';
 @Injectable()
 export class VilleService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private villesUrl = 'http://api.letiquette-shop.fr/villes';  // URL to api
+    private villesUrl = 'http://127.0.0.1:8000/villes';  // URL to api
     private villePaysUrl;
     private villesDeleteUrl;
 

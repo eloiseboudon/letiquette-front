@@ -1,4 +1,4 @@
-<script src="../membres/membres.component.ts"></script>
+<!--<script src="../membres/membres.component.ts"></script>-->
 <div class="contenu">
     <div class="global_width">
         <div id="product_view" class="product_view">
@@ -7,14 +7,12 @@
 
                     <div class="images-produit">
                         <div class="row">
-                            <div class="col-8">
-                                <div class=zoom>
+                            <div class="col col-lg-8 col-md-12">
                                     <div class="image">
                                         <img src="assets/images_produits/{{produit.image}}" class="image-principale">
                                     </div>
-                                </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-lg-4 col-md-0">
                                 <div class="images-mignatures">
                                     <ul>
                                         <li *ngFor="let image of imageList" (click)="produit.image=image.image">
@@ -99,7 +97,7 @@
         <div class="selling">
             <div class="titre">
                 <h2>
-                    Les clients ayant acheté cet article ont également acheté
+                    Nous vous conseillons également
                 </h2>
             </div>
             <ul *ngFor="let crossSellingItem of crossSellingProduits">

@@ -95,6 +95,11 @@ export class ProduitsFemmesComponent implements OnInit {
                 this.getAllProduits();
             }
         });
+
+        $('#click-filtre').click(function (event) {
+            event.preventDefault();
+            $('body').toggleClass('filtrebar');
+        });
     }
 
 
