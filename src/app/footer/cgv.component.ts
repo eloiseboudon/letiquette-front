@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
-    selector: 'lequipe',
-    templateUrl: 'lequipe.component.html'
+    selector: 'cgv',
+    templateUrl: 'cgv.component.html'
 })
 
-export class LequipeComponent implements OnInit{
+export class CGVComponent implements OnInit{
     constructor(private router: Router) { }
 
     ngOnInit() {
@@ -17,5 +17,5 @@ export class LequipeComponent implements OnInit{
             window.scrollTo(0, 0);
         });
     }
-
+} {
 }

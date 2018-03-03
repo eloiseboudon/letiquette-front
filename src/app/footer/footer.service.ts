@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Headers, Http, RequestOptions, Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
-import {parseHttpResponse} from 'selenium-webdriver/http';
 
 
 @Injectable()

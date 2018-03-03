@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
+import {NavigationEnd, Router} from '@angular/router';
 import {FooterService} from './footer.service';
 
 
@@ -23,7 +23,7 @@ export class DevenirVendeurComponent {
 
 
     constructor(private formBuilder: FormBuilder,
-                private contactService: FooterService,
+                private footerService: FooterService,
                 private router: Router) {
         this.devenirVendeurForm = formBuilder.group({
             'nom': ['', Validators.required],
@@ -34,9 +34,21 @@ export class DevenirVendeurComponent {
         });
     }
 
-    devenirVendeur(contact) {
-        this.contactService
-            .devenirVendeur(contact);
+    ngOnInit() {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0);
+        });
+    }
+
+    devenirVendeur(contact: NgForm) {
+        this.footerService
+            .devenirVendeur(contact.value)
+            .then(response => {
+                return response;
+            });
     }
 
 }

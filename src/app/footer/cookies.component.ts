@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
-    selector: 'lequipe',
-    templateUrl: 'lequipe.component.html'
+    selector: 'cookies',
+    templateUrl: 'cookies.component.html'
 })
 
-export class LequipeComponent implements OnInit{
+export class CookiesComponent implements OnInit{
     constructor(private router: Router) { }
 
     ngOnInit() {

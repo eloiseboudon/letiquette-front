@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {FooterService} from './footer.service';
 
 
@@ -36,7 +36,7 @@ export class ContactComponent {
     A: string;
 
     constructor(private formBuilder: FormBuilder,
-                private contactService: FooterService,
+                private footerService: FooterService,
                 private router: Router) {
         this.contactForm = formBuilder.group({
             'civilite': ['', Validators.required],
@@ -50,9 +50,19 @@ export class ContactComponent {
         });
     }
 
+    ngOnInit() {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            window.scrollTo(0, 0);
+        });
+    }
+
+
 
     contactezNous(contact: NgForm) {
-        this.contactService
+        this.footerService
             .contactezNous(contact.value)
             .then(response => {
                 return response;

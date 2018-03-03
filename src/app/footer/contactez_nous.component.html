@@ -9,18 +9,6 @@
             <form #contactForm="ngForm" (ngSubmit)="contactezNous(contactForm)">
 
 
-                <!--<div class="form-group">-->
-                    <!--<label for="civilite"><span>Civilité</span>-->
-                        <!--<select id="civilite" class="form-control" #civilite name="civilite"-->
-                                 <!--required>-->
-                            <!--<option selected>Veuillez sélectionner</option>-->
-                            <!--<option  #civilite [value]="H">M.</option>-->
-                            <!--<option  #civilite [value]="F">Mme.</option>-->
-                            <!--<option  #civilite [value]="A">Autre</option>-->
-                        <!--</select>-->
-                    <!--</label>-->
-                <!--</div>-->
-
                 <div class="form-group">
                     <label for="civilite"><span>Civilité</span>
                         <select id="civilite" class="form-control" #civilite name="civilite" [ngModel]="civilite"

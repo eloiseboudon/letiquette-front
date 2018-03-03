@@ -69,6 +69,12 @@ import {ContactComponent} from './footer/contactez_nous.component';
 import {FooterService} from './footer/footer.service';
 import {LequipeComponent} from './footer/lequipe.component';
 import {DevenirVendeurComponent} from './footer/devenir_vendeur.component';
+import {NosValeursComponent} from './footer/nos_valeurs.component';
+import {CGVComponent} from './footer/cgv.component';
+import {CGUComponent} from './footer/cgu.component';
+import {MentionsLegalesComponent} from './footer/mentions_legales.component';
+import {PaiementsSecurisesComponent} from './footer/paiements_securises.component';
+import {CookiesComponent} from './footer/cookies.component';
 
 
 // export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -102,7 +108,12 @@ import {DevenirVendeurComponent} from './footer/devenir_vendeur.component';
         LivraisonRetourComponent,
         ContactComponent,
         DevenirVendeurComponent,
-        LequipeComponent
+        LequipeComponent,
+        NosValeursComponent, CGVComponent,
+        CGUComponent,
+        MentionsLegalesComponent,
+        PaiementsSecurisesComponent,
+        CookiesComponent
     ],
     imports: [
         BrowserModule,
