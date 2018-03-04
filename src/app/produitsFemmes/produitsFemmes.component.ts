@@ -100,6 +100,13 @@ export class ProduitsFemmesComponent implements OnInit {
             event.preventDefault();
             $('body').toggleClass('filtrebar');
         });
+
+
+
+        $('#click-tri').click(function (event) {
+            event.preventDefault();
+            $('body').toggleClass('tribar');
+        });
     }
 
 
@@ -148,9 +155,9 @@ export class ProduitsFemmesComponent implements OnInit {
         $(window).scroll(function () {
             const posScroll = $(document).scrollTop();
             if (posScroll >= 180) {
-                $('.top_link').fadeIn(600);
+                document.getElementById('top_link').style.display = 'block';
             } else {
-                $('.top_link').fadeOut(600);
+                document.getElementById('top_link').style.display = 'none';
             }
         });
     }

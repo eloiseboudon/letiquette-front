@@ -6,8 +6,9 @@ import {NavigationEnd, Router} from '@angular/router';
     templateUrl: 'nos_valeurs.component.html'
 })
 
-export class NosValeursComponent implements OnInit{
-    constructor(private router: Router) { }
+export class NosValeursComponent implements OnInit {
+    constructor(private router: Router) {
+    }
 
     ngOnInit() {
         this.router.events.subscribe((evt) => {
@@ -16,6 +17,25 @@ export class NosValeursComponent implements OnInit{
             }
             window.scrollTo(0, 0);
         });
+
+
+        this.goToTop();
+    }
+
+
+    goToTop(): void {
+        $(window).scroll(function () {
+            const posScroll = $(document).scrollTop();
+            if (posScroll >= 180) {
+                document.getElementById('top_link').style.display = 'block';
+            } else {
+                document.getElementById('top_link').style.display = 'none';
+            }
+        });
+    }
+
+    scroll(): void {
+        window.scrollTo(0, 0);
     }
 
 }

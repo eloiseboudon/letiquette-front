@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
-    private authUrl = 'http://127.0.0.1:8000/auth-token';
+    private authUrl = 'http://api.letiquette-shop.fr/auth-token';
 
     constructor(private http: Http) {
     }

@@ -11,7 +11,7 @@ import {Ville} from '../villes/ville';
 export class FournisseurService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private fournisseurUrl = 'http://127.0.0.1:8000/fournisseurs';
+    private fournisseurUrl = 'http://api.letiquette-shop.fr/fournisseurs';
 
     constructor(private http: Http) {
     }

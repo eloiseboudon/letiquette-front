@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {NavigationEnd, Router} from '@angular/router';
 import {FooterService} from './footer.service';
@@ -9,7 +9,7 @@ import {FooterService} from './footer.service';
     templateUrl: 'contactez_nous.component.html'
 })
 
-export class ContactComponent {
+export class ContactComponent implements OnInit {
     contactForm: FormGroup;
     demande: string;
     informations_generales: string;
@@ -57,6 +57,23 @@ export class ContactComponent {
             }
             window.scrollTo(0, 0);
         });
+        this.goToTop();
+    }
+
+
+    goToTop(): void {
+        $(window).scroll(function () {
+            const posScroll = $(document).scrollTop();
+            if (posScroll >= 180) {
+                document.getElementById('top_link').style.display = 'block';
+            } else {
+                document.getElementById('top_link').style.display = 'none';
+            }
+        });
+    }
+
+    scroll(): void {
+        window.scrollTo(0, 0);
     }
 
 

@@ -1,4 +1,4 @@
-<div (click)="scroll()" class="top_link" title="Revenir en haut de page" xmlns="">HAUT
+<div (click)="scroll()" id="top_link" title="Revenir en haut de page" xmlns=""><span class="top_link_name">HAUT</span>
     <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </div>
 
@@ -11,9 +11,28 @@
                     <div class="name" id="click-filtre">FILTRER</div>
                 </div>
                 <div class="col-md-6 col-6">
-                    <div class="name">TRIER</div>
+                    <div class="name" id="click-tri">TRIER</div>
                 </div>
+            </div>
+        </div>
 
+
+        <div id="tri">
+            <div class="row">
+                <div class="col-md-6 col-6">
+                    <div class="name">
+                        <span (click)="tri='asc'">
+                            Prix croissant
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6">
+                    <div class="name">
+                        <span (click)="tri='desc'">
+                            Prix décroissant
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -288,16 +307,13 @@
                 <!--</div>-->
 
 
-
-
-
                 <div id="products_all_view">
 
                     <ul id="products_view"
                         *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
                         <a [routerLink]="['/produit', produit.id]">
 
-                            <li>
+                            <li class="image">
                                 <img src="assets/images_produits/{{produit.image}}" width="300" height="450">
                             </li>
                             <li class="marque">{{produit.marque}}</li>

@@ -9,7 +9,7 @@ import { Pays } from './pays';
 export class PaysService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private paysUrl = 'http://127.0.0.1:8000/pays';
+    private paysUrl = 'http://api.letiquette-shop.fr/pays';
 
     constructor(private http: Http) { }
 

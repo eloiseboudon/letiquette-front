@@ -8,7 +8,7 @@ import {PointsEthiques} from './pointsEthiques';
 @Injectable()
 export class PointsEthiquesService{
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private pointsEthiquesUrl = 'http://127.0.0.1:8000/impactsethiques';  // URL to api
+    private pointsEthiquesUrl = 'http://api.letiquette-shop.fr/impactsethiques';  // URL to api
 
     constructor(private http: Http) {
     }
