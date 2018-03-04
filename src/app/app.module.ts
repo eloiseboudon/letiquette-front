@@ -15,6 +15,8 @@ import {
     FilterEthiquePipe
 } from './pipes';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
+
+
 // import {AuthHttp, AuthConfig} from 'angular2-jwt';
 
 

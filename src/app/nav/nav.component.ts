@@ -14,6 +14,9 @@ import {TailleType} from '../tailleType/tailleType';
 import {FamilleService} from '../familles/famille.service';
 import {ProduitsFemmesComponent} from '../produitsFemmes/produitsFemmes.component';
 
+
+import 'rxjs/add/operator/debounceTime';
+
 @Component({
     moduleId: module.id,
     selector: 'ng-nav',
@@ -27,7 +30,7 @@ export class NavbarComponent implements OnInit {
     famillesList: Famille[];
 
     tousFamillesGlobal: string[] = ['Tous les hauts', 'Tous les bas', 'Toutes les chaussures',
-    'Toute la lingerie', 'Toute la lingerie', 'Tous les accessoires'];
+        'Toute la lingerie', 'Toute la lingerie', 'Tous les accessoires'];
     tousFg: number;
 
     constructor(private authenticationService: AuthenticationService, private panierService: PanierService,
@@ -35,7 +38,6 @@ export class NavbarComponent implements OnInit {
                 private produitService: ProduitService, private familleGlobalService: FamilleGlobalService, private router: Router) {
 
     }
-
 
     ngOnInit(): void {
         this.getProduitByFamillesGlobales();
@@ -187,6 +189,7 @@ export class NavbarComponent implements OnInit {
                 this.famillesList = familles;
             });
     }
+
 
 }
 
