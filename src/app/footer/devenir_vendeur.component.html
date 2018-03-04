@@ -1,0 +1,70 @@
+<div (click)="scroll()" id="top_link" title="Revenir en haut de page" xmlns=""><span class="top_link_name">HAUT</span>
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+
+
+<div class="contenu">
+    <div class="global_width">
+        <div class="footer">
+            <h1>Devenir vendeur</h1>
+            Nous sommes en train de développer une marketplace de mode éthique. Vous souhaitez nous proposer des
+            produits ? Merci de bien vouloir remplir le formulaire ci-dessous, nous vous recontacterons dans les plus
+            brefs délais. <br/>
+            A bientôt !
+
+            <form #devenirVendeurForm="ngForm" (ngSubmit)="devenirVendeur(devenirVendeurForm)">
+
+
+                <div class="form-group">
+                    <label for="entreprise">Nom de l'entreprise</label>
+                    <input id="entreprise" class="form-control" #entreprise type="text"
+                           ngModel name="entreprise"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="site_internet">Site internet</label>
+                    <input id="site_internet" class="form-control" #site_internet type="text"
+                           ngModel name="site_internet"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input id="nom" class="form-control" formControlName="nom" type="text" [(ngModel)]="contact.nom"
+                           name="nom" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input id="prenom" class="form-control" #prenom type="text"
+                           ngModel name="prenom" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" class="form-control" #email type="email"
+                           ngModel name="email" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input id="telephone" class="form-control" #telephone type="number"
+                           ngModel name="telephone" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" class="form-control" #message ngModel
+                              name="message"
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+
+
+        </div>
+    </div>
+</div>

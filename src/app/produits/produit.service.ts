@@ -14,6 +14,7 @@ export class ProduitService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
 
     private produits = 'http://api.letiquette-shop.fr/produits';
+    private searchUrl = 'http://api.letiquette-shop.fr/search';
 
     constructor(private http: Http) {
     }
@@ -69,6 +70,8 @@ export class ProduitService {
                 response.json() as Produit[])
             .catch(this.handleError);
     }
+
+
 
 
     private handleError(error: any): Promise<any> {

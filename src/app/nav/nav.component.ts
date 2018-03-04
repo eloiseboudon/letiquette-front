@@ -14,6 +14,9 @@ import {TailleType} from '../tailleType/tailleType';
 import {FamilleService} from '../familles/famille.service';
 import {ProduitsFemmesComponent} from '../produitsFemmes/produitsFemmes.component';
 
+
+import 'rxjs/add/operator/debounceTime';
+
 @Component({
     moduleId: module.id,
     selector: 'ng-nav',
@@ -26,12 +29,15 @@ export class NavbarComponent implements OnInit {
     familleGlobalList: FamilleGlobal[];
     famillesList: Famille[];
 
+    tousFamillesGlobal: string[] = ['Tous les hauts', 'Tous les bas', 'Toutes les chaussures',
+        'Toute la lingerie', 'Toute la lingerie', 'Tous les accessoires'];
+    tousFg: number;
+
     constructor(private authenticationService: AuthenticationService, private panierService: PanierService,
                 private tailleTypeService: TailleTypeService, private familleService: FamilleService,
                 private produitService: ProduitService, private familleGlobalService: FamilleGlobalService, private router: Router) {
 
     }
-
 
     ngOnInit(): void {
         this.getProduitByFamillesGlobales();
@@ -82,14 +88,24 @@ export class NavbarComponent implements OnInit {
 
         });
 
-        $('#top-icon').click(function (e) {
-            e.preventDefault();
+        $('#top-icon').click(function (event) {
+            event.preventDefault();
             $('body').toggleClass('sidebar');
         });
 
-        $('#global-cache').click(function (e) {
+        $('#global-cache').click(function () {
             $('body').removeClass('sidebar');
         });
+
+        $('.menu-dropdown').click(function () {
+            $('body').removeClass('sidebar');
+        });
+
+        $('.smallSearchBox').click(function (event) {
+            event.preventDefault();
+            $('body').toggleClass('searchBar');
+        });
+
 
         $(window).click(function (event) {
             if (!event.target.matches('.dropbtn')) {
@@ -134,6 +150,8 @@ export class NavbarComponent implements OnInit {
         for (let i = 0; i < this.familleGlobalList.length; i++) {
             this.familleGlobalList[i].checked = false;
         }
+
+
     }
 
     afficherFamilleF(familleGlobale): void {
@@ -142,6 +160,7 @@ export class NavbarComponent implements OnInit {
             this.familleGlobalList[i].checked = false;
         }
         familleGlobale.checked = true;
+        this.tousFg = familleGlobale.id;
     }
 
     afficherFamilleH(familleGlobale): void {
@@ -150,6 +169,8 @@ export class NavbarComponent implements OnInit {
             this.familleGlobalList[i].checked = false;
         }
         familleGlobale.checked = true;
+
+        this.tousFg = familleGlobale.id;
     }
 
     getFamillesByFamilleGlobalAndFemme(familleGlobaleID): void {
@@ -168,6 +189,7 @@ export class NavbarComponent implements OnInit {
                 this.famillesList = familles;
             });
     }
+
 
 }
 

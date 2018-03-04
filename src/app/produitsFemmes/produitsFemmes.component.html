@@ -1,11 +1,44 @@
-<div (click)="scroll()" class="top_link" title="Revenir en haut de page" xmlns="">HAUT
+<div (click)="scroll()" id="top_link" title="Revenir en haut de page" xmlns=""><span class="top_link_name">HAUT</span>
     <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </div>
 
 <div class="contenu">
     <div class="global_width">
+
+        <div id="small-filtres">
+            <div class="row">
+                <div class="col-md-6 col-6">
+                    <div class="name" id="click-filtre">FILTRER</div>
+                </div>
+                <div class="col-md-6 col-6">
+                    <div class="name" id="click-tri">TRIER</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="tri">
+            <div class="row">
+                <div class="col-md-6 col-6">
+                    <div class="name">
+                        <span (click)="tri='asc'">
+                            Prix croissant
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6">
+                    <div class="name">
+                        <span (click)="tri='desc'">
+                            Prix décroissant
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
-            <div class="col-2">
+            <div class="produit-marge col-lg-2 col-md-0">
                 <div id="familles_filtres">
                     <h2>
                         <span (click)="getAllProduits()">Tous les produits</span>
@@ -36,15 +69,15 @@
 
                 </div>
             </div>
-            <div class="col-10">
+            <div class="produit-marge col-lg-10 col-md-12">
                 <div id="filtres">
                     <div class="row">
-                        <div class="col-2">
+                        <div class="filtre-marge col-lg-2 col-md-4 col-6">
                             <div class="dropdown" id="dropdown-tailles">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
                                         aria-expanded="false">
                                     <span class="dropdown-titre">Tailles</span>
-                                    <span class="fa fa-caret-down"></span>
+                                    <span class="fa fa-angle-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <table>
@@ -62,12 +95,12 @@
                         </div>
 
 
-                        <div class="col-2">
+                        <div class="filtre-marge col-lg-2 col-md-4 col-6">
                             <div class="dropdown" id="dropdown-marques">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
                                         aria-expanded="false">
                                     <span class="dropdown-titre">Marques</span>
-                                    <span class="fa fa-caret-down"></span>
+                                    <span class="fa fa-angle-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <table>
@@ -83,12 +116,12 @@
                             </div>
 
                         </div>
-                        <div class="col-2">
+                        <div class="filtre-marge col-lg-2 col-md-4 col-6">
                             <div class="dropdown" id="dropdown-couleurs">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
                                         aria-expanded="false">
                                     <span class="dropdown-titre">Couleurs</span>
-                                    <span class="fa fa-caret-down"></span>
+                                    <span class="fa fa-angle-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
@@ -107,13 +140,13 @@
                             </div>
                         </div>
 
-                        <div class="col-2">
+                        <div class="filtre-marge col-lg-2 col-md-4 col-6">
 
                             <div class="dropdown" id="dropdown-prix">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
                                         aria-expanded="false">
                                     <span class="dropdown-titre">Prix</span>
-                                    <span class="fa fa-caret-down"></span>
+                                    <span class="fa fa-angle-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <div id="skipstep"></div>
@@ -121,15 +154,17 @@
                             </div>
                         </div>
 
-                        <div class="col-4 annuler_filtres">
+                        <div class="filtre-marge col-4 annuler_filtres">
                             <span (click)=annulerFiltres()><i class="fa fa-times" aria-hidden="true"></i> Annuler filtres</span>
                         </div>
-                        <div class="col-2">
+
+
+                        <div class="filtre-marge col-lg-2 col-md-4 col-6">
                             <div class="dropdown" id="dropdown-matieres">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
                                         aria-expanded="false">
                                     <span class="dropdown-titre">Matières</span>
-                                    <span class="fa fa-caret-down"></span>
+                                    <span class="fa fa-angle-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
@@ -155,12 +190,12 @@
                         <!--</div>-->
                         <!--</div>-->
                         <!--</div>-->
-                        <div class="col-2">
+                        <div class="filtre-marge col-lg-2 col-md-4 col-6">
                             <div class="dropdown" id="dropdown-impact_ecolo">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
                                         aria-expanded="false">
                                     <span class="dropdown-titre">Impact éthique</span>
-                                    <span class="fa fa-caret-down"></span>
+                                    <span class="fa fa-angle-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
@@ -178,13 +213,13 @@
                             </div>
                         </div>
 
-                        <div class="col-2">
+                        <div class="filtre-marge col-lg-2 col-md-4 col-6">
 
                             <div class="dropdown" id="dropdown-tri">
                                 <button class="btn btn-secondary btn-filter" type="button" data-toggle="dropdown"
                                         aria-expanded="false">
                                     <span class="dropdown-titre">Trier par</span>
-                                    <span class="fa fa-caret-down"></span>
+                                    <span class="fa fa-angle-down"></span>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <ul>
@@ -242,8 +277,8 @@
                 </div>
 
 
-                <!--<div class="affichage_produit" *ngIf="produitsList.length > 96">-->
-                <div class="affichage_produit">
+                <div class="affichage_produit" *ngIf="produitsList.length > 96">
+                    <!--<div class="affichage_produit">-->
                     <div class="row">
                         <div class="col-6">
                             <pagination-controls class="my-pagination" (pageChange)="p = $event"
@@ -278,8 +313,8 @@
                         *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
                         <a [routerLink]="['/produit', produit.id]">
 
-                            <li>
-                                <img src="assets/images_produits/{{produit.image}}">
+                            <li class="image">
+                                <img src="assets/images_produits/{{produit.image}}" width="300" height="450">
                             </li>
                             <li class="marque">{{produit.marque}}</li>
                             <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}}
@@ -296,11 +331,12 @@
                 <div class="affichage_produit">
                     <div class="row">
                         <div class="col-6">
-                            <!--<pagination-controls *ngIf="produitsList.length > 96" class="my-pagination"-->
-                            <pagination-controls class="my-pagination"
-                                                 (pageChange)="p = $event"
-                                                 previousLabel="Précédent"
-                                                 nextLabel="Suivant"></pagination-controls>
+                            <pagination-controls *ngIf="produitsList.length > 96" class="my-pagination">
+                                <!--<pagination-controls class="my-pagination"-->
+                                (pageChange)="p = $event"
+                                previousLabel="Précédent"
+                                nextLabel="Suivant">
+                            </pagination-controls>
                         </div>
                         <div class="col-6">
                             <!-- Filtres prix -->

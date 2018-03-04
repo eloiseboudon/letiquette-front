@@ -1,0 +1,97 @@
+<div (click)="scroll()" id="top_link" title="Revenir en haut de page" xmlns=""><span class="top_link_name">HAUT</span>
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+</div>
+
+<div class="contenu">
+    <div class="global_width">
+        <div class="footer">
+            <h1>Contactez nous</h1>
+            Nous sommes à votre écoute: vous pouvez nous contacter via le formulaire ci-dessous.
+            Nous ferons notre possible pour vous sastisfaire dans les plus brefs délais. <br/>
+            A bientôt !
+
+            <form #contactForm="ngForm" (ngSubmit)="contactezNous(contactForm)">
+
+
+                <div class="form-group">
+                    <label for="civilite"><span>Civilité</span>
+                        <select id="civilite" class="form-control" #civilite name="civilite" [ngModel]="civilite"
+                                required>
+                            <option selected>Veuillez sélectionner</option>
+                            <option>M.</option>
+                            <option>Mme.</option>
+                            <option>Autre</option>
+                        </select>
+                    </label>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input id="nom" class="form-control" #nom type="text" ngModel
+                           name="nom" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input id="prenom" class="form-control" #prenom type="text"
+                           ngModel name="prenom" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" class="form-control" #email type="email"
+                           ngModel name="email" required/>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <input id="telephone" class="form-control" #telephone type="number"
+                           ngModel name="telephone" required/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="demande"><span>Votre demande concerne</span>
+                        <select id="demande" class="form-control" name="demande" [ngModel]="demande"
+                                #demande required>
+                            <option selected>Veuillez sélectionner</option>
+                            <option>Informations générales</option>
+                            <option>Renseignement additionnel sur un article</option>
+                            <option>Statut de livraison</option>
+                            <option>Annulation commande</option>
+                            <option>Retour d'un article</option>
+                            <option>Réception d'un article non conforme</option>
+                            <option>Problèmes techniques</option>
+                            <option>Partenariat / offres de services</option>
+                            <option>>Modification de l'adresse de livraison</option>
+                            <option>Gestions des newletters</option>
+                            <option>Utilisationdes coupons</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="num_commande">Numéro de commande (si disponible)</label>
+                    <input id="num_commande" class="form-control" #num_commande type="number"
+                           ngModel name="num_commande"/>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" class="form-control" #message ngModel
+                              name="message"
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn">
+                    Envoyer
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
