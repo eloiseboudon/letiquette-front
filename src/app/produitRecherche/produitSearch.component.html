@@ -1,0 +1,29 @@
+<div class="contenu">
+    <div class="global_width">
+
+        <div id="searchProducts">
+
+            <h1 title="Résultat(s) de la recherche">Résultat(s) de la recherche</h1>
+
+            <ul *ngFor="let search of produitSearchList">
+                <a [routerLink]="['/produit', search.id]">
+
+                    <li class="image">
+                        <img src="assets/images_produits/{{search.image}}" width="300" height="450">
+                    </li>
+                    <li class="marque">{{search.fournisseur.nom_marque}}</li>
+                    <li class="libelle" *ngIf="search.couleur != null">{{search.libelle}}
+                        {{search.couleur.name}}
+                    </li>
+                    <li class="libelle" *ngIf="search.couleur == null">{{search.libelle}}</li>
+                    <li class="prix">{{search.prix}} €</li>
+
+                    <!--<li><span (click)="ajouterPanier(wishlist.produit.id)"></span></li>-->
+                </a>
+            </ul>
+
+        </div>
+
+
+    </div>
+</div>

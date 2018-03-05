@@ -3,6 +3,6 @@ import {Membres} from '../membres/membres';
 
 export class Wishlist {
     id: number;
-    prdoduit: Produit;
+    produit: Produit;
     membre: Membres;
 }

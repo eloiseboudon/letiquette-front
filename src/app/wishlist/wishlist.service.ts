@@ -22,7 +22,7 @@ export class WishlistService {
     }
 
 
-    ajouterWishlist(idProduit: number,idMembre: number): Promise<Wishlist[]> {
+    ajouterWishlist(idProduit: number, idMembre: number): Promise<Wishlist[]> {
         const data = new URLSearchParams();
         data.append('idProduit', idProduit.toString());
         data.append('idMembre', idMembre.toString());

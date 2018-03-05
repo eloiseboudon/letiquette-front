@@ -28,6 +28,8 @@ import {CouleurService} from '../couleurs/couleur.service';
 import {PointsEthiques} from '../pointsEthiques/pointsEthiques';
 import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 import {split} from 'ts-node/dist';
+import {Wishlist} from '../wishlist/wishlist';
+import {WishlistService} from '../wishlist/wishlist.service';
 
 
 @Component({
@@ -56,13 +58,14 @@ export class ProduitsFemmesComponent implements OnInit {
     filterArrTaille = [];
     filterArrEthique = [];
     tri: string = 'asc';
+    wishlist: Wishlist[];
 
     page: any;
 
 
     constructor(private route: ActivatedRoute, private router: Router, private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
                 private familleService: FamilleService, private familleGlobalService: FamilleGlobalService, private fournisseurService: FournisseurService,
-                private  couleurService: CouleurService, private pointsEthiquesService: PointsEthiquesService) {
+                private  couleurService: CouleurService, private pointsEthiquesService: PointsEthiquesService, private wishlistService: WishlistService) {
         this.route.params.subscribe(params => {
             this.page = params.name;
             if (this.page) {
@@ -100,7 +103,6 @@ export class ProduitsFemmesComponent implements OnInit {
             event.preventDefault();
             $('body').toggleClass('filtrebar');
         });
-
 
 
         $('#click-tri').click(function (event) {
@@ -245,7 +247,7 @@ export class ProduitsFemmesComponent implements OnInit {
             });
     }
 
-    getTailleTypeByFamilleGlobale(id): void{
+    getTailleTypeByFamilleGlobale(id): void {
         this.tailleTypeService
             .getTailleTypeByFamilleGlobale(id)
             .then(tailleType => {
@@ -284,7 +286,6 @@ export class ProduitsFemmesComponent implements OnInit {
                 this.produitsList = produits;
             });
         this.getAllTailleType();
-        // this.arrayFiltresTaille = [];
     }
 
 
@@ -300,7 +301,6 @@ export class ProduitsFemmesComponent implements OnInit {
     filterFamille(famille) {
         this.getProduitByFamille(famille.id);
         this.getTailleTypeByFamilleGlobale(famille.famille_global.id);
-        // this.arrayFiltresTaille = [];
         for (let i = 0; i < this.famillesList.length; i++) {
             this.famillesList[i].checked = false;
         }
@@ -340,6 +340,15 @@ export class ProduitsFemmesComponent implements OnInit {
             .getFamilleByFamilleGlobalAndSexe('F', familleGlobaleID)
             .then(familles => {
                 this.famillesList = familles;
+            });
+    }
+
+
+    ajouterWishlist(idProduit): void {
+        this.wishlistService
+            .ajouterWishlist(idProduit, 1)
+            .then(wishlist => {
+                this.wishlist = wishlist;
             });
     }
 

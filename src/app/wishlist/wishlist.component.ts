@@ -27,6 +27,7 @@ export class WishlistComponent implements OnInit {
             .catch(this.handleError);
     }
 
+
     supprimerProduitWishlist(idWishlist): void {
         this.wishListService.supprimerProduitWishlist(idWishlist)
             .then(wishlist => {

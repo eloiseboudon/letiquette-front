@@ -167,6 +167,8 @@ a, a:hover {
 
 }
 
+
+
 #top-page .fa {
     padding-right: 3px;
     padding-left: 3px;
@@ -207,13 +209,13 @@ a, a:hover {
 
 }
 
-#top-page-scroll #right-top .cercle {
-    width: 40px;
-    height: 40px;
-    background: #F4ECDE;
-    border-radius: 50%;
-    border: 2px solid white;
-}
+/*#top-page-scroll #right-top .cercle {*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*background: #F4ECDE;*/
+    /*border-radius: 50%;*/
+    /*border: 2px solid white;*/
+/*}*/
 
 /*#top-page-scroll #right-top span:hover {*/
 /*cursor: pointer;*/
@@ -277,6 +279,7 @@ a, a:hover {
     left: 20px;
 }
 
+
 #searchBox {
     text-align: center;
 }
@@ -332,6 +335,7 @@ a, a:hover {
 #searchInput {
     padding-left: 5px;
     width: 400px;
+    border-radius: 2px;
 }
 
 .smallSearchBox {
@@ -1364,7 +1368,7 @@ a, a:hover {
     font-size:2em;
 }
 
-.contenu #wishlist ul {
+.contenu #wishlist ul, .contenu #searchProducts ul {
     list-style: none;
     display: inline-block;
     width: 20%;
@@ -1374,37 +1378,39 @@ a, a:hover {
     background-color: #fff;
 }
 
-.contenu #wishlist ul > li {
+.contenu #wishlist ul > li,  .contenu #searchProducts ul > li{
     overflow: hidden;
     white-space: nowrap;
 }
 
-.contenu #wishlist .marque, .contenu #wishlist .libelle {
+.contenu #wishlist .marque, .contenu #wishlist .libelle
+.contenu #searchProducts .marque, .contenu #searchProducts .libelle
+{
     color: #000;
 }
 
-.contenu #wishlist img {
+.contenu #wishlist img, .contenu #searchProducts img {
     height: auto;
     max-width: 100%;
     /*max-height:407px;*/
 }
 
-.contenu #wishlist .marque {
+.contenu #wishlist .marque, .contenu #searchProducts .marque {
     font-size: 1.6em;
     font-weight: bolder;
 }
 
-.contenu #wishlist a {
+.contenu #wishlist a, .contenu #searchProducts a {
     text-decoration: none;
 }
 
-.contenu #wishlist .libelle, .contenu #wishlist .libelle {
+.contenu #wishlist .libelle, .contenu #searchProducts .libelle {
     text-align: center;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1.3em;
 }
 
-.contenu #wishlist .prix, .contenu #wishlist .prix {
+.contenu #wishlist .prix, .contenu #searchProducts .prix {
     text-align: center;
     font-weight: bold;
     color: #880015;
@@ -1420,7 +1426,7 @@ a, a:hover {
     margin-left: 17%;
 }
 
-.contenu #wishlist i{
+.contenu #wishlist i, .contenu #searchProducts i{
     background-color: #fff;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1428,15 +1434,23 @@ a, a:hover {
 
 }
 
-.contenu .images-produit .ajouter_wishlist i {
+.contenu .images-produit .ajouter_wishlist i, .contenu #products_view .ajouterWishlist i {
     background-color: #fff;
     -webkit-border-radius: 10%;
     -moz-border-radius: 10%;
     border-radius: 10%;
 }
 
-.contenu #wishlist .image {
+.contenu #wishlist .image, .contenu #searchProducts .image {
     text-align: center;
+}
+
+
+.contenu #products_view .ajouterWishlist{
+    position: absolute;
+    margin-left:6px;
+    color: #880015;
+    font-size:1.5em;
 }
 
 /*  FILTRE PRIX */
@@ -1772,7 +1786,7 @@ a, a:hover {
         box-shadow: none;
     }
 
-    .contenu #products_all_view ul, .contenu #wishlist ul {
+    .contenu #products_all_view ul, .contenu #wishlist ul, .contenu #searchProducts ul {
         width: 33%;
     }
 
@@ -1946,13 +1960,13 @@ a, a:hover {
         padding: 0;
     }
 
-    #top-page #right-top .cercle {
-        width: 40px;
-        height: 40px;
-        background: #000000;
-        border-radius: 50%;
-        border: none;
-    }
+    /*#top-page #right-top .cercle {*/
+        /*width: 40px;*/
+        /*height: 40px;*/
+        /*background: #000000;*/
+        /*border-radius: 50%;*/
+        /*border: none;*/
+    /*}*/
 
     #top-page #right-top .fa {
         color: #F4ECDE;
@@ -1993,7 +2007,7 @@ a, a:hover {
         padding-top: 0;
     }
 
-    .contenu #products_all_view ul, .contenu #wishlist ul {
+    .contenu #products_all_view ul, .contenu #wishlist ul, .contenu #searchProducts ul{
         width: 50%;
     }
 
@@ -2044,6 +2058,15 @@ a, a:hover {
         right:7%
     }
 
+    .contenu #products_view .ajouterWishlist {
+        margin-left:14px;
+    }
+    .contenu #products_all_view ul:nth-child(2n) .ajouterWishlist{
+        margin-left:3px;
+    }
+
+
+
 }
 
 @media (max-width: 425px) {
@@ -2058,13 +2081,17 @@ a, a:hover {
 }
 
 @media (max-width: 375px) {
-    .contenu #products_all_view ul, .contenu #wishlist ul {
+    .contenu #products_all_view ul, .contenu #wishlist ul,  .contenu #searchProducts ul{
         width: 100%;
 
     }
 
     .contenu #wishlist .supprimerProduit {
         margin-left: 90%;
+    }
+
+    .contenu #products_all_view ul:nth-child(2n) .ajouterWishlist{
+        margin-left:14px;
     }
 
 }

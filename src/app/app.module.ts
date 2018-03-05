@@ -75,6 +75,7 @@ import {CGUComponent} from './footer/cgu.component';
 import {MentionsLegalesComponent} from './footer/mentions_legales.component';
 import {PaiementsSecurisesComponent} from './footer/paiements_securises.component';
 import {CookiesComponent} from './footer/cookies.component';
+import {ProduitSearchComponent} from './produitRecherche/produitSearch.component';
 
 
 
@@ -106,6 +107,7 @@ import {CookiesComponent} from './footer/cookies.component';
         MembresComponent,
         PanierComponent,
         WishlistComponent,
+        ProduitSearchComponent,
         FaqComponent,
         LivraisonRetourComponent,
         ContactComponent,

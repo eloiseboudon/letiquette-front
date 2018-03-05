@@ -14,6 +14,7 @@ export class PanierComponent implements OnInit {
     total: number = 0;
 
 
+
     constructor(private panierService: PanierService, private router: Router) {
     }
 
@@ -70,13 +71,7 @@ export class PanierComponent implements OnInit {
         return this.total;
     }
 
-    quantite(): number {
-        let quantiteTotale = 0;
-        this.detailPanierList.forEach(detailPanier =>
-            quantiteTotale += detailPanier.quantite
-        );
-        return quantiteTotale;
-    }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

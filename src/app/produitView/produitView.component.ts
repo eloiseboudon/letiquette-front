@@ -96,14 +96,15 @@ export class ProduitViewComponent implements OnInit {
             .then(panier => {
                 this.panier = panier;
                 localStorage.setItem('id_panier', panier.panier.id);
+                location.reload();
             })
             .catch(this.handleError);
     }
 
 
-    ajouterWishlist(idProduit, idMembre): void {
+    ajouterWishlist(idProduit): void {
         this.wishlistService
-            .ajouterWishlist(idProduit, idMembre)
+            .ajouterWishlist(idProduit, 1)
             .then(wishlist => {
                 this.wishlist = wishlist;
                 // localStorage.setItem('id_panier', panier.panier.id);

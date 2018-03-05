@@ -15,13 +15,23 @@
                     <a routerLink="/accueil" routerLinkActive="active"><img src="assets/Miniature.png"/></a>
                 </div>
                 <div class="col-sm-4 col-xs-4" id="searchBox">
-                    <label class="searchLabel">
-                        <input type="text" id="searchInput" placeholder="Rechercher">
-                        <span class="fa fa-search"></span>
-                    </label>
+                    <!--<label class="searchLabel">-->
+                        <form  #searchForm="ngForm" (ngSubmit)="search(searchForm)">
+                        <div class="form-group">
+                            <label class="searchLabel" for="searchInput">
+                            <input id="searchInput" class="form-control" #searchInput type="text"
+                                   ngModel name="searchInput" placeholder="Rechercher"/>
+                            <span class="fa fa-search" (click)="search(searchForm)"></span>
+                            </label>
+                        </div>
+                        </form>
+
+                        <!--<input type="text" id="searchInput" placeholder="Rechercher">-->
+
+                    <!--</label>-->
                 </div>
                 <div class="col-sm-4 col-xs-4 right-top-all">
-                    <span class="smallSearchBox" id="right-top"><a href="#"><i class="fa fa-search cercle"
+                    <span class="smallSearchBox" id="right-top"><a href="#"><i class="fa fa-search"
                                                                                aria-hidden="true"></i>  <span
                             class="top-name"> Search </span></a></span>
 
@@ -47,7 +57,7 @@
                     <!--<span id="right-top"><a href="#"><i class="fa fa-user cercle"-->
                     <!--aria-hidden="true"></i> Compte</a></span>-->
                     <span id="right-top"><a [routerLink]="['panier']"><i class="fa fa-shopping-bag"
-                                                                         aria-hidden="true"></i> <span class="top-name">Panier</span></a></span>
+                                                                         aria-hidden="true"></i><span class="top-name">Panier </span><span *ngIf="quantiteTotale>0" class="panier-qte">{{quantiteTotale}}</span> </a></span>
                     <span id="right-top"><a [routerLink]="['wishlist']"><i class="fa fa-heart"
                                                                            aria-hidden="true"></i> <span
                             class="top-name"> Wishlist </span></a></span>
@@ -57,13 +67,15 @@
             <div class="row">
                 <div class="col-12" id="smallSearch">
 
-                    <label class="searchLabel" for="searchInput">
-                        <!--<input type="text" name="search" id="searchInput" placeholder="Rechercher">-->
-                        <!--<span class="fa fa-search" onclick="navbarSearchSmall()"></span>-->
-
-
-                    </label>
-
+                    <form  #smallFormSearch="ngForm" (ngSubmit)="searchsmall(smallFormSearch)">
+                        <div class="form-group">
+                            <label class="searchLabel" for="smallFormSearch">
+                                <input id="smallFormSearch" class="form-control" #smallFormSearch type="text"
+                                       ngModel name="searchInput" placeholder="Rechercher"/>
+                                <span class="fa fa-search" (click)="searchsmall(smallFormSearch)"></span>
+                            </label>
+                        </div>
+                    </form>
                 </div>
             </div>
 
