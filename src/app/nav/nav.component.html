@@ -48,7 +48,8 @@
                     <!--aria-hidden="true"></i> Compte</a></span>-->
                     <span id="right-top"><a [routerLink]="['panier']"><i class="fa fa-shopping-bag"
                                                                          aria-hidden="true"></i> <span class="top-name">Panier</span></a></span>
-                    <span id="right-top"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> <span
+                    <span id="right-top"><a [routerLink]="['wishlist']"><i class="fa fa-heart"
+                                                                           aria-hidden="true"></i> <span
                             class="top-name"> Wishlist </span></a></span>
                 </div>
             </div>
@@ -59,8 +60,6 @@
                     <label class="searchLabel" for="searchInput">
                         <!--<input type="text" name="search" id="searchInput" placeholder="Rechercher">-->
                         <!--<span class="fa fa-search" onclick="navbarSearchSmall()"></span>-->
-
-
 
 
                     </label>
@@ -103,7 +102,7 @@
                         <li>
                             <a [routerLink]="['/produits/femmes', 'F-' + famille.id + '-' + famille.famille]"
                                routerLinkActive="active">
-                            <span  class="famille-name">
+                            <span class="famille-name">
                                 {{famille.famille}}
                             </span>
                             </a>
@@ -145,7 +144,7 @@
                         <li>
                             <a [routerLink]="['/produits/hommes', 'F-' + famille.id + '-' + famille.famille ]"
                                routerLinkActive="active">
-                                <span  class="famille-name">
+                                <span class="famille-name">
                                     {{famille.famille}}
                                 </span>
                             </a>
@@ -264,10 +263,10 @@
             </div>
 
             <div class="col-sm-2" id="right-top">
-                <span class="fa fa-search" aria-hidden="true"></span>
+                <span class="fa fa-search" aria-hidden="true"> </span>
                 <span class="fa fa-user" aria-hidden="true"></span>
                 <span class="fa fa-shopping-bag" aria-hidden="true"></span>
-                <span class="fa fa-heart" aria-hidden="true"></span>
+                <a routerLink="/wishlist"> <span class="fa fa-heart" aria-hidden="true"></span></a>
             </div>
 
         </div>

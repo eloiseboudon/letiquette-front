@@ -18,8 +18,8 @@ import {ProduitsFemmesComponent} from '../produitsFemmes/produitsFemmes.componen
 import 'rxjs/add/operator/debounceTime';
 
 @Component({
-    moduleId: module.id,
-    selector: 'ng-nav',
+    // moduleId: module.id,
+    selector: 'app-nav',
     templateUrl: 'nav.component.html'
 })
 

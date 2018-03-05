@@ -17,9 +17,6 @@ import {
 import {Http, HttpModule, RequestOptions} from '@angular/http';
 
 
-// import {AuthHttp, AuthConfig} from 'angular2-jwt';
-
-
 import {AppComponent} from './app.component';
 import {Routing} from './app.routing';
 
@@ -41,7 +38,6 @@ import {PaysService} from './pays/pays.service';
 import {VillesComponent} from './villes/villes.component';
 import {VilleService} from './villes/ville.service';
 
-// import { FournisseursComponent } from './fournisseurs/fournisseurs.component';
 import {FournisseurService} from './fournisseurs/fournisseur.service';
 
 import {ProduitService} from './produits/produit.service';
@@ -56,6 +52,8 @@ import {ProduitViewComponent} from './produitView/produitView.component';
 import {PanierComponent} from './panier/panier.component';
 import {PanierService} from './panier/panier.service';
 
+import {WishlistComponent} from './wishlist/wishlist.component';
+import {WishlistService} from './wishlist/wishlist.service';
 
 import {FamilleService} from './familles/famille.service';
 import {FamilleGlobalService} from './famillesGlobal/familleGlobal.service';
@@ -77,6 +75,7 @@ import {CGUComponent} from './footer/cgu.component';
 import {MentionsLegalesComponent} from './footer/mentions_legales.component';
 import {PaiementsSecurisesComponent} from './footer/paiements_securises.component';
 import {CookiesComponent} from './footer/cookies.component';
+
 
 
 // export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -106,6 +105,7 @@ import {CookiesComponent} from './footer/cookies.component';
         FilterEthiquePipe,
         MembresComponent,
         PanierComponent,
+        WishlistComponent,
         FaqComponent,
         LivraisonRetourComponent,
         ContactComponent,
@@ -148,6 +148,7 @@ import {CookiesComponent} from './footer/cookies.component';
         // AuthGuard,
         MembresService,
         PanierService,
+        WishlistService,
         TitleCasePipe,
         FooterService
     ],

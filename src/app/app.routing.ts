@@ -24,6 +24,7 @@ import {MentionsLegalesComponent} from './footer/mentions_legales.component';
 import {CGUComponent} from './footer/cgu.component';
 import {PaiementsSecurisesComponent} from './footer/paiements_securises.component';
 import {CookiesComponent} from './footer/cookies.component';
+import {WishlistComponent} from './wishlist/wishlist.component';
 
 
 const appRoutes: Routes = [
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     {path: 'produit/:id', component: ProduitViewComponent},
     {path: 'login', component: AuthenticationComponent},
     {path: 'panier', component: PanierComponent},
+    {path: 'wishlist', component: WishlistComponent},
     {path: 'faq', component: FaqComponent},
     {path: 'livraison_retour', component: LivraisonRetourComponent},
     {path: 'contactez_nous', component: ContactComponent},
