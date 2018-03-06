@@ -60,8 +60,7 @@ export class NavbarComponent implements OnInit {
                     document.getElementById('top-page-scroll').style.visibility = 'visible';
                     document.getElementById('top-barre').style.visibility = 'hidden';
                     document.getElementById('top-barre').style.position = 'static';
-                }
-                else {
+                } else {
                     document.getElementById('top-barre').style.position = 'static';
                     document.getElementById('top-page-scroll').style.visibility = 'hidden';
                     document.getElementById('top-barre').style.visibility = 'visible';

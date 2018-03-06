@@ -12,6 +12,7 @@ import {forEach} from '@angular/router/src/utils/collection';
 export class PanierComponent implements OnInit {
     detailPanierList: DetailPanier[];
     total: number = 0;
+    quantiteTotale: number = 0;
 
 
 
@@ -30,6 +31,7 @@ export class PanierComponent implements OnInit {
                 this.detailPanierList = detailPanier;
                 await this.detailPanierList;
                 this.prixTotal();
+                this.quantite();
             })
             .catch(this.handleError);
     }
@@ -71,6 +73,12 @@ export class PanierComponent implements OnInit {
         return this.total;
     }
 
+    quantite(): number {
+        this.detailPanierList.forEach(detailPanier =>
+            this.quantiteTotale += detailPanier.quantite
+        );
+        return this.quantiteTotale;
+    }
 
 
     private handleError(error: any): Promise<any> {

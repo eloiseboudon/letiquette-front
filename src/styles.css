@@ -918,6 +918,10 @@ a, a:hover {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+
+
+
+
 .contenu .selling {
     background-color: #fff;
     width: 60%;
@@ -1198,7 +1202,10 @@ a, a:hover {
 .contenu #product_view .tailles input {
     opacity: 0;
     position: absolute;
+}
 
+#articleAjoutePanier{
+    display: none;
 }
 
 .contenu .ajouter_panier {
@@ -1230,6 +1237,15 @@ a, a:hover {
 .contenu .panier_content {
     text-align: center;
 }
+
+.contenu .panier_table{
+    display: block;
+}
+
+.contenu .panier_small{
+    display: none;
+}
+
 
 .contenu .panier_table, .contenu .connexion_content {
     margin: 20px;
@@ -1338,6 +1354,37 @@ a, a:hover {
 
 .contenu .panier_table span:hover {
     cursor: pointer;
+}
+
+
+.contenu .panier_small ul{
+    list-style: none;
+    display: inline-block;
+    padding:0;
+    width:100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid #880015;
+    border-top: 1px solid #880015;
+    margin-bottom: 0;
+}
+
+.contenu .panier_small .panier_small_total{
+    font-size:1.2em;
+    font-weight: 700;
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 2px solid #880015;
+}
+
+.contenu .panier_small .produitLibelle{
+    font-size:1.6em;
+}
+
+
+.contenu .detailProduit div{
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .contenu #product_view .images-produit .image {
@@ -1952,9 +1999,27 @@ a, a:hover {
         padding: 0;
     }
 
+    .contenu .panier_table{
+        padding:0;
+    }
+
+    .contenu .panier_table .produitDescription{
+        display:none;
+    }
+
+
 }
 
 @media (max-width: 640px) {
+
+    .contenu .panier_table{
+        display: none;
+    }
+
+    .contenu .panier_small{
+        display: block;
+    }
+
 
     .searchBar .contenu {
         top: 100px;

@@ -59,7 +59,11 @@ export class ProduitViewComponent implements OnInit {
         this.getTailles(this.id);
         this.crossSelling(this.id);
         this.upSelling(this.id);
+        $('#success-alert-panier').hide();
+        $('#success-alert-wishlist').hide();
+
     }
+
 
     getProduit(id): void {
         this.produitService
@@ -96,7 +100,10 @@ export class ProduitViewComponent implements OnInit {
             .then(panier => {
                 this.panier = panier;
                 localStorage.setItem('id_panier', panier.panier.id);
-                location.reload();
+                $('#success-alert-panier').show();
+                window.setTimeout(function () {
+                    location.reload();
+                }, 2000);
             })
             .catch(this.handleError);
     }
@@ -107,7 +114,10 @@ export class ProduitViewComponent implements OnInit {
             .ajouterWishlist(idProduit, 1)
             .then(wishlist => {
                 this.wishlist = wishlist;
-                // localStorage.setItem('id_panier', panier.panier.id);
+                $('#success-alert-wishlist').show();
+                window.setTimeout(function () {
+                    location.reload();
+                }, 2000);
             })
             .catch(this.handleError);
     }
