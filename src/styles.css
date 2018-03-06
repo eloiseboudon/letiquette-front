@@ -1286,8 +1286,8 @@ a, a:hover {
 }
 
 .contenu .panier_table .detailTaille {
-    font-size: 1.6em;
-    font-weight: 700;
+    font-size: 1.4em;
+    font-weight: 600;
 }
 
 .contenu .panier_table .detailProduit img {
@@ -1368,6 +1368,8 @@ a, a:hover {
     margin-bottom: 0;
 }
 
+.contenu .panier_small img{margin-bottom: 10px;}
+
 .contenu .panier_small .panier_small_total{
     font-size:1.2em;
     font-weight: 700;
@@ -1381,7 +1383,7 @@ a, a:hover {
 }
 
 
-.contenu .detailProduit div{
+.contenu .panier_small .detailProduit div{
     text-align: center;
     overflow: hidden;
     white-space: nowrap;
@@ -1781,6 +1783,7 @@ a, a:hover {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
         margin-bottom: 40px;
+        padding-bottom: 10px;
         height: auto;
         min-height: 0;
     }
@@ -1923,7 +1926,7 @@ a, a:hover {
     }
 
     .global_width{
-        height: 120%;
+        height: auto;
     }
 
 }
@@ -2151,6 +2154,10 @@ a, a:hover {
 
     #small-filtres .name {
         width: 100%;
+    }
+
+    .contenu .btn_panier{
+        font-size:1em;
     }
 
 }
