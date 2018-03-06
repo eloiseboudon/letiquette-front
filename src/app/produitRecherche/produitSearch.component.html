@@ -1,0 +1,41 @@
+<div class="contenu">
+    <div class="global_width">
+
+        <div id="searchProducts">
+
+            <div *ngIf="produitSearchList && produitSearchList.length==0" style="text-align: center">Il n'y a pas de résultat pour cette
+                recherche
+            </div>
+            <div *ngIf="produitSearchList && produitSearchList.length>0">
+
+                <div *ngIf="produitSearchList.length==1">
+                <h1 title="Résultat(s) de la recherche">Résultat de la recherche</h1>
+                </div>
+                <div *ngIf="produitSearchList.length>1">
+                    <h1 title="Résultat(s) de la recherche">Résultats de la recherche</h1>
+                </div>
+
+
+                <ul *ngFor="let search of produitSearchList">
+                    <a [routerLink]="['/produit', search.id]">
+
+                        <li class="image">
+                            <img src="assets/images_produits/{{search.image}}" width="300" height="450">
+                        </li>
+                        <li class="marque">{{search.fournisseur.nom_marque}}</li>
+                        <li class="libelle" *ngIf="search.couleur != null">{{search.libelle}}
+                            {{search.couleur.name}}
+                        </li>
+                        <li class="libelle" *ngIf="search.couleur == null">{{search.libelle}}</li>
+                        <li class="prix">{{search.prix}} €</li>
+
+                    </a>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

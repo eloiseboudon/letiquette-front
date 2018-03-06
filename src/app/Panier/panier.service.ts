@@ -76,7 +76,7 @@ export class PanierService {
 
 
     supprimerProduit(detailPanierId: number): Promise<DetailPanier[]> {
-        console.log('supprimer');
+        // console.log('supprimer');
         return this.http.delete(this.panierUrl + '/supprimerProduit/' + detailPanierId, {headers: this.headers})
             .toPromise()
             .then(response =>

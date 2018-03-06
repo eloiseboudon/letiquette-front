@@ -71,7 +71,14 @@ export class ProduitService {
             .catch(this.handleError);
     }
 
-
+    search(search: string): Promise<Produit []> {
+        return this.http.get(this.searchUrl + '/' + search)
+            .toPromise()
+            .then(response =>
+                response.json() as Produit[]
+            )
+            .catch(this.handleError);
+    }
 
 
     private handleError(error: any): Promise<any> {

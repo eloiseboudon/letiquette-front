@@ -1,16 +1,34 @@
 <!--<script src="../membres/membres.component.ts"></script>-->
 <div class="contenu">
     <div class="global_width">
+
+
+        <div class="alert alert-success" id="success-alert-panier">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            Produit ajouté au panier !
+        </div>
+
+        <div class="alert alert-success" id="success-alert-wishlist">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            Produit ajouté à la wishlist !
+        </div>
+
         <div id="product_view" class="product_view">
             <div class="row">
                 <div class="col-xs-6 col-md-7 col-lg-8">
 
+
                     <div class="images-produit">
                         <div class="row">
                             <div class="col col-lg-8 col-md-12">
-                                    <div class="image">
-                                        <img src="assets/images_produits/{{produit.image}}" class="image-principale">
+
+                                <div class="image">
+                                    <div class="ajouter_wishlist">
+                                    <span (click)="ajouterWishlist(produit.id)"><i class="fa fa-heart"
+                                                                         aria-hidden="true"></i></span>
                                     </div>
+                                    <img src="assets/images_produits/{{produit.image}}" class="image-principale">
+                                </div>
                             </div>
                             <div class="col-lg-4 col-md-0">
                                 <div class="images-mignatures">
@@ -58,6 +76,7 @@
                                     AJOUTER AU PANIER
                                 </button>
                             </div>
+
                         </form>
 
                         <div class="description">

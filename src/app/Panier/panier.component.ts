@@ -12,6 +12,8 @@ import {forEach} from '@angular/router/src/utils/collection';
 export class PanierComponent implements OnInit {
     detailPanierList: DetailPanier[];
     total: number = 0;
+    quantiteTotale: number = 0;
+
 
 
     constructor(private panierService: PanierService, private router: Router) {
@@ -29,6 +31,7 @@ export class PanierComponent implements OnInit {
                 this.detailPanierList = detailPanier;
                 await this.detailPanierList;
                 this.prixTotal();
+                this.quantite();
             })
             .catch(this.handleError);
     }
@@ -71,12 +74,12 @@ export class PanierComponent implements OnInit {
     }
 
     quantite(): number {
-        let quantiteTotale = 0;
         this.detailPanierList.forEach(detailPanier =>
-            quantiteTotale += detailPanier.quantite
+            this.quantiteTotale += detailPanier.quantite
         );
-        return quantiteTotale;
+        return this.quantiteTotale;
     }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

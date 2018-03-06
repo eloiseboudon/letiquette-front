@@ -6,13 +6,13 @@
 
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-12 col-sm-4">
                             <h1>Mon panier</h1>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <button class="btn btn_panier btn_continuer_achat">CONTINUER MES ACHATS</button>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <button class="btn btn_panier btn_valider_panier">VALIDER MON PANIER</button>
                         </div>
                     </div>
@@ -42,7 +42,9 @@
                                 <div class="produitCouleur" *ngIf="detailPanier.produit.couleur != null">
                                     {{detailPanier.produit.couleur.name}}
                                 </div>
-                                {{detailPanier.produit.description}}
+                                <div class="produitDescription">
+                                    {{detailPanier.produit.description}}
+                                </div>
 
                             </td>
                             <td class="detailTaille">
@@ -69,29 +71,77 @@
                                     aria-hidden="true"></i></span>
                             </td>
                         </tr>
+
                         </tbody>
                         <tfoot>
                         <tr>
                             <td class="total">Total</td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td>{{quantiteTotale}}</td>
                             <td>{{total}} €</td>
                             <td></td>
                         </tr>
                         </tfoot>
                     </table>
                 </div>
+
+
+                <div class="panier_table panier_small">
+
+                    <ul *ngFor="let detailPanier of detailPanierList">
+                        <li class="detailProduit">
+                            <img src="assets/images_produits/{{detailPanier.produit.image}}"/>
+
+                            <div class="produitLibelle">
+                                {{detailPanier.produit.libelle}}
+                            </div>
+                            <div class="produitMarque">
+                                {{detailPanier.produit.fournisseur.nom_marque}}
+                            </div>
+                            <div class="produitCouleur" *ngIf="detailPanier.produit.couleur != null">
+                                {{detailPanier.produit.couleur.name}}
+                            </div>
+
+                            <div class="detailTaille">
+                                Taille {{detailPanier.taille.taille}}
+                            </div>
+
+
+                            <div class="produitQuantite">
+                                <span *ngIf="detailPanier.quantite>1" (click)="quantiteMoins(detailPanier.id)"><i
+                                        class="fa fa-minus-square-o" aria-hidden="true"></i></span>
+                                {{detailPanier.quantite}}
+                                <span (click)="quantitePlus(detailPanier.id)"><i class="fa fa-plus-square-o"
+                                                                                 aria-hidden="true"></i></span>
+                            </div>
+
+                            <div class="produitPrix">
+                                {{detailPanier.produit.prix * detailPanier.quantite}} €
+                            </div>
+                            <div class="produitTrash"><span (click)="supprimerProduit(detailPanier.id)"><i
+                                    class="fa fa-trash-o"
+                                    aria-hidden="true"></i></span>
+                            </div>
+
+                        </li>
+                    </ul>
+
+                    <div class="panier_small_total">{{total}} €</div>
+
+                </div>
+
+
                 <div class="panier_content">
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-0 col-sm-4">
 
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <button class="btn btn_panier btn_continuer_achat">CONTINUER MES ACHATS</button>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <button class="btn btn_panier btn_valider_panier">VALIDER MON PANIER</button>
 
                         </div>
@@ -100,7 +150,7 @@
             </div>
         </div>
 
-        <div *ngIf="!detailPanierList || detailPanierList.length == 0">
+        <div *ngIf="detailPanierList && detailPanierList.length == 0">
             Le panier est vide
         </div>
 

@@ -1,0 +1,30 @@
+<div class="contenu">
+    <div class="global_width">
+
+        <div id="wishlist">
+            <h1 title="Ma Wishlist">Ma Wishlist</h1>
+
+            <ul *ngFor="let wishlist of wishlistProduits">
+                <li class="supprimerProduit"><span (click)="supprimerProduitWishlist(wishlist.id)"><i class="fa fa-times-circle"
+                                                                                                      aria-hidden="true"></i></span></li>
+                <a [routerLink]="['/produit', wishlist.produit.id]">
+
+                    <li class="image">
+                        <img src="assets/images_produits/{{wishlist.produit.image}}" width="300" height="450">
+                    </li>
+                    <li class="marque">{{wishlist.produit.fournisseur.nom_marque}}</li>
+                    <li class="libelle" *ngIf="wishlist.produit.couleur != null">{{wishlist.produit.libelle}}
+                        {{wishlist.produit.couleur.name}}
+                    </li>
+                    <li class="libelle" *ngIf="wishlist.produit.couleur == null">{{wishlist.produit.libelle}}</li>
+                    <li class="prix">{{wishlist.produit.prix}} €</li>
+
+                    <!--<li><span (click)="ajouterPanier(wishlist.produit.id)"></span></li>-->
+                </a>
+            </ul>
+
+        </div>
+
+
+    </div>
+</div>

@@ -10,6 +10,8 @@ import {TailleService} from '../tailles/taille.service';
 import {Taille} from '../tailles/taille';
 import {PanierService} from '../panier/panier.service';
 import {DetailPanier} from '../detailPanier/detailPanier';
+import {WishlistService} from '../wishlist/wishlist.service';
+import {Wishlist} from '../wishlist/wishlist';
 
 
 @Component({
@@ -28,25 +30,21 @@ export class ProduitViewComponent implements OnInit {
     panier: DetailPanier;
     crossSellingProduits: Produit[];
     upSellingProduits: Produit[];
+    wishlist: Wishlist[];
 
-    // panierList: DetailPanier[];
 
     constructor(private route: ActivatedRoute, private produitService: ProduitService,
                 private tailleService: TailleService,
-                private imageService: ImageService, private panierService: PanierService) {
+                private imageService: ImageService, private panierService: PanierService, private wishlistService: WishlistService) {
         this.route.params.subscribe(params => {
-            // if (this.id !== params.id) {
             this.id = params.id;
-            // window.location.reload();
-            // alert(this.id);
-            // }
 
             this.getProduit(this.id);
             this.getImages(this.id);
             this.getTailles(this.id);
             this.crossSelling(this.id);
             this.upSelling(this.id);
-            window.scroll(0,0);
+            window.scroll(0, 0);
 
         });
     }
@@ -61,7 +59,11 @@ export class ProduitViewComponent implements OnInit {
         this.getTailles(this.id);
         this.crossSelling(this.id);
         this.upSelling(this.id);
+        $('#success-alert-panier').hide();
+        $('#success-alert-wishlist').hide();
+
     }
+
 
     getProduit(id): void {
         this.produitService
@@ -98,6 +100,24 @@ export class ProduitViewComponent implements OnInit {
             .then(panier => {
                 this.panier = panier;
                 localStorage.setItem('id_panier', panier.panier.id);
+                $('#success-alert-panier').show();
+                window.setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            })
+            .catch(this.handleError);
+    }
+
+
+    ajouterWishlist(idProduit): void {
+        this.wishlistService
+            .ajouterWishlist(idProduit, 1)
+            .then(wishlist => {
+                this.wishlist = wishlist;
+                $('#success-alert-wishlist').show();
+                window.setTimeout(function () {
+                    location.reload();
+                }, 2000);
             })
             .catch(this.handleError);
     }

@@ -311,6 +311,13 @@
 
                     <ul id="products_view"
                         *ngFor="let produit of (produitsList | filterPrice | filterTaille:filterArrTaille | filterMarque: filterArrMarque | filterCouleur: filterArrCouleur | filterEthique: filterArrEthique | unique | sortBy: 'prix' : tri | paginate: { itemsPerPage: pageSize, currentPage: p })">
+
+
+                        <li class="ajouterWishlist">
+                            <span (click)="ajouterWishlist(produit.id)">
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            </span>
+                        </li>
                         <a [routerLink]="['/produit', produit.id]">
 
                             <li class="image">

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as jQuery from 'jquery';
 import {AuthenticationService} from '../authentication/authentication.service';
 import {Router} from '@angular/router';
@@ -16,27 +16,35 @@ import {ProduitsFemmesComponent} from '../produitsFemmes/produitsFemmes.componen
 
 
 import 'rxjs/add/operator/debounceTime';
+import {FormGroup, Validators, FormBuilder, NgForm} from '@angular/forms';
 
 @Component({
-    moduleId: module.id,
-    selector: 'ng-nav',
+    // moduleId: module.id,
+    selector: 'app-nav',
     templateUrl: 'nav.component.html'
 })
 
 export class NavbarComponent implements OnInit {
     membre_nom: string;
-    quantiteTotale: number = 0;
     familleGlobalList: FamilleGlobal[];
     famillesList: Famille[];
+    searchForm: FormGroup;
+    smallFormSearch: FormGroup;
+    searchInput: string;
+    produitSearchList: Produit[];
+    @Input() quantiteTotale: number;
+
 
     tousFamillesGlobal: string[] = ['Tous les hauts', 'Tous les bas', 'Toutes les chaussures',
         'Toute la lingerie', 'Toute la lingerie', 'Tous les accessoires'];
     tousFg: number;
 
-    constructor(private authenticationService: AuthenticationService, private panierService: PanierService,
+    constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService, private panierService: PanierService,
                 private tailleTypeService: TailleTypeService, private familleService: FamilleService,
                 private produitService: ProduitService, private familleGlobalService: FamilleGlobalService, private router: Router) {
-
+        this.searchForm = formBuilder.group({
+            'searchInput': ['', Validators.required]
+        });
     }
 
     ngOnInit(): void {
@@ -52,8 +60,7 @@ export class NavbarComponent implements OnInit {
                     document.getElementById('top-page-scroll').style.visibility = 'visible';
                     document.getElementById('top-barre').style.visibility = 'hidden';
                     document.getElementById('top-barre').style.position = 'static';
-                }
-                else {
+                } else {
                     document.getElementById('top-barre').style.position = 'static';
                     document.getElementById('top-page-scroll').style.visibility = 'hidden';
                     document.getElementById('top-barre').style.visibility = 'visible';
@@ -106,6 +113,15 @@ export class NavbarComponent implements OnInit {
             $('body').toggleClass('searchBar');
         });
 
+        $('#smallFormSearch').submit(function (event) {
+            event.preventDefault();
+            $('body').removeClass('searchBar');
+        });
+
+        $('.click-smallSearch').click(function () {
+            $('body').removeClass('searchBar');
+        });
+
 
         $(window).click(function (event) {
             if (!event.target.matches('.dropbtn')) {
@@ -150,8 +166,6 @@ export class NavbarComponent implements OnInit {
         for (let i = 0; i < this.familleGlobalList.length; i++) {
             this.familleGlobalList[i].checked = false;
         }
-
-
     }
 
     afficherFamilleF(familleGlobale): void {
@@ -190,6 +204,15 @@ export class NavbarComponent implements OnInit {
             });
     }
 
+
+    search(search: NgForm): void {
+        this.router.navigateByUrl('search/' + search.value.searchInput);
+    }
+
+
+    searchsmall(search: NgForm): void {
+        this.router.navigateByUrl('search/' + search.value.smallsearchInput);
+    }
 
 }
 
