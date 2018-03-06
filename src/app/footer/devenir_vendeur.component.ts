@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, NgForm, FormControl} from '@angular/forms';
 import {NavigationEnd, Router} from '@angular/router';
 import {FooterService} from './footer.service';
 
@@ -32,6 +32,11 @@ export class DevenirVendeurComponent implements OnInit {
             'telephone': ['', Validators.required],
             'message': ['', Validators.required]
         });
+
+        // this.devenirVendeurForm = new FormGroup({
+        //     'entreprise': new FormControl(this.entreprise,
+        //         [Validators.required])
+        // });
     }
 
     ngOnInit() {
@@ -42,6 +47,11 @@ export class DevenirVendeurComponent implements OnInit {
             window.scrollTo(0, 0);
         });
         this.goToTop();
+
+
+
+
+
     }
 
 
@@ -61,6 +71,7 @@ export class DevenirVendeurComponent implements OnInit {
     }
 
     devenirVendeur(contact: NgForm) {
+        console.log(contact);
         this.footerService
             .devenirVendeur(contact.value)
             .then(response => {

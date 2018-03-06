@@ -30,6 +30,10 @@ a, a:hover {
     color: #000;
 }
 
+.required{
+    color:#880015;
+}
+
 .global_width {
     /*max-width: 1760px;*/
     margin: 16px;

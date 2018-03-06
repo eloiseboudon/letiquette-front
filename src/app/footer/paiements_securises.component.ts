@@ -8,7 +8,7 @@ import {NavigationEnd, Router} from '@angular/router';
     '        <div class="footer">\n' +
     '\n' +
     '            <h1 title="Paiements sécurisés">Paiements sécurisés</h1>' +
-    '<p>L’Etiquette prend très au sérieux la protection des données de ses clients. Les paiements sont sécurisés et gérés par PayGreen. <br/>' +
+    '<p>L’Etiquette prend très au sérieux la protection des données de ses clients. Les paiements sont sécurisés et gérés par <a href="https://paygreen.io/">PayGreen</a>. <br/>' +
     'A aucun moment les données bancaires ne transitent par le système informatique de L’Etiquette. </p>' +
     '</div> </div> </div>'
 })
