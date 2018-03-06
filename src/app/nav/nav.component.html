@@ -67,15 +67,17 @@
             <div class="row">
                 <div class="col-12" id="smallSearch">
 
-                    <form  #smallFormSearch="ngForm" (ngSubmit)="searchsmall(smallFormSearch)">
+
+                    <form id="smallFormSearch" #smallFormSearch="ngForm" (ngSubmit)="searchsmall(smallFormSearch)">
                         <div class="form-group">
-                            <label class="searchLabel" for="smallFormSearch">
-                                <input id="smallFormSearch" class="form-control" #smallFormSearch type="text"
-                                       ngModel name="searchInput" placeholder="Rechercher"/>
-                                <span class="fa fa-search" (click)="searchsmall(smallFormSearch)"></span>
+                            <label class="searchLabel" for="smallsearchInput">
+                                <input id="smallsearchInput" class="form-control" #searchInput type="text"
+                                       ngModel name="smallsearchInput" placeholder="Rechercher"/>
+                                <span class="fa fa-search click-smallSearch" (click)="searchsmall(smallFormSearch)"></span>
                             </label>
                         </div>
                     </form>
+
                 </div>
             </div>
 

@@ -3,24 +3,36 @@
 
         <div id="searchProducts">
 
-            <h1 title="Résultat(s) de la recherche">Résultat(s) de la recherche</h1>
+            <div *ngIf="produitSearchList && produitSearchList.length==0" style="text-align: center">Il n'y a pas de résultat pour cette
+                recherche
+            </div>
+            <div *ngIf="produitSearchList && produitSearchList.length>0">
 
-            <ul *ngFor="let search of produitSearchList">
-                <a [routerLink]="['/produit', search.id]">
+                <div *ngIf="produitSearchList.length==1">
+                <h1 title="Résultat(s) de la recherche">Résultat de la recherche</h1>
+                </div>
+                <div *ngIf="produitSearchList.length>1">
+                    <h1 title="Résultat(s) de la recherche">Résultats de la recherche</h1>
+                </div>
 
-                    <li class="image">
-                        <img src="assets/images_produits/{{search.image}}" width="300" height="450">
-                    </li>
-                    <li class="marque">{{search.fournisseur.nom_marque}}</li>
-                    <li class="libelle" *ngIf="search.couleur != null">{{search.libelle}}
-                        {{search.couleur.name}}
-                    </li>
-                    <li class="libelle" *ngIf="search.couleur == null">{{search.libelle}}</li>
-                    <li class="prix">{{search.prix}} €</li>
 
-                    <!--<li><span (click)="ajouterPanier(wishlist.produit.id)"></span></li>-->
-                </a>
-            </ul>
+                <ul *ngFor="let search of produitSearchList">
+                    <a [routerLink]="['/produit', search.id]">
+
+                        <li class="image">
+                            <img src="assets/images_produits/{{search.image}}" width="300" height="450">
+                        </li>
+                        <li class="marque">{{search.fournisseur.nom_marque}}</li>
+                        <li class="libelle" *ngIf="search.couleur != null">{{search.libelle}}
+                            {{search.couleur.name}}
+                        </li>
+                        <li class="libelle" *ngIf="search.couleur == null">{{search.libelle}}</li>
+                        <li class="prix">{{search.prix}} €</li>
+
+                    </a>
+                </ul>
+
+            </div>
 
         </div>
 

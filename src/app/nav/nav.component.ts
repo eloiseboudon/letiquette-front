@@ -114,6 +114,15 @@ export class NavbarComponent implements OnInit {
             $('body').toggleClass('searchBar');
         });
 
+        $('#smallFormSearch').submit(function (event) {
+            event.preventDefault();
+            $('body').removeClass('searchBar');
+        });
+
+        $('.click-smallSearch').click(function () {
+            $('body').removeClass('searchBar');
+        });
+
 
         $(window).click(function (event) {
             if (!event.target.matches('.dropbtn')) {
@@ -203,7 +212,7 @@ export class NavbarComponent implements OnInit {
 
 
     searchsmall(search: NgForm): void {
-        this.router.navigateByUrl('search/' + search.value.smallFormSearch);
+        this.router.navigateByUrl('search/' + search.value.smallsearchInput);
     }
 
 }

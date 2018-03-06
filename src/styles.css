@@ -1733,7 +1733,13 @@ a, a:hover {
         overflow-x: hidden;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 100px;
+        margin-bottom: 40px;
+        height: auto;
+        min-height: 0;
+    }
+
+    .affichage_produit {
+        display:none;
     }
 
     .menu {
@@ -1867,6 +1873,10 @@ a, a:hover {
 
     #lequipe .lequipe_image {
         display: flex;
+    }
+
+    .global_width{
+        height: 120%;
     }
 
 }
