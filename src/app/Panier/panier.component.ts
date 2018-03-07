@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {PanierService} from './panier.service';
 import {DetailPanier} from '../detailPanier/detailPanier';
 import {forEach} from '@angular/router/src/utils/collection';
+import {overrideOptions} from '@angular/cli/utilities/override-options';
 
 @Component({
     selector: 'panier-root',
@@ -14,10 +15,9 @@ export class PanierComponent implements OnInit {
     total: number = 0;
     quantiteTotale: number = 0;
 
-
-
-    constructor(private panierService: PanierService, private router: Router) {
+    constructor(private panierService: PanierService, private router: Router){
     }
+
 
     ngOnInit(): void {
         this.getProduitsPanier();
