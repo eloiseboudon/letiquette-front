@@ -14,11 +14,8 @@ export class PanierComponent implements OnInit {
     detailPanierList: DetailPanier[];
     total: number = 0;
     quantiteTotale: number = 0;
-    content: string;
-    style: string;
-    dismissed: boolean = false;
 
-    constructor(private panierService: PanierService, private router: Router, content, style) {
+    constructor(private panierService: PanierService, private router: Router){
     }
 
 
