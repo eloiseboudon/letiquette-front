@@ -12,9 +12,9 @@ import {FooterService} from './footer.service';
 
 export class DevenirVendeurComponent implements OnInit {
     devenirVendeurForm: FormGroup;
-    contact: any;
-    entreprise: string;
-    site_internet: string;
+    // contact: any;
+    // entreprise: string;
+    // site_internet: string;
     nom: string;
     prenom: string;
     email: string;
@@ -32,11 +32,6 @@ export class DevenirVendeurComponent implements OnInit {
             'telephone': ['', Validators.required],
             'message': ['', Validators.required]
         });
-
-        // this.devenirVendeurForm = new FormGroup({
-        //     'entreprise': new FormControl(this.entreprise,
-        //         [Validators.required])
-        // });
     }
 
     ngOnInit() {
@@ -47,13 +42,7 @@ export class DevenirVendeurComponent implements OnInit {
             window.scrollTo(0, 0);
         });
         this.goToTop();
-
-
-
-
-
     }
-
 
     goToTop(): void {
         $(window).scroll(function () {
@@ -71,7 +60,6 @@ export class DevenirVendeurComponent implements OnInit {
     }
 
     devenirVendeur(contact: NgForm) {
-        console.log(contact);
         this.footerService
             .devenirVendeur(contact.value)
             .then(response => {

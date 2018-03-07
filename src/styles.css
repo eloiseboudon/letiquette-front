@@ -68,6 +68,7 @@ a, a:hover {
     background-color: rgba(136, 0, 21, 0.5) !important;
 }
 
+
 /* EOF GLOBAL */
 
 /*  BOOTSTRAP COL SIZE */
@@ -1216,7 +1217,8 @@ a, a:hover {
     text-align: center;
 }
 
-.contenu .ajouter_panier .btn_ajout_panier, .contenu .btn_panier, .contenu .btn_connexion {
+.contenu .ajouter_panier .btn_ajout_panier, .contenu .btn_panier, .contenu .btn_connexion,
+.footer .btn-footer{
     color: #ffffff;
     font-size: 1.5em;
     background: #880015;
@@ -1637,6 +1639,8 @@ a, a:hover {
 #filtres .annuler_filtres {
     margin-top: 10px;
     margin-bottom: 10px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1.5em;
     text-align: center;
