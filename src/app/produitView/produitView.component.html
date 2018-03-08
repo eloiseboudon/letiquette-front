@@ -25,7 +25,7 @@
                                 <div class="image">
                                     <div class="ajouter_wishlist">
                                     <span (click)="ajouterWishlist(produit.id)"><i class="fa fa-heart"
-                                                                         aria-hidden="true"></i></span>
+                                                                                   aria-hidden="true"></i></span>
                                     </div>
                                     <img src="assets/images_produits/{{produit.image}}" class="image-principale">
                                 </div>
@@ -78,6 +78,16 @@
                             </div>
 
                         </form>
+                        <div class="declinaison-ethique">
+                            <ul *ngFor="let declinaisonEthique of declinaisonEthiqueList">
+
+                                <li>
+                                    <img src="assets/icones_impact/{{declinaisonEthique.point_ethique.image}}"
+                                         alt="{{declinaisonEthique.point_ethique.nom_ethique}}"
+                                         title="{{declinaisonEthique.point_ethique.nom_ethique}}">
+                                </li>
+                            </ul>
+                        </div>
 
                         <div class="description">
                             {{produit.description}}

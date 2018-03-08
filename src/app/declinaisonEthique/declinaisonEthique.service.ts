@@ -2,31 +2,31 @@ import {Injectable} from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import {DeclinaisonEthique} from './declinaisonEthique';
 
-import {PointsEthiques} from './pointsEthiques';
-import {Produit} from '../produits/produit';
 
 @Injectable()
-export class PointsEthiquesService{
+export class DeclinaisonEthiqueService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private pointsEthiquesUrl = 'http://api.letiquette-shop.fr/impactsethiques';  // URL to api
+
+    private ethiqueUrl = 'http://api.letiquette-shop.fr/ethique';
 
     constructor(private http: Http) {
 
     }
 
-    getAllPointsEthiques(): Promise<PointsEthiques[]>  {
-        return this.http.get(this.pointsEthiquesUrl)
+    getPointEthiqueByProduit(idProduit: number): Promise<DeclinaisonEthique[]> {
+        return this.http.get(this.ethiqueUrl + '/produit/' + idProduit)
             .toPromise()
             .then(response =>
-                response.json() as PointsEthiques[])
+                response.json() as DeclinaisonEthique[])
             .catch(this.handleError);
     }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
-
 
 }

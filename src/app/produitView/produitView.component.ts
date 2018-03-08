@@ -12,6 +12,8 @@ import {PanierService} from '../panier/panier.service';
 import {DetailPanier} from '../detailPanier/detailPanier';
 import {WishlistService} from '../wishlist/wishlist.service';
 import {Wishlist} from '../wishlist/wishlist';
+import {DeclinaisonEthiqueService} from '../declinaisonEthique/declinaisonEthique.service';
+import {DeclinaisonEthique} from '../declinaisonEthique/declinaisonEthique';
 
 
 @Component({
@@ -31,10 +33,11 @@ export class ProduitViewComponent implements OnInit {
     crossSellingProduits: Produit[];
     upSellingProduits: Produit[];
     wishlist: Wishlist[];
+    declinaisonEthiqueList: DeclinaisonEthique[];
 
 
     constructor(private route: ActivatedRoute, private produitService: ProduitService,
-                private tailleService: TailleService,
+                private tailleService: TailleService, private declinaisonEthiqueService: DeclinaisonEthiqueService,
                 private imageService: ImageService, private panierService: PanierService, private wishlistService: WishlistService) {
         this.route.params.subscribe(params => {
             this.id = params.id;
@@ -44,6 +47,7 @@ export class ProduitViewComponent implements OnInit {
             this.getTailles(this.id);
             this.crossSelling(this.id);
             this.upSelling(this.id);
+            this.getPointEthiqueByProduit(this.id);
             window.scroll(0, 0);
 
         });
@@ -59,6 +63,8 @@ export class ProduitViewComponent implements OnInit {
         this.getTailles(this.id);
         this.crossSelling(this.id);
         this.upSelling(this.id);
+        this.getPointEthiqueByProduit(this.id);
+
         $('#success-alert-panier').hide();
         $('#success-alert-wishlist').hide();
 
@@ -148,6 +154,14 @@ export class ProduitViewComponent implements OnInit {
             .upSelling(idProduit)
             .then(upselling =>
                 this.upSellingProduits = upselling);
+    }
+
+    getPointEthiqueByProduit(idProduit): void {
+        this.declinaisonEthiqueService
+            .getPointEthiqueByProduit(idProduit)
+            .then(declinaisonEthique =>
+                this.declinaisonEthiqueList = declinaisonEthique
+            );
     }
 
 

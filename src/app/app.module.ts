@@ -62,6 +62,7 @@ import {TailleTypeService} from './tailleType/tailleType.service';
 import {TailleService} from './tailles/taille.service';
 import {CouleurService} from './couleurs/couleur.service';
 import {PointsEthiquesService} from './pointsEthiques/pointsEthiques.service';
+import {DeclinaisonEthiqueService} from './declinaisonEthique/declinaisonEthique.service';
 
 import {FaqComponent} from './footer/faq.component';
 import {LivraisonRetourComponent} from './footer/livraison_retour.component';
@@ -75,6 +76,8 @@ import {CGUComponent} from './footer/cgu.component';
 import {MentionsLegalesComponent} from './footer/mentions_legales.component';
 import {PaiementsSecurisesComponent} from './footer/paiements_securises.component';
 import {CookiesComponent} from './footer/cookies.component';
+
+
 import {ProduitSearchComponent} from './produitRecherche/produitSearch.component';
 
 
@@ -139,6 +142,7 @@ import {ProduitSearchComponent} from './produitRecherche/produitSearch.component
         FamilleService,
         FamilleGlobalService,
         CouleurService,
+        DeclinaisonEthiqueService,
         ProduitService,
         PointsEthiquesService,
         ImageService,

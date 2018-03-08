@@ -1136,6 +1136,17 @@ a, a:hover {
     background-color: #fff;
 }
 
+
+.contenu #product_view .contenu-produit img{
+    width:50px;
+}
+
+.contenu #product_view .contenu-produit .declinaison-ethique ul{
+    padding:0;
+    display: inline-block;
+    margin:10px;
+}
+
 .contenu #product_view .images-produit img.image-principale {
     /*border: solid 0.5px #c1c1c1;*/
     width: 300px;
