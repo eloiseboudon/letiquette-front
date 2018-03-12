@@ -10,7 +10,7 @@ import {Produit} from '../produits/produit';
 @Injectable()
 export class PanierService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private panierUrl = 'http://api.letiquette-shop.fr/panier';  // URL to api
+    private panierUrl = 'http://127.0.0.1:8000/panier';  // URL to api
     private idPanier;
     detailPanier: any[] = [];
 

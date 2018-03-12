@@ -13,8 +13,8 @@ import {Produit} from './produit';
 export class ProduitService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
 
-    private produits = 'http://api.letiquette-shop.fr/produits';
-    private searchUrl = 'http://api.letiquette-shop.fr/search';
+    private produits = 'http://127.0.0.1:8000/produits';
+    private searchUrl = 'http://127.0.0.1:8000/search';
 
     constructor(private http: Http) {
     }

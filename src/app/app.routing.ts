@@ -40,7 +40,7 @@ const appRoutes: Routes = [
     {path: 'produits/femmes/:name', component: ProduitsFemmesComponent},
     {path: 'produits/hommes/:name', component: ProduitsHommesComponent},
     {path: 'produit/:id', component: ProduitViewComponent},
-    {path: 'login', component: AuthenticationComponent},
+
     {path: 'panier', component: PanierComponent},
     {path: 'wishlist', component: WishlistComponent},
     {path: 'faq', component: FaqComponent},
@@ -56,6 +56,8 @@ const appRoutes: Routes = [
     {path: 'cookies', component: CookiesComponent},
     {path: 'search/:search', component: ProduitSearchComponent},
 
+    {path: 'connexion', component: AuthenticationComponent},
+    {path: 'inscription', component: MembresComponent},
     // {
     //     path: 'post',
     //     component: PostComponent

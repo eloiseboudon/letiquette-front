@@ -9,7 +9,7 @@ import {DeclinaisonEthique} from './declinaisonEthique';
 export class DeclinaisonEthiqueService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
 
-    private ethiqueUrl = 'http://api.letiquette-shop.fr/ethique';
+    private ethiqueUrl = 'http://127.0.0.1:8000/ethique';
 
     constructor(private http: Http) {
 

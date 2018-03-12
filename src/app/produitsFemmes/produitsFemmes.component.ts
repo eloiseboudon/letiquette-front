@@ -30,6 +30,8 @@ import {PointsEthiquesService} from '../pointsEthiques/pointsEthiques.service';
 import {split} from 'ts-node/dist';
 import {Wishlist} from '../wishlist/wishlist';
 import {WishlistService} from '../wishlist/wishlist.service';
+import {DeclinaisonEthiqueService} from '../declinaisonEthique/declinaisonEthique.service';
+import {DeclinaisonEthique} from '../declinaisonEthique/declinaisonEthique';
 
 
 @Component({
@@ -59,13 +61,15 @@ export class ProduitsFemmesComponent implements OnInit {
     filterArrEthique = [];
     tri: string = 'asc';
     wishlist: Wishlist[];
+    declinaisonEthiqueList: DeclinaisonEthique[];
 
     page: any;
 
 
     constructor(private route: ActivatedRoute, private router: Router, private produitFemmesService: ProduitFemmesService, private produitService: ProduitService, private tailleTypeService: TailleTypeService,
                 private familleService: FamilleService, private familleGlobalService: FamilleGlobalService, private fournisseurService: FournisseurService,
-                private  couleurService: CouleurService, private pointsEthiquesService: PointsEthiquesService, private wishlistService: WishlistService) {
+                private  couleurService: CouleurService, private pointsEthiquesService: PointsEthiquesService, private declinaisonEthiqueService: DeclinaisonEthiqueService,
+                private wishlistService: WishlistService) {
         this.route.params.subscribe(params => {
             this.page = params.name;
             if (this.page) {
@@ -88,6 +92,7 @@ export class ProduitsFemmesComponent implements OnInit {
         this.getProduitByFamillesGlobales();
         this.filtrePrix();
         this.goToTop();
+
 
 
         this.route.params.subscribe(params => {
@@ -350,6 +355,15 @@ export class ProduitsFemmesComponent implements OnInit {
             .then(wishlist => {
                 this.wishlist = wishlist;
             });
+    }
+
+    getPointEthiqueByProduit(idProduit): void {
+        alert(idProduit);
+        this.declinaisonEthiqueService
+            .getPointEthiqueByProduit(idProduit)
+            .then(declinaisonEthique =>
+                this.declinaisonEthiqueList = declinaisonEthique
+            );
     }
 
 }

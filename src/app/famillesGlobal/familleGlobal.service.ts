@@ -8,7 +8,7 @@ import { FamilleGlobal } from './familleGlobal';
 export class FamilleGlobalService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private famillesglobalesUrl = 'http://api.letiquette-shop.fr/famillesGlobales';
+    private famillesglobalesUrl = 'http://127.0.0.1:8000/famillesGlobales';
 
     constructor(private http: Http) { }
 

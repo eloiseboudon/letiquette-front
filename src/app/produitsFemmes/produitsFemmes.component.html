@@ -276,13 +276,15 @@
                     </div>
                 </div>
 
-
-                <div class="affichage_produit" *ngIf="produitsList.length > 96">
-                    <!--<div class="affichage_produit">-->
-                    <div class="row">
-                        <div class="col-6">
-                            <pagination-controls class="my-pagination" (pageChange)="p = $event"
-                                                 previousLabel="Précédent" nextLabel="Suivant"></pagination-controls>
+                <div *ngIf="produitsList">
+                    <div class="affichage_produit" *ngIf="produitsList.length > 96">
+                        <!--<div class="affichage_produit">-->
+                        <div class="row">
+                            <div class="col-6">
+                                <pagination-controls class="my-pagination" (pageChange)="p = $event"
+                                                     previousLabel="Précédent"
+                                                     nextLabel="Suivant"></pagination-controls>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -330,6 +332,12 @@
                             <li class="libelle" *ngIf="produit.couleur == null">{{produit.libelle}}</li>
                             <li class="prix">{{produit.prix}} €</li>
 
+                            <span (change)="getPointEthiqueByProduit(produit.id)">
+                                <ul *ngFor="let pe of declinaisonEthiqueList">
+                                    <li>{{pe.point_ethique.image}}</li>
+                                </ul>
+                            </span>
+
                         </a>
                     </ul>
                 </div>
@@ -338,12 +346,14 @@
                 <div class="affichage_produit">
                     <div class="row">
                         <div class="col-6">
-                            <pagination-controls *ngIf="produitsList.length > 96" class="my-pagination">
-                                <!--<pagination-controls class="my-pagination"-->
-                                (pageChange)="p = $event"
-                                previousLabel="Précédent"
-                                nextLabel="Suivant">
-                            </pagination-controls>
+                            <div *ngIf="produitsList">
+                                <pagination-controls *ngIf="produitsList.length > 96" class="my-pagination">
+                                    <!--<pagination-controls class="my-pagination"-->
+                                    (pageChange)="p = $event"
+                                    previousLabel="Précédent"
+                                    nextLabel="Suivant">
+                                </pagination-controls>
+                            </div>
                         </div>
                         <div class="col-6">
                             <!-- Filtres prix -->
