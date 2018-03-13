@@ -1,6 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {VilleService} from '../villes/ville.service';
-import {Ville} from '../villes/ville';
+import {Component} from '@angular/core';
 import {MembresService} from './membres.service';
 import {Membres} from './membres';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
@@ -9,8 +7,7 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
     selector: 'app-membres',
     templateUrl: './membres.component.html'
 })
-export class MembresComponent implements OnInit {
-    villesList: Ville[];
+export class MembresComponent {
     membreForm: FormGroup;
     civilite: string;
     nom: string;
@@ -25,7 +22,7 @@ export class MembresComponent implements OnInit {
     pays: string;
 
 
-    constructor(private formBuilder: FormBuilder, private membreService: MembresService, private villeService: VilleService) {
+    constructor(private formBuilder: FormBuilder, private membreService: MembresService) {
         this.membreForm = formBuilder.group({
             'civilite': ['', Validators.required],
             'nom': ['', Validators.required],
@@ -42,21 +39,17 @@ export class MembresComponent implements OnInit {
 
     }
 
-    ngOnInit() {
-        // this.getAllVille();
-    }
-
-
-    // getAllVille(): void {
-    //     this.villeService
-    //         .getVilles()
-    //         .then(villes => {
-    //             this.villesList = villes;
-    //         });
-    // }
 
     creerMembre(membre: NgForm) {
         this.membreService.creer(membre.value)
+            .then(response => {
+                return response;
+            });
+    }
+
+
+    connexion(membre: NgForm) {
+        this.membreService.connexion(membre.value)
             .then(response => {
                 return response;
             });

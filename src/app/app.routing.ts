@@ -26,6 +26,7 @@ import {PaiementsSecurisesComponent} from './footer/paiements_securises.componen
 import {CookiesComponent} from './footer/cookies.component';
 import {WishlistComponent} from './wishlist/wishlist.component';
 import {ProduitSearchComponent} from './produitRecherche/produitSearch.component';
+import {ConnexionComponent} from './membres/connexion.component';
 
 
 const appRoutes: Routes = [
@@ -56,7 +57,7 @@ const appRoutes: Routes = [
     {path: 'cookies', component: CookiesComponent},
     {path: 'search/:search', component: ProduitSearchComponent},
 
-    {path: 'connexion', component: AuthenticationComponent},
+    {path: 'connexion', component: ConnexionComponent},
     {path: 'inscription', component: MembresComponent},
     // {
     //     path: 'post',
