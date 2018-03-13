@@ -79,7 +79,6 @@ import {CookiesComponent} from './footer/cookies.component';
 
 
 import {ProduitSearchComponent} from './produitRecherche/produitSearch.component';
-import {ConnexionComponent} from './membres/connexion.component';
 
 
 
@@ -109,7 +108,6 @@ import {ConnexionComponent} from './membres/connexion.component';
         FilterTaillePipe,
         FilterEthiquePipe,
         MembresComponent,
-        ConnexionComponent,
         PanierComponent,
         WishlistComponent,
         ProduitSearchComponent,

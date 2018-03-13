@@ -54,7 +54,7 @@ a, a:hover {
 }
 
 .contenu {
-    padding-bottom: 260px;
+    /*padding-bottom: 260px;*/
     height: 100%;
     min-height: 100vh;
 }
@@ -627,7 +627,7 @@ a, a:hover {
     position: fixed;
     right: 20px;
     bottom: 40%;
-    display: none;
+    /*display: none;*/
     padding: 16px;
     background: white;
     color: #000000;
@@ -652,7 +652,7 @@ a, a:hover {
 
 #bottom-page {
     position: absolute;
-    bottom: 0px;
+    /*bottom: 0px;*/
     width: 100%;
 }
 
@@ -1767,7 +1767,7 @@ a, a:hover {
 
     /* MENU REPONSIVE*/
     .global-container {
-        overflow: hidden;
+        overflow-x: hidden;
         height: 100%
     }
 
@@ -1791,15 +1791,15 @@ a, a:hover {
     }
 
     .contenu {
-        position: absolute;
-        top: 60px;
+        /*position: absolute;*/
+        /*top: 60px;*/
         right: 0;
         left: 0;
         bottom: 0;
         overflow-x: hidden;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        margin-bottom: 40px;
+        /*margin-bottom: 40px;*/
         padding-bottom: 10px;
         height: auto;
         min-height: 0;
@@ -1889,8 +1889,6 @@ a, a:hover {
     }
 
     #top_link {
-        /*display: block !important;*/
-        display: none;
         bottom: 10%;
         border-radius: 50%;
         width: 40px;

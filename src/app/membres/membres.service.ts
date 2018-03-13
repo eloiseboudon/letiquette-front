@@ -4,6 +4,7 @@ import {Membres} from './membres';
 
 import 'rxjs/add/operator/toPromise';
 import {Panier} from '../Panier/panier';
+import {Ville} from '../villes/ville';
 
 @Injectable()
 export class MembresService {
@@ -65,6 +66,17 @@ export class MembresService {
             .catch(this.handleError);
 
     }
+
+
+    getMembre(id: number): Promise<Membres> {
+        return this.http.get(this.membresURL)
+            .toPromise()
+            .then(response =>
+                response.json() as Membres)
+            .catch(this.handleError);
+
+    }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

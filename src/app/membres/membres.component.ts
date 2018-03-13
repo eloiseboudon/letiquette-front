@@ -8,7 +8,7 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
     templateUrl: './membres.component.html'
 })
 export class MembresComponent {
-    membreForm: FormGroup;
+    inscriptionForm: FormGroup;
     civilite: string;
     nom: string;
     prenom: string;
@@ -20,10 +20,12 @@ export class MembresComponent {
     ville: string;
     code_postal: string;
     pays: string;
-
+    connexionForm: FormGroup;
+    usernamme: string;
+    membre: Membres;
 
     constructor(private formBuilder: FormBuilder, private membreService: MembresService) {
-        this.membreForm = formBuilder.group({
+        this.inscriptionForm = formBuilder.group({
             'civilite': ['', Validators.required],
             'nom': ['', Validators.required],
             'prenom': ['', Validators.required],
@@ -35,6 +37,11 @@ export class MembresComponent {
             'ville': ['', Validators.required],
             'code_postal': ['', Validators.required],
             'pays': ['', Validators.required]
+        });
+
+        this.connexionForm = formBuilder.group({
+            'usernamme': ['', Validators.required],
+            'password': ['', Validators.required],
         });
 
     }
@@ -50,8 +57,8 @@ export class MembresComponent {
 
     connexion(membre: NgForm) {
         this.membreService.connexion(membre.value)
-            .then(response => {
-                return response;
+            .then(new_membre => {
+                this.membre = new_membre;
             });
     }
 

@@ -1,0 +1,58 @@
+<div class="contenu">
+    <div class="global_width">
+
+        <div class="row">
+
+            <div class="col-12 col-md-6 commande">
+                <h2>Adresse de livraison</h2>
+                <form #creerAdresseLivraisonForm="ngForm" (ngSubmit)="creerAdresseLivraison(creerAdresseLivraisonForm)">
+
+                    <div class="form-group">
+                        <label for="nom">Nom de l'adresse <span class="required">*</span></label>
+                        <input id="nom" class="form-control" #nom type="text"
+                               ngModel name="nom" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input id="email" class="form-control" #email type="text"
+                               ngModel name="email" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adresse">Adresse <span class="required">*</span></label>
+                        <input id="adresse" class="form-control" #adresse type="text"
+                               ngModel name="adresse" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="complement">Complément</label>
+                        <input id="complement" class="form-control" #complement type="text"
+                               ngModel name="complement"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="codePostal">Code postal</label>
+                        <input id="codePostal" class="form-control" #codePostal type="text"
+                               ngModel name="codePostal"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ville">Ville</label>
+                        <input id="ville" class="form-control" #ville type="text"
+                               ngModel name="ville"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pays">Pays</label>
+                        <input id="pays" class="form-control" #pays type="text"
+                               ngModel name="pays"/>
+                    </div>
+
+                    <button type="submit" [disabled]="!creerAdresseLivraisonForm.form.valid">Envoyer</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
