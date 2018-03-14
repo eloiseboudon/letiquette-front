@@ -13,8 +13,8 @@ import {FooterService} from './footer.service';
 export class DevenirVendeurComponent implements OnInit {
     devenirVendeurForm: FormGroup;
     // contact: any;
-    // entreprise: string;
-    // site_internet: string;
+    entreprise: string;
+    site_internet: string;
     nom: string;
     prenom: string;
     email: string;

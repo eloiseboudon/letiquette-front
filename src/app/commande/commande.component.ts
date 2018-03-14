@@ -10,7 +10,7 @@ import {AdresseService} from '../adresse/adresse.service';
     templateUrl: './commande.component.html'
 })
 export class CommandeComponent implements OnInit {
-    id: number = 1;
+    id = 1;
     client: Membres;
 
     constructor(private membreService: MembresService, private adresseService: AdresseService) {
@@ -36,6 +36,7 @@ export class CommandeComponent implements OnInit {
                 return response;
             });
     }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

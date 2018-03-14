@@ -26,6 +26,8 @@ import {PaiementsSecurisesComponent} from './footer/paiements_securises.componen
 import {CookiesComponent} from './footer/cookies.component';
 import {WishlistComponent} from './wishlist/wishlist.component';
 import {ProduitSearchComponent} from './produitRecherche/produitSearch.component';
+import {LivraisonComponent} from './commande/livraison.component';
+import {FacturationComponent} from './commande/facturation.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -41,6 +43,13 @@ const appRoutes: Routes = [
     {path: 'produit/:id', component: ProduitViewComponent},
 
     {path: 'panier', component: PanierComponent},
+    {path: 'livraison', component: LivraisonComponent},
+    {path: 'facturation', component: FacturationComponent},
+
+
+
+
+
     {path: 'wishlist', component: WishlistComponent},
     {path: 'faq', component: FaqComponent},
     {path: 'livraison_retour', component: LivraisonRetourComponent},

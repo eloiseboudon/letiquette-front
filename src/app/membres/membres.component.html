@@ -3,123 +3,91 @@
 
         <div class="row">
 
-            <div class="col-12 col-md-6 compte_client">
-<h2>Déjà client ?</h2>
-                <form #connexionForm="ngForm" (ngSubmit)="connexion(connexionForm)">
+            <div class="col-12 col-md-6">
+                <div class="compte_client">
+                    <h2>Déjà client ?</h2>
+                    <form #connexionForm="ngForm" (ngSubmit)="connexion(connexionForm)">
 
 
-                    <div class="form-group">
-                        <label for="username">Email <span class="required">*</span></label>
-                        <input id="username" class="form-control" #username type="text"
-                               ngModel name="username" required/>
-                    </div>
+                        <div class="form-group">
+                            <label for="username">Email <span class="required">*</span></label>
+                            <input id="username" class="form-control" #username type="text"
+                                   ngModel name="username" required/>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="password">Mot de passe <span class="required">*</span></label>
-                        <input id="password" class="form-control" #password type="text"
-                               ngModel name="password" required/>
-                    </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe <span class="required">*</span></label>
+                            <input id="password" class="form-control" #password type="text"
+                                   ngModel name="password" required/>
+                        </div>
 
-                    <button type="submit" [disabled]="!connexionForm.form.valid">Envoyer</button>
-                </form>
+                        <button type="submit" class="btn" [disabled]="!connexionForm.form.valid">Envoyer</button>
+                    </form>
+                </div>
             </div>
+            <div class="col-12 col-md-6">
+                <div class="compte_client">
+                    <h2>Nouveau client ?</h2>
+                    <form #inscriptionForm="ngForm" (ngSubmit)="creerMembre(inscriptionForm)">
+                        <div class="form-group">
+                            <label for="civilite">Civilité <span class="required">*</span>
+                                <select id="civilite" class="form-control" #civilite name="civilite"
+                                        [ngModel]="civilite"
+                                        required>
+                                    <option selected>Veuillez sélectionner</option>
+                                    <option>M.</option>
+                                    <option>Mme.</option>
+                                    <option>Autre</option>
+                                </select>
+                            </label>
+                        </div>
 
-            <div class="col-12 col-md-6 compte_client">
+                        <div class="form-group">
+                            <label for="nom">Nom <span class="required">*</span></label>
+                            <input id="nom" class="form-control" #nom type="text"
+                                   ngModel name="nom" required/>
+                        </div>
 
-                <h2>Nouveau client ?</h2>
-                <form #inscriptionForm="ngForm" (ngSubmit)="creerMembre(inscriptionForm)">
-                    <div class="form-group">
-                        <label for="civilite">Civilité <span class="required">*</span>
-                            <select id="civilite" class="form-control" #civilite name="civilite" [ngModel]="civilite"
-                                    required>
-                                <option selected>Veuillez sélectionner</option>
-                                <option>M.</option>
-                                <option>Mme.</option>
-                                <option>Autre</option>
-                            </select>
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nom">Nom <span class="required">*</span></label>
-                        <input id="nom" class="form-control" #nom type="text"
-                               ngModel name="nom" required/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="prenom">Prénom <span class="required">*</span></label>
-                        <input id="prenom" class="form-control" #prenom type="text"
-                               ngModel name="prenom" required/>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <input id="email" class="form-control" #email type="email" ngModel name="email"
-                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Mot de passe <span class="required">*</span></label>
-                        <input type="text" class="form-control" #password
-                               id="password" required ngModel name="password">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password_verif">Confirmation de mot de passe <span class="required">*</span></label>
-                        <input type="text" class="form-control" #password_verif
-                               id="password_verif" required ngModel name="password_verif">
-                    </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom <span class="required">*</span></label>
+                            <input id="prenom" class="form-control" #prenom type="text"
+                                   ngModel name="prenom" required/>
+                        </div>
 
 
-                    <div class="form-group">
-                        <label for="telephone">Numéro de téléphone <span class="required">*</span></label>
-                        <input id="telephone" class="form-control" #telephone type="tel" ngModel name="telephone"
-                               pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
-                               required/>
-                    </div>
-                    <div class="form-group">
-                        <label for="adresse">Adresse <span class="required">*</span></label>
-                        <input type="text" class="form-control" #adresse
-                               id="adresse" required ngModel name="adresse">
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input id="email" class="form-control" #email type="email" ngModel name="email"
+                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
 
-                    <!--<div class="form-group">-->
-                    <!--<label for="ville">Ville</label>-->
-                    <!--<select class="form-control" id="ville" required [(ngModel)]="ville" name="ville">-->
-                    <!--<option value="">Choisissez une ville</option>-->
-                    <!--<option *ngFor="let ville of villesList"-->
-                    <!--[value]="ville.id">-->
-                    <!--{{ville.name}}-->
-                    <!--</option>-->
-                    <!--</select>-->
-                    <!--</div>-->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Mot de passe <span class="required">*</span></label>
+                            <input type="text" class="form-control" #password
+                                   id="password" required ngModel name="password">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password_verif">Confirmation de mot de passe <span
+                                    class="required">*</span></label>
+                            <input type="text" class="form-control" #password_verif
+                                   id="password_verif" required ngModel name="password_verif">
+                        </div>
 
 
-                    <div class="form-group">
-                        <label for="code_postal">Code Postal <span class="required">*</span></label>
-                        <input type="text" class="form-control" #code_postal
-                               id="code_postal" required ngModel name="code_postal">
-                    </div>
+                        <div class="form-group">
+                            <label for="telephone">Numéro de téléphone <span class="required">*</span></label>
+                            <input id="telephone" class="form-control" #telephone type="tel" ngModel name="telephone"
+                                   pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
+                                   required/>
+                        </div>
 
 
-                    <div class="form-group">
-                        <label for="ville">Ville <span class="required">*</span></label>
-                        <input type="text" class="form-control" #ville
-                               id="ville" required ngModel name="ville">
-                    </div>
+                        <button type="submit" class="btn" [disabled]="!inscriptionForm.form.valid">Envoyer</button>
 
-                    <div class="form-group">
-                        <label for="pays">Pays <span class="required">*</span></label>
-                        <input type="text" class="form-control" #pays
-                               id="pays" required ngModel name="pays">
-                    </div>
-
-                    <!--<button type="submit">Envoyer</button>-->
-                    <button type="submit" [disabled]="!inscriptionForm.form.valid">Envoyer</button>
-
-                </form>
+                    </form>
+                </div>
             </div>
 
         </div>

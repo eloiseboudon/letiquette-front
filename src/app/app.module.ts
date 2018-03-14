@@ -79,6 +79,11 @@ import {CookiesComponent} from './footer/cookies.component';
 
 
 import {ProduitSearchComponent} from './produitRecherche/produitSearch.component';
+import {CommandeService} from './commande/commande.service';
+import {LivraisonComponent} from './commande/livraison.component';
+import {CommandeComponent} from './commande/commande.component';
+import {AdresseService} from './adresse/adresse.service';
+import {FacturationComponent} from './commande/facturation.component';
 
 
 
@@ -109,6 +114,9 @@ import {ProduitSearchComponent} from './produitRecherche/produitSearch.component
         FilterEthiquePipe,
         MembresComponent,
         PanierComponent,
+        CommandeComponent,
+        LivraisonComponent,
+        FacturationComponent,
         WishlistComponent,
         ProduitSearchComponent,
         FaqComponent,
@@ -154,7 +162,9 @@ import {ProduitSearchComponent} from './produitRecherche/produitSearch.component
         // AuthGuard,
         MembresService,
         PanierService,
+        AdresseService,
         WishlistService,
+        CommandeService,
         TitleCasePipe,
         FooterService
     ],

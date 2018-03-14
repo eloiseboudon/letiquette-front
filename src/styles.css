@@ -172,8 +172,6 @@ a, a:hover {
 
 }
 
-
-
 #top-page .fa {
     padding-right: 3px;
     padding-left: 3px;
@@ -1229,7 +1227,7 @@ a, a:hover {
 }
 
 .contenu .ajouter_panier .btn_ajout_panier, .contenu .btn_panier, .contenu .btn_connexion,
-.footer .btn-footer{
+.footer .btn-footer, .contenu .compte_client .btn{
     color: #ffffff;
     font-size: 1.5em;
     background: #880015;
@@ -1405,6 +1403,17 @@ a, a:hover {
     overflow: hidden;
     white-space: nowrap;
 }
+
+
+
+.contenu .compte_client{
+    background-color: #fff;
+    margin:10px;
+    width:90%;
+    padding:10px;
+}
+
+
 
 .contenu #product_view .images-produit .image {
     width: 100%;
@@ -1889,6 +1898,7 @@ a, a:hover {
     }
 
     #top_link {
+        display: none;
         bottom: 10%;
         border-radius: 50%;
         width: 40px;

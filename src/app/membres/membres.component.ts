@@ -16,10 +16,6 @@ export class MembresComponent {
     telephone: string;
     password: string;
     password_verif: string;
-    adresse: string;
-    ville: string;
-    code_postal: string;
-    pays: string;
     connexionForm: FormGroup;
     usernamme: string;
     membre: Membres;
@@ -32,11 +28,8 @@ export class MembresComponent {
             'email': ['', Validators.required],
             'telephone': ['', Validators.required],
             'password': ['', Validators.required],
-            'password_verif': ['', Validators.required],
-            'adresse': ['', Validators.required],
-            'ville': ['', Validators.required],
-            'code_postal': ['', Validators.required],
-            'pays': ['', Validators.required]
+            'password_verif': ['', Validators.required]
+
         });
 
         this.connexionForm = formBuilder.group({
