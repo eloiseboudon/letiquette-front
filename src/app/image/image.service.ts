@@ -4,7 +4,6 @@ import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Image } from './image';
-import {Famille} from '../familles/famille';
 
 @Injectable()
 export class ImageService {
@@ -15,12 +14,21 @@ export class ImageService {
     constructor(private http: Http) { }
 
     getImagesByProduit(id: number): Promise<Image[]> {
+        return this.http.get(this.imageUrl + '/produit/' + id )
+            .toPromise()
+            .then(response =>
+                response.json() as Image[])
+            .catch(this.handleError);
+    }
+
+    getImageById(id:number): Promise<Image> {
         return this.http.get(this.imageUrl + '/' + id )
             .toPromise()
             .then(response =>
-                response.json() as Famille[])
+                response.json() as Image)
             .catch(this.handleError);
     }
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);

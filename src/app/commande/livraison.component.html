@@ -1,94 +1,100 @@
 <div class="contenu">
     <div class="global_width">
-        <h1>Adresse de livraison</h1>
-        <div *ngIf="adresseList && adresseList.length>0" class="mes_adresse">
-            <h2>Mes adresses</h2>
-            <ul *ngFor="let adresse of adresseList">
-                <li>{{adresse.nom_adresse}}</li>
-                <li>{{adresse.nom}}</li>
-                <li>{{adresse.prenom}}</li>
-                <li>{{adresse.ad_mail}}</li>
-                <li>{{adresse.adresse}}</li>
-                <li *ngIf="adresse.complement">{{adresse.complement}}</li>
-                <li>{{adresse.code_postal}}</li>
-                <li>{{adresse.ville}}</li>
-                <li>{{adresse.pays}}</li>
 
-                <label for="choixAdresse">Choisir cette adresse de livraison</label>
-                <input id="choixAdresse" type="radio" name="choixAdresse" value="{{adresse.id}}" [(ngModel)]="choixAdresse">
+        <div id="livraison">
 
-            </ul>
+            <h1>Adresse de livraison</h1>
+            <div *ngIf="adresseList && adresseList.length>0" class="mes_adresses">
+                <h2>Mes adresses</h2>
+                <ul *ngFor="let adresse of adresseList">
+                    <li><span>Nom de l'adresse : </span>{{adresse.nom_adresse}}</li>
+                    <li><span>Nom : </span>{{adresse.nom}}</li>
+                    <li><span>Prénom : </span>{{adresse.prenom}}</li>
+                    <li><span>Adresse email: </span>{{adresse.ad_mail}}</li>
+                    <li><span>Adresse : </span>{{adresse.adresse}}</li>
+                    <li *ngIf="adresse.complement"><span>Complément : </span>{{adresse.complement}}</li>
+                    <li><span>Code postal : </span>{{adresse.code_postal}}</li>
+                    <li><span>Ville : </span>{{adresse.ville}}</li>
+                    <li><span>Pays : </span>{{adresse.pays}}</li>
 
-            <button (click)="validerAdresseLivraison(choixAdresse)">Valider</button>
-        </div>
+                    <input id="choixAdresse" type="radio" name="choixAdresse" value="{{adresse.id}}"
+                           [(ngModel)]="choixAdresse" class="option-input radio">
+                    <label for="choixAdresse">Choisir cette adresse de livraison</label>
 
+                </ul>
 
-        <div class="ajouter_nouvelle_adresse">
-            <form #ajouterAdresseForm="ngForm" (ngSubmit)="ajouterAdresse(ajouterAdresseForm)">
-
-                <div class="form-group">
-                    <label for="nom_adresse">Nom de l'adresse<span class="required">*</span></label>
-                    <input id="nom_adresse" class="form-control" #nom_adresse type="text"
-                           ngModel name="nom_adresse" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="nom">Nom <span class="required">*</span></label>
-                    <input id="nom" class="form-control" #nom type="text"
-                           ngModel name="nom" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="prenom">Prénom <span class="required">*</span></label>
-                    <input id="prenom" class="form-control" #prenom type="text"
-                           ngModel name="prenom" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email <span class="required">*</span></label>
-                    <input id="email" class="form-control" #email type="email" ngModel name="email"
-                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="adresse">Adresse <span class="required">*</span></label>
-                    <input id="adresse" class="form-control" #adresse type="text"
-                           ngModel name="adresse" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="complement">Complémment </label>
-                    <input id="complement" class="form-control" #complement type="text"
-                           ngModel name="complement"/>
-                </div>
-
-                <div class="form-group">
-                    <label for="code_postal">Code postal <span class="required">*</span></label>
-                    <input id="code_postal" class="form-control" #code_postal type="text"
-                           ngModel name="code_postal" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="ville">Ville <span class="required">*</span></label>
-                    <input id="ville" class="form-control" #ville type="text"
-                           ngModel name="ville" required/>
-                </div>
-
-                <div class="form-group">
-                    <label for="pays">Pays <span class="required">*</span></label>
-                    <input id="pays" class="form-control" #pays type="text"
-                           ngModel name="pays" required/>
-                </div>
-
-
-
-                <button type="submit" class="btn btn-footer" [disabled]="!ajouterAdresseForm.form.valid">
-                    Ajouter cette adresse
+                <button class="btn btn-commande" (click)="validerAdresseLivraison(choixAdresse)" *ngIf="choixAdresse">
+                    Valider
                 </button>
+            </div>
 
-            </form>
 
+            <div class="ajouter_nouvelle_adresse">
+                <h2>Ajouter une nouvelle adresse</h2>
+
+                <form #ajouterAdresseForm="ngForm" (ngSubmit)="ajouterAdresse(ajouterAdresseForm)">
+
+                    <div class="form-group">
+                        <label for="nom_adresse"><span>Nom de l'adresse<span class="required">*</span></span>
+                        <input id="nom_adresse" class="form-control" #nom_adresse type="text"
+                               ngModel name="nom_adresse" required/></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nom"><span>Nom <span class="required">*</span></span>
+                        <input id="nom" class="form-control" #nom type="text"
+                               ngModel name="nom" required/></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom"><span>Prénom <span class="required">*</span></span>
+                        <input id="prenom" class="form-control" #prenom type="text"
+                               ngModel name="prenom" required/></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><span>Email <span class="required">*</span></span>
+                        <input id="email" class="form-control" #email type="email" ngModel name="email"
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adresse"><span>Adresse <span class="required">*</span></span>
+                        <input id="adresse" class="form-control" #adresse type="text"
+                               ngModel name="adresse" required/></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="complement"><span>Complément </span>
+                        <input id="complement" class="form-control" #complement type="text"
+                               ngModel name="complement"/></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="code_postal"><span>Code postal <span class="required">*</span></span>
+                        <input id="code_postal" class="form-control" #code_postal type="text"
+                               ngModel name="code_postal" required/></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ville"><span>Ville <span class="required">*</span></span>
+                        <input id="ville" class="form-control" #ville type="text"
+                               ngModel name="ville" required/></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pays"><span>Pays <span class="required">*</span></span>
+                        <input id="pays" class="form-control" #pays type="text"
+                               ngModel name="pays" required/></label>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-commande" [disabled]="!ajouterAdresseForm.form.valid">
+                        Ajouter cette adresse
+                    </button>
+
+                </form>
+            </div>
         </div>
-
     </div>
 </div>

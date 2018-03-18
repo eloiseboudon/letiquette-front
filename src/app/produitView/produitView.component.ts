@@ -34,6 +34,8 @@ export class ProduitViewComponent implements OnInit {
     upSellingProduits: Produit[];
     wishlist: Wishlist[];
     declinaisonEthiqueList: DeclinaisonEthique[];
+    imageView: Image;
+    currentImage: Image;
 
 
     constructor(private route: ActivatedRoute, private produitService: ProduitService,
@@ -76,6 +78,7 @@ export class ProduitViewComponent implements OnInit {
             .getProduit(id)
             .then(produit => {
                 this.produit = produit;
+                this.currentImage = produit.image;
             })
             .catch(this.handleError);
 
@@ -99,6 +102,14 @@ export class ProduitViewComponent implements OnInit {
             .catch(this.handleError);
     }
 
+
+    getImageById(id): void {
+        this.imageService
+            .getImageById(id)
+            .then(image =>
+                this.imageView = image)
+            .catch(this.handleError);
+    }
 
     ajouterPanier(idProduit): void {
         this.panierService
@@ -162,6 +173,55 @@ export class ProduitViewComponent implements OnInit {
             .then(declinaisonEthique =>
                 this.declinaisonEthiqueList = declinaisonEthique
             );
+    }
+
+
+    nextImage(imageActuelle): void {
+        this.getImages(this.id);
+        this.getImageById(imageActuelle.id);
+        console.log(this.currentImage);
+        console.log(this.imageView);
+
+        const img = this.imageList.indexOf(this.imageView);
+        // const img = this.imageList.filter(function (item) {
+        //     return item.id === imageActuelle.id;
+        // });
+
+        console.log(this.imageList);
+        console.log(imageActuelle);
+        console.log(img);
+        // let idImg = img[0].id;
+        // if (idImg === this.imageList.length) {
+        //     idImg = 0;
+        // }
+        // this.imageView = this.imageList[idImg].image;
+
+    }
+
+
+    previousImage(imageActuelle): void {
+        this.getImages(this.id);
+        this.getImageById(imageActuelle.id);
+
+        console.log(this.currentImage);
+        console.log(this.imageView);
+        const img = this.imageList.indexOf(this.imageView);
+        // const img = this.imageList.filter(function (item) {
+        //     return item.id === imageActuelle.id;
+        // });
+
+
+        console.log(this.imageList);
+        console.log(imageActuelle);
+        console.log(img);
+
+        let idImg = img[0].id;
+        if (idImg === 1) {
+            idImg = this.imageList.length + 1;
+        }
+
+        // this.imageView = this.imageList[idImg - 2].image;
+
     }
 
 

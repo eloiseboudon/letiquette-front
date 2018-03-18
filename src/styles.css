@@ -30,8 +30,8 @@ a, a:hover {
     color: #000;
 }
 
-.required{
-    color:#880015;
+.required {
+    color: #880015;
 }
 
 .global_width {
@@ -67,7 +67,6 @@ a, a:hover {
     cursor: no-drop;
     background-color: rgba(136, 0, 21, 0.5) !important;
 }
-
 
 /* EOF GLOBAL */
 
@@ -213,11 +212,11 @@ a, a:hover {
 }
 
 /*#top-page-scroll #right-top .cercle {*/
-    /*width: 40px;*/
-    /*height: 40px;*/
-    /*background: #F4ECDE;*/
-    /*border-radius: 50%;*/
-    /*border: 2px solid white;*/
+/*width: 40px;*/
+/*height: 40px;*/
+/*background: #F4ECDE;*/
+/*border-radius: 50%;*/
+/*border: 2px solid white;*/
 /*}*/
 
 /*#top-page-scroll #right-top span:hover {*/
@@ -281,7 +280,6 @@ a, a:hover {
     display: block;
     left: 20px;
 }
-
 
 #searchBox {
     text-align: center;
@@ -921,10 +919,6 @@ a, a:hover {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
-
-
-
-
 .contenu .selling {
     background-color: #fff;
     width: 60%;
@@ -1134,15 +1128,14 @@ a, a:hover {
     background-color: #fff;
 }
 
-
-.contenu #product_view .contenu-produit img{
-    width:50px;
+.contenu #product_view .contenu-produit img {
+    width: 50px;
 }
 
-.contenu #product_view .contenu-produit .declinaison-ethique ul{
-    padding:0;
+.contenu #product_view .contenu-produit .declinaison-ethique ul {
+    padding: 0;
     display: inline-block;
-    margin:10px;
+    margin: 10px;
 }
 
 .contenu #product_view .images-produit img.image-principale {
@@ -1150,6 +1143,33 @@ a, a:hover {
     width: 300px;
     margin: 10px;
 }
+
+.contenu #product_view .images-produit .image-left .fa,
+.contenu #product_view .images-produit .image-right .fa{
+    font-size:2em;
+    border-radius:50%;
+    width:30px;
+    height:30px;
+}
+
+.contenu #product_view .images-produit .image-change{
+    margin-top:40%;
+    display: flex;
+    position:absolute;
+    background: #fff;
+    border-radius: 50%;
+
+}
+
+.contenu #product_view .images-produit .image-left{
+    left:10px;
+}
+
+.contenu #product_view .images-produit .image-right{
+    right:10px;
+}
+
+
 
 .contenu #product_view .prix {
     text-align: left;
@@ -1218,7 +1238,7 @@ a, a:hover {
     position: absolute;
 }
 
-#articleAjoutePanier{
+#articleAjoutePanier {
     display: none;
 }
 
@@ -1227,7 +1247,7 @@ a, a:hover {
 }
 
 .contenu .ajouter_panier .btn_ajout_panier, .contenu .btn_panier, .contenu .btn_connexion,
-.footer .btn-footer, .contenu .compte_client .btn{
+.footer .btn-footer, .contenu .compte_client .btn, #livraison .btn-commande, #facturation .btn-c {
     color: #ffffff;
     font-size: 1.5em;
     background: #880015;
@@ -1253,14 +1273,13 @@ a, a:hover {
     text-align: center;
 }
 
-.contenu .panier_table{
+.contenu .panier_table {
     display: block;
 }
 
-.contenu .panier_small{
+.contenu .panier_small {
     display: none;
 }
-
 
 .contenu .panier_table, .contenu .connexion_content {
     margin: 20px;
@@ -1371,53 +1390,49 @@ a, a:hover {
     cursor: pointer;
 }
 
-
-.contenu .panier_small ul{
+.contenu .panier_small ul {
     list-style: none;
     display: inline-block;
-    padding:0;
-    width:100%;
+    padding: 0;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     border-bottom: 1px solid #880015;
     border-top: 1px solid #880015;
     margin-bottom: 0;
 }
 
-.contenu .panier_small img{margin-bottom: 10px;}
+.contenu .panier_small img {
+    margin-bottom: 10px;
+}
 
-.contenu .panier_small .panier_small_total{
-    font-size:1.2em;
+.contenu .panier_small .panier_small_total {
+    font-size: 1.2em;
     font-weight: 700;
     text-align: center;
     background-color: #fff;
     border-bottom: 2px solid #880015;
 }
 
-.contenu .panier_small .produitLibelle{
-    font-size:1.6em;
+.contenu .panier_small .produitLibelle {
+    font-size: 1.6em;
 }
 
-
-.contenu .panier_small .detailProduit div{
+.contenu .panier_small .detailProduit div {
     text-align: center;
     overflow: hidden;
     white-space: nowrap;
 }
 
-
-
-.contenu .compte_client{
+.contenu .compte_client {
     background-color: #fff;
-    margin:10px;
-    width:90%;
-    padding:10px;
+    margin: 10px;
+    width: 90%;
+    padding: 10px;
 }
-
-
 
 .contenu #product_view .images-produit .image {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     background-color: #FFF;
 }
 
@@ -1428,19 +1443,19 @@ a, a:hover {
     -ms-transition: all 1s ease; /* Internet Explorer 9 */
     -o-transition: all 1s ease; /* Opera */
     transition: all 1s ease;
+    margin-left:0;
+    margin-right:0;
 }
 
-
-.contenu #product_view .ajouter_wishlist{
+.contenu #product_view .ajouter_wishlist {
     position: absolute;
-    margin-top:10px;
+    margin-top: 10px;
     right: 5%;
 }
 
-
-.contenu #product_view .ajouter_wishlist .fa{
+.contenu #product_view .ajouter_wishlist .fa {
     color: #880015;
-    font-size:2em;
+    font-size: 2em;
 }
 
 .contenu #wishlist ul, .contenu #searchProducts ul {
@@ -1453,14 +1468,13 @@ a, a:hover {
     background-color: #fff;
 }
 
-.contenu #wishlist ul > li,  .contenu #searchProducts ul > li{
+.contenu #wishlist ul > li, .contenu #searchProducts ul > li {
     overflow: hidden;
     white-space: nowrap;
 }
 
 .contenu #wishlist .marque, .contenu #wishlist .libelle
-.contenu #searchProducts .marque, .contenu #searchProducts .libelle
-{
+.contenu #searchProducts .marque, .contenu #searchProducts .libelle {
     color: #000;
 }
 
@@ -1501,7 +1515,7 @@ a, a:hover {
     margin-left: 17%;
 }
 
-.contenu #wishlist i, .contenu #searchProducts i{
+.contenu #wishlist i, .contenu #searchProducts i {
     background-color: #fff;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1520,12 +1534,11 @@ a, a:hover {
     text-align: center;
 }
 
-
-.contenu #products_view .ajouterWishlist{
+.contenu #products_view .ajouterWishlist {
     position: absolute;
-    margin-left:6px;
+    margin-left: 6px;
     color: #880015;
-    font-size:1.5em;
+    font-size: 1.5em;
 }
 
 /*  FILTRE PRIX */
@@ -1703,6 +1716,146 @@ a, a:hover {
 
 /* EOF - Affichage tous les produits */
 
+/* CLIENT */
+
+.compte_client h2{
+    color:#880015;
+}
+
+.compte_client label {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+.compte_client label > span {
+    width: 30%;
+    float: left;
+}
+
+.compte_client input, .compte_client select {
+    width: 65%;
+    display: inline-block;
+}
+
+.compte_client button{
+    position:relative;
+    left:82%;
+}
+
+/* EOF - CLIENT */
+
+/* COMMANDES */
+
+#livraison .mes_adresses ul, #facturation .mes_adresses ul {
+    background-color: #fff;
+    padding: 10px;
+    width: 25%;
+}
+
+#livraison .mes_adresses li, #facturation .mes_adresses li {
+    list-style: none;
+}
+
+#livraison .mes_adresses li span, #facturation .mes_adresses li span {
+    font-weight: bold;
+}
+
+#livraison .ajouter_nouvelle_adresse,  #facturation .ajouter_nouvelle_adresse{
+    background-color: #fff;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 82%;
+}
+
+#livraison .ajouter_nouvelle_adresse label, #facturation .ajouter_nouvelle_adresse label {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+
+}
+
+#livraison .ajouter_nouvelle_adresse label > span, #facturation .ajouter_nouvelle_adresse label > span {
+    width: 70%;
+    float: left;
+}
+
+#livraison .ajouter_nouvelle_adresse input,  #facturation .ajouter_nouvelle_adresse input{
+    width: 70%;
+    display: inline-block;
+}
+
+#livraison h2, #facturation h2{
+    color:#880015;
+}
+
+
+#livraison .ajouter_nouvelle_adresse button, #facturation .ajouter_nouvelle_adresse button{
+    position:relative;
+    left:74%;
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 5px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+.option-input:hover {
+    background: #9faab7;
+}
+.option-input:checked {
+    background: #880015;
+}
+.option-input:checked::before {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    line-height: 20px;
+}
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+
+
+/* EOF - COMMANDES */
 /*  RESPONSIVE  */
 @media (max-width: 1440px) {
     #top-page #right-top a, #top-page #right-top a:hover {
@@ -1815,7 +1968,7 @@ a, a:hover {
     }
 
     .affichage_produit {
-        display:none;
+        display: none;
     }
 
     .menu {
@@ -1872,10 +2025,9 @@ a, a:hover {
         width: 33%;
     }
 
-    .contenu #wishlist .supprimerProduit{
+    .contenu #wishlist .supprimerProduit {
         margin-left: 28%;
     }
-
 
     .menu .menu-dropdown .familleg-name, .menu .menu-item .menu-dropdown-famille .famille-name {
         display: none;
@@ -1920,6 +2072,9 @@ a, a:hover {
 }
 
 @media (max-width: 1024px) {
+    .contenu #product_view .images-produit .image-change{
+        margin-top:45%;
+    }
 
     .right-top-all {
         width: 250px;
@@ -1950,7 +2105,7 @@ a, a:hover {
         display: flex;
     }
 
-    .global_width{
+    .global_width {
         height: auto;
     }
 
@@ -2027,27 +2182,28 @@ a, a:hover {
         padding: 0;
     }
 
-    .contenu .panier_table{
-        padding:0;
+    .contenu .panier_table {
+        padding: 0;
     }
 
-    .contenu .panier_table .produitDescription{
-        display:none;
+    .contenu .panier_table .produitDescription {
+        display: none;
     }
+
+
 
 
 }
 
 @media (max-width: 640px) {
 
-    .contenu .panier_table{
+    .contenu .panier_table {
         display: none;
     }
 
-    .contenu .panier_small{
+    .contenu .panier_small {
         display: block;
     }
-
 
     .searchBar .contenu {
         top: 100px;
@@ -2064,13 +2220,12 @@ a, a:hover {
     }
 
     /*#top-page #right-top .cercle {*/
-        /*width: 40px;*/
-        /*height: 40px;*/
-        /*background: #000000;*/
-        /*border-radius: 50%;*/
-        /*border: none;*/
+    /*width: 40px;*/
+    /*height: 40px;*/
+    /*background: #000000;*/
+    /*border-radius: 50%;*/
+    /*border: none;*/
     /*}*/
-
     #top-page #right-top .fa {
         color: #F4ECDE;
     }
@@ -2110,7 +2265,7 @@ a, a:hover {
         padding-top: 0;
     }
 
-    .contenu #products_all_view ul, .contenu #wishlist ul, .contenu #searchProducts ul{
+    .contenu #products_all_view ul, .contenu #wishlist ul, .contenu #searchProducts ul {
         width: 50%;
     }
 
@@ -2157,18 +2312,17 @@ a, a:hover {
         padding: 0;
     }
 
-    .contenu #product_view .ajouter_wishlist{
-        right:7%
+    .contenu #product_view .ajouter_wishlist {
+        right: 7%
     }
 
     .contenu #products_view .ajouterWishlist {
-        margin-left:14px;
-    }
-    .contenu #products_all_view ul:nth-child(2n) .ajouterWishlist{
-        margin-left:3px;
+        margin-left: 14px;
     }
 
-
+    .contenu #products_all_view ul:nth-child(2n) .ajouterWishlist {
+        margin-left: 3px;
+    }
 
 }
 
@@ -2181,14 +2335,14 @@ a, a:hover {
         width: 100%;
     }
 
-    .contenu .btn_panier{
-        font-size:1em;
+    .contenu .btn_panier {
+        font-size: 1em;
     }
 
 }
 
 @media (max-width: 375px) {
-    .contenu #products_all_view ul, .contenu #wishlist ul,  .contenu #searchProducts ul{
+    .contenu #products_all_view ul, .contenu #wishlist ul, .contenu #searchProducts ul {
         width: 100%;
 
     }
@@ -2197,8 +2351,12 @@ a, a:hover {
         margin-left: 90%;
     }
 
-    .contenu #products_all_view ul:nth-child(2n) .ajouterWishlist{
-        margin-left:14px;
+    .contenu #products_all_view ul:nth-child(2n) .ajouterWishlist {
+        margin-left: 14px;
+    }
+
+    .contenu #product_view .images-produit .image-change {
+    margin-top: 50%;
     }
 
 }

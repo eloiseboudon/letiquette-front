@@ -3,59 +3,73 @@
     <div class="global_width">
 
 
-        <div class="alert alert-success" id="success-alert-panier">
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            Produit ajouté au panier !
-        </div>
+            <div class="alert alert-success" id="success-alert-panier">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                Produit ajouté au panier !
+            </div>
 
-        <div class="alert alert-success" id="success-alert-wishlist">
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            Produit ajouté à la wishlist !
-        </div>
+            <div class="alert alert-success" id="success-alert-wishlist">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                Produit ajouté à la wishlist !
+            </div>
+        <div *ngIf="produit">
+            <div id="product_view" class="product_view">
+                <div class="row">
+                    <div class="col-xs-6 col-md-7 col-lg-8">
 
-        <div id="product_view" class="product_view">
-            <div class="row">
-                <div class="col-xs-6 col-md-7 col-lg-8">
+
+                        <div class="images-produit">
+                            <div class="row">
+                                <div class="col col-lg-8 col-md-12">
+
+                                    <div class="image">
 
 
-                    <div class="images-produit">
-                        <div class="row">
-                            <div class="col col-lg-8 col-md-12">
-
-                                <div class="image">
-                                    <div class="ajouter_wishlist">
+                                        <div class="ajouter_wishlist">
                                     <span (click)="ajouterWishlist(produit.id)"><i class="fa fa-heart"
                                                                                    aria-hidden="true"></i></span>
+                                        </div>
+
+                                        <div class="image-change image-left">
+                                            <span (click)="previousImage(currentImage)"><i class="fa fa-angle-left"
+                                                                                        aria-hidden="true"></i></span>
+                                        </div>
+
+                                        <div class="image-change image-right">
+                                            <span (click)="nextImage(currentImage)"><i class="fa fa-angle-right"
+                                                                                    aria-hidden="true"></i></span>
+                                        </div>
+                                        <img src={{produit.image.image}} class="image-principale">
+
+
                                     </div>
-                                    <img src="assets/images_produits/{{produit.image}}" class="image-principale">
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-0">
-                                <div class="images-mignatures">
-                                    <ul>
-                                        <li *ngFor="let image of imageList" (click)="produit.image=image.image">
-                                            <img src="assets/images_produits/{{image.image}}">
-                                        </li>
-                                    </ul>
+                                <div class="col-lg-4 col-md-0">
+                                    <div class="images-mignatures">
+                                        <ul>
+                                            <li *ngFor="let image of imageList" (click)="imageView=image.image">
+                                                <img src={{image.image}}>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-xs-6 col-md-5 col-lg-4">
-                    <div class="contenu-produit">
-
-
-                        <div class="titre">
-                            <h1>{{produit.libelle}} - {{produit.fournisseur.nom_marque}}</h1>
-                        </div>
+                    <div class="col-xs-6 col-md-5 col-lg-4">
+                        <div class="contenu-produit">
 
 
-                        <div class="prix">{{produit.prix}} €</div>
+                            <div class="titre">
+                                <h1>{{produit.libelle}} - {{produit.fournisseur.nom_marque}}</h1>
+                            </div>
 
-                        <form>
-                            <div class="form-group tailles">
+
+                            <div class="prix">{{produit.prix}} €</div>
+
+                            <form>
+                                <div class="form-group tailles">
                                 <span id="tailleID"
                                       *ngFor="let item of tailleList"
                                       (click)="!item.checked ? produitTailleCheck(item) :  produitTailleUncheck(item)"
@@ -63,90 +77,91 @@
                                     <label>{{item.taille}}</label>
 
                                 </span>
-                                <div *ngIf="!taille">
-                                    Veuillez sélectionner une taille.
+                                    <div *ngIf="!taille">
+                                        Veuillez sélectionner une taille.
+                                    </div>
+
                                 </div>
 
+                                <div class="ajouter_panier">
+                                    <button type="submit" class="btn btn_ajout_panier"
+                                            [disabled]="!taille"
+                                            (click)="ajouterPanier(produit.id)">
+                                        AJOUTER AU PANIER
+                                    </button>
+                                </div>
+
+                            </form>
+                            <div class="declinaison-ethique">
+                                <ul *ngFor="let declinaisonEthique of declinaisonEthiqueList">
+
+                                    <li>
+                                        <img src="assets/icones_impact/{{declinaisonEthique.point_ethique.image}}"
+                                             alt="{{declinaisonEthique.point_ethique.nom_ethique}}"
+                                             title="{{declinaisonEthique.point_ethique.nom_ethique}}">
+                                    </li>
+                                </ul>
                             </div>
 
-                            <div class="ajouter_panier">
-                                <button type="submit" class="btn btn_ajout_panier"
-                                        [disabled]="!taille"
-                                        (click)="ajouterPanier(produit.id)">
-                                    AJOUTER AU PANIER
-                                </button>
+                            <div class="description">
+                                {{produit.description}}
                             </div>
-
-                        </form>
-                        <div class="declinaison-ethique">
-                            <ul *ngFor="let declinaisonEthique of declinaisonEthiqueList">
-
-                                <li>
-                                    <img src="assets/icones_impact/{{declinaisonEthique.point_ethique.image}}"
-                                         alt="{{declinaisonEthique.point_ethique.nom_ethique}}"
-                                         title="{{declinaisonEthique.point_ethique.nom_ethique}}">
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="description">
-                            {{produit.description}}
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <div class="selling">
-            <div class="titre">
-                <h2>
-                    Articles que vous pourriez aimer
-                </h2>
+            <div class="selling">
+                <div class="titre">
+                    <h2>
+                        Articles que vous pourriez aimer
+                    </h2>
+                </div>
+                <ul *ngFor="let upSellingItem of upSellingProduits">
+
+                    <a [routerLink]="['/produit', upSellingItem.id]">
+                        <li>
+                            <img src={{upSellingItem.image.image}}>
+                        </li>
+                        <li class="marque">
+                            {{upSellingItem.fournisseur.nom_marque}}
+                        </li>
+                        <li class="libelle">
+                            {{upSellingItem.libelle}}
+                        </li>
+                        <li class="prix">
+                            {{upSellingItem.prix}} €
+                        </li>
+                    </a>
+                </ul>
             </div>
-            <ul *ngFor="let upSellingItem of upSellingProduits">
 
-                <a [routerLink]="['/produit', upSellingItem.id]">
-                    <li>
-                        <img src="assets/images_produits/{{upSellingItem.image}}">
-                    </li>
-                    <li class="marque">
-                        {{upSellingItem.fournisseur.nom_marque}}
-                    </li>
-                    <li class="libelle">
-                        {{upSellingItem.libelle}}
-                    </li>
-                    <li class="prix">
-                        {{upSellingItem.prix}} €
-                    </li>
-                </a>
-            </ul>
-        </div>
+            <div class="selling">
+                <div class="titre">
+                    <h2>
+                        Nous vous conseillons également
+                    </h2>
+                </div>
+                <ul *ngFor="let crossSellingItem of crossSellingProduits">
+                    <a [routerLink]="['/produit', crossSellingItem.id]">
+                        <li>
 
-        <div class="selling">
-            <div class="titre">
-                <h2>
-                    Nous vous conseillons également
-                </h2>
+                            <img src={{crossSellingItem.image.image}}>
+                        </li>
+                        <li class="marque">
+                            {{crossSellingItem.fournisseur.nom_marque}}
+                        </li>
+                        <li class="libelle">
+                            {{crossSellingItem.libelle}}
+                        </li>
+                        <li class="prix">
+                            {{crossSellingItem.prix}} €
+                        </li>
+                    </a>
+                </ul>
             </div>
-            <ul *ngFor="let crossSellingItem of crossSellingProduits">
-                <a [routerLink]="['/produit', crossSellingItem.id]">
-                    <li>
-                        <img src="assets/images_produits/{{crossSellingItem.image}}">
-                    </li>
-                    <li class="marque">
-                        {{crossSellingItem.fournisseur.nom_marque}}
-                    </li>
-                    <li class="libelle">
-                        {{crossSellingItem.libelle}}
-                    </li>
-                    <li class="prix">
-                        {{crossSellingItem.prix}} €
-                    </li>
-                </a>
-            </ul>
         </div>
-
 
     </div>
 </div>

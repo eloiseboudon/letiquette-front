@@ -94,7 +94,6 @@ export class ProduitsFemmesComponent implements OnInit {
         this.goToTop();
 
 
-
         this.route.params.subscribe(params => {
             this.page = params.name;
             if (this.page) {
@@ -161,10 +160,12 @@ export class ProduitsFemmesComponent implements OnInit {
     goToTop(): void {
         $(window).scroll(function () {
             const posScroll = $(document).scrollTop();
-            if (posScroll >= 180) {
-                document.getElementById('top_link').style.display = 'block';
-            } else {
-                document.getElementById('top_link').style.display = 'none';
+            if (document.getElementById('top_link')) {
+                if (posScroll >= 180) {
+                    document.getElementById('top_link').style.display = 'block';
+                } else {
+                    document.getElementById('top_link').style.display = 'none';
+                }
             }
         });
     }
