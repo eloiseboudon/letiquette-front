@@ -6,7 +6,7 @@ import {Membres} from '../membres/membres';
 @Injectable()
 export class AdresseService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private adresseUrl = 'http://127.0.0.1:8000/adresse';  // URL to api
+    private adresseUrl = 'http://api.letiquette-shop.fr/adresse';  // URL to api
 
     constructor(private http: Http) {
     }

@@ -2,8 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {PanierService} from './panier.service';
 import {DetailPanier} from '../detailPanier/detailPanier';
-import {forEach} from '@angular/router/src/utils/collection';
-import {overrideOptions} from '@angular/cli/utilities/override-options';
+// import {forEach} from '@angular/router/src/utils/collection';
+// import {overrideOptions} from '@angular/cli/utilities/override-options';
 import {CommandeService} from '../commande/commande.service';
 
 @Component({

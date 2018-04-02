@@ -11,7 +11,7 @@ import {Commande} from './commande';
 @Injectable()
 export class CommandeService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private commandeUrl = 'http://127.0.0.1:8000/commande';  // URL to api
+    private commandeUrl = 'http://api.letiquette-shop.fr/commande';  // URL to api
 
     constructor(private http: Http) {
     }

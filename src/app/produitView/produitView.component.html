@@ -12,7 +12,7 @@
                 <button type="button" class="close" data-dismiss="alert">x</button>
                 Produit ajouté à la wishlist !
             </div>
-        <div *ngIf="produit">
+        <div *ngIf="produit && produit.id">
             <div id="product_view" class="product_view">
                 <div class="row">
                     <div class="col-xs-6 col-md-7 col-lg-8">
@@ -39,7 +39,7 @@
                                             <span (click)="nextImage(currentImage)"><i class="fa fa-angle-right"
                                                                                     aria-hidden="true"></i></span>
                                         </div>
-                                        <img src={{produit.image.image}} class="image-principale">
+                                        <img src={{currentImage.image}} class="image-principale">
 
 
                                     </div>
@@ -47,7 +47,7 @@
                                 <div class="col-lg-4 col-md-0">
                                     <div class="images-mignatures">
                                         <ul>
-                                            <li *ngFor="let image of imageList" (click)="imageView=image.image">
+                                            <li *ngFor="let image of imageList" (click)="currentImage=image">
                                                 <img src={{image.image}}>
                                             </li>
                                         </ul>

@@ -323,7 +323,7 @@
                         <a [routerLink]="['/produit', produit.id]">
 
                             <li class="image">
-                                <img src="assets/images_produits/{{produit.image}}" width="300" height="450">
+                                <img src={{produit.image}} width="300" height="450">
                             </li>
                             <li class="marque">{{produit.marque}}</li>
                             <li class="libelle" *ngIf="produit.couleur != null">{{produit.libelle}}

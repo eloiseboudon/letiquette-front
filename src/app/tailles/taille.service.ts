@@ -10,7 +10,7 @@ import {Taille} from './taille';
 export class TailleService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private tailleUrl = 'http://127.0.0.1:8000/tailles';
+    private tailleUrl = 'http://api.letiquette-shop.fr/tailles';
 
     constructor(private http: Http) {
     }

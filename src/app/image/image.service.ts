@@ -9,7 +9,7 @@ import { Image } from './image';
 export class ImageService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private imageUrl = 'http://127.0.0.1:8000/images';
+    private imageUrl = 'http://api.letiquette-shop.fr/images';
 
     constructor(private http: Http) { }
 

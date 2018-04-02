@@ -10,7 +10,7 @@ import {Famille} from './famille';
 export class FamilleService {
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private familleUrl = 'http://127.0.0.1:8000/familles';
+    private familleUrl = 'http://api.letiquette-shop.fr/familles';
 
     constructor(private http: Http) {
     }

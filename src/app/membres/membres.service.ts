@@ -12,7 +12,7 @@ export class MembresService {
     private headersCreate = new Headers({'Content-Type': 'application/json'});
 
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private membresURL = 'http://127.0.0.1:8000/membres';  // URL to api
+    private membresURL = 'http://api.letiquette-shop.fr/membres';  // URL to api
 
     constructor(private http: Http) {
     }

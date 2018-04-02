@@ -7,7 +7,7 @@ import {Wishlist} from './wishlist';
 @Injectable()
 export class WishlistService {
     private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    private wishlistUrl = 'http://127.0.0.1:8000/wishlist';  // URL to api
+    private wishlistUrl = 'http://api.letiquette-shop.fr/wishlist';  // URL to api
 
     constructor(private http: Http) {
     }

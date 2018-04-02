@@ -1162,11 +1162,11 @@ a, a:hover {
 }
 
 .contenu #product_view .images-produit .image-left{
-    left:10px;
+    left:15px;
 }
 
 .contenu #product_view .images-produit .image-right{
-    right:10px;
+    right:15px;
 }
 
 
@@ -1525,9 +1525,10 @@ a, a:hover {
 
 .contenu .images-produit .ajouter_wishlist i, .contenu #products_view .ajouterWishlist i {
     background-color: #fff;
-    -webkit-border-radius: 10%;
-    -moz-border-radius: 10%;
-    border-radius: 10%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border:2px solid #fff;
 }
 
 .contenu #wishlist .image, .contenu #searchProducts .image {
@@ -2293,7 +2294,7 @@ a, a:hover {
 
     .contenu #product_view .images-produit .image {
         margin: auto;
-        width: 90%;
+        width: 100%;
     }
 
     .contenu #product_view .images-produit img.image-principale {
